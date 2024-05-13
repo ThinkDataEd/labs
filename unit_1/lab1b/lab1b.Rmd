@@ -128,7 +128,7 @@ histogram(~ ____ | ____ , data = ____ )
 - **Do you think males and females have similar heights? Use the plot you create to justify your answer.**
 - <span class="blue">Just like we did for the `histogram`, is it possible to create a _split_ `bargraph`? Try to create a `bargraph` of `drive_text` that's split by `sex` to find out.</span>
 
-## On your own:
+## On your own
 
 - In this lab, we looked at the texting & driving habits of boys and girls. 
 - What other factors do you think might affect how often people text and drive?
