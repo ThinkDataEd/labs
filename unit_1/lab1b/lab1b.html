@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -558,17 +558,17 @@ click on it. Figure out how to use the information to reload the
 <li>Categorical variables have values that describe or categorize our
 observations.</li>
 <li><span class="blue"><code>View</code> your <code>cdc</code> data and
-find the columns for <code>height</code> and <code>gender</code> (use
-the <em>History</em> pane again if you need help to <code>View</code>
-your data).</span>
+find the columns for <code>height</code> and <code>sex</code> (use the
+<em>History</em> pane again if you need help to <code>View</code> your
+data).</span>
 <ul>
 <li><strong>Is <code>height</code> a numerical or categorical variable?
 Why?</strong></li>
-<li><strong>Is <code>gender</code> a numerical or categorical variable?
+<li><strong>Is <code>sex</code> a numerical or categorical variable?
 Why?</strong></li>
 <li><strong>List either the different categories or what you think the
 measured units are for <code>height</code> and
-<code>gender</code>.</strong></li>
+<code>sex</code>.</strong></li>
 </ul></li>
 </ul>
 </div>
@@ -600,7 +600,7 @@ next to <code>cdc</code> in the <em>Environment</em> pane.</li>
 <em>console</em>:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cdc)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">str</span>(cdc)</span></code></pre></div>
 <ul>
 <li><span class="blue">Look at the <code>str</code>ucture of your
 <code>cdc</code> data and answer:</span></li>
@@ -645,7 +645,7 @@ information you provide to a function, and are separated by commas.</li>
 answer the questions that follow:</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>weight, <span class="at">data =</span> cdc, <span class="at">nint =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>weight, <span class="at">data =</span> cdc, <span class="at">nint =</span> <span class="dv">3</span>)</span></code></pre></div>
 <ul>
 <li><ul>
 <li><strong>How did including the option <code>nint = 3</code> change
@@ -669,18 +669,18 @@ data texted while driving.</span>
 texted while driving? What does the word <em>most</em>
 mean?</strong></li>
 <li><strong>Approximately what percent of the people texted while
-driving for 20 or more days?</strong> (Hint: There’s 13677 students in
+driving for 20 or more days?</strong> (Hint: There’s 17232 students in
 our data.)</li>
 </ul></li>
 </ul>
 </div>
-<div id="does-texting-and-driving-differ-by-gender" class="slide section level2">
-<h1>Does texting and driving differ by gender?</h1>
+<div id="does-texting-and-driving-differ-by-sex" class="slide section level2">
+<h1>Does texting and driving differ by sex?</h1>
 <ul>
 <li><span class="blue">Fill in the blanks with the correct variables to
 create a side-by-side <code>bargraph</code>:</span></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bargraph</span>(<span class="sc">~</span> ___, <span class="at">data =</span> ___, <span class="at">groups =</span> ___)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">bargraph</span>(<span class="sc">~</span> ___, <span class="at">data =</span> ___, <span class="at">groups =</span> ___)</span></code></pre></div>
 <ul>
 <li><strong>Write a sentence explaining how boys and girls differ when
 it comes to texting while driving.</strong></li>
@@ -726,14 +726,14 @@ bars overlap making it difficult to compare center and spread.</li>
 create a split <code>histogram</code> to answer the questions
 below:</span></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span> ____ <span class="sc">|</span> ____ , <span class="at">data =</span> ____ )</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span> ____ <span class="sc">|</span> ____ , <span class="at">data =</span> ____ )</span></code></pre></div>
 <ul>
 <li><strong>Do you think males and females have similar heights? Use the
 plot you create to justify your answer.</strong></li>
 <li><span class="blue">Just like we did for the <code>histogram</code>,
 is it possible to create a <em>split</em> <code>bargraph</code>? Try to
 create a <code>bargraph</code> of <code>drive_text</code> that’s split
-by <code>gender</code> to find out.</span></li>
+by <code>sex</code> to find out.</span></li>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">

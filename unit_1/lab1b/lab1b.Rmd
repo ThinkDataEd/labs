@@ -15,7 +15,7 @@ output:
 ---
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 data(cdc)
 ```
 
@@ -32,10 +32,10 @@ data(cdc)
 
 - Numerical variables have values that are measured in units.
 - Categorical variables have values that describe or categorize our observations.
-- <span class="blue">`View` your `cdc` data and find the columns for `height` and `gender` (use the _History_ pane again if you need help to `View` your data).</span>
+- <span class="blue">`View` your `cdc` data and find the columns for `height` and `sex` (use the _History_ pane again if you need help to `View` your data).</span>
     - **Is `height` a numerical or categorical variable? Why?**
-    - **Is `gender` a numerical or categorical variable? Why?**
-    - **List either the different categories or what you think the measured units are for `height` and `gender`.**
+    - **Is `sex` a numerical or categorical variable? Why?**
+    - **List either the different categories or what you think the measured units are for `height` and `sex`.**
 
     
 ## Which is which?
@@ -90,7 +90,7 @@ histogram(~weight, data = cdc, nint = 3)
     - **Approximately what percent of the people texted while driving for 20 or more days?** (Hint: There's `r nrow(cdc)` students in our data.)
 
 
-## Does texting and driving differ by gender?
+## Does texting and driving differ by sex?
 
 - <span class="blue">Fill in the blanks with the correct variables to create a side-by-side `bargraph`:</span>
 
@@ -126,7 +126,7 @@ histogram(~ ____ | ____ , data = ____ )
 ```
 
 - **Do you think males and females have similar heights? Use the plot you create to justify your answer.**
-- <span class="blue">Just like we did for the `histogram`, is it possible to create a _split_ `bargraph`? Try to create a `bargraph` of `drive_text` that's split by `gender` to find out.</span>
+- <span class="blue">Just like we did for the `histogram`, is it possible to create a _split_ `bargraph`? Try to create a `bargraph` of `drive_text` that's split by `sex` to find out.</span>
 
 ## On your own:
 
