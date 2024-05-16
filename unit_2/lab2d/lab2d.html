@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -669,15 +669,15 @@ of simulations).</li>
 <em>same</em> genre is to use the following trick to count the number of
 <em>rap</em> songs in each of the 10 simulations:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(draws, <span class="at">nrap =</span> <span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mutate</span>(draws, <span class="at">nrap =</span> <span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>))</span></code></pre></div>
 <ul>
 <li><strong>Let’s break down the code above by running each part of the
 code one piece at a time. As you run each line of code below describe
 the output.</strong></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(draws, <span class="at">nrap =</span> <span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mutate</span>(draws, <span class="at">nrap =</span> <span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>))</span></code></pre></div>
 <ul>
 <li><span class="blue">Remember to assign a name to your mutated
 dataset.</span></li>
@@ -710,8 +710,8 @@ specific combination of events occurred.</li>
 <li>And divide by the total number of repeated simulations.</li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>draws_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(draws, ___ <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>,  ___ <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(___) <span class="sc">/</span> ___</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>draws_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(draws, ___ <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>,  ___ <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">nrow</span>(___) <span class="sc">/</span> ___</span></code></pre></div>
 </div>
 <div id="estimating-probabilities" class="slide section level2">
 <h1>Estimating probabilities</h1>

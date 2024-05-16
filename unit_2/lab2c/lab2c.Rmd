@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 rap <- rep("rap", times = 39)
 rock <- rep("rock", times = 61)
 songs <- c(rap, rock)

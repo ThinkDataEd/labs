@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -589,7 +589,7 @@ larger.</li>
 <li><span class="blue">Fill in the blanks to compute the value of
 <em>Q1</em> for your predominant color.</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>____, <span class="at">data =</span> ____, <span class="at">p =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>____, <span class="at">data =</span> ____, <span class="at">p =</span> <span class="fl">0.25</span>)</span></code></pre></div>
 <ul>
 <li><strong>Use a similar line of code to calculate and write down
 <em>Q3</em>, which is the value that’s larger than 75% of our
@@ -671,7 +671,7 @@ create a <em>boxplot</em> using <code>R</code>.</span></li>
 <em>favorite</em> summaries for your predominant color all at
 once.</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">favstats</span>(<span class="sc">~</span>____, <span class="at">data =</span> colors)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">favstats</span>(<span class="sc">~</span>____, <span class="at">data =</span> colors)</span></code></pre></div>
 </div>
 <div id="calculating-a-range-value" class="slide section level2">
 <h1>Calculating a range value</h1>
@@ -687,13 +687,13 @@ will store the output from the <code>range</code> function in the
 <em>Environment</em> pane.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">range</span>(<span class="sc">~</span>____, <span class="at">data=</span>colors)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">range</span>(<span class="sc">~</span>____, <span class="at">data=</span>colors)</span></code></pre></div>
 <ul>
 <li>Step 2: Use the <code>diff</code> function to calculate the
 difference of <code>values</code>. The input for the <code>diff</code>
 function needs to be a vector containig two numeric values.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(values)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">diff</span>(values)</span></code></pre></div>
 <ul>
 <li><strong>Use these two steps to calculate and write down the
 <em>range</em> of your predominant color.</strong></li>
@@ -718,11 +718,11 @@ of a <code>variable</code> in our <code>data</code>.</li>
 </div>
 <div id="example-function" class="slide section level2">
 <h1>Example function</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mm_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(variable, data) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  mean_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(variable, <span class="at">data =</span> data)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  med_val <span class="ot">&lt;-</span> <span class="fu">median</span>(variable, <span class="at">data =</span> data)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abs</span>(mean_val <span class="sc">-</span> med_val)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>mm_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(variable, data) {</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  mean_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(variable, <span class="at">data =</span> data)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  med_val <span class="ot">&lt;-</span> <span class="fu">median</span>(variable, <span class="at">data =</span> data)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="fu">abs</span>(mean_val <span class="sc">-</span> med_val)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>The function takes two <em>generic</em> arguments:
 <code>variable</code> and <code>data</code>.</li>
@@ -748,7 +748,7 @@ to calculate the absolute difference between the <code>mean</code> and
 <code>median</code> values of your predominant color:</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">____</span>(<span class="sc">~</span>____, <span class="at">data =</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">____</span>(<span class="sc">~</span>____, <span class="at">data =</span> ____)</span></code></pre></div>
 <ul>
 <li><strong>Which of the four colors has the largest absolute difference
 between the <code>mean</code> and <code>median</code> values?</strong>
@@ -768,10 +768,10 @@ function called <code>Range</code> (note the capital ‘R’) that
 calculates the <em>range</em> of a variable by filling in the blanks
 below:</span></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="cf">function</span> (____, ____) {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">range</span>(____, <span class="at">data =</span> ____)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>(___)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="cf">function</span> (____, ____) {</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">range</span>(____, <span class="at">data =</span> ____)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="fu">diff</span>(___)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><strong>Use the <code>Range</code> function to find the personality
 color with the largest difference between the <code>max</code> and

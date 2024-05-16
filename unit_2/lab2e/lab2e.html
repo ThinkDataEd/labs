@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -574,8 +574,8 @@ men?</strong></li>
 <li>Something you might have noticed is that these two lines of code
 aren’t equivalent:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>gender <span class="sc">|</span> survival, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>gender <span class="sc">|</span> survival, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <ul>
 <li>The first line of code takes the group of <em>survivors</em> and
 tells us how many of them were <code>Male</code> or
@@ -590,7 +590,7 @@ using the line of code below. Why?</strong>
 obtain a two-way table with percentages.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##           gender
 ## survival      Female      Male
 ##   Dies      77.47748  86.69202
@@ -622,13 +622,13 @@ point.
 piece of paper.</strong></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">data =</span> slasher)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>survival <span class="sc">|</span> gender, <span class="at">data =</span> slasher)</span></code></pre></div>
 <ul>
 <li><strong>Now run the following to randomly reassign each
 <code>survival</code> status to each observation. Compare the resulting
 table to the one you wrote down.</strong></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, <span class="at">data =</span> slasher)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, <span class="at">data =</span> slasher)</span></code></pre></div>
 </div>
 <div id="lets-compare" class="slide section level2">
 <h1>Let’s compare …</h1>
@@ -657,11 +657,11 @@ often our <em>actual</em> difference occurred by chance.</p></li>
 <li><p><span class="blue">Run the following lines of
 code:</span></p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> <span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">data =</span> slasher)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(shuffled_outcomes)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> <span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, </span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                                    <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                                    <span class="at">data =</span> slasher)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">View</span>(shuffled_outcomes)</span></code></pre></div>
 <ul>
 <li><p><strong>In how many simulations did a higher percentage of males
 survive than females?</strong></p></li>
@@ -690,7 +690,7 @@ contains the difference between <code>Survives.Female</code> and
 data.</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">mutate</span>(shuffled_outcomes, <span class="at">diff =</span> ____ <span class="sc">-</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">mutate</span>(shuffled_outcomes, <span class="at">diff =</span> ____ <span class="sc">-</span> ____)</span></code></pre></div>
 </div>
 <div id="time-to-decide" class="slide section level2">
 <h1>Time to decide</h1>
@@ -706,7 +706,7 @@ and women survivors?</strong></li>
 the <em>actual</em> difference by running the code
 below:</span></p></li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fl">22.52252</span> <span class="sc">-</span> <span class="fl">13.30798</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fl">22.52252</span> <span class="sc">-</span> <span class="fl">13.30798</span>)</span></code></pre></div>
 <ul>
 <li><strong>Does the actual difference occur very often by chance
 alone?</strong></li>

@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -650,7 +650,7 @@ datasets together using the variables that appear in both sets.</li>
 from the <code>colors</code> data onto the <code>stress</code>
 data.</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(____, ____, <span class="at">by =</span> <span class="st">&quot;____&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">merge</span>(____, ____, <span class="at">by =</span> <span class="st">&quot;____&quot;</span>)</span></code></pre></div>
 <ul>
 <li><span class="blue"><code>Assign</code> this <code>merge</code>d
 dataset the name <code>stress_colors</code>.</span>
@@ -671,7 +671,7 @@ nothing appears to be blatantly wrong with it.</span></li>
 <li><span class="blue">Use the code below to <code>save</code> our
 <code>stress_colors</code> data for later use.</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(stress_colors, <span class="at">file =</span> <span class="st">&quot;stress_colors.Rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">save</span>(stress_colors, <span class="at">file =</span> <span class="st">&quot;stress_colors.Rda&quot;</span>)</span></code></pre></div>
 <ul>
 <li><span class="blue">Be sure to look in the <em>Files</em> tab to make
 sure your data was saved.</span></li>
