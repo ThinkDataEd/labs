@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -636,7 +636,7 @@ create the <code>dotPlot</code> split by
 <code>salty_sweet</code>.</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>layout <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>layout <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <ul>
 <li>Hint: Use a similar syntax used with the <code>nint</code> option to
 add the <code>layout</code> option to the <code>dotPlot</code>
@@ -669,7 +669,7 @@ dataset containing only <code>Salty</code> snacks. We will break it down
 piece by piece in the next few slides.</li>
 <li><span class="blue">Run the line of code below.</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
 <ul>
 <li><strong><code>View</code> <code>food_salty</code> and write down the
 number of observations in it.</strong></li>
@@ -685,7 +685,7 @@ in a way that <code>R</code> understands.
 <code>&lt;-</code> symbol</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
 <ul>
 <li><code>filter()</code> tells <code>R</code> that we’re going to look
 at only the values in our data that follow a <em>rule</em>.</li>
@@ -728,7 +728,7 @@ observations.</li>
 <li><span class="blue">Run the following code and answer the question
 below:</span></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="sc">~</span>salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, <span class="at">data =</span> food)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">head</span>(<span class="sc">~</span>salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, <span class="at">data =</span> food)</span></code></pre></div>
 <ul>
 <li><strong>What do the values <code>TRUE</code> and <code>FALSE</code>
 tell us about how our <em>rule</em> applies to the first six snacks in
@@ -752,11 +752,11 @@ assigns names (on the left) to values (on the right).
 <code>&lt;-</code> symbol.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
 </div>
 <div id="saving-our-subset" class="slide section level2">
 <h1>Saving our subset</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>food_salty <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>)</span></code></pre></div>
 <ul>
 <li>This code then:
 <ul>
@@ -792,7 +792,7 @@ based on the food being salty AND having less than 200 calories.</li>
 <li>We can include multiple filters to our subsets by separating each
 rule with a comma like so:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(food , salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, calories <span class="sc">&lt;</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(food , salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, calories <span class="sc">&lt;</span> <span class="dv">200</span>)</span></code></pre></div>
 <ul>
 <li><span class="blue"><code>View</code> the <code>my_sub</code> data we
 filtered in the above line of code and verify that it only includes
@@ -822,7 +822,7 @@ create the <code>dotPlot</code> of the <code>sugar</code> in
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="st">&quot;Distribution of sugar in sweet snacks&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>main <span class="ot">=</span> <span class="st">&quot;Distribution of sugar in sweet snacks&quot;</span></span></code></pre></div>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

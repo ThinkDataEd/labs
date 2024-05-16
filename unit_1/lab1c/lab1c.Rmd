@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 utils::data(cdc)
 ```
 
@@ -47,6 +47,7 @@ utils::data(cdc)
   - <span class="blue">Click on the <font color="green">Campaign Manager</font>.</span>
   - <span class="blue">Fill in your username and password and click "Sign in."</span>
 <center>![Campaign Manager](images/campaign_manager.png){ style="max-height: 40vh; max-width: 80%;" }</center>
+
 If you forget your username or password, ask your teacher to remind you. 
 
 

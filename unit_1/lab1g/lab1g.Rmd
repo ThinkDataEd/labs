@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-require(mobilizr)
+require(IdsR)
 data(atu_clean)
 ```
 
@@ -54,41 +54,41 @@ tally(~ ____, data = ____)
 
 - Counting the categories of a single variable is nice, but often times we want to make comparisons.
 - For example, what if we wanted to answer the question:
-  - Does one `gender` seem to have a higher occurrence of physical challenges than the other?
+  - Does one `sex` seem to have a higher occurrence of physical challenges than the other?
   
 - We could use the following plot to try and answer this question:
   
 ```{r, eval=TRUE, echo=TRUE, fig.width=5, fig.height=3}
-bargraph(~phys_challenge | gender, data = atu_clean)
+bargraph(~phys_challenge | sex, data = atu_clean)
 ```
 
 - The split `bargraph` helps us get an idea of the answer to the question, but we need to provide precise values.
-- <span class="blue">Use a line of code, that's similar to how we facet plots, to obtain a `tally` of the number of people with physical challenges and their genders.</span>
+- <span class="blue">Use a line of code, that's similar to how we facet plots, to obtain a `tally` of the number of people with physical challenges and their sex.</span>
   - **Write down the resulting table.**
 
 
 
 ## Interpreting 2-way frequency tables
 
-- Recall that  there were `r tally(~gender, data = atu_clean)[2] - tally(~gender, data = atu_clean)[1]` more women than men in our dataset.
+- Recall that  there were `r tally(~sex, data = atu_clean)[2] - tally(~sex, data = atu_clean)[1]` more women than men in our dataset.
     - If there are more women, then we might expect women to have more physical challenges (compared to men).
 - Instead of using _counts_ we use _percentages_.
 - <span class="blue">Include: `format = "percent"` as an option to the code you used to make your 2-way frequency table.</span> 
-    - **Does one `gender` seem to have a higher occurrence of physical challenges than the other? If so, which one and explain your reasoning.**
+    - **Does one `sex` seem to have a higher occurrence of physical challenges than the other? If so, which one and explain your reasoning.**
 
 - It's often helpful to display totals in our 2-way frequency tables.
     - To include them, include `margin = TRUE` as an option in the `tally` function.
     
 ## Conditional Relative Frequencies
 
-- There is as difference between `phys_challenge | gender` and `gender | phys_challenge`! 
+- There is as difference between `phys_challenge | sex` and `sex | phys_challenge`! 
 
 ```{r, eval=TRUE, echo=TRUE, fig.width=3, fig.height=3}
-tally(~phys_challenge | gender, data = atu_clean, margin = TRUE)
+tally(~phys_challenge | sex, data = atu_clean, margin = TRUE)
 ```
 
 ```{r, eval=TRUE, echo=TRUE}
-tally(~gender | phys_challenge, data = atu_clean, margin = TRUE)
+tally(~sex | phys_challenge, data = atu_clean, margin = TRUE)
 ```
 
 ## Conditional Relative Frequencies, continued
@@ -98,12 +98,12 @@ tally(~gender | phys_challenge, data = atu_clean, margin = TRUE)
 
 - What does this mean?
   - In the first two-way frequency table the groups being compared are `Male` and `Female` on the distribution of physical challenges.
-  - In the second two-way frequency table the groups being compared are people with `No difficulty` and `Has difficulty` on the distribution of gender.
+  - In the second two-way frequency table the groups being compared are people with `No difficulty` and `Has difficulty` on the distribution of sex.
 - **Add the option `format = "percent"` to the first `tally` function. How were the percents calculated? Interpret what they mean.**
 
 ## On your own
 
 - **Describe what happens if you create a 2-way frequency table with a numerical variable and a categorical variable.**
 - **How are the types of statistical investigative questions that 2-way frequency tables can answer different than 1-way frequency tables?**
-- **Which `gender` has a higher rate of _part time employment_?**
+- **Which `sex` has a higher rate of _part time employment_?**
 

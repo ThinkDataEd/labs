@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -598,8 +598,8 @@ activities.</li>
 <li><span class="blue">Type the following commands into your
 console:</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(atu_dirty)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(atu_dirty)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">data</span>(atu_dirty)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">View</span>(atu_dirty)</span></code></pre></div>
 <ul>
 <li><strong>Just by viewing the data, what parts of our ATU data do you
 think need cleaning?</strong></li>
@@ -612,7 +612,7 @@ think need cleaning?</strong></li>
 <ul>
 <li><code>caseid</code>: Anonymous ID of survey taker.</li>
 <li><code>V1</code>: The age of the respondent.</li>
-<li><code>V2</code>: The gender of the respondent.</li>
+<li><code>V2</code>: The sex of the respondent.</li>
 <li><code>V3</code>: Whether the person is employed full-time or
 part-time.</li>
 <li><code>V4</code>: Whether the person has a physical difficulty.</li>
@@ -633,8 +633,8 @@ names in place of the old ones.
 <li>Below is an example of the <code>rename</code> function:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">rename</span>(atu_dirty, <span class="at">age =</span> V1,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">gender =</span> V2)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">rename</span>(atu_dirty, <span class="at">age =</span> V1,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                       <span class="at">sex =</span> V2)</span></code></pre></div>
 <ul>
 <li><span class="blue">Use the example code and the variable information
 on the previous slide to rename the rest of the variables in
@@ -658,10 +658,10 @@ content.</li>
 <li>The following are examples of strings. Notice that each
 <em>string</em> has quotes before and after.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;string&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;A1B2c3&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Hot Cocoa&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;0015&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="st">&quot;string&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="st">&quot;A1B2c3&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="st">&quot;Hot Cocoa&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="st">&quot;0015&quot;</span></span></code></pre></div>
 </div>
 <div id="numbers-are-words-sometimes" class="slide section level2">
 <h1>Numbers are words? (Sometimes)</h1>
@@ -697,7 +697,7 @@ are improperly coded as <em>strings</em> or
 <li>An example using this function is below:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;3.14&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;3.14&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
 <ul>
 <li>Notice: We started with a string, <code>&quot;3.14&quot;</code>, but
@@ -711,9 +711,9 @@ are improperly coded as <em>strings</em> or
 select one. Then fill in the blanks below to see how we can correctly
 code it as a number:</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">as.numeric</span>(age),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">___ =</span> <span class="fu">as.numeric</span>(___))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, </span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">as.numeric</span>(age),</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>                 <span class="at">___ =</span> <span class="fu">as.numeric</span>(___))</span></code></pre></div>
 <ul>
 <li><span class="blue">Once you have this code working, use a similar
 line of code to correctly code the other <em>numeric</em> variables as
@@ -726,7 +726,7 @@ numbers.</span></li>
 <li>We mentioned earlier that we sometimes code categorical variables as
 numbers.
 <ul>
-<li>For example, our <code>gender</code> variable uses <code>&quot;01&quot;</code>
+<li>For example, our <code>sex</code> variable uses <code>&quot;01&quot;</code>
 and <code>&quot;02&quot;</code> for <code>&quot;Male&quot;</code> and <code>&quot;Female&quot;</code>,
 respectively.</li>
 </ul></li>
@@ -745,9 +745,9 @@ variables, called <em>factors</em>.</li>
 <ul>
 <li>The individual categories are called <em>levels</em>.</li>
 </ul></li>
-<li>To see the levels of <code>gender</code> and their counts type:</li>
+<li>To see the levels of <code>sex</code> and their counts type:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>gender, <span class="at">data =</span> atu_cleaner)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>sex, <span class="at">data =</span> atu_cleaner)</span></code></pre></div>
 <ul>
 <li><strong>Use similar code as we used above to write down the levels
 for the three factors in our data.</strong></li>
@@ -758,14 +758,14 @@ for the three factors in our data.</strong></li>
 <ul>
 <li>If we know that ‘<code>01</code>’ means ‘<code>Male</code>’ and
 ‘<code>02</code>’ means ‘<code>Female</code>’ then we can use the
-following code to recode the <em>levels</em> of <em>gender</em>.</li>
+following code to recode the <em>levels</em> of <em>sex</em>.</li>
 <li><span class="blue">Type the following command into your
 console:</span></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, <span class="at">gender =</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">recode</span>(gender, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;01&quot;</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;02&quot;</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, <span class="at">sex =</span> </span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>                 <span class="fu">recode</span>(sex, </span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>                         <span class="st">&quot;01&quot;</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>                         <span class="st">&quot;02&quot;</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
 <ul>
 <li>This code is definitely a bit of a mouthful. Let’s break it
 down.</li>
@@ -773,16 +773,16 @@ down.</li>
 </div>
 <div id="allow-me-to-explain" class="slide section level2">
 <h1>Allow me to explain</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, <span class="at">gender =</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">recode</span>(gender, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;01&quot;</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;02&quot;</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, <span class="at">sex =</span> </span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>                  <span class="fu">recode</span>(sex, </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>                         <span class="st">&quot;01&quot;</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>                         <span class="st">&quot;02&quot;</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
 <ul>
 <li>This code is saying:
 <ul>
 <li>Replace my current version of <code>atu_cleaner</code>…</li>
 <li>with a mutated one where …</li>
-<li>the <code>gender</code> variable’s levels …</li>
+<li>the <code>sex</code> variable’s levels …</li>
 <li>have been recoded…”</li>
 <li>where <code>&quot;01&quot;</code> will now be <code>&quot;Male&quot;</code>…</li>
 <li>and <code>&quot;02&quot;</code> will now be <code>&quot;Female&quot;</code>.</li>
@@ -822,7 +822,7 @@ they will save all of your work.</p></li>
 saving.</p></li>
 <li><p><span class="blue">Run the code below:</span></p></li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>atu_clean <span class="ot">&lt;-</span> atu_cleaner</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>atu_clean <span class="ot">&lt;-</span> atu_cleaner</span></code></pre></div>
 <ul>
 <li><p>This code will create a new data frame in your
 <em>Environment</em> called <code>atu_clean</code> which is a final copy
@@ -836,7 +836,7 @@ all of the changes you made will NOT be saved.</li>
 <code>R</code> data file or <code>.Rda</code>.</p></li>
 <li><p><span class="blue">Run the code below:</span></p></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(atu_clean, <span class="at">file =</span> <span class="st">&quot;atu_clean.Rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">save</span>(atu_clean, <span class="at">file =</span> <span class="st">&quot;atu_clean.Rda&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Look in your <em>Files</em> pane for the <code>atu_clean.Rda</code>
 file.
@@ -855,7 +855,7 @@ file.</li>
 revisit the <code>food</code> data.</p></li>
 <li><p><span class="blue">Run the code below:</span></p></li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>calories <span class="sc">|</span> healthy_level, <span class="at">data =</span> food)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>calories <span class="sc">|</span> healthy_level, <span class="at">data =</span> food)</span></code></pre></div>
 <ul>
 <li><p><span class="blue">Use the <code>as.factor()</code> function to
 convert <code>healthy_level</code> into a categorical variable and

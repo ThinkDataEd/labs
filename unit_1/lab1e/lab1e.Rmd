@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 ```
 
 ## Finding patterns in data.
@@ -35,7 +35,7 @@ library(mobilizr)
 ## Where are the variables?
 
 ```{r,eval=TRUE, echo=FALSE, fig.align='center', fig.width=14, fig.height=6, out.width = '90%'}
-histogram(~height | gender, data = cdc, layout = c(2,1),
+histogram(~height | sex, data = cdc, layout = c(2,1),
           scales=list(cex=2.5),
           xlab = list("Height", cex=2.5),
           ylab = list("Count", cex=2.5),
@@ -49,7 +49,7 @@ histogram(~height | gender, data = cdc, layout = c(2,1),
 
 - The previous graph is an example of a _multiple variable plot_, which means that more than a single variable was used. In this case:
   - Variable 1: `height`
-  - Variable 2: `gender`
+  - Variable 2: `sex`
 - Multiple variable plots are tools for finding _relationships_ between data.
 - Let's take our `food` data and make some new multiple variable plots you haven't created before!
 
