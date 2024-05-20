@@ -431,7 +431,7 @@ a person’s lung capacity.</li>
 straight from the webpage into R.</p></li>
 <li><p>You can find the data online here:</p>
 <ul>
-<li>(Right-click and select <em>Open in New Window</em>) <a href="https://raw.githubusercontent.com/IDSUCLA/dataset/main/fev.csv">https://raw.githubusercontent.com/IDSUCLA/dataset/main/fev.csv</a></li>
+<li>(Right-click and select <em>Open in New Window</em>) <a href="https://raw.githubusercontent.com/ThinkDataEd/dataset/main/fev.csv">https://raw.githubusercontent.com/ThinkDataEd/dataset/main/fev.csv</a></li>
 </ul></li>
 <li><p><span class="blue">Click on the <em>Import Dataset</em> button
 under the <em>Environment</em> tab.</span></p>
@@ -458,8 +458,7 @@ under the <em>Environment</em> tab.</span></p>
 <li>Age in years.</li>
 <li>Lung capacity, measured in liters.</li>
 <li>The youth’s heights, in inches</li>
-<li>Genders; <code>&quot;1&quot;</code> for males, <code>&quot;0&quot;</code> for
-females.<br />
+<li>Sex; <code>&quot;1&quot;</code> for males, <code>&quot;0&quot;</code> for females.<br />
 </li>
 <li>Whether the participant was a smoker, <code>&quot;1&quot;</code>, or
 non-smoker <code>&quot;0&quot;</code>.</li>
@@ -487,14 +486,14 @@ Specifically:</span>
 <ul>
 <li>We want to name the variables: <code>&quot;age&quot;</code>,
 <code>&quot;lung_cap&quot;</code>, <code>&quot;height&quot;</code>,
-<code>&quot;gender&quot;</code>,<code>&quot;smoker&quot;</code>, in that order.</li>
-<li>Change the type of variable for <code>gender</code> and
+<code>&quot;sex&quot;</code>,<code>&quot;smoker&quot;</code>, in that order.</li>
+<li>Change the type of variable for <code>sex</code> and
 <code>smoker</code> from <em>numeric</em> to <em>character</em>.</li>
 </ul></li>
 <li><span class="blue">After changing the variable types for
-<code>gender</code> and <code>smoker</code>:</span>
+<code>sex</code> and <code>smoker</code>:</span>
 <ul>
-<li>For <code>gender</code>, use <code>recode</code> to change
+<li>For <code>sex</code>, use <code>recode</code> to change
 <code>&quot;1&quot;</code> to <code>&quot;Male&quot;</code> and <code>&quot;0&quot;</code> to
 <code>&quot;Female&quot;</code>.</li>
 <li>For <code>smoker</code>, use <code>recode</code> to change

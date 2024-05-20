@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -609,13 +609,13 @@ previous slide to help you fill in the blanks.</li>
 <li>Use <code>set.seed(123)</code> before taking the sample.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bs_rows <span class="ot">&lt;-</span> <span class="fu">____</span>(<span class="dv">1</span><span class="sc">:</span>____, <span class="at">size =</span> ____, <span class="at">replace =</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>bs_rows <span class="ot">&lt;-</span> <span class="fu">____</span>(<span class="dv">1</span><span class="sc">:</span>____, <span class="at">size =</span> ____, <span class="at">replace =</span> ____)</span></code></pre></div>
 <ul>
 <li><span class="blue">Use the <code>slice</code> function to create a
 new dataset that includes each row from our
 <code>sample</code>.</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bs_atus <span class="ot">&lt;-</span> <span class="fu">slice</span>(atus, bs_rows)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>bs_atus <span class="ot">&lt;-</span> <span class="fu">slice</span>(atus, bs_rows)</span></code></pre></div>
 </div>
 <div id="take-a-look" class="slide section level2">
 <h1>Take a look</h1>
@@ -673,11 +673,11 @@ our <code>atus</code> data.</span>
 braces.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bs_func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>bs_func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    </span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><span class="blue">Highlight and <em>Run</em> the code you write.
 </span></li>
@@ -689,7 +689,7 @@ braces.</li>
 <li><span class="blue">Once your function is created, fill in the blanks
 to create 500 <em>bootstrapped</em> sample means:</span></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(____) <span class="sc">*</span> <span class="fu">bs_func</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(____) <span class="sc">*</span> <span class="fu">bs_func</span>()</span></code></pre></div>
 <ul>
 <li><strong>Create a <code>histogram</code> for your bootstrapped
 samples and describe the <em>center</em>, <em>shape</em> and

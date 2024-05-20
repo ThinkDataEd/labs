@@ -103,7 +103,7 @@ If you forget your username or password, ask your teacher to remind you.
 <center>![Import Data](images/RStudioCloudImport.png){ width=50% }</center>
 
 - <span class="blue">On the Files pane, find the data you want to <font color="green">Import</font>.</span>
-- <span class="blue">Click on the name of the file and choose the option "Import Data set...".</span>
+- <span class="blue">Click on the name of the file and choose the option "Import Dataset...".</span>
 
 
 ## Data Preview

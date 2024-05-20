@@ -47,7 +47,7 @@ library(IdsR)
 
 - Since the distribution of our `diff` variable appears normally distributed, we can use a normal model to estimate the probability of seeing differences that are more extreme than our actual data.
 
-- **Draw a sketch of a normal curve. Label the mean age difference, based on your shuffles, and the actual age difference of survivors minus non-survivors from the actual data. Then shade in the areas, under normal the curve, that are _smaller_ than the actual difference.**
+- **Draw a sketch of a normal curve. Label the mean age difference, based on your shuffles, and the actual age difference of survivors minus non-survivors from the actual data. Then shade in the area, under the normal curve, that is _smaller_ than the actual difference.**
     
 - <span class="blue">Fill in the blanks to calculate the probability of an even smaller difference occurring than our actual difference using a normal model.</span>
 ```{r, eval = FALSE, echo = TRUE}

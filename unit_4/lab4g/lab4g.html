@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -554,7 +554,7 @@ data.</span></li>
 <li><span class="blue">Use the <code>tree()</code> function to create a
 <em>classification</em> tree that predicts whether a person
 <code>survived</code> the Titanic based on their
-<code>gender</code>.</span>
+<code>sex</code>.</span>
 <ul>
 <li>A <em>classification</em> tree tries to predict which category a
 categorical variable would belong to based on other variables.</li>
@@ -565,7 +565,7 @@ categorical variable would belong to based on other variables.</li>
 </ul></li>
 <li><strong>Why can’t we just use a <em>linear model</em> to predict
 whether a passenger on the Titanic <code>survived</code> or not based on
-their <code>gender</code>?</strong></li>
+their <code>sex</code>?</strong></li>
 </ul>
 </div>
 <div id="viewing-trees" class="slide section level2">
@@ -583,7 +583,7 @@ function.</span>
 <li><strong>Answer the following, based on the
 <code>treeplot</code>:</strong>
 <ul>
-<li><strong>Which <code>gender</code> does the model predict will
+<li><strong>Which <code>sex</code> does the model predict will
 survive?</strong></li>
 <li><strong>Where does the plot tell you the number of people that get
 sorted into each leaf? How do you know?</strong></li>
@@ -597,7 +597,7 @@ been sorted <em>incorrectly</em> in each leaf?</strong></li>
 <ul>
 <li><span class="blue">Similar to how you included multiple variables
 for a linear model, create a <code>tree</code> that predicts whether a
-person <code>survived</code> based on their <code>gender</code>,
+person <code>survived</code> based on their <code>sex</code>,
 <code>age</code>, <code>class</code>, and where they
 <code>embarked</code>.</span>
 <ul>
@@ -605,13 +605,13 @@ person <code>survived</code> based on their <code>gender</code>,
 <code>tree2</code>.</span></li>
 </ul></li>
 <li><strong>Create a <code>treeplot</code> for this model and answer the
-following question:</strong>
+following questions:</strong>
 <ul>
 <li><strong>Mrs. Cumings was a 38-year-old female with a 1st class
 ticket from Cherbourg. Does the model predict that she
 survived?</strong></li>
 <li><strong>Which variable ended up not being used by
-<code>tree</code>?</strong></li>
+<code>tree2</code>?</strong></li>
 </ul></li>
 </ul>
 </div>
@@ -656,7 +656,7 @@ people in the <code>titanic_test</code> data survived or not using
 variable and not a numerical variable.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>titanic_test <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">prediction =</span> <span class="fu">predict</span>(____, <span class="at">newdata =</span> ____, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>titanic_test <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">prediction =</span> <span class="fu">predict</span>(____, <span class="at">newdata =</span> ____, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>))</span></code></pre></div>
 </div>
 <div id="measuring-model-performance" class="slide section level2">
 <h1>Measuring model performance</h1>
@@ -673,7 +673,7 @@ another.</li>
 <li><span class="blue">Run the following command to see a side-by-side
 comparison of the actual outcome and the predicted outcome:</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">select</span>(titanic_test, survived, prediction))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">select</span>(titanic_test, survived, prediction))</span></code></pre></div>
 <ul>
 <li><strong>Where does the first misclassification occur?</strong></li>
 </ul>
@@ -694,14 +694,14 @@ left-hand side does not equal the right-hand side.</p>
 predicted and then divide by the total number of observations.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calc_mcr <span class="ot">&lt;-</span> <span class="cf">function</span>(actual, predicted) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(____ <span class="sc">!=</span> ____) <span class="sc">/</span> <span class="fu">length</span>(actual)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>calc_mcr <span class="ot">&lt;-</span> <span class="cf">function</span>(actual, predicted) {</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">sum</span>(____ <span class="sc">!=</span> ____) <span class="sc">/</span> <span class="fu">length</span>(actual)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><span class="blue">Then run the following to calculate the
 MCR.</span></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(titanic_test, <span class="at">mcr =</span> <span class="fu">calc_mcr</span>(survived, prediction))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">summarize</span>(titanic_test, <span class="at">mcr =</span> <span class="fu">calc_mcr</span>(survived, prediction))</span></code></pre></div>
 </div>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>

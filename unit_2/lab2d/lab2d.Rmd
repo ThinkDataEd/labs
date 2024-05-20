@@ -130,11 +130,11 @@ nrow(___) / ___
 
 - <span class="blue">Answer the following questions by performing 500 simulations of sampling 2 songs from a playlist of 30 `"rap"`, 23 `"country"` and 47 `"rock"` songs. You might consider running `set.seed` so that your results can be reproduced:</span>
 
-- **Calculate estimated probabilities for the following situations:**
+- **Calculate and write down th estimated probabilities for the following situations:**
     1. You draw two `"rap"` songs.
     2. You draw a `"rap"` song in the first draw and a `"country"` song in the 2nd.
 
-- **Create a `histogram` that displays the number of times a `"rap"` song occurred in each simulation. That is, how often were zero rap songs drawn? A single rap song? Two rap songs?**
+- <span class="blue">Create a `histogram` that displays the number of times a `"rap"` song occurred in each simulation.</span> **How often were zero rap songs drawn? A single rap song? Two rap songs?**
 
 
 ## On your own

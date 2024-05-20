@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - The k-means algorithm works by splitting our data into _k_ different clusters.
     - The number of clusters, the value of _k_, is chosen by the data scientist.
 - The algorithm works _only_ for numerical variables and _only_ when we have no missing data.
-- <span class="blue">To start, use the `data` function to load the `futbol` data set.</span>
+- <span class="blue">To start, use the `data` function to load the `futbol` dataset.</span>
     - This data contains 23 players from the US Men's National Soccer team (USMNT) and 22 quarterbacks from the National Football League (NFL).
 - <span class="blue">Create a scatterplot of the players' `ht_inches` and `wt_lbs` and color each dot based on the `league` they play for.</span>
 

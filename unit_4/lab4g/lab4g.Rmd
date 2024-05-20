@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 ```
 
 ## Trees vs. Lines
@@ -31,12 +31,12 @@ library(mobilizr)
 
 ## Our first tree
 
-- <span class="blue">Use the `tree()` function to create a _classification_ tree that predicts whether a person `survived` the Titanic based on their `gender`.</span>
+- <span class="blue">Use the `tree()` function to create a _classification_ tree that predicts whether a person `survived` the Titanic based on their `sex`.</span>
     - A _classification_ tree tries to predict which category a categorical variable would belong to based on other variables.
     - The syntax for `tree` is similar to that of the `lm()` function.
     - <span class="blue">Assign this model the name `tree1`.</span>
 
-- **Why can't we just use a _linear model_ to predict whether a passenger on the Titanic `survived` or not based on their `gender`?**
+- **Why can't we just use a _linear model_ to predict whether a passenger on the Titanic `survived` or not based on their `sex`?**
 
 
 ## Viewing trees
@@ -45,18 +45,18 @@ library(mobilizr)
     - **Write down the labels of the two _branches_.**
     - **Write down the labels of the two _leaves_.**
 - **Answer the following, based on the `treeplot`:**
-    - **Which `gender` does the model predict will survive?**
+    - **Which `sex` does the model predict will survive?**
     - **Where does the plot tell you the number of people that get sorted into each leaf? How do you know?**
     - **Where does the plot tell you the number of people that have been sorted _incorrectly_ in each leaf?**
 
 
 ## Leafier trees
 
-- <span class="blue">Similar to how you included multiple variables for a linear model, create a `tree` that predicts whether a person `survived` based on their `gender`, `age`, `class`, and where they `embarked`.</span>
+- <span class="blue">Similar to how you included multiple variables for a linear model, create a `tree` that predicts whether a person `survived` based on their `sex`, `age`, `class`, and where they `embarked`.</span>
     - <span class="blue">Assign this model the name `tree2`.</span>
-- **Create a `treeplot` for this model and answer the following question:**
+- **Create a `treeplot` for this model and answer the following questions:**
     - **Mrs. Cumings was a 38-year-old female with a 1st class ticket from Cherbourg. Does the model predict that she survived?**
-    - **Which variable ended up not being used by `tree`?**
+    - **Which variable ended up not being used by `tree2`?**
 
 
 ## Tree complexity

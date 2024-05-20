@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 ```
 
 ## Some background...
@@ -136,5 +136,5 @@ xyplot(critics_rating~audience_rating, data = movie,
 - <span class="blue">Select two different numerical variables from the `movie` data. Plot the variables using the `xyplot()` function.</span>
     - **Would calculating a correlation coefficient for the two variables be appropriate? Justify your answer.**
     - **Predict what value you think the correlation coefficient will be. Compare this value to the actual value. Finally, interpret what the actual correlation coefficient means.**
-- **Work with your classmates to determine which two variables have the strongest correlation coefficient.**
+- **Work with your classmates to determine which two variables have the strongest correlation coefficient. Write them down.**
   - **Why do you think these variables are so strongly related? Is using the correlation coefficient to describe the relationship appropriate and why/why not?**

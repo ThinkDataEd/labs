@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -563,7 +563,7 @@ population.</li>
 <code>R</code> and fill in the blanks to take a <em>convenience</em>
 sample of the first 50 people in the data:</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">slice</span>(____, <span class="dv">1</span><span class="sc">:</span>____)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">slice</span>(____, <span class="dv">1</span><span class="sc">:</span>____)</span></code></pre></div>
 <ul>
 <li><strong>Why do you think we call this method a <em>convenience</em>
 sample?</strong></li>
@@ -581,8 +581,8 @@ data on subjects because they’re easy-to-find.</li>
 <li><strong>Do you think the distribution of <code>grade</code> for your
 sample would look similar when compared to the whole <code>cdc</code>
 data?</strong></li>
-<li><strong>Which groups of people do you think are over or under
-represented in your convenience sample? Why?</strong></li>
+<li><strong>Which groups of people do you think are over- or
+under-represented in your convenience sample? Why?</strong></li>
 </ul></li>
 <li><span class="blue">Create a <code>bargraph</code> for
 <code>grade</code> using the <code>cdc</code> data.</span>
@@ -599,7 +599,7 @@ your convenience sample and write down how they differ.</strong></li>
 randomly selecting 50 people in the <code>cdc</code> data, without
 replacement. Call this new sample <code>s2</code>:</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>___ <span class="ot">&lt;-</span> <span class="fu">sample</span>(___, <span class="at">size =</span> ___, <span class="at">replace =</span> ___)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>___ <span class="ot">&lt;-</span> <span class="fu">sample</span>(___, <span class="at">size =</span> ___, <span class="at">replace =</span> ___)</span></code></pre></div>
 <ul>
 <li><strong>Write a sentence that explains why you think the
 distribution of <code>grade</code> for this <em>random sample</em> will

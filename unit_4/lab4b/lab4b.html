@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -564,9 +564,9 @@ well.</span></li>
 that will make predictions of people’s <code>height</code>s based on
 their <code>armspan</code>:</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>predict_height <span class="ot">&lt;-</span> <span class="cf">function</span>(armspan) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  ____ <span class="sc">*</span> armspan <span class="sc">+</span> ____</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>predict_height <span class="ot">&lt;-</span> <span class="cf">function</span>(armspan) {</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  ____ <span class="sc">*</span> armspan <span class="sc">+</span> ____</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="make-your-predictions" class="slide section level2">
 <h1>Make your predictions</h1>
@@ -574,7 +574,7 @@ their <code>armspan</code>:</span></li>
 <li><span class="blue">Fill in the blanks to include your predictions in
 the <code>arm_span</code> data.</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">____</span>(____))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">____</span>(____))</span></code></pre></div>
 <ul>
 <li>Now that we’ve made our predictions, we’ll need to figure out a way
 to decide how accurate our predictions are.
@@ -594,7 +594,7 @@ predicted value of a quantity of interest.</li>
 <li><span class="blue">Fill in the blanks below to add a column of
 residuals to <code>arm_span</code>.</span></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">residual =</span> ____ <span class="sc">-</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">residual =</span> ____ <span class="sc">-</span> ____)</span></code></pre></div>
 <ul>
 <li><p><strong>What do the residuals measure?</strong></p></li>
 <li><p>One method we might consider to measure our model’s accuracy is
@@ -602,7 +602,7 @@ to sum the residuals.</p></li>
 <li><p><span class="blue">Fill in the blanks below to calculate our
 accuracy summary.</span></p></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">sum</span>(____))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">sum</span>(____))</span></code></pre></div>
 <ul>
 <li><p>Hint: Like <code>mutate</code>, the first argument of
 <code>summarize</code> is a dataframe, and the second argument is the
@@ -631,7 +631,7 @@ residuals.</p></li>
 <li><p><span class="blue">Fill in the blanks below to calculate the MSE
 of your line.</span></p></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">mean</span>((____)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">mean</span>((____)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <ul>
 <li><strong>Compare your MSE with a neighbor. Whose line was more
 accurate and why?</strong></li>
@@ -658,7 +658,7 @@ similar <code>armspan</code>s.</li>
 <em>linear model</em>:</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>best_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(____ <span class="sc">~</span> ____, <span class="at">data =</span> arm_span)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>best_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(____ <span class="sc">~</span> ____, <span class="at">data =</span> arm_span)</span></code></pre></div>
 </div>
 <div id="plotting-regression-lines" class="slide section level2">
 <h1>Plotting regression lines</h1>
@@ -668,7 +668,7 @@ see the slope and intercept of the regression line.</span></p></li>
 <li><p><span class="blue">Add this line to a scatterplot by filling in
 the blanks below.</span></p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">intercept =</span> ____, <span class="at">slope =</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">intercept =</span> ____, <span class="at">slope =</span> ____)</span></code></pre></div>
 </div>
 <div id="predicting-with-regression-lines" class="slide section level2">
 <h1>Predicting with regression lines</h1>
@@ -680,7 +680,7 @@ simpler than with lines, or models, we come up with ourselves.
 <code>best_fit</code>:</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">predict</span>(____))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">predict</span>(____))</span></code></pre></div>
 <ul>
 <li>Hint: the <code>predict</code> function takes a linear model as
 input, and outputs the predictions of that model.</li>

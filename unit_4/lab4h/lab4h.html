@@ -15,7 +15,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
   <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -563,7 +563,7 @@ data scientist.</li>
 <li>The algorithm works <em>only</em> for numerical variables and
 <em>only</em> when we have no missing data.</li>
 <li><span class="blue">To start, use the <code>data</code> function to
-load the <code>futbol</code> data set.</span>
+load the <code>futbol</code> dataset.</span>
 <ul>
 <li>This data contains 23 players from the US Men’s National Soccer team
 (USMNT) and 22 quarterbacks from the National Football League
@@ -586,7 +586,7 @@ and lighter USMNT players.</li>
 <li><span class="blue">Fill in the blanks below to use k-means to
 cluster the same height and weight data into two groups:</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kclusters</span>(____<span class="sc">~</span>____, <span class="at">data =</span> futbol, <span class="at">k =</span> ____)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">kclusters</span>(____<span class="sc">~</span>____, <span class="at">data =</span> futbol, <span class="at">k =</span> ____)</span></code></pre></div>
 <ul>
 <li><span class="blue">Use this code and the <code>mutate</code>
 function to add the values from <code>kclusters</code> to the

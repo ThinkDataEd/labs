@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(IdsR)
 ```
 
 ## Learning by sampling
@@ -47,7 +47,7 @@ s1 <- slice(____, 1:____)
 - A convenience sample is a sample from a population where we collect data on subjects because they're easy-to-find.
 - <span class="blue">Using your convenience sample, create a `bargraph` for the number of people in each `grade`.</span>
     - **Do you think the distribution of `grade` for your sample would look similar when compared to the whole `cdc` data?**
-    - **Which groups of people do you think are over or under represented in your convenience sample? Why?**
+    - **Which groups of people do you think are over- or under-represented in your convenience sample? Why?**
 - <span class="blue">Create a `bargraph` for `grade` using the `cdc` data.</span>
     - **Compare the distributions of the `cdc` data and your convenience sample and write down how they differ.**
 

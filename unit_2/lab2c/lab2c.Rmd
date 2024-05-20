@@ -151,7 +151,7 @@ sample(songs, size = 1, replace = TRUE)
 - <span class="blue">With a partner, choose a number to include in `set.seed` then redo the simulation of 50 songs. </span>
     - Both partners should run `set.seed(___)` just before simulating the 50 draws. 
     - The blank in `set.seed(___)` should be the same number for both partners.
-    - **Verify that both partners compute the same proportion of `"rap"` songs.**
+    - **What value of set.seed did you and your partner use and what was the proportion of `"rap"` songs you obtained?**
 - <span class="blue">Redo the 50 simulations one last time but have each partner choose a different number for `set.seed(___)`. </span>
     - **Are the proportions still the same? If so, can you find two different values for `set.seed` that give different answers?**
 
@@ -163,5 +163,5 @@ sample(songs, size = 1, replace = TRUE)
 _If we select a student at random, what is the probability that this student is one of those who went to the movies last Friday?_
 
 - <span class="blue">Answer this by estimating the probability that a randomly chosen student went to the movies using 500 simulations.</span>
-    - **Write down both the estimated probability and the code you used to compute your estimate. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_**
+    - **Write down both the estimated probability and the code you used to compute your estimate. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_.**
     - <span class="blue">Include `set.seed(123)` in your code before you `do` 500 repeated samples.</span>
