@@ -144,6 +144,6 @@ nrow(___) / ___
 **_If we draw 5 songs from a playlist of 30 rap, 23 country and 47 rock songs, how does the estimated probability of all 5 songs being rap songs change if we draw the songs with or without replacement?_**
 
 - For each simulation:
-    - <span class="blue">Create a histogram for the number of _rap_ songs that occurred for each of the 500 repetitions.</span>
+    - <span class="blue">Create a `histogram` for the number of _rap_ songs that occurred for each of the 500 repetitions.</span>
 - **Describe how the distribution of the number of _rap_ songs changes depending on if we use replacement or not.**
 

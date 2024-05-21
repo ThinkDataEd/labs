@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Most of the labs thus far have covered how to visualize, summarize, and manipulate data.
     - We used visualizations to explore how your class spends their time.
     - We also learned how to clean data to prepare it for analyzing.
-- Starting with this lab, we'll learn to use `R` to answer statistical questions that can be answered by calculating the mean, median and MAD.
+- Starting with this lab, we'll learn to use `R` to answer statistical investigative questions that can be answered by calculating the mean, median and MAD.
 
 
 ## How to talk about data

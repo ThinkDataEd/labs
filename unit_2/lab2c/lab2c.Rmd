@@ -36,7 +36,7 @@ songs <- c(rap, rock)
 ## Estimate what ... ?
 
 - To _estimate the probability_, we're going to imagine that we select a song at random, write down its genre (_rock_ or _rap_), put the song back in the playlist, and repeat 499 more times for a total of 500 times.
-- The statistical question we want to address is: _On average, what proportion of our selections will be rap?_
+- The statistical investigative question we want to address is: _On average, what proportion of our selections will be rap?_
 - **Why do we _put a song back_ each time we make a selection?** 
 - **What would happen in our little experiment if we did not do this?**  
 

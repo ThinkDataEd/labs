@@ -30,10 +30,10 @@ library(IdsR)
 ## Get set up
 
 - <span class="blue">Start by loading the `titanic` data and calculate the `mean` `age` of people in the data but `shuffle` their `survival` status 500 times.</span>
-    - `Assign` this data the name `shfls`.
+    - <span class="blue">`Assign` this data the name `shfls`.</span>
 - <span class="blue">After creating `shfls`, use `mutate` to add a new variable to the dataset. This new variable should have the name `diff` and should be the `mean` `age` of those who survived minus those who died.</span>
 - <span class="blue">Finally, calculate the `mean` and `sd` of the `diff` variable.</span>
-    - `Assign` these values the name `diff_mean` and `diff_sd`.
+    - <span class="blue">`Assign` these values the name `diff_mean` and `diff_sd`.</span>
 
 
 ## Is it normal?
@@ -86,7 +86,7 @@ histogram(draws, fit = ____)
 - We've seen that we can use `pnorm` to calculate _probabilities_ based on a specified _quantity_.
     - Hence, why we call it "P" norm.
 - Now we'll see how to do the opposite. That is, calculate a the _quantity_ for a specific _probability_.
-    - Hence why we'll call this a "Q" norm.
+    - Hence, why we'll call this a "Q" norm.
 - **How tall can a man be and still be in the shortest 25% of heights if the mean height is 67 inches with a standard deviation of 3 inches?**
 
 ```{r, eval = FALSE, echo = TRUE}

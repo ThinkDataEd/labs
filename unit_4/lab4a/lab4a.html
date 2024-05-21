@@ -630,6 +630,33 @@ points to draw a line through.</span></p></li>
 difficulties obtaining your line:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pGqXHGhhwJ8" title="Using add_line()" frameborder="0" data-external="1">
 </iframe></li>
+<li><p>If you are unsuccessful using the <code>add_line()</code>
+function, refer to the next slide to learn how to use the
+<code>get_line()</code> function.</p></li>
+</ul>
+</div>
+<div id="get_line" class="slide section level2">
+<h1>get_line()</h1>
+<ul>
+<li><p>The <code>get_line()</code> function does not rely on clicking on
+the scatterplot to choose points, but rather on you providing the points
+manually.</p></li>
+<li><p>For example, let’s say you want to obtain the equation of the
+line that passes through the points (59,60) and (68,67). This is how you
+would use the <code>get_line</code> function:</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">get_line</span>(<span class="fu">c</span>(<span class="dv">59</span>,<span class="dv">60</span>), <span class="fu">c</span>(<span class="dv">68</span>,<span class="dv">67</span>))</span></code></pre></div>
+<pre><code>##  intercept      slope 
+## 14.1111111  0.7777778</code></pre>
+<ul>
+<li>Notice the output is the y-intercept and slope of your line.</li>
+<li>Now you can use the <code>add_line()</code> function to include the
+line in your scatterplot.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">intercept =</span> <span class="fl">14.1111111</span>, <span class="at">slope =</span> <span class="fl">0.7777778</span>)</span></code></pre></div>
+<ul>
+<li>If your line doesn’t quite fit the way you want it, try another
+ordered pair or make modifications to the existing equation.</li>
 </ul>
 </div>
 <div id="predicting-with-lines" class="slide section level2">

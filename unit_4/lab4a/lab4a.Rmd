@@ -82,6 +82,27 @@ add_line()
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/pGqXHGhhwJ8" title="Using add_line()" frameborder="0" data-external="1"></iframe>
 
+- If you are unsuccessful using the `add_line()` function, refer to the next slide to learn how to use the `get_line()` function.
+
+## get_line()
+
+- The `get_line()` function does not rely on clicking on the scatterplot to choose points, but rather on you providing the points manually. 
+
+- For example, let's say you want to obtain the equation of the line that passes through the points (59,60) and (68,67). This is how you would use the `get_line` function:
+
+```{r, echo=TRUE}
+get_line(c(59,60), c(68,67))
+```
+
+- Notice the output is the y-intercept and slope of your line.
+- Now you can use the `add_line()` function to include the line in your scatterplot.
+
+```{r, eval=FALSE, echo=TRUE}
+add_line(intercept = 14.1111111, slope = 0.7777778)
+```
+
+- If your line doesn't quite fit the way you want it, try another ordered pair or make modifications to the existing equation.
+
 ## Predicting with lines
 
 - **Draw a line that you think is a good _fit_ and write down its equation. Using this equation:**

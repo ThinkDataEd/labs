@@ -53,7 +53,7 @@ library(IdsR)
     - Age in years.
     - Lung capacity, measured in liters.
     - The youth's heights, in inches 
-    - Sex; `"1"` for males, `"0"` for females.  
+    - Genders; `"1"` for males, `"0"` for females.  
     - Whether the participant was a smoker, `"1"`, or non-smoker `"0"`.
 
 ## About the data
@@ -68,10 +68,10 @@ _What is the effect of childhood smoking on lung health?_
 ## Cleaning your data
 
 - <span class="blue">Now that we've got the data loaded, we need to clean it to get it ready for use _(Look at lab 1F for help)_. Specifically:</span>
-    - We want to name the variables: `"age"`, `"lung_cap"`, `"height"`, `"sex"`,`"smoker"`, in that order.
-    - Change the type of variable for `sex` and `smoker` from _numeric_ to _character_.
-- <span class="blue">After changing the variable types for `sex` and `smoker`:</span>
-    - For `sex`, use `recode` to change `"1"` to `"Male"` and `"0"` to `"Female"`.
+    - We want to name the variables: `"age"`, `"lung_cap"`, `"height"`, `"gender"`,`"smoker"`, in that order.
+    - Change the type of variable for `gender` and `smoker` from _numeric_ to _character_.
+- <span class="blue">After changing the variable types for `gender` and `smoker`:</span>
+    - For `gender`, use `recode` to change `"1"` to `"Male"` and `"0"` to `"Female"`.
     - For `smoker`, use `recode` to change `"1"` to `"Yes"` and `"0"` to `"No"`.
     
 

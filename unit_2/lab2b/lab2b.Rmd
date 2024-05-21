@@ -98,7 +98,7 @@ favstats(~____, data = colors)
   - Step 1: Use the `range` function to `assign` the max and min values of a variable the name `values`. This will store the output from the `range` function in the _Environment_ pane.
     
 ```{r, eval = FALSE, echo = TRUE}
-values <- range(~____, data=colors)
+values <- range(~____, data = colors)
 ```
 
   - Step 2: Use the `diff` function to calculate the difference of `values`. The input for the `diff` function needs to be a vector containig two numeric values.
