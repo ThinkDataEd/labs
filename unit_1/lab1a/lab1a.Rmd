@@ -33,11 +33,12 @@ data(cdc)
 
 ## So let's get started!
 
-- The data for our first few labs comes from the Centers for Disease Control (CDC)
+- The data for our first few labs comes from the Centers for Disease Control (CDC) 
     - The CDC is a federal institution that studies public health.
 - <font color=#10437F><b>Type these two commands into your console:</b></font>
 
 ```{r, eval = FALSE, echo = TRUE}
+#checking
 data(cdc)
 ```
 ```{r, eval = FALSE, echo = TRUE}
