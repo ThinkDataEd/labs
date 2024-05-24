@@ -252,7 +252,7 @@ save(atu_clean, file = "atu_clean.Rda")
 
 - Now that you have learned some cleaning data basics, it's time to revisit the `food` data. 
 
-- <span class="blue">First `Import` your `food` data onto the *Environment* pane.</span>
+  - <span class="blue">`Import` your `food` data onto the *Environment* pane.</span>
 
 - <span class="blue">Run the code below:</span>
 ```{r, eval = FALSE, echo = TRUE}
