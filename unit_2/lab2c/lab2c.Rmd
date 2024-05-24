@@ -151,7 +151,7 @@ sample(songs, size = 1, replace = TRUE)
 - <span class="blue">With a partner, choose a number to include in `set.seed` then redo the simulation of 50 songs. </span>
     - Both partners should run `set.seed(___)` just before simulating the 50 draws. 
     - The blank in `set.seed(___)` should be the same number for both partners.
-    - **What value of set.seed did you and your partner use and what was the proportion of `"rap"` songs you obtained?**
+    - **What value of `set.seed` did you and your partner use and what was the proportion of `"rap"` songs you obtained?**
 - <span class="blue">Redo the 50 simulations one last time but have each partner choose a different number for `set.seed(___)`. </span>
     - **Are the proportions still the same? If so, can you find two different values for `set.seed` that give different answers?**
 

@@ -678,8 +678,8 @@ content.</li>
 <li>The <em>number of siblings</em> a person has should not be a
 string.</li>
 </ul></li>
-<li>Look at the <code>str</code>ucture of your data and the variable
-descriptions from a few slides back:
+<li><span class="blue">Look at the <code>str</code>ucture of your data
+and the variable descriptions from a few slides back:</span>
 <ul>
 <li><strong>Write down the variables that should be <em>numeric</em> but
 are improperly coded as <em>strings</em> or
@@ -707,9 +707,9 @@ are improperly coded as <em>strings</em> or
 <div id="mutating-in-action" class="slide section level2">
 <h1>Mutating in action</h1>
 <ul>
-<li>Look at the variables you thought should be <em>numeric</em> and
-select one. Then fill in the blanks below to see how we can correctly
-code it as a number:</li>
+<li><span class="blue">Look at the variables you thought should be
+<em>numeric</em> and select one. Then fill in the blanks below to see
+how we can correctly code it as a number:</span></li>
 </ul>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>atu_cleaner <span class="ot">&lt;-</span> <span class="fu">mutate</span>(atu_cleaner, </span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">as.numeric</span>(age),</span>
@@ -853,6 +853,9 @@ file.</li>
 <ul>
 <li><p>Now that you have learned some cleaning data basics, it’s time to
 revisit the <code>food</code> data.</p></li>
+<li><p><span class="blue">First <code>Import</code> your
+<code>food</code> data onto the <em>Environment</em>
+pane.</span></p></li>
 <li><p><span class="blue">Run the code below:</span></p></li>
 </ul>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>calories <span class="sc">|</span> healthy_level, <span class="at">data =</span> food)</span></code></pre></div>

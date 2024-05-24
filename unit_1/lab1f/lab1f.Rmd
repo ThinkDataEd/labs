@@ -122,7 +122,7 @@ atu_cleaner <- rename(atu_dirty, age = V1,
     - For example, we can code `Yes/No` variables as `"1"`/`"0"`.
 - Sometimes we don't mean for this to happen.
     - The _number of siblings_ a person has should not be a string.
-- Look at the `str`ucture of your data and the variable descriptions from a few slides back:
+- <span class="blue">Look at the `str`ucture of your data and the variable descriptions from a few slides back:</span>
     - **Write down the variables that should be _numeric_ but are improperly coded as _strings_ or _characters_.**
 
 
@@ -139,7 +139,7 @@ as.numeric("3.14")
 
 ## Mutating in action
 
-- Look at the variables you thought should be _numeric_ and select one. Then fill in the blanks below to see how we can correctly code it as a number:
+- <span class="blue">Look at the variables you thought should be _numeric_ and select one. Then fill in the blanks below to see how we can correctly code it as a number:</span>
 ```{r, eval = FALSE, echo = TRUE}
 atu_cleaner <- mutate(atu_cleaner, 
                  age = as.numeric(age),
@@ -250,7 +250,9 @@ save(atu_clean, file = "atu_clean.Rda")
 
 ## Flex your skills
 
-- Now that you have learned some cleaning data basics, it's time to revisit the `food` data.
+- Now that you have learned some cleaning data basics, it's time to revisit the `food` data. 
+
+- <span class="blue">First `Import` your `food` data onto the *Environment* pane.</span>
 
 - <span class="blue">Run the code below:</span>
 ```{r, eval = FALSE, echo = TRUE}
