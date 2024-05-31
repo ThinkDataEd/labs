@@ -38,7 +38,6 @@ data(cdc)
 - <font color=#10437F><b>Type these two commands into your console:</b></font>
 
 ```{r, eval = FALSE, echo = TRUE}
-#checking
 data(cdc)
 ```
 ```{r, eval = FALSE, echo = TRUE}
