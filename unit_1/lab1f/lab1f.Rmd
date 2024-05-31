@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(IdsR)
+library(mobilizr2)
 data(atu_dirty)
 ```
 
@@ -160,7 +160,7 @@ atu_cleaner <- mutate(atu_cleaner,
 - `R` has a special name for _categorical_ variables, called _factors_.
 - `R` also has a special name for the different _categories_ of a _categorical_ variable.
     - The individual categories are called _levels_.
-- To see the levels of `sex` and their counts type:
+- To see the levels of `sex` and their counts, type:
 ```{r, eval = FALSE, echo = TRUE}
 tally(~sex, data = atu_cleaner)
 ```

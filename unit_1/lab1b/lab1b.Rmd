@@ -15,7 +15,7 @@ output:
 ---
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(IdsR)
+library(mobilizr2)
 data(cdc)
 ```
 
