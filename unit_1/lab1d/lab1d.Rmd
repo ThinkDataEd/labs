@@ -157,7 +157,7 @@ food_salty <- filter(food, salty_sweet == "Salty")
 - We can include multiple filters to our subsets by separating each rule with a comma like so:
 
 ```{r, eval = FALSE, echo = TRUE}
-my_sub <- filter(food , salty_sweet == "Salty", calories < 200)
+my_sub <- filter(food, salty_sweet == "Salty", calories < 200)
 ```
 
 - <span class="blue">`View` the  `my_sub` data we filtered in the above line of code and verify that it only includes salty snacks that have less than 200 calories.</span>

@@ -792,7 +792,7 @@ based on the food being salty AND having less than 200 calories.</li>
 <li>We can include multiple filters to our subsets by separating each
 rule with a comma like so:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(food , salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, calories <span class="sc">&lt;</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_sub <span class="ot">&lt;-</span> <span class="fu">filter</span>(food, salty_sweet <span class="sc">==</span> <span class="st">&quot;Salty&quot;</span>, calories <span class="sc">&lt;</span> <span class="dv">200</span>)</span></code></pre></div>
 <ul>
 <li><span class="blue"><code>View</code> the <code>my_sub</code> data we
 filtered in the above line of code and verify that it only includes
