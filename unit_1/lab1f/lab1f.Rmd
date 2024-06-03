@@ -172,8 +172,8 @@ tally(~sex, data = atu_cleaner)
 - If we know that '`01`' means '`Male`' and '`02`' means '`Female`' then we can use the following code to recode the _levels_ of _sex_.
 - <span class="blue">Type the following command into your console:</span>
 ```{r, eval = FALSE, echo = TRUE}
-atu_cleaner <- mutate(atu_cleaner, sex = 
-                 recode(sex, 
+atu_cleaner <- mutate(atu_cleaner, 
+                      sex = recode(sex, 
                          "01" = "Male", 
                          "02" = "Female"))
 ```
@@ -184,8 +184,8 @@ atu_cleaner <- mutate(atu_cleaner, sex =
 ## Allow me to explain
 
 ```{r, eval = FALSE, echo = TRUE}
-atu_cleaner <- mutate(atu_cleaner, sex = 
-                  recode(sex, 
+atu_cleaner <- mutate(atu_cleaner, 
+                      sex = recode(sex, 
                          "01" = "Male", 
                          "02" = "Female"))
 ```
