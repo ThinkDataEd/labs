@@ -11,7 +11,7 @@ output:
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(mobilizr2)
 library(readr)
 library(ggplot2)
 # colors <- read_csv("colors.csv")
@@ -76,10 +76,10 @@ ggplot(data=colors_ids)+
 
 ## Histograms and faceting
 
-When we plot height data faceted by gender using `cdc`, we get an extra plot where gender is NA. To get rid of that extra plot, use the following code to extract those observations:
+When we plot height data faceted by sex using `cdc`, we get an extra plot where sex is NA. To get rid of that extra plot, use the following code to extract those observations:
 
 ```{r}
-cdc2<-filter(cdc, !is.na(gender))
+cdc2<-filter(cdc, !is.na(sex))
 ```
 
 - The following code chunk is used to generate a histogram.  
@@ -88,10 +88,10 @@ cdc2<-filter(cdc, !is.na(gender))
 
 ```{r, warning=FALSE}
 ggplot(data=cdc2) +
-  geom_histogram(mapping=aes(x = height, fill = gender),binwidth=0.05) +
+  geom_histogram(mapping=aes(x = height, fill = sex), color = "black", binwidth=0.05) +
   scale_fill_manual(values = c("pink", "blue")) +
-  facet_wrap(~ gender, ncol = 1) +
-  labs(x = "Height", y = "Frequency", title = "Stacked Histogram of Height by Gender") +
+  facet_wrap(~ sex, ncol = 1) +
+  labs(x = "Height", y = "Frequency", title = "Stacked Histogram of Height by Sex") +
   theme_minimal()
 ```
 
