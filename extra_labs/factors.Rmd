@@ -12,7 +12,7 @@ output:
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 library(dplyr)
-library(mobilizr)
+library(mobilizr2)
 data(cdc)
 extra_data("food_ids")
 ```

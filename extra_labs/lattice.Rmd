@@ -11,7 +11,7 @@ output:
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr)
+library(mobilizr2)
 library(readr)
 library(RColorBrewer)
 # colors <- read_csv("colors.csv")
@@ -47,23 +47,23 @@ bargraph(~drink_water, data=cdc,
 - To see the colors that are available, click <b>[here](https://r-charts.com/colors/){target="_blank"}</b> or type the command `colors()` on your console, copy the output, and paste it in an RScript.
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
-bargraph(~asthma, data=cdc,
+bargraph(~grade, data=cdc,
           col = "mistyrose")
 ```
 
--  Sometimes we want to assign different colors to the bars in a bargraph. Utilizing the `groups` and `stack` arguments will allow us to do this. Let's try this with the asthma variable. The asthma variable has three categories so we need to choose three colors for our plot.
+-  Sometimes we want to assign different colors to the bars in a bargraph. Utilizing the `groups` and `stack` arguments will allow us to do this. Let's try this with the `grade` variable. The `grade` variable has five categories so we need to choose five colors for our plot.
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
-bargraph(~asthma, data=cdc,
-         groups = asthma,
+bargraph(~grade, data=cdc,
+         groups = grade,
          # assigned to the bars in the order they appear
-         col=c("red2","pink","white"),
+         col=c("red2","pink","white","yellow","blue"),
          stack = "TRUE")
 ```
 
 ## Color Palettes
 
-On the previous slide you learned how to manually choose a color for each category of asthma. But what if there were a lot of categories for your variable? This is where a color palette might come in handy.
+On the previous slide you learned how to manually choose a color for each category of grade. But what if there were a lot of categories for your variable? This is where a color palette might come in handy.
 
 Type the following command in the console to load the ColorBrewer Palettes:
 
@@ -85,7 +85,8 @@ The code below shows how to incorporate a palette with the `drink_water` variabl
 #the second argument is the palette name
 palette <- brewer.pal(7, "Accent")
 
-bargraph(~drink_water, data=cdc, groups = drink_water,
+bargraph(~drink_water, data=cdc, 
+         groups = drink_water,
          col = palette,
          stack=T)
 
@@ -140,7 +141,7 @@ add_line(vline = median(~height,data=cdc), col="red")
 -  When you use the `groups` argument on a scatterplot, the key is automatically generated identifying the different categories. However, if you change the color of categories, the key does not automatically update.
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
-xyplot(weight~height,data=cdc, groups=gender, col=c("red","blue"))
+xyplot(weight~height,data=cdc, groups=sex, col=c("red","blue"))
 ```
 
 -  To remedy this issue, you need to create your own key. You will be utilizing the `key` argument just like you did in the last slide.
@@ -148,7 +149,7 @@ xyplot(weight~height,data=cdc, groups=gender, col=c("red","blue"))
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
 
-xyplot(weight ~ height, data = cdc, groups = gender, 
+xyplot(weight ~ height, data = cdc, groups = sex, 
        col = c("red", "blue"), 
        #The code below is for the key
        key = list(space = "top", 
@@ -192,8 +193,8 @@ range(~weight, data=cdc)
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
 histogram(~weight, data=cdc,
-          # notice that 27.22 kg and 180.99 kg are included in the interval (25,185)
-          breaks = seq(25,185,20))
+          # notice that 22.68 kg and 180.99 kg are included in the interval (20,200)
+          breaks = seq(20,200,20))
 ```
 
 -   Including the scales argument to include labels at each break makes the plot more readable.
@@ -201,8 +202,8 @@ histogram(~weight, data=cdc,
 
 ```{r, eval = TRUE, echo = TRUE, fig.height=4, fig.width=5}
 histogram(~weight, data=cdc,
-          breaks = seq(25,185,20),
-          scales=list(x=list(at=seq(25,185,20))))
+          breaks = seq(20,200,20),
+          scales=list(x=list(at=seq(20,200,20))))
 ```
 
 ## Zooming in on the axis
@@ -304,10 +305,11 @@ extra_data('colors_ids')
 
 ```{r, eval = TRUE, echo = TRUE}
 # these should appear in your Environment pane as a List
-plot1<-bwplot(~blue, data = colors_ids, col ="blue")
-plot2<-bwplot(~gold, data = colors_ids, col ="gold")
+#In order for the scales to line up the xlim argument was added
+plot1<-bwplot(~blue, data = colors_ids, col ="blue", xlim=c(4, 21))
+plot2<-bwplot(~gold, data = colors_ids, col ="gold", xlim=c(4, 21))
 plot3<-bwplot(~green, data = colors_ids, col ="green", xlim=c(4, 21))
-plot4<-bwplot(~orange, data = colors_ids, col ="orange")
+plot4<-bwplot(~orange, data = colors_ids, col ="orange", xlim=c(4, 21))
 ```
 
 -   Step 2: Use the `grid.arrange` from the gridExtra Package

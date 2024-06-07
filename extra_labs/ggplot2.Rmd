@@ -88,7 +88,7 @@ cdc2<-filter(cdc, !is.na(sex))
 
 ```{r, warning=FALSE}
 ggplot(data=cdc2) +
-  geom_histogram(mapping=aes(x = height, fill = sex), color = "black", binwidth=0.05) +
+  geom_histogram(mapping = aes(x = height, fill = sex), color = "black", binwidth = 0.05) +
   scale_fill_manual(values = c("pink", "blue")) +
   facet_wrap(~ sex, ncol = 1) +
   labs(x = "Height", y = "Frequency", title = "Stacked Histogram of Height by Sex") +

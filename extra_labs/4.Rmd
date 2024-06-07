@@ -11,7 +11,7 @@ output:
 
 ```{r, echo = FALSE, message = FALSE}
 library(dplyr)
-library(mobilizr)
+library(mobilizr2)
 data(cdc)
 ```
 
