@@ -1,4 +1,4 @@
-# IDS Labs for Introduction to Data Science v 5.0
+# IDS Labs for Introduction to Data Science v 7.0
 
 ![Introduction to Data Science](https://labs.idsucla.org/extras/ids.png)
 
