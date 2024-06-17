@@ -39,8 +39,8 @@ library(mobilizr2)
 - <span class="blue">In `R`, simulate a _playlist of songs_ containing 30 `"rap"` songs, 23 `"country"` songs and 47 `"rock"` songs.</span>
     - <span class="blue">_Assign_ the `c`ombined playlist the name `songs`.</span>
 - <span class="blue">Simulate choosing a single song 50 times. Then use your simulated draws to estimate the probability of choosing a _rap_ song.</span>
-    - The actual (theoretical) probability of choosing a _rap song_ in this case is `0.30`.
-    - **Write a sentence comparing your estimated probability to the actual probability.**
+    - The "true" (theoretical) probability of choosing a _rap song_ in this case is `0.30`.
+    - **Write a sentence comparing your estimated probability to the "true" probability.**
 
 
 ## With or Without?
