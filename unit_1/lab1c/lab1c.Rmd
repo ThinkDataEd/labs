@@ -119,6 +119,10 @@ If you forget your username or password, ask your teacher to remind you.
     - Good names are short and descriptive. 
     - For your Food Habits campaign, some good names to use would be "foodhabits" or even just "food".
 - When you're ready, click the _Import_ button.
+- Make sure the name under Import Options matches the name in Code Preview before you click Import.
+
+<center> ![nonexample](images/import1.png){ width=60% }</center>
+<center> ![example](images/import2.png){ width=60% }</center>
 
 
 ## read.csv()
@@ -139,7 +143,7 @@ View(data.file)
 <center> ![Upload Button](images/FilesPane.png){ width=60% }</center>
 
 - The <font color="green">Files</font> tab has a few other features to help keep you organized.
-  - _SurveyResponse_ probably isn't the best name for your data. Click <font color="green">Rename</font> to give it a clearer name.
+  - _CampaignName - Ids Teacher Year Semester_ probably isn't the best name for your data. Click <font color="green">Rename</font> to give it a clearer name.
   - Often, it's helpful to give your data file the same name as when you import your data.
   - So in this case, we could name our data file _food.csv_.
 
@@ -147,4 +151,7 @@ View(data.file)
 ## Analysis Time
 
 - After you <font color="green">Export</font>, <font color="green">Upload</font>, and <font color="green">Import</font> your data, you're ready to analyze. 
-- <span class="blue">`View` your data, then select a variable and try to make an appropriate plot for that variable.</span>
+- **(1) `View` your data and select a variable. Write and run a code to create an appropriate plot for that variable.**
+- **(2) What variable did you choose? What does the plot tell us about that variable?**
+- **Summarize the process: **
+  - **(3) What might your future self forget about this process? Summarize the steps you took in this lab to use new data in RStudio.**

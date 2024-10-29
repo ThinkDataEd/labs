@@ -35,7 +35,7 @@ library(mobilizr2)
 - A `dotPlot` is another plot that can be used to analyze a numerical variable.
   - Dotplots are better suited for smaller datasets. If datasets are too large, the dots become too small to see.
   - Similarly, distributions with a large spread might impact the readability of the plot.
-- <span class="blue">Use the `dotPlot()` function to create a `dotPlot` of the amount of `sugar` in our `food` data.</span>
+- **(1) Write and run code for creating a `dotPlot` of the amount of `sugar` in our `food` data.**
     - The code to create a `dotPlot` is exactly like you'd use to make a `histogram`.
     - Make sure to use a capital _P_ in `dotPlot`.
     
@@ -44,7 +44,7 @@ library(mobilizr2)
 
 - While a `dotPlot` should conserve the exact value of each data point, sometimes it behaves like a `histogram` in that it lumps values together.
 
-- <span class="blue">Create a more accurate `dotPlot` by including the `nint` option.</span>
+- **(2) Write and run the code for a more accurate `dotPlot` by including the `nint` option.**
   - Set `nint` equal to the maximum value for `sugar` minus the minimum value for `sugar` plus one.
     - <span class="blue">On your `food` data spreadsheet, click on the `sugar` header to sort in ascending order (to obtain minimum). </span>
     - <span class="blue">Click on the `sugar` header again to sort in descending order (to obtain maximum). </span>
@@ -57,9 +57,9 @@ library(mobilizr2)
 
 - In lab 1B, we learned that we can _facet_ (or split) our data based on a categorical variable.
 
-- <span class="blue">Split the `dotPlot` displaying the distribution of grams of `sugar` in two, by faceting on our observations' `salty_sweet` variable.</span>
-    - **Describe how `R` decides which observations go into the left or right plot.**
-    - **What does each _dot_ in the plot represent?**
+- **(3) Write and run code splitting the `dotPlot` displaying the distribution of grams of `sugar` in two, by faceting on our observations' `salty_sweet` variable.**
+    - **(4) Describe how `R` decides which observations go into the left or right plot.**
+    - **(5) What does each _dot_ in the plot represent?**
 
 
 ## Altering the layout
@@ -89,7 +89,7 @@ layout = c(1,2)
 ```{r, eval = FALSE, echo = TRUE}
 food_salty <- filter(food, salty_sweet == "Salty")
 ```
-- **`View` `food_salty` and write down the number of observations in it.**
+- **(6) `View` `food_salty` and write down the number of observations in it.**
 
 
 ## So what's really going on?
@@ -122,7 +122,7 @@ food_salty <- filter(food, salty_sweet == "Salty")
 ```{r, eval = FALSE, echo = TRUE}
 head(~salty_sweet == "Salty", data = food)
 ```
-- **What do the values `TRUE` and `FALSE` tell us about how our _rule_ applies to the first six snacks in our data? Which of the first six observations were `Salty`?**
+- **(7) What do the values `TRUE` and `FALSE` tell us about how our _rule_ applies to the first six snacks in our data? Which of the first six observations were `Salty`?**
 
 ## Saving values
 
@@ -148,7 +148,7 @@ food_salty <- filter(food, salty_sweet == "Salty")
 - We can now use `food_salty` to do anything we could do with the regular `food` data ...
     - but only including those snacks who reported being `Salty`.
 - As a result of assigning the subset data to `food_salty`, `food_salty` now appears in the _Environment_ pane. Whenever data is assigned to a variable name, that variable name will appear in the _Environment_ pane.
-- <span class="blue">Use `food_salty` to make a `dotPlot` of the `sodium` in our `Salty` snacks.</span>
+- **(8) Write and run code using `food_salty` to make a `dotPlot` of the `sodium` in our `Salty` snacks.**
 
 ## Including more filters
 
@@ -166,8 +166,8 @@ my_sub <- filter(food, salty_sweet == "Salty", calories < 200)
 ## Put it all together
 
 - **Use an appropriate `dotPlot` to answer each of the following questions:**
-    - **About how much `sugar` does the typical sweet snack have?**
-    - **How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
+    - **(9) About how much `sugar` does the typical sweet snack have?**
+    - **(10) How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
     
 - Because you are now working with subsets of data, it is important to label our plots and make this distinction.
 

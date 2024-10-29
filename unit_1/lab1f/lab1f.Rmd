@@ -66,7 +66,7 @@ data(atu_dirty)
 ```{r, eval = FALSE, echo = TRUE}
 View(atu_dirty)
 ```
-- **Just by viewing the data, what parts of our ATU data do you think need cleaning?**
+- **(1) Just by viewing the data, what parts of our ATU data do you think need cleaning?**
 
 
 ## Description of ATU Variables
@@ -92,7 +92,7 @@ atu_cleaner <- rename(atu_dirty, age = V1,
 ```
 
 - <span class="blue">Use the example code and the variable information on the previous slide to rename the rest of the variables in `atu_dirty`.</span>
-- **Write down the new names you chose for the rest of the variables in `atu_dirty`.**
+- **(2) Write down the new names you chose for the rest of the variables in `atu_dirty`.**
     - Names should be short, contain no spaces and describe what the variable is related to. So use abbreviations to your heart's content.
 
 
@@ -123,7 +123,7 @@ atu_cleaner <- rename(atu_dirty, age = V1,
 - Sometimes we don't mean for this to happen.
     - The _number of siblings_ a person has should not be a string.
 - <span class="blue">Look at the `str`ucture of your data and the variable descriptions from a few slides back:</span>
-    - **Write down the variables that should be _numeric_ but are improperly coded as _strings_ or _characters_.**
+    - **(3) Write down the variables that should be _numeric_ but are improperly coded as _strings_ or _characters_.**
 
 
 ## Changing strings into numbers
@@ -139,7 +139,7 @@ as.numeric("3.14")
 
 ## Mutating in action
 
-- <span class="blue">Look at the variables you thought should be _numeric_ and select one. Then fill in the blanks below to see how we can correctly code it as a number:</span>
+- **(4) Look at the variables you thought should be _numeric_ and select one. Then fill in the blanks below to see how we can correctly code it as a number:**
 ```{r, eval = FALSE, echo = TRUE}
 atu_cleaner <- mutate(atu_cleaner, 
                  age = as.numeric(age),
@@ -164,7 +164,7 @@ atu_cleaner <- mutate(atu_cleaner,
 ```{r, eval = FALSE, echo = TRUE}
 tally(~sex, data = atu_cleaner)
 ```
-- **Use similar code as we used above to write down the levels for the three factors in our data.**
+- **(5) Use similar code as we used above to write down the levels for the three factors in our data.**
 
 
 ## A level by any other name...
@@ -259,11 +259,11 @@ save(atu_clean, file = "atu_clean.Rda")
 histogram(~calories | healthy_level, data = food)
 ```
 
-- <span class="blue">Use the `as.factor()` function to convert `healthy_level` into a categorical variable and re-run the `histogram` function.</span>
+- **(6) Write and run code using the `as.factor()` function to convert `healthy_level` into a categorical variable and re-run the `histogram` function.**
 
   - Notice that the `healthy_level` categories are now numbers as opposed to tick-marks. This is an improvement but an even better solution would be to `recode` the categories.
 
-- <span class="blue">`Recode` the `healthy_level` categories and re-run the `histogram` function.</span>
+- **(7) Write and run code to `recode` the `healthy_level` categories and re-run the `histogram` function.**
 
     - "1" = "Very Unhealthy"
     - "2" = "Unhealthy"

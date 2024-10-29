@@ -33,17 +33,18 @@ data(cdc)
 - Numerical variables have values that are measured in units.
 - Categorical variables have values that describe or categorize our observations.
 - <span class="blue">`View` your `cdc` data and find the columns for `height` and `sex` (use the _History_ pane again if you need help to `View` your data).</span>
-    - **Is `height` a numerical or categorical variable? Why?**
-    - **Is `sex` a numerical or categorical variable? Why?**
-    - **List either the different categories or what you think the measured units are for `height` and `sex`.**
+    - **(1) Is `height` a numerical or categorical variable? Why?**
+    - **(2) Is `sex` a numerical or categorical variable? Why?**
+    - **(3) List either the different categories or what you think the measured units are for `height` and `sex`.**
 
     
 ## Which is which?
 
 - <span class="blue">Run the code you used in the previous lab to display the `names` of your `cdc` data's variables (use the code displayed in the _History_ pane to resubmit previously typed commands).</span> **Use the code's output to help you complete the following:**
-    - **Write down 3 variables that you think are _categorical_ variables and why.**
-    - **Write down 3 variables that you think are _numerical_ variables and why.**
+    - **(4) Write down 3 variables that you think are _categorical_ variables and why.**
+    - **(5) Write down 3 variables that you think are _numerical_ variables and why.**
 
+<center> ![History](lab1b-figure/history.png){ width=60% }</center>
 
 ## Data Structures
 
@@ -54,21 +55,21 @@ data(cdc)
 str(cdc)
 ```
 
-- <span class="blue">Look at the `str`ucture of your `cdc` data and answer:</span>
-- **What information does the `str` function output?**
-- **Were you able to correctly guess which variables were categorical and numeric? Which ones did you mislabel?**
+- **(6) What information does the `str` function output?**
+- **(7) Were you able to correctly guess which variables were categorical and numeric? Which ones did you mislabel?**
     
 
 ## Visualizing data
 
 - Visualizing data is a really helpful way to learn about our variables.
-- <span class="blue">Choose one numeric and one categorical variable from the data and create both a `bargraph` and a `histogram` for each variable.</span>
-    - **Which function, either `bargraph` or `histogram`, is better at visualizing categorical variables? Which is better at visualizing numerical variables?**
+- **(8) Choose one numeric variable. Write and run the codes to create a `bargraph` and a `histogram`.**
+- **(9) Now choose one categorical variable. Write and run the codes to create a bargraph and a histogram.**
+- **(10) Which function, either `bargraph` or `histogram`, is better at visualizing categorical variables? Which is better at visualizing numerical variables?**
     
 ## We have options
 
-- <span class="blue">Make a graph that shows the distribution of people's `weight`.</span>
-  - **Describe the distribution of `weight`. Make sure to describe the _shape_, _center_ and _spread_ of the distribution.**
+- **(11) Write and run the code to make a graph that shows the distribution of people's `weight`.**
+  - **(12) Describe the distribution of `weight`. Make sure to describe the _shape_, _center_ and _spread_ of the distribution.**
 
 - _Options_ can be added to plotting functions to change their appearance. The code below includes the `nint` option which controls the number of _intervals_ in a numerical plot.
   - Options, also known as _arguments_, are additional pieces of information you provide to a function, and are separated by commas.
@@ -77,39 +78,39 @@ str(cdc)
 histogram(~weight, data = cdc, nint = 3)
 ```
 -
-  - **How did including the option `nint = 3` change the `histogram`?**
-  - **Does setting `nint = 3` impact how you would describe the shape, center and spread?**
-  - **Try other values for `nint`. What value produced the best graph? Why?**
+  - **(13) How did including the option `nint = 3` change the `histogram`?**
+  - **(14) Does setting `nint = 3` impact how you would describe the shape, center and spread?**
+  - **(15) Try other values for `nint`. What value produced the best graph? Why?**
  
 ## How often do people text & drive?
 
-- <span class="blue">Make a graph that shows how often people in our data texted while driving.</span>
-    - **What does the y-axis represent?**
-    - **What does the x-axis tell us?**
-    - **Would you say that _most_ people _never_ texted while driving? What does the word _most_ mean?**
-    - **Approximately what percent of the people texted while driving for 20 or more days?** (Hint: There's `r nrow(cdc)` students in our data.)
+- **(16) Write and run the code to make a graph that shows how often people in our data texted while driving.**
+    - **(17) What does the y-axis represent?**
+    - **(18) What does the x-axis tell us?**
+    - **(19) Would you say that _most_ people _never_ texted while driving? What does the word _most_ mean?**
+    - **(20) Approximately what percent of the people texted while driving for 20 or more days?** (Hint: There are `r nrow(cdc)` students in our data.)
 
 
 ## Does texting and driving differ by sex?
 
-- <span class="blue">Fill in the blanks with the correct variables to create a side-by-side `bargraph`:</span>
+- **(21) Write and run the code to make a side-by-side `bargraph` that could answer the question: _Does texting and driving differ by sex?_ Use the following fill-in-the-blank code as a hint.**
 
 ```{r, eval = FALSE, echo = TRUE}
 bargraph(~ ___, data = ___, groups = ___)
 ```
 
-- **Write a sentence explaining how boys and girls differ when it comes to texting while driving.**
-- **Would you say that most girls never text and drive?  Would you say that most boys never text and drive?**
-- **How did including the `groups` argument in your code change the graph?**
+- **(22) Write a sentence explaining how boys and girls differ when it comes to texting while driving.**
+- **(23) Would you say that most girls never text and drive?  Would you say that most boys never text and drive?**
+- **(24) How did including the `groups` argument in your code change the graph?**
 
 
 ## Do males and females have similar heights?
 
 - To answer this, what we'd like to do is visualize the distributions of heights, separately, for males and females.
     - This way, we can easily compare them.
-- <span class="blue">Use the `groups` argument to create a `histogram` for the `height` of males and females.</span>
-    - **Can you use this graphic to answer the question at the top of the slide? Why or why not?**
-    - **Is grouping numeric values, such as heights, as helpful as grouping categorical variables, such as texting & driving?**
+- **(25) Write and run the code to create a `histogram` for the height of males and females using the `groups` argument.**
+    - **(26) Can you use this graphic to answer the question at the top of the slide? Why or why not?**
+    - **(27) Is grouping numeric values, such as heights, as helpful as grouping categorical variables, such as texting & driving?**
     
 
 ## Do males and females have similar heights?, continued
@@ -119,17 +120,17 @@ bargraph(~ ___, data = ___, groups = ___)
     - With bargraphs, each group is split with bars next to each other on the x-axis. 
     - With histograms, the x-axis is a continuous set of numbers so the bars overlap making it difficult to compare center and spread.
 
-- <span class="blue">Fill in the blanks with the correct variables to create a split `histogram` to answer the questions below:</span>
+- **(28) Write and run the code to create a split `histogram` and answer the questions below.**
 
 ```{r, eval = FALSE, echo = TRUE}
 histogram(~ ____ | ____ , data = ____ )
 ```
 
-- **Do you think males and females have similar heights? Use the plot you create to justify your answer.**
-- <span class="blue">Just like we did for the `histogram`, is it possible to create a _split_ `bargraph`? Try to create a `bargraph` of `drive_text` that's split by `sex` to find out.</span>
+- **(29) Do you think males and females have similar heights? Use the plot you create to justify your answer.**
+- **(30) Just like we did for the `histogram`, is it possible to create a _split_ `bargraph`? Write and run the code to create a `bargraph` of `drive_text` that is split by `sex` to find out.**
 
 ## On your own
 
 - In this lab, we looked at the texting & driving habits of boys and girls. 
-- What other factors do you think might affect how often people text and drive?
-    - **Choose one variable from the `cdc` data, make a graph, and use the graph to describe how `drive_text` use differs with this variable.**
+- **(31) What other factors do you think might affect how often people text and drive?**
+- **(32) Choose one variable from the `cdc` data, make a graph, and use the graph to describe how `drive_text` use differs with this variable.**
