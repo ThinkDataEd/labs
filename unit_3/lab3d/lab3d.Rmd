@@ -33,7 +33,7 @@ library(mobilizr2)
 ## In this lab
 
 - <span class="blue">Load the built-in `atus` (_American Time Use Survey_) dataset, which is a survey of how a sample of Americans spent their day.</span>
-    - **The United States has an estimated population of 336,302,171 (as of April 15, 2024 9:10 a.m. PDT). How many people were surveyed for this particular dataset?**
+    - **(1) The United States has an estimated population of 336,302,171 (as of April 15, 2024 9:10 a.m. PDT). How many people were surveyed for this particular dataset?**
     
     - Note: If you want to know the current US population or world population in real time, click on this link: [https://www.census.gov/popclock/](https://www.census.gov/popclock/)
 
@@ -41,8 +41,8 @@ library(mobilizr2)
 
 _What is the mean age of people older than 15 living in the United States?_
 
-- **Why is it important that the ATUS is a random sample?**
-- **Use our `atus` data to calculate an estimate for the average age of people older than 15 living in the U.S.**
+- **(2) Why is it important that the ATUS is a random sample?**
+- **(3) Use our `atus` data to calculate an estimate for the average age of people older than 15 living in the U.S.**
 
 
 ## One bootstrap
@@ -57,7 +57,7 @@ _What is the mean age of people older than 15 living in the United States?_
 
 ## Our first bootstrap
 
-- <span class="blue">Fill in the blanks to `sample` the row numbers we'll use in our _bootstrapped_ sample.</span>
+- **(4) Fill in the blanks to `sample` the row numbers we'll use in our _bootstrapped_ sample.**
     - Be sure to re-read what a _bootstrapped_ sample is from the previous slide to help you fill in the blanks.
     - Use `set.seed(123)` before taking the sample.
 
@@ -65,7 +65,7 @@ _What is the mean age of people older than 15 living in the United States?_
 bs_rows <- ____(1:____, size = ____, replace = ____)
 ```
 
-- <span class="blue">Use the `slice` function to create a new dataset that includes each row from our `sample`.</span>
+- **(5) Write and run code using the `slice` function to create a new dataset that includes each row from our `sample`.**
 
 ```{r, eval = FALSE, echo = TRUE}
 bs_atus <- slice(atus, bs_rows)
@@ -75,13 +75,13 @@ bs_atus <- slice(atus, bs_rows)
 ## Take a look
 
 - Look at the values of `bs_rows` and `bs_atus`.
-- **Write a paragraph that explains to someone that's not familiar with `R` how you created `bs_rows` and `bs_atus`. Be sure to include an explanation of what the _values_ of `bs_rows` mean and how those values are used to create `bs_atus`. Also, be sure to explain what each argument of each function does.**
+- **(6) Write a paragraph that explains to someone that's not familiar with `R` how you created `bs_rows` and `bs_atus`. Be sure to include an explanation of what the _values_ of `bs_rows` mean and how those values are used to create `bs_atus`. Also, be sure to explain what each argument of each function does.**
 
 
 ## One strap, two strap
 
-- <span class="blue">Calculate the `mean` of the `age` variable in your `bootstrapped` data, then use a different value of `set.seed()` to create your own, personal _bootstrapped_ sample. Then calculate its `mean`.</span>
-- **Compare this second _bootstrapped_ sample with three other classmates and write a sentence about how similar or different the _bootstrapped_ sample means were.**
+- **(7) Write and run code calculating the `mean` of the `age` variable in your `bootstrapped` data, then use a different value of `set.seed()` to create your own, personal _bootstrapped_ sample. Then calculate its `mean`.**
+- **(8) Compare this second _bootstrapped_ sample with three other classmates and write a sentence about how similar or different the _bootstrapped_ sample means were.**
 
 
 ## Many bootstraps
@@ -95,7 +95,7 @@ bs_atus <- slice(atus, bs_rows)
 
 ## Bootstrap function
 
-- <span class="blue">Fill in the blank space below with the 3 steps needed to create a _bootstrapped_ sample `mean` for our `atus` data.</span>
+- **(9) Fill in the blank space below with the 3 steps needed to create a _bootstrapped_ sample `mean` for our `atus` data.**
     - Each step should be written on its own line between the curly braces.
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -111,13 +111,13 @@ bs_func <- function() {
 
 ## Visualizing our bootstraps
 
-- <span class="blue">Once your function is created, fill in the blanks to create 500 _bootstrapped_ sample means:</span>
+- **(10) Once your function is created, fill in the blanks to create 500 _bootstrapped_ sample means:**
 
 ```{r, eval = FALSE, echo = TRUE}
 bs_means <- do(____) * bs_func()
 ```
 
-- **Create a `histogram` for your bootstrapped samples and describe the _center_, _shape_ and _spread_ of its distribution.**
+- **(11) Create a `histogram` for your bootstrapped samples and describe the _center_, _shape_ and _spread_ of its distribution.**
     - These bootstrapped estimates no longer estimate the average age of people in the U.S.
     - Instead, they estimate how much the estimate of the average age of people in the U.S. varies.
 - In the next slide, we'll look at how we can use these bootstrapped means to create _90% confidence intervals_.
@@ -126,16 +126,16 @@ bs_means <- do(____) * bs_func()
 ## Bootstrapped confidence intervals
     
 - To create a 90% confidence interval, we need to decide between which two _ages_ the middle 90% of our bootstrapped estimates are contained.
-- **Using your `histogram`, fill in the statement below:**
+- **(12) Using your `histogram`, fill in the statement below:**
 
 The lowest 5% of our estimates are below _______ years and the highest 5% of our estimates are above_______ years.
 
-- <span class="blue">Use the `quantile()` function to check your estimates.</span>
-- **Based on your bootstrapped estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?**
+- **(13) Write and run code using the `quantile()` function to check your estimates.**
+- **(14) Based on your bootstrapped estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?**
 
 
 ## On your own
 
-- <span class="blue">Using your _bootstrapped_ sample means, create a 95% confidence interval for the `mean` age of people living in the U.S.</span>
-- **Why is the 95% confidence interval wider than the 90% interval?**
-- **Write down how you would explain what a 95% confidence interval means to someone not taking _Introduction to Data Science_.**
+- **(15) Using your _bootstrapped_ sample means, write and run code creating a 95% confidence interval for the `mean` age of people living in the U.S.**
+- **(16) Why is the 95% confidence interval wider than the 90% interval?**
+- **(17) Write down how you would explain what a 95% confidence interval means to someone not taking _Introduction to Data Science_.**

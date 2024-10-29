@@ -50,13 +50,13 @@ load("___.Rda")
 ## Build a Basic Map
 
 - Let's start by building a basic map!
-- <span class="blue">Use the `leaflet()` function and the `mtns` data to create the `leaf` that we can use for mapping.</span>
+- **(1) Write and run code using the `leaflet()` function and the `mtns` data to create the `leaf` that we can use for mapping.**
 
 ```{r, eval = FALSE, echo = TRUE}
 mtns_leaf <- leaflet(____)
 ```
 
-- <span class="blue">Then, insert `mtns_leaf` into the `addTiles()` function and assign the output the name `mtns_map`.</span>
+- **(2) Then, write and run code inserting `mtns_leaf` into the `addTiles()` function and assign the output the name `mtns_map`.**
 - <span class="blue">Run `mtns_map` in the console to look at your basic map with no data displayed.</span>
     - Be sure to try clicking on the map to pan and zoom.
 
@@ -64,25 +64,25 @@ mtns_leaf <- leaflet(____)
 ## Including our data
 
 - Now we can add markers for the locations of the mountains using the `addMarkers()` function.
-- <span class="blue">Fill in the blanks below with the basic map we've created and the values for latitude and longitude.</span>
+- **(3) Fill in the blanks below with the basic map we've created and the values for latitude and longitude.**
     
 ```{r, eval = FALSE, echo = TRUE}
 addMarkers(map = ____, lng = ~____, lat = ~____)
 ```
 
-- <span class="blue">Supply the `peak` variable, in a similar way as we supplied the `lat` and `long` variables, to the `popup` argument and include it in the code above.</span>
-- **Click on a marker within California and write down the name of the mountain you clicked on.**
+- **(4) Write and run code supplying the `peak` variable, in a similar way as we supplied the `lat` and `long` variables, to the `popup` argument and include it in the code above.**
+- **(5) Click on a marker within California and write down the name of the mountain you clicked on.**
 
 
 ## Colorize
 
 - Our current map looks pretty good, but what if we wanted to add some colors to our plot? 
-- <span class="blue">Fill in the blanks below to create a new variable that assigns a color to each mountain based on the `state` it's located in.</span>
+- **(6) Fill in the blanks below to create a new variable that assigns a color to each mountain based on the `state` it's located in.**
 ```{r, eval = FALSE, echo = TRUE}
 mtns <- mutate(____, state_colors = colorize(____))
 ```
 - Now that we've added a new variable, we need to re-build `mtns_leaf` and `mtns_map` to use it.
-    - <span class="blue">Create `mtns_leaf` and `mtns_map` as you did before.</span>
+    - **(7) Write and run code creating `mtns_leaf` and `mtns_map` as you did before.**
     - <span class="blue">Then change `addMarkers` to `addCircleMarkers` and keep all of the arguments the same.</span>
 
 
@@ -91,7 +91,7 @@ mtns <- mutate(____, state_colors = colorize(____))
 - <span class="blue">To add the colors to our plot, use the `addCircleMarkers` like before but this time include `color = ~state_colors` as an argument.</span>
 - It's hard to know just what the different colors mean so let's add a legend.
   - <span class="blue">First, assign the map with the circle markers as `mtns_map`.</span>
-  - <span class="blue">Then, fill in the blanks below to place a legend in the top-right hand corner.</span>
+  - **(8) Then, fill in the blanks below to place a legend in the top-right hand corner.**
 ```{r, eval = FALSE, echo = TRUE}
 addLegend(____, colors = ~unique(____), labels = ~unique(____))
 ```

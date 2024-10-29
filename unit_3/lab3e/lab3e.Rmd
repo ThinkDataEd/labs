@@ -36,16 +36,16 @@ library(mobilizr2)
 
 [https://ids-labs.idsucla.org/extras/webdata/mountains.html](https://ids-labs.idsucla.org/extras/webdata/mountains.html)
 
-- **Briefly describe what the data on the website is about.**
-    - **Then write down 3 questions you'd be interested in answering by analyzing this data.**
+- **(1) Briefly describe what the data on the website is about.**
+    - **(2) Then write down 3 questions you'd be interested in answering by analyzing this data.**
 
 
 ## HTML
 
 - `HTML` is the code that's used to render every website you've ever visited.
 - The following slide shows the `HTML` code used to create the first two rows of the web data.
-    - **How is the data table in `HTML` different than the data tables we're used to seeing in `R`, for example, when we use the `View()` function?**
-    - **What do you think the _tags_ `<TABLE>`, `<TR>`, `<TH>`, `<TD>` mean? How does `HTML` use these _tags_ to display the table?**
+    - **(3) How is the data table in `HTML` different than the data tables we're used to seeing in `R`, for example, when we use the `View()` function?**
+    - **(4) What do you think the _tags_ `<TABLE>`, `<TR>`, `<TH>`, `<TD>` mean? How does `HTML` use these _tags_ to display the table?**
     
 
 ## 
@@ -86,7 +86,7 @@ library(mobilizr2)
 
 - <span class="blue">Use your browser to go back to the website with the data we're interested in scraping.</span>
 - <span class="blue">Find the URL address for the site and assign it the name `data_url` in `R`.</span>
-- <span class="blue">Then fill in the blanks below to have `R` scrape _every_ web table available on the site:</span>
+- **(5) Then fill in the blanks below to have `R` scrape _every_ web table available on the site:**
 
 ```{r, eval = FALSE, echo = TRUE}
 tables <- readHTMLTable(____)
@@ -98,13 +98,13 @@ tables <- readHTMLTable(____)
 - Since `readHTMLTable()` scrapes _every_ table that is on a particular web URL, we need to find out which table has the data we're interested in.
     - For example, `wikipedia.org` often has articles with 3 or more tables.
     - This means we need to check all 3 tables to find the one we're interested in.
-- <span class="blue">Use the `length()` function to find out how many tables of data were scraped in our set of `tables`.</span>
+- **(6) Write and run code using the `length()` function to find out how many tables of data were scraped in our set of `tables`.**
 
 
 ## Saving tables
 
 - Now that we know how many tables we've scraped, we can go back and scrape individual tables by adding the `which` argument to the `readHTMLTable()` function.
-- <span class="blue">Use `readHTMLTable()` to re-scrape the data from the web but this time use the `which` argument to scrape just the individual table.</span>
+- **(7) Write and run code using `readHTMLTable()` to re-scrape the data from the web but this time use the `which` argument to scrape just the individual table.**
     - The `which` argument should be the integer denoting which table you want scraped.
     - Assign the scraped data the name `mtns`.
 
@@ -113,10 +113,10 @@ tables <- readHTMLTable(____)
 
 - After scraping the data, the only thing left to do is to save it and use it.
 
-- <span class="blue">Fill in the blanks to save the data and give it a file name.</span>
+- **(8) Fill in the blanks to save the data and give it a file name.**
 ```{r, eval = FALSE, echo = TRUE}
 save(____, file = "____.Rda")
 ```
 
-- **What is the mean and standard deviation of `elev_ft`?**
-- **Which `state` has the most mountains in our data?**
+- **(9) What is the mean and standard deviation of `elev_ft`?**
+- **(10) Which `state` has the most mountains in our data?**
