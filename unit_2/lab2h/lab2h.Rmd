@@ -48,16 +48,16 @@ plotDist('norm', mean = 0, sd = 1)
 - To draw a normal curve, we need to know exactly 2 things:
     - The `mean` and `sd`.
 - The `sd`, or <b>standard deviation</b>, is a measure of spread that's similar to the `MAD`.
-- **Which part of the normal curve changes when the value of the `mean` changes?**
-- **Which part of the normal curve changes when the value of the `sd` changes?**
+- **(1) Which part of the normal curve changes when the value of the `mean` changes?**
+- **(2) Which part of the normal curve changes when the value of the `sd` changes?**
 - _Hint_: Try changing the `mean` and `sd` values in the `plotDist` function.
 
 
 ## Finding normal distributions
 
 - <span class="blue">Load the `cdc` data and use the `histogram` function to answer the following:</span>
-- **Think about the `height` and `weight` variables. Based on what you know about these variables, which of the variables do you think have distributions that will look like the normal distribution?**
-    - **Make histograms of these variables.  Which ones look like the normal distribution?**
+- **(3) Think about the `height` and `weight` variables. Based on what you know about these variables, which of the variables do you think have distributions that will look like the normal distribution?**
+    - **(4) Make histograms of these variables.  Which ones look like the normal distribution?**
     - _Hint_: To help answer this question, try including the option `fit = "normal"` in the histogram function. You might also try faceting by `sex`.
 
 
@@ -74,8 +74,8 @@ plotDist('norm', mean = 0, sd = 1)
 
 
 - **For each of the following, determine which, if any, appear to be normally distributed. Explain your reasoning:**
-    - **The difference in `percentages` between male and female survivors in a slasher film for 500 random shuffles.**
-    - **The difference in `median` fares between survivors and non-survivors on the Titanic for 500 random shuffles.**
-    - **The difference in `mean` fares between survivors and non-survivors on the Titanic for 500 random shuffles.**
+    - **(5) The difference in `percentages` between male and female survivors in a slasher film for 500 random shuffles.**
+    - **(6) The difference in `median` fares between survivors and non-survivors on the Titanic for 500 random shuffles.**
+    - **(7) The difference in `mean` fares between survivors and non-survivors on the Titanic for 500 random shuffles.**
 - Hint: Refer to Lab 2E and 2F.
 

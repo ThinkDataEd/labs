@@ -390,7 +390,7 @@ list-style-type: none;
   });
 })()
 </script>
-  <link href="data:text/css,code%20%7B%0Afont%2Dfamily%3A%20monospace%3B%0Acolor%3A%20%2310437F%3B%0A%7D%0Aspan%2Eblue%20%7B%0Acolor%3A%20%2325679E%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Astrong%20%7B%0Acolor%3A%20%23B21212%3B%0A%7D%0Afooter%20%7B%0Adisplay%3A%20block%3B%0Aposition%3A%20absolute%3B%0Abottom%3A%200%3B%0Awidth%3A%20100%25%3B%0Afont%2Dsize%3A%2020pt%3B%0Acolor%3A%20%2325679E%3B%0Atext%2Dalign%3A%20center%3B%20%7D%0A%2Eslide%20%2Etitle%20%7B%0Afont%2Dsize%3A%20250%25%3B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0Afont%2Dstyle%3A%20normal%3B%0A%7D%0A%2Etitle%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Eauthor%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Edate%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Egreenequation%20%7B%0Afont%2Dsize%3A%20150%25%3B%0Acolor%3A%20green%3B%0Atext%2Dalign%3A%20center%3B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ali%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Ali%20ul%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Abody%20%7B%0Afont%2Dfamily%3A%20sans%2Dserif%3B%0A%7D%0Apre%2EsourceCode%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0Acode%2EsourceCode%20%7B%0Afont%2Dsize%3A%2095%25%3B%0A%7D%0Apre%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0A%2EsourceCode%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0A%2Eslidy%5Ftoc%20%7B%0Amax%2Dheight%3A%2080vh%3B%0A%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
+  <link href="data:text/css,code%20%7Bfont%2Dfamily%3A%20monospace%3Bcolor%3A%20%2310437F%3B%7Dspan%2Eblue%20%7Bcolor%3A%20%2325679E%3Bfont%2Dweight%3A%20bold%3B%7Dstrong%20%7Bcolor%3A%20%23B21212%3B%7Dfooter%20%7Bdisplay%3A%20block%3Bposition%3A%20absolute%3Bbottom%3A%200%3Bwidth%3A%20100%25%3Bfont%2Dsize%3A%2020pt%3Bcolor%3A%20%2325679E%3Btext%2Dalign%3A%20center%3B%20%7D%2Eslide%20%2Etitle%20%7Bfont%2Dsize%3A%20250%25%3Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3Bfont%2Dstyle%3A%20normal%3B%7D%2Etitle%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Eauthor%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Edate%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Egreenequation%20%7Bfont%2Dsize%3A%20150%25%3Bcolor%3A%20green%3Btext%2Dalign%3A%20center%3Bline%2Dheight%3A%20normal%3B%7Dli%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dli%20ul%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dbody%20%7Bfont%2Dfamily%3A%20sans%2Dserif%3B%7Dpre%2EsourceCode%20%7Bmargin%2Dleft%3A%202em%3B%7Dcode%2EsourceCode%20%7Bfont%2Dsize%3A%2095%25%3B%7Dpre%20%7Bmargin%2Dleft%3A%202em%3B%7D%2EsourceCode%20%7Boverflow%3A%20auto%3B%7D%2Eslidy%5Ftoc%20%7Bmax%2Dheight%3A%2080vh%3B%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
 </head>
 <body>
 <div class="slide titlepage">
@@ -430,37 +430,38 @@ after hitting an iceberg in 1912.
 <li>At the time, it was claimed that the Titanic was <em>unsinkable</em>
 … it wasn’t … because it did.</li>
 </ul></li>
-<li><span class="blue">Use the <code>data</code> function to load the
-<code>titanic</code> passenger and survival data.</span></li>
-<li><span class="blue">Create a boxplot of the <code>fare</code>s paid
-by passengers and facet the plot based on whether the passenger survived
-or not.</span>
+<li><strong>(1) Write and run code using the <code>data</code> function
+to load the <code>titanic</code> passenger and survival
+data.</strong></li>
+<li><strong>(2) Write and run code creating a boxplot of the
+<code>fare</code>s paid by passengers and facet the plot based on
+whether the passenger survived or not.</strong>
 <ul>
-<li><strong>Based on the plot, do you believe that passengers who paid a
-higher fare on the Titanic were more likely to survive? Explain why and
-describe how certain you are of being correct.</strong></li>
+<li><strong>(3) Based on the plot, do you believe that passengers who
+paid a higher fare on the Titanic were more likely to survive? Explain
+why and describe how certain you are of being correct.</strong></li>
 </ul></li>
 </ul>
 </div>
 <div id="the-search-begins" class="slide section level2">
 <h1>The search begins!</h1>
 <ul>
-<li><span class="blue">Start your analysis by calculating how much more
-the <em>typical</em> survivor paid than the <em>typical</em>
-non-survivor in our data.</span></li>
-<li><strong>Based on the distributions of fares paid, which numerical
-summary might be preferred to describe the <em>typical</em>
+<li><strong>(4) Start your analysis by calculating how much more the
+<em>typical</em> survivor paid than the <em>typical</em> non-survivor in
+our data.</strong></li>
+<li><strong>(5) Based on the distributions of fares paid, which
+numerical summary might be preferred to describe the <em>typical</em>
 value?</strong></li>
-<li><strong>What was the <em>typical</em> fare paid by survivors?
+<li><strong>(6) What was the <em>typical</em> fare paid by survivors?
 Non-survivors? How much more did the typical survivor pay?</strong></li>
 </ul>
 </div>
 <div id="do-the-shuffle" class="slide section level2">
 <h1>Do the shuffle!</h1>
 <ul>
-<li><span class="blue">Use the <code>do</code> and the
+<li><strong>(7) Write and run code using the <code>do</code> and the
 <code>shuffle</code> functions to <code>shuffle</code> the passenger’s
-survival status 500 times.</span>
+survival status 500 times.</strong>
 <ul>
 <li>Use the previous lab if you need some help on how to do this.</li>
 <li>For each shuffle, compute each group’s <code>median</code> fare
@@ -468,10 +469,10 @@ paid.</li>
 <li>Assign your shuffled data the name
 <code>shuffled_survival</code>.</li>
 </ul></li>
-<li><span class="blue">After shuffling your data, use the
+<li><strong>(8) After shuffling your data, write and run code using the
 <code>mutate</code> function to create a variable called
 <code>diff</code> which is the <code>median</code> fare of survivors
-minus the <code>median</code> fare of non-survivors.</span>
+minus the <code>median</code> fare of non-survivors.</strong>
 <ul>
 <li>Assign your mutated data the name <code>shuffled_survival</code>
 again.</li>
@@ -481,15 +482,15 @@ again.</li>
 <div id="put-your-simulations-to-use" class="slide section level2">
 <h1>Put your simulations to use</h1>
 <ul>
-<li><strong>Using your shuffled data, answer the research question we
-posed at the beginning of the lab.</strong></li>
+<li><strong>(9) Using your shuffled data, answer the research question
+we posed at the beginning of the lab.</strong></li>
 </ul>
 <p><em>Is there any evidence to suggest that those who survived paid a
 higher fare than those who died?</em></p>
 <ul>
-<li><strong>Write up your answer as a statistical analysis. Create a
-plot and explain how the plot supports your conclusion. Be sure to also
-explain why shuffling your data is important.</strong></li>
+<li><strong>(10) Write up your answer as a statistical analysis. Create
+a plot and explain how the plot supports your conclusion. Be sure to
+also explain why shuffling your data is important.</strong></li>
 </ul>
 </div>
 <div id="comparing-mean-fares" class="slide section level2">
@@ -498,20 +499,20 @@ explain why shuffling your data is important.</strong></li>
 <li><p>What about if instead of calculating the median fare price for
 each group after a shuffle, we calculated the mean fare price and took
 the difference (mean_survivor – mean_victim)?</p></li>
-<li><p><strong>If we did this 500 times, what do you predict the
+<li><p><strong>(11) If we did this 500 times, what do you predict the
 distribution of differences will look like?</strong></p></li>
-<li><p><span class="blue">Use the <code>do</code> and the
+<li><p><strong>(12) Write and run code using the <code>do</code> and the
 <code>shuffle</code> functions to shuffle the passenger survival status
-500 times. </span></p>
+500 times.</strong></p>
 <ul>
 <li>For each shuffle, compute each group’s mean fare paid.</li>
 <li>After shuffling your data, use the <code>mutate</code> function to
 create a variable called <code>diff</code> which is the mean fare of
 survivors minus the mean fare of non-survivors.</li>
 </ul></li>
-<li><p><strong>What does the shuffled data reveal? Does the answer to
-the research question below change when using the mean fares instead of
-the median fares?</strong></p></li>
+<li><p><strong>(13) What does the shuffled data reveal? Does the answer
+to the research question below change when using the mean fares instead
+of the median fares?</strong></p></li>
 </ul>
 <p><em>Is there any evidence to suggest that those who survived paid a
 higher fare than those who died?</em></p>

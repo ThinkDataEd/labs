@@ -34,8 +34,8 @@ library(mobilizr2)
 
 - Besides looking at _typical_ values, sometimes we want to see _extreme_ values, like the smallest and largest values.
     - To find these values, we can use the `min`, `max` or `range` functions. These functions use a similar syntax as the `mean` function.
-- **Find and write down the `min` value and `max` value for your predominant color.**
-- **Apply the `range` function to your predominant color and describe the output.**
+- **(1) Find and write down the `min` value and `max` value for your predominant color.**
+- **(2) Apply the `range` function to your predominant color and describe the output.**
     - The _range_ of a variable is the difference between a variable's smallest and largest value. 
     - Notice, however, that our `range` function calculates the maximum and minimum values for a variable, but not the difference between them.
     - Later in this lab you will create a custom `Range` function that will calculate the difference.
@@ -48,21 +48,21 @@ library(mobilizr2)
     - 25% of our data are smaller than _Q1_, 75% are larger.
     - 75% of our data are smaller than _Q3_, 25% are larger.
     
-- <span class="blue">Fill in the blanks to compute the value of _Q1_ for your predominant color.</span>
+- **(3) Fill in the blanks to compute the value of _Q1_ for your predominant color.**
 ```{r, eval = FALSE, echo = TRUE}
 quantile(~____, data = ____, p = 0.25)
 ```
 
-- **Use a similar line of code to calculate and write down _Q3_, which is the value that's larger than 75% of our data.**
+- **(4) Use a similar line of code to calculate and write down _Q3_, which is the value that's larger than 75% of our data.**
 
 ## The Inter-Quartile-Range (IQR)
 
-- <span class="blue">Make a `dotPlot` of your _predominant_ color's scores. Make sure to include the `nint` option.</span>
+- **(5) Write and run code making a `dotPlot` of your _predominant_ color's scores. Make sure to include the `nint` option.**
 - Visually (don't worry about being super-precise): 
     - <span class="blue">Cut the distribution into quarters so the _number_ of _data points_ is equal for each piece. (Each piece should contain 25% of the data.)</span>
       - Hint: You might consider using the `add_line(vline =  )` to add vertical lines at the quarter marks.
-    - **Write down the numbers that split the data up into these 4 pieces.**
-    - **How long is the interval of the middle two pieces?**
+    - **(6) Write down the numbers that split the data up into these 4 pieces.**
+    - **(7) How long is the interval of the middle two pieces?**
     - This length is the <b>IQR</b>.
 
 
@@ -71,22 +71,22 @@ quantile(~____, data = ____, p = 0.25)
 - The `IQR` is another way to describe _spread_.
     - It describes how _wide_ or _narrow_ the middle 50% of our data are.
 - Just like we used the `min` and `max` to compute the `range`, we can also use the _1st_ and _3rd_ quartiles to compute the _IQR_.
-- **Use the values of _Q1_ and _Q3_ you calculated previously for your predominant color and find the _IQR_ by hand**.
-    - <span class="blue">Then use the `iqr()` function to calculate it for you.</span>
-- **Which personality color score has the widest spread according to the _IQR_? Which is narrowest?**
+- **(8) Use the values of _Q1_ and _Q3_ you calculated previously for your predominant color and find the _IQR_ by hand**.
+    - **(9) Then write and run code using the `iqr()` function to calculate it for you.**
+- **(10) Which personality color score has the widest spread according to the _IQR_? Which is narrowest?**
 
 ## Boxplots
 
 - By using the medians, quartiles, and min/max, we can construct a new single variable plot called the <b>box and whisker</b> plot, often shortened to just <b>boxplot</b>.
-- **By showing someone a `dotPlot`, how would you teach them to make a _boxplot_? Write out your explanation in a series of steps for the person to use.**
-    - **Use the steps you write to create a sketch of a _boxplot_ for your predominant color's scores in your journal.**
-    - <span class="blue">Then use the `bwplot` function to create a _boxplot_ using `R`.</span>
+- **(11) By showing someone a `dotPlot`, how would you teach them to make a _boxplot_? Write out your explanation in a series of steps for the person to use.**
+    - **(12) Use the steps you write to create a sketch of a _boxplot_ for your predominant color's scores in your journal.**
+    - **(13) Then write and run code using the `bwplot` function to create a _boxplot_ using `R`.**
     
 ## Our favorite summaries
 
 - In the past two labs, we've learned how to calculate numerous _numerical summaries_.
     - Computing lots of different summaries can be tedious.
-- <span class="blue">Fill in the blanks below to compute some of our _favorite_ summaries for your predominant color all at once.</span>
+- **(14) Fill in the blanks below to compute some of our _favorite_ summaries for your predominant color all at once.**
 ```{r, eval = FALSE, echo = TRUE}
 favstats(~____, data = colors)
 ```
@@ -107,7 +107,7 @@ values <- range(~____, data = colors)
 ```{r, eval = FALSE, echo = TRUE}
 diff(values)
 ```
-- **Use these two steps to calculate and write down the _range_ of your predominant color.**
+- **(15) Use these two steps to calculate and write down the _range_ of your predominant color.**
 
 
 ## Introducing custom functions 
@@ -143,13 +143,13 @@ mm_diff <- function(variable, data) {
 ____(~____, data = ____)
 ```
 
-- **Which of the four colors has the largest absolute difference between the `mean` and `median` values?**
-    - **By examining a `dotPlot` for this personality color, make an argument why either the `mean` or `median` would be the better description of the _center_ of the data.**
+- **(16) Which of the four colors has the largest absolute difference between the `mean` and `median` values?**
+    - **(17) By examining a `dotPlot` for this personality color, make an argument why either the `mean` or `median` would be the better description of the _center_ of the data.**
 
 
 ## Our first function
 
-- <span class="blue">Using the previous example as a guide, create a function called `Range` (note the capital 'R') that calculates the _range_ of a variable by filling in the blanks below:</span>
+- **(18) Using the previous example as a guide, write a function called `Range` (note the capital 'R') that calculates the _range_ of a variable by filling in the blanks below:**
 
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- function (____, ____) {
@@ -158,12 +158,12 @@ ____ <- function (____, ____) {
 }
 ```
 
-- **Use the `Range` function to find the personality color with the largest difference between the `max` and `min` values.**
+- **(19) Use the `Range` function to find the personality color with the largest difference between the `max` and `min` values.**
 
 
 ## On your own
 
-- <span class="blue">Create a function called `myIQR` that uses the `quantile` function to compute the middle 30% of the data.</span>
+- **(20) Write a function called `myIQR` that uses the `quantile` function to compute the middle 30% of the data.**
 
 
 
