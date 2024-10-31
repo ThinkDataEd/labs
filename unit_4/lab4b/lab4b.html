@@ -518,7 +518,7 @@ list-style-type: none;
   });
 })()
 </script>
-  <link href="data:text/css,code%20%7B%0Afont%2Dfamily%3A%20monospace%3B%0Acolor%3A%20%2310437F%3B%0A%7D%0Aspan%2Eblue%20%7B%0Acolor%3A%20%2325679E%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Astrong%20%7B%0Acolor%3A%20%23B21212%3B%0A%7D%0Afooter%20%7B%0Adisplay%3A%20block%3B%0Aposition%3A%20absolute%3B%0Abottom%3A%200%3B%0Awidth%3A%20100%25%3B%0Afont%2Dsize%3A%2020pt%3B%0Acolor%3A%20%2325679E%3B%0Atext%2Dalign%3A%20center%3B%20%7D%0A%2Eslide%20%2Etitle%20%7B%0Afont%2Dsize%3A%20250%25%3B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0Afont%2Dstyle%3A%20normal%3B%0A%7D%0A%2Etitle%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Eauthor%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Edate%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Egreenequation%20%7B%0Afont%2Dsize%3A%20150%25%3B%0Acolor%3A%20green%3B%0Atext%2Dalign%3A%20center%3B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ali%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Ali%20ul%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Abody%20%7B%0Afont%2Dfamily%3A%20sans%2Dserif%3B%0A%7D%0Apre%2EsourceCode%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0Acode%2EsourceCode%20%7B%0Afont%2Dsize%3A%2095%25%3B%0A%7D%0Apre%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0A%2EsourceCode%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0A%2Eslidy%5Ftoc%20%7B%0Amax%2Dheight%3A%2080vh%3B%0A%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
+  <link href="data:text/css,code%20%7Bfont%2Dfamily%3A%20monospace%3Bcolor%3A%20%2310437F%3B%7Dspan%2Eblue%20%7Bcolor%3A%20%2325679E%3Bfont%2Dweight%3A%20bold%3B%7Dstrong%20%7Bcolor%3A%20%23B21212%3B%7Dfooter%20%7Bdisplay%3A%20block%3Bposition%3A%20absolute%3Bbottom%3A%200%3Bwidth%3A%20100%25%3Bfont%2Dsize%3A%2020pt%3Bcolor%3A%20%2325679E%3Btext%2Dalign%3A%20center%3B%20%7D%2Eslide%20%2Etitle%20%7Bfont%2Dsize%3A%20250%25%3Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3Bfont%2Dstyle%3A%20normal%3B%7D%2Etitle%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Eauthor%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Edate%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Egreenequation%20%7Bfont%2Dsize%3A%20150%25%3Bcolor%3A%20green%3Btext%2Dalign%3A%20center%3Bline%2Dheight%3A%20normal%3B%7Dli%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dli%20ul%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dbody%20%7Bfont%2Dfamily%3A%20sans%2Dserif%3B%7Dpre%2EsourceCode%20%7Bmargin%2Dleft%3A%202em%3B%7Dcode%2EsourceCode%20%7Bfont%2Dsize%3A%2095%25%3B%7Dpre%20%7Bmargin%2Dleft%3A%202em%3B%7D%2EsourceCode%20%7Boverflow%3A%20auto%3B%7D%2Eslidy%5Ftoc%20%7Bmax%2Dheight%3A%2080vh%3B%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
 </head>
 <body>
 <div class="slide titlepage">
@@ -552,17 +552,17 @@ find which model makes the best predictions.</li>
 <ul>
 <li><span class="blue">Load the <code>arm_span</code> data again.</span>
 <ul>
-<li><span class="blue">Create an <code>xyplot</code> with
+<li><strong>(1) Write and run code creating an <code>xyplot</code> with
 <code>height</code> on the y-axis and <code>armspan</code> on the
-x-axis.</span></li>
+x-axis.</strong></li>
 <li><span class="blue">Type <code>add_line()</code> to run the
 <code>add_line</code> function; you’ll be prompted to click twice in the
 plot window to create a line that you think fits the data
 well.</span></li>
 </ul></li>
-<li><span class="blue">Fill in the blanks below to create a function
-that will make predictions of people’s <code>height</code>s based on
-their <code>armspan</code>:</span></li>
+<li><strong>(2) Fill in the blanks below to create a function that will
+make predictions of people’s <code>height</code>s based on their
+<code>armspan</code>:</strong></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>predict_height <span class="ot">&lt;-</span> <span class="cf">function</span>(armspan) {</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  ____ <span class="sc">*</span> armspan <span class="sc">+</span> ____</span>
@@ -571,8 +571,8 @@ their <code>armspan</code>:</span></li>
 <div id="make-your-predictions" class="slide section level2">
 <h1>Make your predictions</h1>
 <ul>
-<li><span class="blue">Fill in the blanks to include your predictions in
-the <code>arm_span</code> data.</span></li>
+<li><strong>(3) Fill in the blanks to include your predictions in the
+<code>arm_span</code> data.</strong></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">____</span>(____))</span></code></pre></div>
 <ul>
@@ -591,16 +591,16 @@ describes our model’s accuracy.</li>
 <ul>
 <li>A <em>residual</em> is the difference between the actual and
 predicted value of a quantity of interest.</li>
-<li><span class="blue">Fill in the blanks below to add a column of
-residuals to <code>arm_span</code>.</span></li>
+<li><strong>(4) Fill in the blanks below to add a column of residuals to
+<code>arm_span</code>.</strong></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">residual =</span> ____ <span class="sc">-</span> ____)</span></code></pre></div>
 <ul>
-<li><p><strong>What do the residuals measure?</strong></p></li>
+<li><p><strong>(5) What do the residuals measure?</strong></p></li>
 <li><p>One method we might consider to measure our model’s accuracy is
 to sum the residuals.</p></li>
-<li><p><span class="blue">Fill in the blanks below to calculate our
-accuracy summary.</span></p></li>
+<li><p><strong>(6) Fill in the blanks below to calculate our accuracy
+summary.</strong></p></li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">sum</span>(____))</span></code></pre></div>
 <ul>
@@ -609,9 +609,9 @@ accuracy summary.</span></p></li>
 action to perform on a column of the dataframe. Whereas the output of
 <code>mutate</code> is a column, the output of <code>summarize</code> is
 (usually) a single number summary.</p></li>
-<li><p><strong>Describe and interpret, in words, what the output of your
-accuracy summary means.</strong></p></li>
-<li><p><strong>Write down why adding positive and negative errors
+<li><p><strong>(7) Describe and interpret, in words, what the output of
+your accuracy summary means.</strong></p></li>
+<li><p><strong>(8) Write down why adding positive and negative errors
 together is problematic for assessing prediction
 accuracy.</strong></p></li>
 </ul>
@@ -628,12 +628,12 @@ errors because squared values are always positive.</p></li>
 <li><p>The <em>mean squared error</em> (MSE) is calculated by squaring
 all of the residuals, and then taking the mean of the squared
 residuals.</p></li>
-<li><p><span class="blue">Fill in the blanks below to calculate the MSE
-of your line.</span></p></li>
+<li><p><strong>(9) Fill in the blanks below to calculate the MSE of your
+line.</strong></p></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">summarize</span>(____, <span class="fu">mean</span>((____)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <ul>
-<li><strong>Compare your MSE with a neighbor. Whose line was more
+<li><strong>(10) Compare your MSE with a neighbor. Whose line was more
 accurate and why?</strong></li>
 </ul>
 </div>
@@ -653,9 +653,9 @@ different predictions.</li>
 models</em>.</li>
 <li>This line connects the mean <code>height</code> of people with
 similar <code>armspan</code>s.</li>
-<li><span class="blue">Fill in the blanks below to create a
-<em>regression line</em> using <code>lm</code>, which stands for
-<em>linear model</em>:</span></li>
+<li><strong>(11) Fill in the blanks below to create a <em>regression
+line</em> using <code>lm</code>, which stands for <em>linear
+model</em>:</strong></li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>best_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(____ <span class="sc">~</span> ____, <span class="at">data =</span> arm_span)</span></code></pre></div>
@@ -665,8 +665,8 @@ similar <code>armspan</code>s.</li>
 <ul>
 <li><p><span class="blue">Type <code>best_fit</code> into the console to
 see the slope and intercept of the regression line.</span></p></li>
-<li><p><span class="blue">Add this line to a scatterplot by filling in
-the blanks below.</span></p></li>
+<li><p><strong>(12) Add this line to a scatterplot by filling in the
+blanks below.</strong></p></li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">intercept =</span> ____, <span class="at">slope =</span> ____)</span></code></pre></div>
 </div>
@@ -676,8 +676,8 @@ the blanks below.</span></p></li>
 <li>Making predictions with models <code>R</code> is familiar with is
 simpler than with lines, or models, we come up with ourselves.
 <ul>
-<li><span class="blue">Fill in the blanks to make predictions using
-<code>best_fit</code>:</span></li>
+<li><strong>(13) Fill in the blanks to make predictions using
+<code>best_fit</code>:</strong></li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>____ <span class="ot">&lt;-</span> <span class="fu">mutate</span>(____, <span class="at">predicted_height =</span> <span class="fu">predict</span>(____))</span></code></pre></div>
@@ -693,13 +693,13 @@ input, and outputs the predictions of that model.</li>
 fit</em> equation by finding the line that minimizes the <em>mean
 squared error</em>. Meaning, it’s the <em>best fitting line
 possible</em>.</p></li>
-<li><p><span class="blue">Calculate the MSE for the values predicted
-using the regression line.</span></p></li>
-<li><p><strong>Compare the MSE of the linear model you fitted using
+<li><p><strong>(14) Calculate the MSE for the values predicted using the
+regression line.</strong></p></li>
+<li><p><strong>(15) Compare the MSE of the linear model you fitted using
 <code>add_line()</code> to the MSE of the linear model obtained with
 <code>lm()</code>. Which linear model performed
 better?</strong></p></li>
-<li><p><strong>Ask your neighbors if any of their lines beat the
+<li><p><strong>(16) Ask your neighbors if any of their lines beat the
 <code>lm</code> line in terms of the MSE. Were any of them
 successful?</strong></p></li>
 </ul>

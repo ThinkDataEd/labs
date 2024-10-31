@@ -31,9 +31,9 @@ library(mobilizr2)
 ## Predictions using a line
 
 - <span class="blue">Load the `arm_span` data again.</span>
-    - <span class="blue">Create an `xyplot` with `height` on the y-axis and `armspan` on the x-axis.</span>
+    - **(1) Write and run code creating an `xyplot` with `height` on the y-axis and `armspan` on the x-axis.**
     - <span class="blue">Type `add_line()` to run the `add_line` function; you'll be prompted to click twice in the plot window to create a line that you think fits the data well.</span>
-- <span class="blue">Fill in the blanks below to create a function that will make predictions of people's `height`s based on their `armspan`:</span>
+- **(2) Fill in the blanks below to create a function that will make predictions of people's `height`s based on their `armspan`:**
 ```{r, eval = FALSE, echo = TRUE}
 predict_height <- function(armspan) {
   ____ * armspan + ____
@@ -43,7 +43,7 @@ predict_height <- function(armspan) {
 
 ## Make your predictions
 
-- <span class="blue">Fill in the blanks to include your predictions in the `arm_span` data.</span>
+- **(3) Fill in the blanks to include your predictions in the `arm_span` data.**
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- mutate(____, predicted_height = ____(____))
 ```
@@ -55,16 +55,16 @@ ____ <- mutate(____, predicted_height = ____(____))
 ## Sums of differences
 
 - A _residual_ is the difference between the actual and predicted value of a quantity of interest.
-- <span class="blue">Fill in the blanks below to add a column of residuals to `arm_span`.</span>
+- **(4) Fill in the blanks below to add a column of residuals to `arm_span`.**
 
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- mutate(____, residual = ____ - ____)
 ```
 
-- **What do the residuals measure?**
+- **(5) What do the residuals measure?**
 
 - One method we might consider to measure our model's accuracy is to sum the residuals.
-- <span class="blue">Fill in the blanks below to calculate our accuracy summary.</span>
+- **(6) Fill in the blanks below to calculate our accuracy summary.**
 
 ```{r, eval = FALSE, echo = TRUE}
 summarize(____, sum(____))
@@ -72,9 +72,9 @@ summarize(____, sum(____))
 
 - Hint: Like `mutate`, the first argument of `summarize` is a dataframe, and the second argument is the action to perform on a column of the dataframe. Whereas the output of `mutate` is a column, the output of `summarize` is (usually) a single number summary.
 
-- **Describe and interpret, in words, what the output of your accuracy summary means.**
+- **(7) Describe and interpret, in words, what the output of your accuracy summary means.**
 
-- **Write down why adding positive and negative errors together is problematic for assessing prediction accuracy.**
+- **(8) Write down why adding positive and negative errors together is problematic for assessing prediction accuracy.**
 
 ## Mean squared error
 
@@ -83,13 +83,13 @@ summarize(____, sum(____))
 - To solve this problem we calculate the squared values of the errors because squared values are always positive.
     
 - The _mean squared error_ (MSE) is calculated by squaring all of the residuals, and then taking the mean of the squared residuals.
-- <span class="blue">Fill in the blanks below to calculate the MSE of your line.</span>
+- **(9) Fill in the blanks below to calculate the MSE of your line.**
 
 ```{r, eval = FALSE, echo = TRUE}
 summarize(____, mean((____)^2))
 ```
 
-- **Compare your MSE with a neighbor. Whose line was more accurate and why?**
+- **(10) Compare your MSE with a neighbor. Whose line was more accurate and why?**
 
 ## Regression lines
 
@@ -98,7 +98,7 @@ summarize(____, mean((____)^2))
 - To avoid this variation in predictions, data scientists will use _regression lines_.
     - We also refer to _regression lines_ as _linear models_.
     - This line connects the mean `height` of people with similar `armspan`s.
-    - <span class="blue">Fill in the blanks below to create a _regression line_ using `lm`, which stands for _linear model_:</span>
+    - **(11) Fill in the blanks below to create a _regression line_ using `lm`, which stands for _linear model_:**
 
 ```{r, eval = FALSE, echo = TRUE}
 best_fit <- lm(____ ~ ____, data = arm_span)
@@ -108,7 +108,7 @@ best_fit <- lm(____ ~ ____, data = arm_span)
 
 - <span class="blue">Type `best_fit` into the console to see the slope and intercept of the regression line.</span>
 
-- <span class="blue">Add this line to a scatterplot by filling in the blanks below.</span>
+- **(12) Add this line to a scatterplot by filling in the blanks below.**
 
 ```{r, eval = FALSE, echo = TRUE}
 add_line(intercept = ____, slope = ____)
@@ -117,7 +117,7 @@ add_line(intercept = ____, slope = ____)
 ## Predicting with regression lines
 
 - Making predictions with models `R` is familiar with is simpler than with lines, or models, we come up with ourselves.
-    - <span class="blue">Fill in the blanks to make predictions using `best_fit`:</span>
+    - **(13) Fill in the blanks to make predictions using `best_fit`:**
     
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- mutate(____, predicted_height = predict(____))
@@ -130,8 +130,8 @@ ____ <- mutate(____, predicted_height = predict(____))
 
 - The `lm()` function creates the _line of best fit_ equation by finding the line that minimizes the _mean squared error_. Meaning, it's the _best fitting line possible_. 
 
-- <span class="blue">Calculate the MSE for the values predicted using the regression line.</span>
+- **(14) Calculate the MSE for the values predicted using the regression line.**
 
-- **Compare the MSE of the linear model you fitted using `add_line()` to the MSE of the linear model obtained with `lm()`. Which linear model performed better?**
+- **(15) Compare the MSE of the linear model you fitted using `add_line()` to the MSE of the linear model obtained with `lm()`. Which linear model performed better?**
 
-- **Ask your neighbors if any of their lines beat the `lm` line in terms of the MSE. Were any of them successful?**
+- **(16) Ask your neighbors if any of their lines beat the `lm` line in terms of the MSE. Were any of them successful?**

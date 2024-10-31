@@ -31,32 +31,32 @@ library(mobilizr2)
 
 ## Our first tree
 
-- <span class="blue">Use the `tree()` function to create a _classification_ tree that predicts whether a person `survived` the Titanic based on their `sex`.</span>
+- **(1) Write and run code using the `tree()` function to create a _classification_ tree that predicts whether a person `survived` the Titanic based on their `sex`.**
     - A _classification_ tree tries to predict which category a categorical variable would belong to based on other variables.
     - The syntax for `tree` is similar to that of the `lm()` function.
     - <span class="blue">Assign this model the name `tree1`.</span>
 
-- **Why can't we just use a _linear model_ to predict whether a passenger on the Titanic `survived` or not based on their `sex`?**
+- **(2) Why can't we just use a _linear model_ to predict whether a passenger on the Titanic `survived` or not based on their `sex`?**
 
 
 ## Viewing trees
 
-- <span class="blue">To actually look at and interpret our `tree1`, place the model into the `treeplot` function.</span>
-    - **Write down the labels of the two _branches_.**
-    - **Write down the labels of the two _leaves_.**
+- **(3) To actually look at and interpret our `tree1`, write and run code placing the model into the `treeplot` function.**
+    - **(4) Write down the labels of the two _branches_.**
+    - **(5) Write down the labels of the two _leaves_.**
 - **Answer the following, based on the `treeplot`:**
-    - **Which `sex` does the model predict will survive?**
-    - **Where does the plot tell you the number of people that get sorted into each leaf? How do you know?**
-    - **Where does the plot tell you the number of people that have been sorted _incorrectly_ in each leaf?**
+    - **(6) Which `sex` does the model predict will survive?**
+    - **(7) Where does the plot tell you the number of people that get sorted into each leaf? How do you know?**
+    - **(8) Where does the plot tell you the number of people that have been sorted _incorrectly_ in each leaf?**
 
 
 ## Leafier trees
 
-- <span class="blue">Similar to how you included multiple variables for a linear model, create a `tree` that predicts whether a person `survived` based on their `sex`, `age`, `class`, and where they `embarked`.</span>
+- **(9) Similar to how you included multiple variables for a linear model, write and run code creating a `tree` that predicts whether a person `survived` based on their `sex`, `age`, `class`, and where they `embarked`.**
     - <span class="blue">Assign this model the name `tree2`.</span>
-- **Create a `treeplot` for this model and answer the following questions:**
-    - **Mrs. Cumings was a 38-year-old female with a 1st class ticket from Cherbourg. Does the model predict that she survived?**
-    - **Which variable ended up not being used by `tree2`?**
+- **(10) Write and run code creating a `treeplot` for this model and answer the following questions:**
+    - **(11) Mrs. Cumings was a 38-year-old female with a 1st class ticket from Cherbourg. Does the model predict that she survived?**
+    - **(12) Which variable ended up not being used by `tree2`?**
 
 
 ## Tree complexity
@@ -64,15 +64,15 @@ library(mobilizr2)
 - By default, the `tree()` function will fit a _tree model_ that will make good predictions without needing lots of branches.
 - We can increase the complexity of our trees by changing the complexity parameter, `cp`, which equals `0.01` by default.
 - We can also change the minimum number of observations needed in a leaf before we split it into a new branch using `minsplit`, which equals `20` by default.
-- <span class="blue">Using the same variables that you used in `tree2`, create a model named `tree3` but include `cp = 0.005` and `minsplit = 10` as arguments.</span>
-    - **How is `tree3` different from `tree2`?**
+- **(13) Using the same variables that you used in `tree2`, write and run code creating a model named `tree3` but include `cp = 0.005` and `minsplit = 10` as arguments.**
+    - **(14) How is `tree3` different from `tree2`?**
 
 ## Predictions and Cross-validation
 
 - Just like with _linear models_, we can use cross-validation to measure how well our _classification trees_ perform on unseen data.
 - First, we need to compute the predictions that our model makes on test data.
     - <span class="blue">Use the `data` function to load the `titanic_test` data.</span>
-    - <span class="blue">Fill in the blanks below to predict whether people in the `titanic_test` data survived or not using `tree1`.</span>
+    - **(15) Fill in the blanks below to predict whether people in the `titanic_test` data survived or not using `tree1`.**
     - Note: the argument `type = "class"` tells the `predict` function that we are predicting a categorical variable and not a numerical variable.
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -91,13 +91,13 @@ titanic_test <- mutate(____, prediction = predict(____, newdata = ____, type = "
 View(select(titanic_test, survived, prediction))
 ```
 
-- **Where does the first misclassification occur?**
+- **(16) Where does the first misclassification occur?**
 
 ## Misclassification rate
 
 - In order to tally up the total number of misclassifications, we need to create a function that compares the actual outcome with the predicted outcome. The <b>not equal to</b> operator (!=) will be useful here.
 
-- <span class="blue">Fill in the blanks to create a function to calculate the MCR.</span>
+- **(17) Fill in the blanks to create a function to calculate the MCR.**
 
  - Hint: sum(____!=____) will count the number of times that the left-hand side does not equal the right-hand side.
     - We want to count the number of times that actual does not equal predicted and then divide by the total number of observations.
@@ -118,9 +118,9 @@ summarize(titanic_test, mcr = calc_mcr(survived, prediction))
 
 ## On your own
 
-- **In your own words, explain what the _misclassification rate_ is.**
-- **Which model (`tree1`, `tree2` or `tree3`) had the lowest misclassification rate for the `titanic_test` data?**
-- <span class="blue">Create a 4th model using the same variables used in `tree2`. This time though, change the _complexity parameter_ to `0.0001`. Then answer the following.</span>
-    - **Does creating a more complex _classification tree_ always lead to better predictions? Why not?**
-- <span class="blue">A _regression tree_ is a tree model that predicts a numerical variable. Create a _regression tree_ model to predict the Titanic's passengers' ages and calculate the MSE.</span>
+- **(18) In your own words, explain what the _misclassification rate_ is.**
+- **(19) Which model (`tree1`, `tree2` or `tree3`) had the lowest misclassification rate for the `titanic_test` data?**
+- **(20) Write and run code creating a 4th model using the same variables used in `tree2`. This time though, change the _complexity parameter_ to `0.0001`. Then answer the following.**
+    - **(21) Does creating a more complex _classification tree_ always lead to better predictions? Why not?**
+- **(22) A _regression tree_ is a tree model that predicts a numerical variable. Write and run code creating a _regression tree_ model to predict the Titanic's passengers' ages and calculate the MSE.**
     - Plots of regression trees are often too complex to plot.

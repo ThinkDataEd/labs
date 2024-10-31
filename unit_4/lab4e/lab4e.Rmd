@@ -25,7 +25,7 @@ library(mobilizr2)
 - So far, we have only worked with prediction models that fit the _line of best fit_ to the data.
 - What happens if the true relationship between the data is nonlinear?
 - In this lab, we will learn about prediction models that fit _best fitting curves_ to data.
-- <span class="blue">Before moving on, load the `movie` data and split it into two sets:</span>
+- **(1) Before moving on, load the `movie` data and write and run code splitting it into two sets:**
     - <span class="blue">A set named `training` that includes 75% of the data.</span>
     - <span class="blue">And a set named `test` that includes the remaining 25%.</span>
     - <span class="blue">Remember to use `set.seed`.</span>
@@ -34,8 +34,8 @@ library(mobilizr2)
 ## Problems with lines
 
 - Before learning how to fit curves, let's first fit a linear model for reference.
-- <span class="blue">Train a linear model predicting `audience_rating` based on `critics_rating` for the `training` data. Assign this model to `movie_linear`.</span>
-- <span class="blue">Fill in the blanks below to create a scatterplot with `audience_rating` on the y-axis and `critics_rating` on the x-axis using your `test` data.</span>
+- **(2) Write and run code training a linear model predicting `audience_rating` based on `critics_rating` for the `training` data. Assign this model to `movie_linear`.**
+- **(3) Fill in the blanks below to create a scatterplot with `audience_rating` on the y-axis and `critics_rating` on the x-axis using your `test` data.**
     
 ```{r, eval = FALSE, echo = TRUE}
 xyplot(____ ~ ____, data = ____)
@@ -48,9 +48,9 @@ xyplot(____ ~ ____, data = ____)
 add_curve(movie_linear)
 ```
 
-- **Describe, in words, how the line fits the data. Are there any values for `critics_rating` that would make obviously poor predictions?**
+- **(4) Describe, in words, how the line fits the data. Are there any values for `critics_rating` that would make obviously poor predictions?**
     - Hint: how does the linear model perform on very low and very high values of `critics_rating`?
-- **Compute the MSE of the linear model for the `test` data and write it down for later.**
+- **(5) Compute the MSE of the linear model for the `test` data and write it down for later.**
     - Hint: refer to lab 4C.
 
 
@@ -74,17 +74,17 @@ knitr::include_graphics("lab4e-figure/polynomials.png")
 ## Making bend-y models
 
 - To fit a quadratic model in `R`, we can use the `poly()` function.
-    - <span class="blue">Fill in the blanks below to train a quadratic model predicting `audience_rating` from `critics_rating`, and assign that model to `movie_quad`.</span>
+    - **(6) Fill in the blanks below to train a quadratic model predicting `audience_rating` from `critics_rating`, and assign that model to `movie_quad`.**
 
 ```{r, eval = FALSE, echo = TRUE}
 movie_quad <- lm(____ ~ poly(____, 2), data = training)
 ```
 
-- **What is the role of the number `2` in the `poly()` function?**
+- **(7) What is the role of the number `2` in the `poly()` function?**
 
 ## Comparing lines and curves
 
-- <span class="blue">Fill in the blanks below to</span>
+- **(8) Fill in the blanks below to**
     - <span class="blue">create a scatterplot with `audience_rating` on the y-axis and `critics_rating` on the x-axis using your `test` data, and</span>
     - <span class="blue">add the _line of best fit_ and _best fitting quadratic curve_.</span>
     - Hint: the `col` argument is added to the `add_curve` functions to help distinguish the two curves.
@@ -95,14 +95,14 @@ add_curve(____, col = "blue")
 add_curve(____, col = "red")
 ```
 
-- **Compare how the _line of best fit_ and the _quadratic_ model fit the data. Which do you think has a lower `test` MSE?**
-- **Compute the MSE of the quadratic model for the `test` data and write it down for later**.
-- **Use the `test` MSE to explain why one model fits better than the other.**
+- **(9) Compare how the _line of best fit_ and the _quadratic_ model fit the data. Which do you think has a lower `test` MSE?**
+- **(10) Compute the MSE of the quadratic model for the `test` data and write it down for later**.
+- **(11) Use the `test` MSE to explain why one model fits better than the other.**
 
 ## On your own
 
-- <span class="blue">Create a model that predicts `audience_rating` using a cubic curve (polynomial with degree `3`), and assign this model to `movie_cubic`.</span>
-- <span class="blue">Create a scatterplot with `audience_rating` on the y-axis and `critics_rating` on the x-axis using your `test` data.</span>
+- **(12) Write and run code creating a model that predicts `audience_rating` using a cubic curve (polynomial with degree `3`), and assign this model to `movie_cubic`.**
+- **(13) Write and run code creating a scatterplot with `audience_rating` on the y-axis and `critics_rating` on the x-axis using your `test` data.**
 - <span class="blue">Using the names of the three models you have trained, add the _line of best fit_, _best fitting quadratic curve_, and _best fitting cubic curve_ for the `training` data to the plot.</span>
-- **Based on the plot, which model do you think is the best at predicting the `test` data?**
-- **Use the `test` MSE to verify which model is the best at predicting the `test` data.**
+- **(14) Based on the plot, which model do you think is the best at predicting the `test` data?**
+- **(15) Use the `test` MSE to verify which model is the best at predicting the `test` data.**

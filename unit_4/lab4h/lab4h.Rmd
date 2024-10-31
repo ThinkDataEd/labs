@@ -32,20 +32,20 @@ knitr::opts_chunk$set(echo = FALSE)
 - The algorithm works _only_ for numerical variables and _only_ when we have no missing data.
 - <span class="blue">To start, use the `data` function to load the `futbol` dataset.</span>
     - This data contains 24 players from the US Men's National Soccer team (USMNT) and 33 quarterbacks from the National Football League (NFL).
-- <span class="blue">Create a scatterplot of the players' `ht_inches` and `wt_lbs` and color each dot based on the `league` they play for.</span>
+- **(1) Write and run code creating a scatterplot of the players' `ht_inches` and `wt_lbs` and color each dot based on the `league` they play for.**
 
 
 ## Running k-means
 
 - After plotting the players' heights and weights, we can see that there are two clusters, or different types, of players:
     - Players in the NFL tend to be taller and weigh more than the shorter and lighter USMNT players.
-- <span class="blue">Fill in the blanks below to use k-means to cluster the same height and weight data into two groups:</span>
+- **(2) Fill in the blanks below to use k-means to cluster the same height and weight data into two groups:**
 
 ```{r, eval = FALSE, echo = TRUE}
 kclusters(____~____, data = futbol, k = ____)
 ```
 
-- <span class="blue">Use this code and the `mutate` function to add the values from `kclusters` to the `futbol` data. Call the variable `clusters`.</span>
+- **(3) Use this code and the `mutate` function to add the values from `kclusters` to the `futbol` data. Call the variable `clusters`.**
 
 
 ## k-means vs. ground-truth
@@ -53,13 +53,13 @@ kclusters(____~____, data = futbol, k = ____)
 - In comparing our football and soccer players, we _know_ for certain which league each player plays in.
     - We call this knowledge _ground-truth_.
 - Knowing the _ground-truth_ for this example is helpful to illustrate how k-means works, but in reality, data-scientists would run k-means not knowing the _ground-truth_.
-- **Compare the clusters chosen by k-means to the ground-truth. How successful was k-means at recovering the `league` information?**
+- **(4) Compare the clusters chosen by k-means to the ground-truth. How successful was k-means at recovering the `league` information?**
 
 
 ## On your own
 
 - <span class="blue">Load your class's `timeuse` data (remember to run `timeuse_format` so each row represents the mean time each student spent participating in the various activities).</span>
-- <span class="blue">Create a scatterplot of `homework` and `videogames` variables.</span>
-    - <span class="blue">Based on this graph, identify and remove any outliers by using the `filter` function.</span>
-- <span class="blue">Use `kclusters` with `k=2` for `homework` and `videogames`. </span>
-    - **Describe how the groups differ from each other in terms of how long each group spends playing `videogames` and doing `homework`.**
+- **(5) Write and run code creating a scatterplot of `homework` and `videogames` variables.**
+    - **(6) Based on this graph, identify and remove any outliers by using the `filter` function.**
+- **(7) Write and run code using `kclusters` with `k=2` for `homework` and `videogames`.**
+    - **(8) Describe how the groups differ from each other in terms of how long each group spends playing `videogames` and doing `homework`.**

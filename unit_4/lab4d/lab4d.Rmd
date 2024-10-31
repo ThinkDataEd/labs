@@ -41,7 +41,7 @@ xyplot(critics_rating~audience_rating, data = movie,
           ylab = list("Variable 2", cex=2.5))
 ```
 
-- **Are these variables linearly related? Why or why not?**
+- **(1) Are these variables linearly related? Why or why not?**
 
 
 ## Correlation review I
@@ -55,7 +55,7 @@ xyplot(critics_rating~audience_rating, data = movie,
 ```
 
 - Correlation coefficients with values close to 1 are very strong with a positive slope. Values close to -1 means the correlation is very strong with a negative slope. 
-- **Does this plot have a positive or negative correlation?**
+- **(2) Does this plot have a positive or negative correlation?**
 
 
 ## Correlation review II
@@ -69,12 +69,12 @@ xyplot(critics_rating~audience_rating, data = movie,
 ```
 
 - Recall that if there is no linear relation between two numerical variables, the correlation coefficient is close to 0. 
-- **What do you guess the correlation coefficient will be for these two variables?**
+- **(3) What do you guess the correlation coefficient will be for these two variables?**
 
 
 ## The movie data
 
-- <span class="blue">Load the `movie` data using the `data` command.</span>
+- **(4) Write and run code loading the `movie` data using the `data` command.**
 - The data comes from a variety of sources like _IMDB_ and _Rotten Tomatoes_. 
     - The `critics_rating` contains values between 0 and 100, 100 being the best.
     - The `audience_rating` contains values that range between 0 and 10, 10 being the best.
@@ -86,16 +86,16 @@ xyplot(critics_rating~audience_rating, data = movie,
 
 - We can use the `cor()` function to find the particular correlation coefficient of the variables from the previous plot, which happen to be `audience_rating` and `critics_rating`.
 - But note, the `cor()` function removes any observations which contain an `NA` value in either variable.
-- <span class="blue">Calculate the correlation coefficient for these variables using the `cor` function. The inputs to the functions work just like the inputs of the `xyplot` function.</span>
+- **(5) Write and run code calculating the correlation coefficient for these variables using the `cor` function. The inputs to the functions work just like the inputs of the `xyplot` function.**
 
 
 ## Now answer the following
 
-- **What was the value of the correlation coefficient you calculated?**
-- **How does this actual value compare with the one you estimated previously?**
-- **Does this indicate a strong, weak, or moderate association? Why?**
-- **How would the scatterplot need to change in order for the correlation to be stronger?**
-- **How would it need to change in order for the correlation to be weaker?**
+- **(6) What was the value of the correlation coefficient you calculated?**
+- **(7) How does this actual value compare with the one you estimated previously?**
+- **(8) Does this indicate a strong, weak, or moderate association? Why?**
+- **(9) How would the scatterplot need to change in order for the correlation to be stronger?**
+- **(10) How would it need to change in order for the correlation to be weaker?**
 
 
 <!-- What if we changed the data? -->
@@ -123,18 +123,18 @@ xyplot(critics_rating~audience_rating, data = movie,
 
 ## Correlation and Predictions
 
-- <span class="blue">Find the two variables that look to have the strongest correlation with `critics_rating`.</span>
-    - <span class="blue">Compute the correlation coefficients for `critics_rating` and each of the two variables.</span>
-    - **Use the correlation coefficient to determine which variable has a stronger linear relationship with `critics_rating`.**
-- <span class="blue">Fit two `lm` models to predict `critics_rating` with each variable and compute the MSE for each.</span> 
-    - **Use the MSE to determine which variable is a better predictor of `critics_rating`.**
-- **How are the correlation coefficient and the MSE related?**
+- **(11) Find the two variables that look to have the strongest correlation with `critics_rating`.**
+    - **(12) Compute the correlation coefficients for `critics_rating` and each of the two variables.**
+    - **(13) Use the correlation coefficient to determine which variable has a stronger linear relationship with `critics_rating`.**
+- **(14) Write and run code fitting two `lm` models to predict `critics_rating` with each variable and compute the MSE for each.** 
+    - **(15) Use the MSE to determine which variable is a better predictor of `critics_rating`.**
+- **(16) How are the correlation coefficient and the MSE related?**
 
 
 ## On your own
 
-- <span class="blue">Select two different numerical variables from the `movie` data. Plot the variables using the `xyplot()` function.</span>
-    - **Would calculating a correlation coefficient for the two variables be appropriate? Justify your answer.**
-    - **Predict what value you think the correlation coefficient will be. Compare this value to the actual value. Finally, interpret what the actual correlation coefficient means.**
-- **Work with your classmates to determine which two variables have the strongest correlation coefficient. Write them down.**
-  - **Why do you think these variables are so strongly related? Is using the correlation coefficient to describe the relationship appropriate and why/why not?**
+- **(17) Select two different numerical variables from the `movie` data. Plot the variables using the `xyplot()` function.**
+    - **(18) Would calculating a correlation coefficient for the two variables be appropriate? Justify your answer.**
+    - **(19) Predict what value you think the correlation coefficient will be. Compare this value to the actual value. Finally, interpret what the actual correlation coefficient means.**
+- **(20) Work with your classmates to determine which two variables have the strongest correlation coefficient. Write them down.**
+  - **(21) Why do you think these variables are so strongly related? Is using the correlation coefficient to describe the relationship appropriate and why/why not?**

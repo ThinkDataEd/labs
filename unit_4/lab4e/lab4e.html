@@ -518,7 +518,7 @@ list-style-type: none;
   });
 })()
 </script>
-  <link href="data:text/css,code%20%7B%0Afont%2Dfamily%3A%20monospace%3B%0Acolor%3A%20%2310437F%3B%0A%7D%0Aspan%2Eblue%20%7B%0Acolor%3A%20%2325679E%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Astrong%20%7B%0Acolor%3A%20%23B21212%3B%0A%7D%0Afooter%20%7B%0Adisplay%3A%20block%3B%0Aposition%3A%20absolute%3B%0Abottom%3A%200%3B%0Awidth%3A%20100%25%3B%0Afont%2Dsize%3A%2020pt%3B%0Acolor%3A%20%2325679E%3B%0Atext%2Dalign%3A%20center%3B%20%7D%0A%2Eslide%20%2Etitle%20%7B%0Afont%2Dsize%3A%20250%25%3B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0Afont%2Dstyle%3A%20normal%3B%0A%7D%0A%2Etitle%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Eauthor%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Edate%20%7B%0Atext%2Dalign%3A%20left%3B%0Acolor%3A%20%2325679E%3B%0A%7D%0A%2Egreenequation%20%7B%0Afont%2Dsize%3A%20150%25%3B%0Acolor%3A%20green%3B%0Atext%2Dalign%3A%20center%3B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ali%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Ali%20ul%20li%20%7B%0Afont%2Dstyle%3A%20normal%3B%20%7D%0Abody%20%7B%0Afont%2Dfamily%3A%20sans%2Dserif%3B%0A%7D%0Apre%2EsourceCode%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0Acode%2EsourceCode%20%7B%0Afont%2Dsize%3A%2095%25%3B%0A%7D%0Apre%20%7B%0Amargin%2Dleft%3A%202em%3B%0A%7D%0A%2EsourceCode%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0A%2Eslidy%5Ftoc%20%7B%0Amax%2Dheight%3A%2080vh%3B%0A%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
+  <link href="data:text/css,code%20%7Bfont%2Dfamily%3A%20monospace%3Bcolor%3A%20%2310437F%3B%7Dspan%2Eblue%20%7Bcolor%3A%20%2325679E%3Bfont%2Dweight%3A%20bold%3B%7Dstrong%20%7Bcolor%3A%20%23B21212%3B%7Dfooter%20%7Bdisplay%3A%20block%3Bposition%3A%20absolute%3Bbottom%3A%200%3Bwidth%3A%20100%25%3Bfont%2Dsize%3A%2020pt%3Bcolor%3A%20%2325679E%3Btext%2Dalign%3A%20center%3B%20%7D%2Eslide%20%2Etitle%20%7Bfont%2Dsize%3A%20250%25%3Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3Bfont%2Dstyle%3A%20normal%3B%7D%2Etitle%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Eauthor%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Edate%20%7Btext%2Dalign%3A%20left%3Bcolor%3A%20%2325679E%3B%7D%2Egreenequation%20%7Bfont%2Dsize%3A%20150%25%3Bcolor%3A%20green%3Btext%2Dalign%3A%20center%3Bline%2Dheight%3A%20normal%3B%7Dli%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dli%20ul%20li%20%7Bfont%2Dstyle%3A%20normal%3B%20%7Dbody%20%7Bfont%2Dfamily%3A%20sans%2Dserif%3B%7Dpre%2EsourceCode%20%7Bmargin%2Dleft%3A%202em%3B%7Dcode%2EsourceCode%20%7Bfont%2Dsize%3A%2095%25%3B%7Dpre%20%7Bmargin%2Dleft%3A%202em%3B%7D%2EsourceCode%20%7Boverflow%3A%20auto%3B%7D%2Eslidy%5Ftoc%20%7Bmax%2Dheight%3A%2080vh%3B%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
 </head>
 <body>
 <div class="slide titlepage">
@@ -541,8 +541,8 @@ the next slide.</p>
 nonlinear?</li>
 <li>In this lab, we will learn about prediction models that fit <em>best
 fitting curves</em> to data.</li>
-<li><span class="blue">Before moving on, load the <code>movie</code>
-data and split it into two sets:</span>
+<li><strong>(1) Before moving on, load the <code>movie</code> data and
+write and run code splitting it into two sets:</strong>
 <ul>
 <li><span class="blue">A set named <code>training</code> that includes
 75% of the data.</span></li>
@@ -558,14 +558,14 @@ the remaining 25%.</span></li>
 <ul>
 <li>Before learning how to fit curves, let’s first fit a linear model
 for reference.</li>
-<li><span class="blue">Train a linear model predicting
+<li><strong>(2) Write and run code training a linear model predicting
 <code>audience_rating</code> based on <code>critics_rating</code> for
 the <code>training</code> data. Assign this model to
-<code>movie_linear</code>.</span></li>
-<li><span class="blue">Fill in the blanks below to create a scatterplot
-with <code>audience_rating</code> on the y-axis and
+<code>movie_linear</code>.</strong></li>
+<li><strong>(3) Fill in the blanks below to create a scatterplot with
+<code>audience_rating</code> on the y-axis and
 <code>critics_rating</code> on the x-axis using your <code>test</code>
-data.</span></li>
+data.</strong></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">xyplot</span>(____ <span class="sc">~</span> ____, <span class="at">data =</span> ____)</span></code></pre></div>
 <ul>
@@ -578,14 +578,14 @@ fit</em> for the <code>training</code> data to the plot.</span></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">add_curve</span>(movie_linear)</span></code></pre></div>
 <ul>
-<li><strong>Describe, in words, how the line fits the data. Are there
-any values for <code>critics_rating</code> that would make obviously
-poor predictions?</strong>
+<li><strong>(4) Describe, in words, how the line fits the data. Are
+there any values for <code>critics_rating</code> that would make
+obviously poor predictions?</strong>
 <ul>
 <li>Hint: how does the linear model perform on very low and very high
 values of <code>critics_rating</code>?</li>
 </ul></li>
-<li><strong>Compute the MSE of the linear model for the
+<li><strong>(5) Compute the MSE of the linear model for the
 <code>test</code> data and write it down for later.</strong>
 <ul>
 <li>Hint: refer to lab 4C.</li>
@@ -622,22 +622,22 @@ its predictions can be.</li>
 <li>To fit a quadratic model in <code>R</code>, we can use the
 <code>poly()</code> function.
 <ul>
-<li><span class="blue">Fill in the blanks below to train a quadratic
-model predicting <code>audience_rating</code> from
+<li><strong>(6) Fill in the blanks below to train a quadratic model
+predicting <code>audience_rating</code> from
 <code>critics_rating</code>, and assign that model to
-<code>movie_quad</code>.</span></li>
+<code>movie_quad</code>.</strong></li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>movie_quad <span class="ot">&lt;-</span> <span class="fu">lm</span>(____ <span class="sc">~</span> <span class="fu">poly</span>(____, <span class="dv">2</span>), <span class="at">data =</span> training)</span></code></pre></div>
 <ul>
-<li><strong>What is the role of the number <code>2</code> in the
+<li><strong>(7) What is the role of the number <code>2</code> in the
 <code>poly()</code> function?</strong></li>
 </ul>
 </div>
 <div id="comparing-lines-and-curves" class="slide section level2">
 <h1>Comparing lines and curves</h1>
 <ul>
-<li><span class="blue">Fill in the blanks below to</span>
+<li><strong>(8) Fill in the blanks below to</strong>
 <ul>
 <li><span class="blue">create a scatterplot with
 <code>audience_rating</code> on the y-axis and
@@ -654,34 +654,34 @@ curves.</li>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">add_curve</span>(____, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">add_curve</span>(____, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <ul>
-<li><strong>Compare how the <em>line of best fit</em> and the
+<li><strong>(9) Compare how the <em>line of best fit</em> and the
 <em>quadratic</em> model fit the data. Which do you think has a lower
 <code>test</code> MSE?</strong></li>
-<li><strong>Compute the MSE of the quadratic model for the
+<li><strong>(10) Compute the MSE of the quadratic model for the
 <code>test</code> data and write it down for later</strong>.</li>
-<li><strong>Use the <code>test</code> MSE to explain why one model fits
-better than the other.</strong></li>
+<li><strong>(11) Use the <code>test</code> MSE to explain why one model
+fits better than the other.</strong></li>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>
 <ul>
-<li><span class="blue">Create a model that predicts
+<li><strong>(12) Write and run code creating a model that predicts
 <code>audience_rating</code> using a cubic curve (polynomial with degree
 <code>3</code>), and assign this model to
-<code>movie_cubic</code>.</span></li>
-<li><span class="blue">Create a scatterplot with
+<code>movie_cubic</code>.</strong></li>
+<li><strong>(13) Write and run code creating a scatterplot with
 <code>audience_rating</code> on the y-axis and
 <code>critics_rating</code> on the x-axis using your <code>test</code>
-data.</span></li>
+data.</strong></li>
 <li><span class="blue">Using the names of the three models you have
 trained, add the <em>line of best fit</em>, <em>best fitting quadratic
 curve</em>, and <em>best fitting cubic curve</em> for the
 <code>training</code> data to the plot.</span></li>
-<li><strong>Based on the plot, which model do you think is the best at
-predicting the <code>test</code> data?</strong></li>
-<li><strong>Use the <code>test</code> MSE to verify which model is the
-best at predicting the <code>test</code> data.</strong></li>
+<li><strong>(14) Based on the plot, which model do you think is the best
+at predicting the <code>test</code> data?</strong></li>
+<li><strong>(15) Use the <code>test</code> MSE to verify which model is
+the best at predicting the <code>test</code> data.</strong></li>
 </ul>
 </div>
 
