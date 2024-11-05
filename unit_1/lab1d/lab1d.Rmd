@@ -165,9 +165,8 @@ my_sub <- filter(food, salty_sweet == "Salty", calories < 200)
 
 ## Put it all together
 
-- **Use an appropriate `dotPlot` to answer each of the following questions:**
-    - **(9) About how much `sugar` does the typical sweet snack have?**
-    - **(10) How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
+- **(9) Create a `dotPlot` and answer the question: About how much `sugar` does the typical sweet snack have?**
+- **(10) Create a `dotPlot` and answer the question: How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
     
 - Because you are now working with subsets of data, it is important to label our plots and make this distinction.
 

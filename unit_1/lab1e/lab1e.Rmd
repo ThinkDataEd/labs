@@ -78,7 +78,6 @@ xyplot(y~x, data = df,
 xyplot(____ ~ ____, data = food)
 ```
 
-
 ## Scatterplots in action
 
 - <span class="blue">Use a scatterplot to answer the following questions:</span>
@@ -101,21 +100,21 @@ xyplot(____ ~ ____, data = food)
 ## Multiple facets
 
 - It can sometimes be helpful to facet on more than 1 variable.
-  - Splitting the data using 2 facets can give us additional insights that might otherwise be hidden.
-
+    - Splitting the data using 2 facets can give us additional insights that might otherwise be hidden.
 - **(7) Write and run code creating a `dotPlot` or `histogram` of the `calories` variable, but facet the data using:**
+
 ```{r, eval = FALSE, echo = TRUE}
-healthy_level + salty_sweet 
+healthy_level + salty_sweet
 ```
+
 - **(8) How does the `healthy_level` of a `Salty` or `Sweet` snack impact the number of `calories` in the snack?**
-
 - Although we are treating `healthy_level` as a categorical variable, `R` recognizes it as a numerical variable. 
-  - <span class="blue">Verify this using the `str` function.</span>
-  - Notice that the faceted histograms or dotPlots do not have labels, but rather tick-marks.
-  - You will have the opportunity to convert the `healthy_level` variable into a factor later on.
-
+    - <span class="blue">Verify this using the `str` function.</span>
+    - Notice that the faceted histograms or dotPlots do not have labels, but rather tick-marks.
+    - You will have the opportunity to convert the `healthy_level` variable into a factor later on.
 - Faceting your data on a numerical variable is NOT recommended.
-  - Numerical variables often have so many different values that they overwhelm the plot and make it hard to read.
+    - Numerical variables often have so many different values that they overwhelm the plot and make it hard to read.
+
 
 ## On your own
 

@@ -81,25 +81,26 @@ bargraph(~phys_challenge | sex, data = atu_clean)
     
 ## Conditional Relative Frequencies
 
-- There is as difference between `phys_challenge | sex` and `sex | phys_challenge`! 
-
-```{r, eval=TRUE, echo=TRUE, fig.width=3, fig.height=3}
-tally(~phys_challenge | sex, data = atu_clean, margin = TRUE)
-```
+- There is a difference between `sex | phys_challenge` and `phys_challenge | sex`! 
 
 ```{r, eval=TRUE, echo=TRUE}
 tally(~sex | phys_challenge, data = atu_clean, margin = TRUE)
 ```
 
+```{r, eval=TRUE, echo=TRUE, fig.width=3, fig.height=3}
+tally(~phys_challenge | sex, data = atu_clean, margin = TRUE)
+```
+
+
 ## Conditional Relative Frequencies, continued
 
 - At first glance, the two-way frequency tables might look similar (especially when the `margin` option is excluded). Notice, however, that the totals are different.
 - The totals are telling us that `R` calculates conditional frequencies by column!
-
 - What does this mean?
-  - In the first two-way frequency table the groups being compared are `Male` and `Female` on the distribution of physical challenges.
-  - In the second two-way frequency table the groups being compared are people with `No difficulty` and `Has difficulty` on the distribution of sex.
+    - In the first two-way frequency table the groups being compared are people with `No difficulty` and `Has difficulty` on the distribution of sex.
+    - In the second two-way frequency table the groups being compared are `Male` and `Female` on the distribution of physical challenges.
 - **(6) Add the option `format = "percent"` to the first `tally` function. How were the percents calculated? Interpret what they mean.**
+
 
 ## On your own
 

@@ -631,42 +631,42 @@ the <code>tally</code> function.</li>
 <div id="conditional-relative-frequencies" class="slide section level2">
 <h1>Conditional Relative Frequencies</h1>
 <ul>
-<li>There is as difference between <code>phys_challenge | sex</code> and
-<code>sex | phys_challenge</code>!</li>
+<li>There is a difference between <code>sex | phys_challenge</code> and
+<code>phys_challenge | sex</code>!</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>phys_challenge <span class="sc">|</span> sex, <span class="at">data =</span> atu_clean, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##                 sex
-## phys_challenge   Male Female
-##   No difficulty  4140   5048
-##   Has difficulty  530    775
-##   Total          4670   5823</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>sex <span class="sc">|</span> phys_challenge, <span class="at">data =</span> atu_clean, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>sex <span class="sc">|</span> phys_challenge, <span class="at">data =</span> atu_clean, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##         phys_challenge
 ## sex      No difficulty Has difficulty
 ##   Male            4140            530
 ##   Female          5048            775
 ##   Total           9188           1305</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>phys_challenge <span class="sc">|</span> sex, <span class="at">data =</span> atu_clean, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##                 sex
+## phys_challenge   Male Female
+##   No difficulty  4140   5048
+##   Has difficulty  530    775
+##   Total          4670   5823</code></pre>
 </div>
 <div id="conditional-relative-frequencies-continued" class="slide section level2">
 <h1>Conditional Relative Frequencies, continued</h1>
 <ul>
-<li><p>At first glance, the two-way frequency tables might look similar
+<li>At first glance, the two-way frequency tables might look similar
 (especially when the <code>margin</code> option is excluded). Notice,
-however, that the totals are different.</p></li>
-<li><p>The totals are telling us that <code>R</code> calculates
-conditional frequencies by column!</p></li>
-<li><p>What does this mean?</p>
+however, that the totals are different.</li>
+<li>The totals are telling us that <code>R</code> calculates conditional
+frequencies by column!</li>
+<li>What does this mean?
 <ul>
 <li>In the first two-way frequency table the groups being compared are
-<code>Male</code> and <code>Female</code> on the distribution of
-physical challenges.</li>
-<li>In the second two-way frequency table the groups being compared are
 people with <code>No difficulty</code> and <code>Has difficulty</code>
 on the distribution of sex.</li>
+<li>In the second two-way frequency table the groups being compared are
+<code>Male</code> and <code>Female</code> on the distribution of
+physical challenges.</li>
 </ul></li>
-<li><p><strong>(6) Add the option <code>format = &quot;percent&quot;</code> to the
+<li><strong>(6) Add the option <code>format = &quot;percent&quot;</code> to the
 first <code>tally</code> function. How were the percents calculated?
-Interpret what they mean.</strong></p></li>
+Interpret what they mean.</strong></li>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">

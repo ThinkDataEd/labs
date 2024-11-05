@@ -40,11 +40,13 @@ data(cdc)
     
 ## Which is which?
 
-- <span class="blue">Run the code you used in the previous lab to display the `names` of your `cdc` data's variables (use the code displayed in the _History_ pane to resubmit previously typed commands).</span> **Use the code's output to help you complete the following:**
+- <span class="blue">Run the code you used in the previous lab to display the `names` of your `cdc` data's variables (use the code displayed in the _History_ pane to resubmit previously typed commands).</span> 
+
+<center> ![](lab1b-figure/history.png){ width=60% }</center>
+
+- **Use the code's output to help you complete the following:**
     - **(4) Write down 3 variables that you think are _categorical_ variables and why.**
     - **(5) Write down 3 variables that you think are _numerical_ variables and why.**
-
-<center> ![History](lab1b-figure/history.png){ width=60% }</center>
 
 ## Data Structures
 
