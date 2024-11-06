@@ -37,18 +37,16 @@ library(mobilizr2)
 [https://ids-labs.idsucla.org/extras/webdata/mountains.html](https://ids-labs.idsucla.org/extras/webdata/mountains.html)
 
 - **(1) Briefly describe what the data on the website is about.**
-    - **(2) Then write down 3 questions you'd be interested in answering by analyzing this data.**
+- **(2) Write down 3 questions you'd be interested in answering by analyzing this data.**
 
 
 ## HTML
 
 - `HTML` is the code that's used to render every website you've ever visited.
-- The following slide shows the `HTML` code used to create the first two rows of the web data.
+- The table below shows the `HTML` code used to create the first two rows of the web data.
     - **(3) How is the data table in `HTML` different than the data tables we're used to seeing in `R`, for example, when we use the `View()` function?**
     - **(4) What do you think the _tags_ `<TABLE>`, `<TR>`, `<TH>`, `<TD>` mean? How does `HTML` use these _tags_ to display the table?**
     
-
-## 
 
 <font size = "3">
 ```
@@ -112,11 +110,13 @@ tables <- readHTMLTable(____)
 ## Check, save and use!
 
 - After scraping the data, the only thing left to do is to save it and use it.
-
 - **(8) Fill in the blanks to save the data and give it a file name.**
+
+
 ```{r, eval = FALSE, echo = TRUE}
 save(____, file = "____.Rda")
 ```
 
 - **(9) What is the mean and standard deviation of `elev_ft`?**
 - **(10) Which `state` has the most mountains in our data?**
+

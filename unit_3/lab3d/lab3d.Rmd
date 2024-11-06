@@ -80,7 +80,7 @@ bs_atus <- slice(atus, bs_rows)
 
 ## One strap, two strap
 
-- **(7) Write and run code calculating the `mean` of the `age` variable in your `bootstrapped` data, then use a different value of `set.seed()` to create your own, personal _bootstrapped_ sample. Then calculate its `mean`.**
+- **(7) Write and run code calculating the `mean` of the `age` variable in your _bootstrapped_ data, then use a different value of `set.seed()` to create your own, personal _bootstrapped_ sample. Then calculate its `mean`.**
 - **(8) Compare this second _bootstrapped_ sample with three other classmates and write a sentence about how similar or different the _bootstrapped_ sample means were.**
 
 
@@ -117,10 +117,10 @@ bs_func <- function() {
 bs_means <- do(____) * bs_func()
 ```
 
-- **(11) Create a `histogram` for your bootstrapped samples and describe the _center_, _shape_ and _spread_ of its distribution.**
-    - These bootstrapped estimates no longer estimate the average age of people in the U.S.
+- **(11) Create a `histogram` for your _bootstrapped_ samples and describe the _center_, _shape_ and _spread_ of its distribution.**
+    - These _bootstrapped_ estimates no longer estimate the average age of people in the U.S.
     - Instead, they estimate how much the estimate of the average age of people in the U.S. varies.
-- In the next slide, we'll look at how we can use these bootstrapped means to create _90% confidence intervals_.
+- In the next slide, we'll look at how we can use these _bootstrapped_ means to create _90% confidence intervals_.
 
 
 ## Bootstrapped confidence intervals
@@ -131,7 +131,7 @@ bs_means <- do(____) * bs_func()
 The lowest 5% of our estimates are below _______ years and the highest 5% of our estimates are above_______ years.
 
 - **(13) Write and run code using the `quantile()` function to check your estimates.**
-- **(14) Based on your bootstrapped estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?**
+- **(14) Based on your _bootstrapped_ estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?**
 
 
 ## On your own

@@ -71,7 +71,7 @@ addMarkers(map = ____, lng = ~____, lat = ~____)
 ```
 
 - **(4) Write and run code supplying the `peak` variable, in a similar way as we supplied the `lat` and `long` variables, to the `popup` argument and include it in the code above.**
-- **(5) Click on a marker within California and write down the name of the mountain you clicked on.**
+- **(5) Click on a marker within a state of your choice and write down the name of the mountain you clicked on.**
 
 
 ## Colorize
