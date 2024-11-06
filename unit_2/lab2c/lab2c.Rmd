@@ -64,7 +64,7 @@ songs <- c(rap, rock)
 
 - Simulations are meant to mimic what happens in real-life using randomness and computers.
     - Before we can start simulating picking songs from a playlist, we need to simulate that playlist in `R`.
-- <span class="blue">Simulate our 39 `rap` songs using the repeat `rep()` function.</span>
+- <span class="blue">Simulate our 39 `rap` songs using the repeat `rep()` function and assign the vector name `rap`.</span>
 ```{r, eval = FALSE, echo = TRUE}
 rap <- rep("rap", times = 39)
 ```
@@ -108,16 +108,18 @@ sample(songs, size = 1, replace = TRUE)
 ```{r, eval = FALSE, echo = TRUE}
 do(___) * sample(___, ___ = ___, ___ = ___)
 ```
+
 - Recall that we need to store our results to be able to perform analysis.
 - **(8) Write and run code _assigning_ the 50 selected songs the name `draws` and then `View` your file.**
-
 - **(9) What is the variable name?**
-  - `R` defaulted to naming the variable based on the function used. You may use the data cleaning skills you learned in lab 1F to `rename` the variable if you wish.
-
+    - `R` defaulted to naming the variable based on the function used. You may use the data cleaning skills you learned in lab 1F to `rename` the variable if you wish.
 - **(10) Fill in the blank below to `tally` how often each genre was selected:**
+
+
 ```{r, eval = FALSE, echo = TRUE}
 tally(~___, data = draws)
 ```
+
 - **(11) Compute the proportion of `"rap"` songs for your 50 draws and find out if the _range_ for your class's proportions is bigger or smaller than when we drew 10 songs.**
 
 
@@ -163,5 +165,5 @@ sample(songs, size = 1, replace = TRUE)
 _If we select a student at random, what is the probability that this student is one of those who went to the movies last Friday?_
 
 - **(14) Write and run code estimating the probability that a randomly chosen student went to the movies using 500 simulations.**
-    - **(15) Write down both the estimated probability and the code you used to compute your estimate. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_.**
+    - **(15) Write down both the code and the output that estimates the probability that a randomly chosen student went to the movies using 500 simulations. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_.**
     - <span class="blue">Include `set.seed(123)` in your code before you `do` 500 repeated samples.</span>

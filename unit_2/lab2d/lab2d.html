@@ -591,8 +591,9 @@ the <code>replace</code> option in the <code>sample</code> function to
 100 from our playlist of songs <em>without replacement</em>. Assign this
 sample the name <code>without</code>.</strong>
 <ul>
-<li><strong>(5) Run <code>tally(without)</code> and describe the output.
-Does something similar happen if you sample <em>with
+<li><strong>(5) Run <code>tally(without)</code> and describe the
+output.</strong></li>
+<li><strong>(6) Does something similar happen if you sample <em>with
 replacement</em>?</strong>
 <ul>
 <li>Notice that the tilde <code>~</code> was not needed with the
@@ -600,9 +601,9 @@ replacement</em>?</strong>
 not a variable within a data frame but rather a vector which acts like a
 lone variable.</li>
 </ul></li>
-<li><strong>(6) What happens if <code>size = 101</code> and
-<code>replace = FALSE</code>?</strong></li>
 </ul></li>
+<li><strong>(7) What happens if <code>size = 101</code> and
+<code>replace = FALSE</code>?</strong></li>
 </ul>
 </div>
 <div id="sample-with-or-without" class="slide section level2">
@@ -618,14 +619,12 @@ probability of getting a <em>Head</em>.</li>
 to grab three candies with their hand and you’re interested in the
 probability that all three candies will be chocolate.</li>
 </ol></li>
-<li><strong>(7) Which of these scenarios would you sample <em>with
+<li><strong>(8) Which of these scenarios would you sample <em>with
 replacement</em> and which would you sample <em>without
-replacement</em>? Why?</strong>
-<ul>
-<li><strong>(8) Write down the line of code you would run to
+replacement</em>? Why?</strong></li>
+<li><strong>(9) Write down the line of code you would run to
 <code>sample</code> from the candy jar. Assume the simulated jar is
 named <code>candies</code>.</strong></li>
-</ul></li>
 </ul>
 </div>
 <div id="simulations-at-work" class="slide section level2">
@@ -639,15 +638,15 @@ named <code>candies</code>.</strong></li>
 that if we select two songs at random, without replacement, that both
 are rap songs.
 <ul>
-<li><strong>(9) Write and run code using the <code>do</code> function to
-perform 10 simulated <code>sample</code>s of <code>size</code> 2,
+<li><strong>(10) Write and run code using the <code>do</code> function
+to perform 10 simulated <code>sample</code>s of <code>size</code> 2,
 without replacement and <em>assign</em> the simulations the name
 <code>draws</code> and then <code>View</code> your file. Use
 <code>set.seed(1)</code>.</strong></li>
-</ul></li>
-<li><strong>(10) What are the variable names? What happened in the first
+<li><strong>(11) What are the variable names? What happened in the first
 simulation? Did any of your 10 simulations contain two <em>rap</em>
 songs?</strong></li>
+</ul></li>
 </ul>
 </div>
 <div id="simulations-and-probability" class="slide section level2">
@@ -671,7 +670,7 @@ of simulations).</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mutate</span>(draws, <span class="at">nrap =</span> <span class="fu">rowSums</span>(draws <span class="sc">==</span> <span class="st">&quot;rap&quot;</span>))</span></code></pre></div>
 <ul>
-<li><strong>(11) Let’s break down the code above by running each part of
+<li><strong>(12) Let’s break down the code above by running each part of
 the code one piece at a time. As you run each line of code below
 describe the output.</strong></li>
 </ul>
@@ -702,7 +701,7 @@ specific combination of events occurred.</li>
 <div id="step-1-creating-a-subset" class="slide section level2">
 <h1>Step 1: Creating a subset</h1>
 <ul>
-<li><strong>(12) Fill in the blanks below to:</strong>
+<li><strong>(13) Fill in the blanks below to:</strong>
 <ol style="list-style-type: decimal">
 <li>Create a subset of our simulations when both draws were
 <code>&quot;rap&quot;</code> songs.</li>
@@ -716,19 +715,19 @@ specific combination of events occurred.</li>
 <div id="estimating-probabilities" class="slide section level2">
 <h1>Estimating probabilities</h1>
 <ul>
-<li><p><strong>(13) Write and run code performing 500 simulations of
+<li><p><strong>(14) Write and run code performing 500 simulations of
 sampling 2 songs from a playlist of 30 <code>&quot;rap&quot;</code>, 23
 <code>&quot;country&quot;</code> and 47 <code>&quot;rock&quot;</code> songs. You might
 consider running <code>set.seed</code> so that your results can be
 reproduced:</strong></p></li>
-<li><p><strong>(14) Calculate and write down the estimated probabilities
+<li><p><strong>(15) Calculate and write down the estimated probabilities
 for the following situations:</strong></p>
 <ol style="list-style-type: decimal">
 <li>You draw two <code>&quot;rap&quot;</code> songs.</li>
 <li>You draw a <code>&quot;rap&quot;</code> song in the first draw and a
 <code>&quot;country&quot;</code> song in the 2nd.</li>
 </ol></li>
-<li><p><strong>(15) Create a <code>histogram</code> that displays the
+<li><p><strong>(16) Create a <code>histogram</code> that displays the
 number of times a <code>&quot;rap&quot;</code> song occurred in each simulation.
 How often were zero rap songs drawn? A single rap song? Two rap
 songs?</strong></p></li>
@@ -741,7 +740,7 @@ songs?</strong></p></li>
 labs, answer the following question by performing two computer
 simulations with 500 repetitions a piece:</span></li>
 </ul>
-<p><strong>(16) <em>If we draw 5 songs from a playlist of 30 rap, 23
+<p><strong>(17) <em>If we draw 5 songs from a playlist of 30 rap, 23
 country and 47 rock songs, how does the estimated probability of all 5
 songs being rap songs change if we draw the songs with or without
 replacement?</em></strong></p>
@@ -752,7 +751,7 @@ replacement?</em></strong></p>
 <em>rap</em> songs that occurred for each of the 500
 repetitions.</span></li>
 </ul></li>
-<li><strong>(17) Describe how the distribution of the number of
+<li><strong>(18) Describe how the distribution of the number of
 <em>rap</em> songs changes depending on if we use replacement or
 not.</strong></li>
 </ul>

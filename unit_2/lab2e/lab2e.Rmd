@@ -125,11 +125,10 @@ shuffled_outcomes <- mutate(shuffled_outcomes, diff = ____ - ____)
 
 ## Time to decide
 
-- **(16) Write and run code creating a `histogram` of the `difference`s in our `shuffled_outcomes` data. Based on your plot, answer the following:**
-
-  - **(17) What was the typical difference in percentages between men and women survivors?**
-    
+- **(16) Write and run code creating a `histogram` of the `diff`erences in our `shuffled_outcomes` data. Based on your plot, answer the following:**
+    - **(17) What was the typical difference in percentages between men and women survivors?**
 - <span class="blue">Include a vertical line in your histogram of the _actual_ difference by running the code below:</span>
+
 
 ```{r, eval = FALSE, echo = TRUE}
 add_line(vline = 22.52252 - 13.30798)
@@ -155,4 +154,4 @@ add_line(vline = 22.52252 - 13.30798)
     - Include the code `set.seed(1)` before your 500 simulations to make your answer reproducible.
 - **(21) Does shuffling the `gender` variable instead of the `survival` variable change your answer to the question?**
 - **(22) Does `gender` play a role in whether or not a character will survive in a slasher film?**
-    - **(23) Why or why not?**
+- **(23) Does `survival` play a role in whether or not a character will survive in a slasher film?**

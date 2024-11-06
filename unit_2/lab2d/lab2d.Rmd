@@ -49,9 +49,10 @@ library(mobilizr2)
     - We called it that, because each time you made a selection, you started with the same playlist. That is, you chose a song, wrote down its data, and then placed it back on the list.
 - It's also possible to select _without replacement_ by setting the `replace` option in the `sample` function to `FALSE`.
 - **(4) Write and run code taking a sample of `size` 100 from our playlist of songs _without replacement_. Assign this sample the name `without`.**
-    - **(5) Run `tally(without)` and describe the output. Does something similar happen if you sample _with replacement_?**
+    - **(5) Run `tally(without)` and describe the output.**
+    - **(6) Does something similar happen if you sample _with replacement_?**
       - Notice that the tilde `~` was not needed with the `tally` function. This is because `without` was not a variable within a data frame but rather a vector which acts like a lone variable.
-    - **(6) What happens if `size = 101` and `replace = FALSE`?**
+- **(7) What happens if `size = 101` and `replace = FALSE`?**
 
 
 ## Sample with? Or without?
@@ -59,8 +60,8 @@ library(mobilizr2)
 - Imagine the following two scenarios.
     1. You have a coin with two sides: _Heads_ and _Tails_. You're not sure if the coin is fair and so you want to estimate the probability of getting a _Head_.
     2. A child reaches into a candy jar with 10 _strawberry_, 50 _chocolate_ and 25 _watermelon_ candies. The child is able to grab three candies with their hand and you're interested in the probability that all three candies will be chocolate.
-- **(7) Which of these scenarios would you sample _with replacement_ and which would you sample _without replacement_? Why?**
-    - **(8) Write down the line of code you would run to `sample` from the candy jar. Assume the simulated jar is named `candies`.**
+- **(8) Which of these scenarios would you sample _with replacement_ and which would you sample _without replacement_? Why?**
+- **(9) Write down the line of code you would run to `sample` from the candy jar. Assume the simulated jar is named `candies`.**
 
 
 ## Simulations at work
@@ -68,9 +69,8 @@ library(mobilizr2)
 - In reality, songs from a playlist are chosen without replacement.
     - This way, you won't hear the same song several times in a row.
 - Let's write a more realistic simulation and estimate the probability that if we select two songs at random, without replacement, that both are rap songs.
-    - **(9) Write and run code using the `do` function to perform 10 simulated `sample`s of `size` 2, without replacement and _assign_ the simulations the name `draws` and then `View` your file. Use `set.seed(1)`.**
-
-- **(10) What are the variable names? What happened in the first simulation? Did any of your 10 simulations contain two _rap_ songs?**
+    - **(10) Write and run code using the `do` function to perform 10 simulated `sample`s of `size` 2, without replacement and _assign_ the simulations the name `draws` and then `View` your file. Use `set.seed(1)`.**
+    - **(11) What are the variable names? What happened in the first simulation? Did any of your 10 simulations contain two _rap_ songs?**
 
 ## Simulations and probability
 
@@ -87,7 +87,7 @@ library(mobilizr2)
 mutate(draws, nrap = rowSums(draws == "rap"))
 ```
 
-- **(11) Let's break down the code above by running each part of the code one piece at a time. As you run each line of code below describe the output.**
+- **(12) Let's break down the code above by running each part of the code one piece at a time. As you run each line of code below describe the output.**
 ```{r, eval = FALSE, echo = TRUE}
 draws == "rap"
 ```
@@ -113,7 +113,7 @@ mutate(draws, nrap = rowSums(draws == "rap"))
 
 ## Step 1: Creating a subset
 
-- **(12) Fill in the blanks below to:**
+- **(13) Fill in the blanks below to:**
     1. Create a subset of our simulations when both draws were `"rap"` songs.
     2. Count the number of rows in this subset.
     3. And divide by the total number of repeated simulations.
@@ -128,22 +128,22 @@ nrow(___) / ___
 
 ## Estimating probabilities
 
-- **(13) Write and run code performing 500 simulations of sampling 2 songs from a playlist of 30 `"rap"`, 23 `"country"` and 47 `"rock"` songs. You might consider running `set.seed` so that your results can be reproduced:**
+- **(14) Write and run code performing 500 simulations of sampling 2 songs from a playlist of 30 `"rap"`, 23 `"country"` and 47 `"rock"` songs. You might consider running `set.seed` so that your results can be reproduced:**
 
-- **(14) Calculate and write down the estimated probabilities for the following situations:**
+- **(15) Calculate and write down the estimated probabilities for the following situations:**
     1. You draw two `"rap"` songs.
     2. You draw a `"rap"` song in the first draw and a `"country"` song in the 2nd.
 
-- **(15) Create a `histogram` that displays the number of times a `"rap"` song occurred in each simulation. How often were zero rap songs drawn? A single rap song? Two rap songs?**
+- **(16) Create a `histogram` that displays the number of times a `"rap"` song occurred in each simulation. How often were zero rap songs drawn? A single rap song? Two rap songs?**
 
 
 ## On your own
 
 - <span class="blue">Using what you've learned in the previous two labs, answer the following question by performing two computer simulations with 500 repetitions a piece:</span>
 
-**(16) _If we draw 5 songs from a playlist of 30 rap, 23 country and 47 rock songs, how does the estimated probability of all 5 songs being rap songs change if we draw the songs with or without replacement?_**
+**(17) _If we draw 5 songs from a playlist of 30 rap, 23 country and 47 rock songs, how does the estimated probability of all 5 songs being rap songs change if we draw the songs with or without replacement?_**
 
 - For each simulation:
     - <span class="blue">Create a `histogram` for the number of _rap_ songs that occurred for each of the 500 repetitions.</span>
-- **(17) Describe how the distribution of the number of _rap_ songs changes depending on if we use replacement or not.**
+- **(18) Describe how the distribution of the number of _rap_ songs changes depending on if we use replacement or not.**
 

@@ -31,7 +31,8 @@ library(mobilizr2)
 
 - **(1) Start by loading the `titanic` data. Write and run code calculating the `mean` `age` of people in the data but `shuffle` their `survival` status 500 times.**
     - <span class="blue">`Assign` this data the name `shfls`.</span>
-- **(2) After creating `shfls`, write and run code using `mutate` to add a new variable to the dataset. This new variable should have the name `diff` and should be the `mean` `age` of those who survived minus those who died.**
+- **(2) After creating `shfls`, write and run code using `mutate` to add a new variable to the dataset.**
+    - This new variable should have the name `diff` and should be the `mean` `age` of those who survived minus those who died.
 - **(3) Finally, write and run code calculating the `mean` and `sd` of the `diff` variable.**
     - <span class="blue">`Assign` these values the name `diff_mean` and `diff_sd`.</span>
 
@@ -85,7 +86,7 @@ histogram(draws, fit = ____)
 
 - We've seen that we can use `pnorm` to calculate _probabilities_ based on a specified _quantity_.
     - Hence, why we call it "P" norm.
-- Now we'll see how to do the opposite. That is, calculate a the _quantity_ for a specific _probability_.
+- Now we'll see how to do the opposite. That is, calculate the _quantity_ for a specific _probability_.
     - Hence, why we'll call this a "Q" norm.
 - **(11) How tall can a man be and still be in the shortest 25% of heights if the mean height is 67 inches with a standard deviation of 3 inches?**
 
@@ -98,13 +99,12 @@ qnorm(____, mean = ____, sd = ____)
 Conduct one of the statistical investigations below:
 
 - Using the `titanic` data:
-    - **(12) Were women on the Titanic typically younger than men?**
-    - **(13) Use a histogram, 500 random shuffles and a normal model to answer the question in the bullet above.**
+    - **(12) Were women on the Titanic typically younger than men? Write and run code using a histogram, 500 random shuffles and a normal model to answer the question in the bullet above.**
     
     
 - Using the `cdc` data:
-    - **(14) Using 500 random shuffles and a normal model, how much taller would the typical male have to be than the typical female in order for the difference to be in the upper 1% by chance alone?**
-    - **(15) How can we use this value to justify the claim that the average `Male` in our data is taller than the average `Female`?**
+    - **(13) Using 500 random shuffles and a normal model, how much taller would the typical male have to be than the typical female in order for the difference to be in the upper 1% by chance alone?**
+    - **(14) How can we use this value to justify the claim that the average `Male` in our data is taller than the average `Female`?**
     
     
     

@@ -617,7 +617,8 @@ randomness and computers.
 need to simulate that playlist in <code>R</code>.</li>
 </ul></li>
 <li><span class="blue">Simulate our 39 <code>rap</code> songs using the
-repeat <code>rep()</code> function.</span></li>
+repeat <code>rep()</code> function and assign the vector name
+<code>rap</code>.</span></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>rap <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;rap&quot;</span>, <span class="at">times =</span> <span class="dv">39</span>)</span></code></pre></div>
 <ul>
@@ -692,19 +693,19 @@ times:</strong></li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">do</span>(___) <span class="sc">*</span> <span class="fu">sample</span>(___, <span class="at">___ =</span> ___, <span class="at">___ =</span> ___)</span></code></pre></div>
 <ul>
-<li><p>Recall that we need to store our results to be able to perform
-analysis.</p></li>
-<li><p><strong>(8) Write and run code <em>assigning</em> the 50 selected
+<li>Recall that we need to store our results to be able to perform
+analysis.</li>
+<li><strong>(8) Write and run code <em>assigning</em> the 50 selected
 songs the name <code>draws</code> and then <code>View</code> your
-file.</strong></p></li>
-<li><p><strong>(9) What is the variable name?</strong></p>
+file.</strong></li>
+<li><strong>(9) What is the variable name?</strong>
 <ul>
 <li><code>R</code> defaulted to naming the variable based on the
 function used. You may use the data cleaning skills you learned in lab
 1F to <code>rename</code> the variable if you wish.</li>
 </ul></li>
-<li><p><strong>(10) Fill in the blank below to <code>tally</code> how
-often each genre was selected:</strong></p></li>
+<li><strong>(10) Fill in the blank below to <code>tally</code> how often
+each genre was selected:</strong></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>___, <span class="at">data =</span> draws)</span></code></pre></div>
 <ul>
@@ -795,10 +796,10 @@ Friday?</em></p>
 randomly chosen student went to the movies using 500
 simulations.</strong>
 <ul>
-<li><strong>(15) Write down both the estimated probability and the code
-you used to compute your estimate. You might find it helpful to write
-your answer in an R Script <em>(File -&gt; New File -&gt; R
-Script)</em>.</strong></li>
+<li><strong>(15) Write down both the code and the output that estimates
+the probability that a randomly chosen student went to the movies using
+500 simulations. You might find it helpful to write your answer in an R
+Script <em>(File -&gt; New File -&gt; R Script)</em>.</strong></li>
 <li><span class="blue">Include <code>set.seed(123)</code> in your code
 before you <code>do</code> 500 repeated samples.</span></li>
 </ul></li>

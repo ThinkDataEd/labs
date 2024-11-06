@@ -55,7 +55,7 @@ plotDist('norm', mean = 0, sd = 1)
 
 ## Finding normal distributions
 
-- <span class="blue">Load the `cdc` data and use the `histogram` function to answer the following:</span>
+- <span class="blue">Load the `cdc` data and answer the following:</span>
 - **(3) Think about the `height` and `weight` variables. Based on what you know about these variables, which of the variables do you think have distributions that will look like the normal distribution?**
     - **(4) Make histograms of these variables.  Which ones look like the normal distribution?**
     - _Hint_: To help answer this question, try including the option `fit = "normal"` in the histogram function. You might also try faceting by `sex`.

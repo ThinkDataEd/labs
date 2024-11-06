@@ -82,8 +82,7 @@ add_line(vline = mean(~____, data = colors))
 ```
 
 - **(12) Look at the spread of the scores from the mean score then complete the sentence below:**
-
-_Data points in my plot will usually fall within_ ____ _units of the center._
+    - **Data points in my plot will usually fall within ____ units of the center.**
 
 ## Mean Absolute Deviation
 

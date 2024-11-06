@@ -106,4 +106,4 @@ save(stress_colors, file = "stress_colors.Rda")
 - In the next practicum, we'll begin analyzing our merged data. In the meantime: 
 - **(8) Write and run code making a few plots using variables from the `stress` data and _facet_ or _group_ the plots based on variables from the `colors` data.**
 - **(9) Write down the most interesting discovery you made by just exploring your data. Write out how you found your discovery and interpret what it means for the people in your class.**
-- **(10) With our _colors_ data, we could answer questions about the _typical_ color scores in your class. Why can we no longer answer this question in our `stress_colors` data?**
+- **(10) With our `colors` data, we could answer questions about the _typical_ color scores in your class. Why can we no longer answer this question in our `stress_colors` data?**
