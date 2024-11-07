@@ -86,7 +86,7 @@ xyplot(critics_rating~audience_rating, data = movie,
 
 - We can use the `cor()` function to find the particular correlation coefficient of the variables from the previous plot, which happen to be `audience_rating` and `critics_rating`.
 - But note, the `cor()` function removes any observations which contain an `NA` value in either variable.
-- **(5) Write and run code calculating the correlation coefficient for these variables using the `cor` function. The inputs to the functions work just like the inputs of the `xyplot` function.**
+- **(5) Write and run code calculating the correlation coefficient for these variables using the `cor()` function. The inputs to the functions work just like the inputs of the `xyplot` function.**
 
 
 ## Now answer the following
@@ -126,7 +126,7 @@ xyplot(critics_rating~audience_rating, data = movie,
 - **(11) Find the two variables that look to have the strongest correlation with `critics_rating`.**
     - **(12) Compute the correlation coefficients for `critics_rating` and each of the two variables.**
     - **(13) Use the correlation coefficient to determine which variable has a stronger linear relationship with `critics_rating`.**
-- **(14) Write and run code fitting two `lm` models to predict `critics_rating` with each variable and compute the MSE for each.** 
+- **(14) Write and run code fitting two `lm()` models to predict `critics_rating` with each variable and compute the MSE for each.** 
     - **(15) Use the MSE to determine which variable is a better predictor of `critics_rating`.**
 - **(16) How are the correlation coefficient and the MSE related?**
 
@@ -137,4 +137,5 @@ xyplot(critics_rating~audience_rating, data = movie,
     - **(18) Would calculating a correlation coefficient for the two variables be appropriate? Justify your answer.**
     - **(19) Predict what value you think the correlation coefficient will be. Compare this value to the actual value. Finally, interpret what the actual correlation coefficient means.**
 - **(20) Work with your classmates to determine which two variables have the strongest correlation coefficient. Write them down.**
-  - **(21) Why do you think these variables are so strongly related? Is using the correlation coefficient to describe the relationship appropriate and why/why not?**
+  - **(21) Why do you think these variables are so strongly related?**
+  - **(22) Is using the correlation coefficient to describe the relationship appropriate and why/why not?**

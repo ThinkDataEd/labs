@@ -31,8 +31,8 @@ library(mobilizr2)
 ## Predictions using a line
 
 - <span class="blue">Load the `arm_span` data again.</span>
-    - **(1) Write and run code creating an `xyplot` with `height` on the y-axis and `armspan` on the x-axis.**
-    - <span class="blue">Type `add_line()` to run the `add_line` function; you'll be prompted to click twice in the plot window to create a line that you think fits the data well.</span>
+- **(1) Write and run code creating an `xyplot` with `height` on the y-axis and `armspan` on the x-axis.**
+    - <span class="blue">Use `add_line()` or `get_line()` to graph a line that you think fits the data well.</span>
 - **(2) Fill in the blanks below to create a function that will make predictions of people's `height`s based on their `armspan`:**
 ```{r, eval = FALSE, echo = TRUE}
 predict_height <- function(armspan) {
@@ -57,39 +57,39 @@ ____ <- mutate(____, predicted_height = ____(____))
 - A _residual_ is the difference between the actual and predicted value of a quantity of interest.
 - **(4) Fill in the blanks below to add a column of residuals to `arm_span`.**
 
+
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- mutate(____, residual = ____ - ____)
 ```
 
 - **(5) What do the residuals measure?**
-
 - One method we might consider to measure our model's accuracy is to sum the residuals.
 - **(6) Fill in the blanks below to calculate our accuracy summary.**
+
 
 ```{r, eval = FALSE, echo = TRUE}
 summarize(____, sum(____))
 ```
 
 - Hint: Like `mutate`, the first argument of `summarize` is a dataframe, and the second argument is the action to perform on a column of the dataframe. Whereas the output of `mutate` is a column, the output of `summarize` is (usually) a single number summary.
-
 - **(7) Describe and interpret, in words, what the output of your accuracy summary means.**
-
 - **(8) Write down why adding positive and negative errors together is problematic for assessing prediction accuracy.**
+
 
 ## Mean squared error
 
 - When adding residuals, the positive errors in our predictions (underestimates) are cancelled out by negative errors (overestimates) which lead to the impression that our model is making better predictions than it actually is.
-
 - To solve this problem we calculate the squared values of the errors because squared values are always positive.
-    
 - The _mean squared error_ (MSE) is calculated by squaring all of the residuals, and then taking the mean of the squared residuals.
 - **(9) Fill in the blanks below to calculate the MSE of your line.**
+
 
 ```{r, eval = FALSE, echo = TRUE}
 summarize(____, mean((____)^2))
 ```
 
 - **(10) Compare your MSE with a neighbor. Whose line was more accurate and why?**
+
 
 ## Regression lines
 
@@ -107,12 +107,13 @@ best_fit <- lm(____ ~ ____, data = arm_span)
 ## Plotting regression lines
 
 - <span class="blue">Type `best_fit` into the console to see the slope and intercept of the regression line.</span>
+- **(12) Run the code to create the scatterplot of `armspan` vs. `height` again. Then fill in the blanks below to add the line of best fit.**
 
-- **(12) Add this line to a scatterplot by filling in the blanks below.**
 
 ```{r, eval = FALSE, echo = TRUE}
 add_line(intercept = ____, slope = ____)
 ```
+
 
 ## Predicting with regression lines
 
@@ -129,9 +130,7 @@ ____ <- mutate(____, predicted_height = predict(____))
 ## The magic of lm()
 
 - The `lm()` function creates the _line of best fit_ equation by finding the line that minimizes the _mean squared error_. Meaning, it's the _best fitting line possible_. 
-
 - **(14) Calculate the MSE for the values predicted using the regression line.**
+- **(15) Compare the MSE of the linear model you fitted to the MSE of the linear model obtained with `lm()`. Which linear model performed better?**
+- **(16) Ask your neighbors if any of their lines beat the `lm()` line in terms of the MSE. Were any of them successful?**
 
-- **(15) Compare the MSE of the linear model you fitted using `add_line()` to the MSE of the linear model obtained with `lm()`. Which linear model performed better?**
-
-- **(16) Ask your neighbors if any of their lines beat the `lm` line in terms of the MSE. Were any of them successful?**

@@ -580,8 +580,7 @@ their <code>sex</code>?</strong></li>
 <li><strong>(5) Write down the labels of the two
 <em>leaves</em>.</strong></li>
 </ul></li>
-<li><strong>Answer the following, based on the
-<code>treeplot</code>:</strong>
+<li>Answer the following, based on the <code>treeplot</code>:
 <ul>
 <li><strong>(6) Which <code>sex</code> does the model predict will
 survive?</strong></li>
@@ -607,7 +606,7 @@ predicts whether a person <code>survived</code> based on their
 <li><strong>(10) Write and run code creating a <code>treeplot</code> for
 this model and answer the following questions:</strong>
 <ul>
-<li><strong>(11) Mrs. Cumings was a 38-year-old female with a 1st class
+<li><strong>(11) Mrs. Baxter was a 50-year-old female with a 1st class
 ticket from Cherbourg. Does the model predict that she
 survived?</strong></li>
 <li><strong>(12) Which variable ended up not being used by
@@ -682,15 +681,15 @@ occur?</strong></li>
 <div id="misclassification-rate" class="slide section level2">
 <h1>Misclassification rate</h1>
 <ul>
-<li><p>In order to tally up the total number of misclassifications, we
-need to create a function that compares the actual outcome with the
-predicted outcome. The <b>not equal to</b> operator (!=) will be useful
-here.</p></li>
-<li><p><strong>(17) Fill in the blanks to create a function to calculate
-the MCR.</strong></p></li>
-<li><p>Hint: sum(____!=____) will count the number of times that the
-left-hand side does not equal the right-hand side.</p>
+<li>In order to tally up the total number of misclassifications, we need
+to create a function that compares the actual outcome with the predicted
+outcome. The <b>not equal to</b> operator <code>!=</code> will be useful
+here.</li>
+<li><strong>(17) Fill in the blanks to create a function to calculate
+the MCR.</strong>
 <ul>
+<li>Hint: <code>sum(____!=____)</code> will count the number of times
+that the left-hand side does not equal the right-hand side.</li>
 <li>We want to count the number of times that actual does not equal
 predicted and then divide by the total number of observations.</li>
 </ul></li>
@@ -709,21 +708,22 @@ MCR.</span></li>
 <ul>
 <li><strong>(18) In your own words, explain what the
 <em>misclassification rate</em> is.</strong></li>
-<li><strong>(19) Which model (<code>tree1</code>, <code>tree2</code> or
+<li><strong>(19) Which model (<code>tree1</code>, <code>tree2</code>, or
 <code>tree3</code>) had the lowest misclassification rate for the
 <code>titanic_test</code> data?</strong></li>
 <li><strong>(20) Write and run code creating a 4th model using the same
 variables used in <code>tree2</code>. This time though, change the
 <em>complexity parameter</em> to <code>0.0001</code>. Then answer the
-following.</strong>
+following:</strong>
 <ul>
 <li><strong>(21) Does creating a more complex <em>classification
 tree</em> always lead to better predictions? Why not?</strong></li>
 </ul></li>
-<li><strong>(22) A <em>regression tree</em> is a tree model that
-predicts a numerical variable. Write and run code creating a
-<em>regression tree</em> model to predict the Titanic’s passengers’ ages
-and calculate the MSE.</strong>
+<li>A <em>regression tree</em> is a tree model that predicts a numerical
+variable.</li>
+<li><strong>(22) Write and run code creating a <em>regression tree</em>
+model to predict the Titanic’s passengers’ ages and calculate the
+MSE.</strong>
 <ul>
 <li>Plots of regression trees are often too complex to plot.</li>
 </ul></li>

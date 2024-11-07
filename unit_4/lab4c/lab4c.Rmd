@@ -81,12 +81,15 @@ _Whenever you split data into training and test, always use `set.seed` first._
 - Note that we are NOT recomputing the slope and intercept to fit the test data best. We use the same slope and intercept that were computed in step 2.
 - Because we're using the _line of best fit_, we can use the `predict()` function we introduced in the last lab to make predictions.
     - **(5) Fill in the blanks below to add predicted heights to our `test` data:**
+    - Hint: the `predict` function without the argument `newdata` will output predictions on the `training` data. To output predictions on the `test` data, supply the `test` data to the `newdata` argument.
+    
+
 ```{r, eval = FALSE, echo = TRUE}
 test <- mutate(test, ____ = predict(best_training, newdata = ____))
 ```
 
-- Hint: the `predict` function without the argument `newdata` will output predictions on the `training` data. To output predictions on the `test` data, supply the `test` data to the `newdata` argument.
 - **(6) Calculate the _test MSE_ in the same way as you did in the previous lab (test MSE is simply MSE of the predictions on the test data).**
+
 
 ## Recap
 

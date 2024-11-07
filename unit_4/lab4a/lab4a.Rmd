@@ -105,10 +105,11 @@ add_line(intercept = 14.1111111, slope = 0.7777778)
 
 ## Predicting with lines
 
-- **(11) Draw a line that you think is a good _fit_ and write down its equation. Using this equation:**
-    - **(12) Predict how tall a person with a 62-inch `armspan` and a person with a 65-inch `armspan` would be.**
+- **(11) Draw a line that you think is a good _fit_ and write down its equation. Using your equation:**
+- **(12) Predict how tall a person with a 62-inch `armspan` and a person with a 65-inch `armspan` would be.**
     
 <!-- - **How much taller is the person with a 70 inch `armspan` than the 69 inch `armspan`? Does this difference seem more reasonable than the difference we calculated using the means?**   -->
 - Using a line to make predictions also lets us make predictions for `armspan`s that aren't in our data.
     - **(13) How tall would you predict a person with a 63.5-inch `armspan` to be?**
-- **(14) Compare your answers with a neighbor. Did both of you come up with the same equation for a line? If not, can you tell which line fits the data best?**
+    - **(14) Compare your answers with a neighbor. Did both of you come up with the same equation for a line? If not, can you tell which line fits the data best?**
+

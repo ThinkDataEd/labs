@@ -648,15 +648,15 @@ predictions.
 <ul>
 <li><strong>(5) Fill in the blanks below to add predicted heights to our
 <code>test</code> data:</strong></li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">mutate</span>(test, <span class="at">____ =</span> <span class="fu">predict</span>(best_training, <span class="at">newdata =</span> ____))</span></code></pre></div>
-<ul>
 <li>Hint: the <code>predict</code> function without the argument
 <code>newdata</code> will output predictions on the
 <code>training</code> data. To output predictions on the
 <code>test</code> data, supply the <code>test</code> data to the
 <code>newdata</code> argument.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">mutate</span>(test, <span class="at">____ =</span> <span class="fu">predict</span>(best_training, <span class="at">newdata =</span> ____))</span></code></pre></div>
+<ul>
 <li><strong>(6) Calculate the <em>test MSE</em> in the same way as you
 did in the previous lab (test MSE is simply MSE of the predictions on
 the test data).</strong></li>

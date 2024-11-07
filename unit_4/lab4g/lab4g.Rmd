@@ -44,7 +44,7 @@ library(mobilizr2)
 - **(3) To actually look at and interpret our `tree1`, write and run code placing the model into the `treeplot` function.**
     - **(4) Write down the labels of the two _branches_.**
     - **(5) Write down the labels of the two _leaves_.**
-- **Answer the following, based on the `treeplot`:**
+- Answer the following, based on the `treeplot`:
     - **(6) Which `sex` does the model predict will survive?**
     - **(7) Where does the plot tell you the number of people that get sorted into each leaf? How do you know?**
     - **(8) Where does the plot tell you the number of people that have been sorted _incorrectly_ in each leaf?**
@@ -55,7 +55,7 @@ library(mobilizr2)
 - **(9) Similar to how you included multiple variables for a linear model, write and run code creating a `tree` that predicts whether a person `survived` based on their `sex`, `age`, `class`, and where they `embarked`.**
     - <span class="blue">Assign this model the name `tree2`.</span>
 - **(10) Write and run code creating a `treeplot` for this model and answer the following questions:**
-    - **(11) Mrs. Cumings was a 38-year-old female with a 1st class ticket from Cherbourg. Does the model predict that she survived?**
+    - **(11) Mrs. Baxter was a 50-year-old female with a 1st class ticket from Cherbourg. Does the model predict that she survived?**
     - **(12) Which variable ended up not being used by `tree2`?**
 
 
@@ -95,11 +95,9 @@ View(select(titanic_test, survived, prediction))
 
 ## Misclassification rate
 
-- In order to tally up the total number of misclassifications, we need to create a function that compares the actual outcome with the predicted outcome. The <b>not equal to</b> operator (!=) will be useful here.
-
+- In order to tally up the total number of misclassifications, we need to create a function that compares the actual outcome with the predicted outcome. The <b>not equal to</b> operator `!=` will be useful here.
 - **(17) Fill in the blanks to create a function to calculate the MCR.**
-
- - Hint: sum(____!=____) will count the number of times that the left-hand side does not equal the right-hand side.
+    - Hint: `sum(____!=____)` will count the number of times that the left-hand side does not equal the right-hand side.
     - We want to count the number of times that actual does not equal predicted and then divide by the total number of observations.
 
 
@@ -111,6 +109,7 @@ calc_mcr <- function(actual, predicted) {
 
 - <span class="blue">Then run the following to calculate the MCR.</span>
 
+
 ```{r, eval = FALSE, echo = TRUE}
 summarize(titanic_test, mcr = calc_mcr(survived, prediction))
 ```
@@ -119,8 +118,9 @@ summarize(titanic_test, mcr = calc_mcr(survived, prediction))
 ## On your own
 
 - **(18) In your own words, explain what the _misclassification rate_ is.**
-- **(19) Which model (`tree1`, `tree2` or `tree3`) had the lowest misclassification rate for the `titanic_test` data?**
-- **(20) Write and run code creating a 4th model using the same variables used in `tree2`. This time though, change the _complexity parameter_ to `0.0001`. Then answer the following.**
+- **(19) Which model (`tree1`, `tree2`, or `tree3`) had the lowest misclassification rate for the `titanic_test` data?**
+- **(20) Write and run code creating a 4th model using the same variables used in `tree2`. This time though, change the _complexity parameter_ to `0.0001`. Then answer the following:**
     - **(21) Does creating a more complex _classification tree_ always lead to better predictions? Why not?**
-- **(22) A _regression tree_ is a tree model that predicts a numerical variable. Write and run code creating a _regression tree_ model to predict the Titanic's passengers' ages and calculate the MSE.**
+- A _regression tree_ is a tree model that predicts a numerical variable.
+- **(22) Write and run code creating a _regression tree_ model to predict the Titanic's passengers' ages and calculate the MSE.**
     - Plots of regression trees are often too complex to plot.

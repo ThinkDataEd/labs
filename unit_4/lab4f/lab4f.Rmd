@@ -43,7 +43,9 @@ _Will including more variables in our model improve its predictions?_
 ## Including more info
 
 - Data scientists often find that including more relevant information in their models leads to better predictions.
-    - **(5) Fill in the blanks below to predict `gross` using `runtime` and `reviews_num`.**
+- **(5) Fill in the blanks below to predict `gross` using `runtime` and `reviews_num`.**
+
+
 ```{r, eval = FALSE, echo = TRUE}
 lm(____ ~ ____ + ____, data = training)
 ```

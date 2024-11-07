@@ -45,21 +45,21 @@ knitr::opts_chunk$set(echo = FALSE)
 kclusters(____~____, data = futbol, k = ____)
 ```
 
-- **(3) Use this code and the `mutate` function to add the values from `kclusters` to the `futbol` data. Call the variable `clusters`.**
+- **(3) Use this code and the `mutate` function to add the values from `kclusters` to the `futbol` data. Name the variable `clusters`.**
 
 
 ## k-means vs. ground-truth
 
-- In comparing our football and soccer players, we _know_ for certain which league each player plays in.
-    - We call this knowledge _ground-truth_.
+- In comparing our football and soccer players, we _know_ for certain which league each player plays in. We call this knowledge <b>ground-truth</b>.
 - Knowing the _ground-truth_ for this example is helpful to illustrate how k-means works, but in reality, data-scientists would run k-means not knowing the _ground-truth_.
-- **(4) Compare the clusters chosen by k-means to the ground-truth. How successful was k-means at recovering the `league` information?**
+- **(4) Compare the clusters chosen by k-means to the _ground-truth_. How successful was k-means at recovering the `league` information?**
 
 
 ## On your own
 
 - <span class="blue">Load your class's `timeuse` data (remember to run `timeuse_format` so each row represents the mean time each student spent participating in the various activities).</span>
 - **(5) Write and run code creating a scatterplot of `homework` and `videogames` variables.**
-    - **(6) Based on this graph, identify and remove any outliers by using the `filter` function.**
+- **(6) Based on this graph, identify and remove any outliers by using the `filter` function.**
 - **(7) Write and run code using `kclusters` with `k=2` for `homework` and `videogames`.**
-    - **(8) Describe how the groups differ from each other in terms of how long each group spends playing `videogames` and doing `homework`.**
+- **(8) Describe how the groups differ from each other in terms of how long each group spends playing `videogames` and doing `homework`.**
+
