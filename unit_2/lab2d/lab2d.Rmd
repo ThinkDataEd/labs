@@ -50,8 +50,8 @@ library(mobilizr2)
 - It's also possible to select _without replacement_ by setting the `replace` option in the `sample` function to `FALSE`.
 - **(4) Write and run code taking a sample of `size` 100 from our playlist of songs _without replacement_. Assign this sample the name `without`.**
     - **(5) Run `tally(without)` and describe the output.**
-    - **(6) Does something similar happen if you sample _with replacement_?**
-      - Notice that the tilde `~` was not needed with the `tally` function. This is because `without` was not a variable within a data frame but rather a vector which acts like a lone variable.
+- **(6) Does something similar happen if you sample _with replacement_?**
+  - Notice that the tilde `~` was not needed with the `tally` function. This is because `without` was not a variable within a data frame but rather a vector which acts like a lone variable.
 - **(7) What happens if `size = 101` and `replace = FALSE`?**
 
 

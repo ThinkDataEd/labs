@@ -153,5 +153,4 @@ add_line(vline = 22.52252 - 13.30798)
 - <span class="blue">Carry out another 500 simulations but this time shuffle the `gender` variable instead of the `survival` variable. </span>
     - Include the code `set.seed(1)` before your 500 simulations to make your answer reproducible.
 - **(21) Does shuffling the `gender` variable instead of the `survival` variable change your answer to the question?**
-- **(22) Does `gender` play a role in whether or not a character will survive in a slasher film?**
-- **(23) Does `survival` play a role in whether or not a character will survive in a slasher film?**
+- **(22) Does `survival` play a role in a character's `gender`? Why or why not?**
