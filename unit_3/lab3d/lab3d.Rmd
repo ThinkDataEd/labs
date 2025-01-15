@@ -75,7 +75,7 @@ bs_atus <- slice(atus, bs_rows)
 ## Take a look
 
 - Look at the values of `bs_rows` and `bs_atus`.
-- **(6) Write a paragraph that explains to someone that's not familiar with `R` how you created `bs_rows` and `bs_atus`. Be sure to include an explanation of what the _values_ of `bs_rows` mean and how those values are used to create `bs_atus`. Also, be sure to explain what each argument of each function does.**
+- **(6) Write a paragraph that explains to someone who's not familiar with `R` how you created `bs_rows` and `bs_atus`. Be sure to include an explanation of what the _values_ of `bs_rows` mean and how those values are used to create `bs_atus`. Also, be sure to explain what each argument of each function does.**
 
 
 ## One strap, two strap
