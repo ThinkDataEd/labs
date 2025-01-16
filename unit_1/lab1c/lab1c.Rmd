@@ -121,8 +121,8 @@ If you forget your username or password, ask your teacher to remind you.
 - When you're ready, click the _Import_ button.
 - Make sure the name under Import Options matches the name in Code Preview before you click Import.
 
-<center> ![nonexample](images/import1.png){ width=60% }</center>
-<center> ![example](images/import2.png){ width=60% }</center>
+<center> ![nonexample](images/lab1c_slide12non.png){ width=60% }</center>
+<center> ![example](images/lab1c_slide12ex.png){ width=60% }</center>
 
 
 ## read.csv()
@@ -140,7 +140,7 @@ View(data.file)
 
 ## A word on staying organized...
 
-<center> ![Upload Button](images/FilesPane.png){ width=60% }</center>
+<center> ![Files Tab](images/FilesPane.png){ width=60% }</center>
 
 - The <font color="green">Files</font> tab has a few other features to help keep you organized.
   - _CampaignName - Ids Teacher Year Semester_ probably isn't the best name for your data. Click <font color="green">Rename</font> to give it a clearer name.
