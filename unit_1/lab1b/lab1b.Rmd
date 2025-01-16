@@ -65,7 +65,7 @@ str(cdc)
 
 - Visualizing data is a really helpful way to learn about our variables.
 - **(8) Choose one numeric variable. Write and run the codes to create a `bargraph` and a `histogram`.**
-- **(9) Now choose one categorical variable. Write and run the codes to create a bargraph and a histogram.**
+- **(9) Now choose one categorical variable. Write and run the codes to create a `bargraph` and a `histogram`.**
 - **(10) Which function, either `bargraph` or `histogram`, is better at visualizing categorical variables? Which is better at visualizing numerical variables?**
     
 ## We have options
@@ -110,7 +110,7 @@ bargraph(~ ___, data = ___, groups = ___)
 
 - To answer this, what we'd like to do is visualize the distributions of heights, separately, for males and females.
     - This way, we can easily compare them.
-- **(25) Write and run the code to create a `histogram` for the height of males and females using the `groups` argument.**
+- **(25) Write and run the code to create a `histogram` for the `height` of males and females using the `groups` argument.**
     - **(26) Can you use this graphic to answer the question at the top of the slide? Why or why not?**
     - **(27) Is grouping numeric values, such as heights, as helpful as grouping categorical variables, such as texting & driving?**
     
