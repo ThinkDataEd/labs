@@ -63,7 +63,7 @@ add_curve(movie_linear)
 - we might consider fitting a _quadratic curve_, with equation of the form
 <center>`y = a + bx + cx`<sup>`2`</sup></center>
 - or even a _cubic curve_, with equation of the form
-<center>`y = a + bx + cx`<sup>`2`</sup>`  + dx`<sup>`3`</sup></center>
+<center>`y = a + bx + cx`<sup>`2`</sup>&nbsp;&nbsp;`+ dx`<sup>`3`</sup></center>
 - In general, the more coefficients in the model, the more flexible its predictions can be.
 
 ```{r, out.width="50%", out.height="50%"}

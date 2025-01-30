@@ -99,7 +99,7 @@ qnorm(____, mean = ____, sd = ____)
 Conduct one of the statistical investigations below:
 
 - Using the `titanic` data:
-    - **(12) Were women on the Titanic typically younger than men? Write and run code using a histogram, 500 random shuffles and a normal model to answer the question in the bullet above.**
+    - **(12) Were women on the Titanic typically younger than men? Write and run code using a histogram, 500 random shuffles and a normal model to answer the question.**
     
     
 - Using the `cdc` data:

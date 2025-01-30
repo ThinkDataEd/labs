@@ -138,18 +138,18 @@ mm_diff <- function(variable, data) {
 ## Using mm_diff()
 
 - After running the code used to create the function, we can use it just like we would any other numerical summary.
-    - <span class="blue">In the _console_, fill in the blanks below to calculate the absolute difference between the `mean` and `median` values of your predominant color:</span>
+    - **(16) In the _console_, fill in the blanks below to calculate the absolute difference between the `mean` and `median` values of your predominant color:**
 ```{r, eval = FALSE, echo = TRUE}
 ____(~____, data = ____)
 ```
 
-- **(16) Which of the four colors has the largest absolute difference between the `mean` and `median` values?**
-    - **(17) By examining a `dotPlot` for this personality color, make an argument why either the `mean` or `median` would be the better description of the _center_ of the data.**
+- **(17) Which of the four colors has the largest absolute difference between the `mean` and `median` values?**
+    - **(18) By examining a `dotPlot` for this personality color, make an argument why either the `mean` or `median` would be the better description of the _center_ of the data.**
 
 
 ## Our first function
 
-- **(18) Using the previous example as a guide, write a function called `Range` (note the capital 'R') that calculates the _range_ of a variable by filling in the blanks below:**
+- **(19) Using the previous example as a guide, write a function called `Range` (note the capital 'R') that calculates the _range_ of a variable by filling in the blanks below:**
 
 ```{r, eval = FALSE, echo = TRUE}
 ____ <- function (____, ____) {
@@ -158,12 +158,12 @@ ____ <- function (____, ____) {
 }
 ```
 
-- **(19) Use the `Range` function to find the personality color with the largest difference between the `max` and `min` values.**
+- **(20) Use the `Range` function to find the personality color with the largest difference between the `max` and `min` values.**
 
 
 ## On your own
 
-- **(20) Write a function called `myIQR` that uses the `quantile` function to compute the middle 30% of the data.**
+- **(21) Write a function called `myIQR` that uses the `quantile` function to compute the middle 30% of the data.**
 
 
 

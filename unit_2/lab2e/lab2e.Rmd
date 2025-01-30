@@ -141,11 +141,11 @@ add_line(vline = 22.52252 - 13.30798)
 
 ## Summary
 
-- By shuffling the `survival` label, we made it so that the proportion of males and females who survived the slasher film was random.
+- By shuffling the `survival` label, we made the proportion of males and females who survived the slasher film random.
     - The males and females survived by chance alone.
-- If surviving the film occurred purely by chance, then most of the time the difference in survival proportions was close to zero.
+- If surviving the film occurred purely by chance, most of the time the difference in survival proportions would be close to zero.
     - Notice how most values in the histogram occur close to zero.
-- When we look to see how often our actual difference occurs in our shuffled data, if the actual difference doesn't occur very often then perhaps there is something more going on than just chance alone ...
+- If surviving the film occurred purely by chance, most of the time the difference in survival proportions would be close to zero.
 
 
 ## On your own
