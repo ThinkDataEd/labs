@@ -45,7 +45,7 @@ utils::data(cdc)
 
 - <span class="blue">To begin, go to the IDS Tools page.</span>
   - <span class="blue">Click on the <font color="green">Campaign Manager</font>.</span>
-  - <span class="blue">Fill in your username and password and click "Sign in."</span>
+  - <span class="blue">Fill in your username and password and click "Sign in".</span>
 <center>![Campaign Manager](images/campaign_manager.png){ style="max-height: 40vh; max-width: 80%;" }</center>
 
 If you forget your username or password, ask your teacher to remind you. 
