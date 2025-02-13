@@ -140,7 +140,7 @@ View(data.file)
 
 ## A word on staying organized...
 
-<center> ![Files Tab](images/FilesPane.png){ width=60% }</center>
+<center> ![Rename Button](images/FilesPane.png){ width=60% }</center>
 
 - The <font color="green">Files</font> tab has a few other features to help keep you organized.
   - _CampaignName - Ids Teacher Year Semester_ probably isn't the best name for your data. Click <font color="green">Rename</font> to give it a clearer name.
