@@ -67,7 +67,7 @@ mtns_leaf <- leaflet(____)
 - **(3) Fill in the blanks below with the basic map we've created and the values for latitude and longitude.**
     
 ```{r, eval = FALSE, echo = TRUE}
-addMarkers(map = ____, lng = ~____, lat = ~____)
+addMarkers(mtns_map = ____, lng = ~____, lat = ~____)
 ```
 
 - **(4) Write and run code supplying the `peak` variable, in a similar way as we supplied the `lat` and `long` variables, to the `popup` argument and include it in the code above.**
