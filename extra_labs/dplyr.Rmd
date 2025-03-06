@@ -9,7 +9,7 @@ output:
   ioslides_presentation: default
 ---
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
 library(mobilizr2)
 data(cdc)
@@ -474,7 +474,7 @@ df <- cdc_complete %>%
 
 <li>**In the `cdc` data frame, the `weight` column is reported in kilograms. Add a column to `cdc` called `weight_lbs` which is weights reported in pounds.**</li>
 
-<li>**Obtain the median `height` for every combination of `gender` and `grade`.**</li>
+<li>**Obtain the median `height` for every combination of `sex` and `grade`.**</li>
 
 <li>**Create a data frame consisting only of 14 year olds and including only the first ten columns of `cdc`.**</li>
 
