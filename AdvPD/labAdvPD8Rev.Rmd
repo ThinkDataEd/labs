@@ -29,11 +29,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Visit
 ```{r, eval = FALSE, echo = TRUE}
-# idsucla.org
+# ThinkDataEd.org
 ```
 
 - Email
 ```{r, eval = FALSE, echo = TRUE}
-# support@idsucla.org
+# support@thinkdataed.org
 ```
   
