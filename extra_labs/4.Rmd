@@ -9,9 +9,9 @@ output:
   ioslides_presentation: default
 ---
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
-library(mobilizr2)
+library(mobilizr)
 data(cdc)
 ```
 

@@ -11,7 +11,7 @@ output:
 ```
 
 ```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr2)
+library(mobilizr)
 library(readr)
 # colors <- read_csv("colors.csv")
 colors <- extra_data("colors_ids")
