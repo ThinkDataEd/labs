@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr2)
+library(mobilizr)
 ```
 
 ## What's normal?

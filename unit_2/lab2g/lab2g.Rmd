@@ -18,8 +18,8 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r, echo=FALSE, message=FALSE}
-library(mobilizr2)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(mobilizr)
 ```
 
 ## Putting data together

@@ -15,7 +15,7 @@ output:
 ---
 
 ```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-library(mobilizr2)
+library(mobilizr)
 ```
 
 ## Where we're headed
