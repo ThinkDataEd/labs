@@ -1,4 +1,4 @@
-# IDS Labs for Introduction to Data Science v 7.0
+# IDS Labs for Introduction to Data Science v 7.1
 
 ![Introduction to Data Science](https://labs.ThinkDataEd.org/extras/ids.png)
 
