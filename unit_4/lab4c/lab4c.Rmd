@@ -40,7 +40,7 @@ library(mobilizr)
 - **(1) First, fill in the blanks below to randomly select which rows of `arm_span` will go into the `training` set.**
 ```{r, eval = FALSE, echo = TRUE}
 set.seed(123)
-training_rows <- sample(1:____, size = 85)
+training_rows <- sample(1:____, size = 68)
 ```
 
 - **(2) Second, use the `slice` function to create two dataframes: one called `training` consisting of the `training_rows`, and another called `test` consisting of the remaining rows of `arm_span`.**
@@ -65,7 +65,7 @@ _Whenever you split data into training and test, always use `set.seed` first._
 ## Aside: training-test ratio
 
 - When splitting data into `training` and `test` sets, we need to have enough observations in our data so that we can build a good model.
-    - This is why we kept 85 observations in our `training` data.
+    - This is why we kept 68 observations in our `training` data.
 - As datasets grow larger, we can use a larger proportion of the data to `test` with.
 
 ## Step 2: training the model
