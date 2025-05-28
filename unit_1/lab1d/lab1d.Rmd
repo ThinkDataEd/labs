@@ -55,7 +55,7 @@ library(mobilizr)
 
 ## Splitting datasets
 
-- In lab 1B, we learned that we can _facet_ (or split) our data based on a categorical variable.
+- In Lab 1B, we learned that we can _facet_ (or split) our data based on a categorical variable.
 
 - **(3) Write and run code splitting the `dotPlot` displaying the distribution of grams of `sugar` in two, by faceting on our observations' `salty_sweet` variable.**
     - **(4) Describe how `R` decides which observations go into the left or right plot.**
