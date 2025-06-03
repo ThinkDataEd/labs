@@ -145,7 +145,7 @@ add_line(vline = 22.52252 - 13.30798)
     - The males and females survived by chance alone.
 - If surviving the film occurred purely by chance, most of the time the difference in survival proportions would be close to zero.
     - Notice how most values in the histogram occur close to zero.
-- If surviving the film occurred purely by chance, most of the time the difference in survival proportions would be close to zero.
+- When we look to see how often our actual difference occurs in our shuffled data, if the actual difference doesn’t occur very often then perhaps there is something more going on than just chance alone...
 
 
 ## On your own
