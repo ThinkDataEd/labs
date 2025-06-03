@@ -112,7 +112,7 @@ do(___) * sample(___, ___ = ___, ___ = ___)
 - Recall that we need to store our results to be able to perform analysis.
 - **(8) Write and run code _assigning_ the 50 selected songs the name `draws` and then `View` your file.**
 - **(9) What is the variable name?**
-    - `R` defaulted to naming the variable based on the function used. You may use the data cleaning skills you learned in lab 1F to `rename` the variable if you wish.
+    - `R` defaulted to naming the variable based on the function used. You may use the data cleaning skills you learned in Lab 1F to `rename` the variable if you wish.
 - **(10) Fill in the blank below to `tally` how often each genre was selected:**
 
 

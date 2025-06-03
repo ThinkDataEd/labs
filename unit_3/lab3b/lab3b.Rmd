@@ -67,7 +67,7 @@ _What is the effect of childhood smoking on lung health?_
 
 ## Cleaning your data
 
-- <span class="blue">Now that we've got the data loaded, we need to clean it to get it ready for use _(look at lab 1F for help)_. Specifically:</span>
+- <span class="blue">Now that we've got the data loaded, we need to clean it to get it ready for use _(look at Lab 1F for help)_. Specifically:</span>
     - We want to name the variables: `"age"`, `"lung_cap"`, `"height"`, `"gender"`, `"smoker"`, in that order.
     - **(1) Write and run code changing the type of variable for `gender` and `smoker` from _numeric_ to _character_.**
 - <span class="blue">After changing the variable types for `gender` and `smoker`:</span>
