@@ -26,7 +26,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -715,7 +715,7 @@ specific combination of events occurred.</li>
 <div id="estimating-probabilities" class="slide section level2">
 <h1>Estimating probabilities</h1>
 <ul>
-<li><p><strong>(14) Write and run code performing 500 simulations of
+<li><p><strong>(14) Write and run code performing 2000 simulations of
 sampling 2 songs from a playlist of 30 <code>&quot;rap&quot;</code>, 23
 <code>&quot;country&quot;</code> and 47 <code>&quot;rock&quot;</code> songs. You might
 consider running <code>set.seed</code> so that your results can be
@@ -738,7 +738,7 @@ songs?</strong></p></li>
 <ul>
 <li><span class="blue">Using what you’ve learned in the previous two
 labs, answer the following question by performing two computer
-simulations with 500 repetitions a piece:</span></li>
+simulations with 2000 repetitions a piece:</span></li>
 </ul>
 <p><strong>(17) <em>If we draw 5 songs from a playlist of 30 rap, 23
 country and 47 rock songs, how does the estimated probability of all 5
@@ -748,7 +748,7 @@ replacement?</em></strong></p>
 <li>For each simulation:
 <ul>
 <li><span class="blue">Create a <code>histogram</code> for the number of
-<em>rap</em> songs that occurred for each of the 500
+<em>rap</em> songs that occurred for each of the 2000
 repetitions.</span></li>
 </ul></li>
 <li><strong>(18) Describe how the distribution of the number of

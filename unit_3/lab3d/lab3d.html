@@ -26,7 +26,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -652,10 +652,10 @@ intervals</em>, we need to create many <em>bootstrapped</em> samples.
 <ul>
 <li>Normally, the more <em>bootstrapped</em> samples we use, the better
 the <em>confidence interval</em>.</li>
-<li>In this lab, we’ll <code>do()</code> 500 <em>bootstrapped</em>
+<li>In this lab, we’ll <code>do()</code> 2000 <em>bootstrapped</em>
 samples.</li>
 </ul></li>
-<li>To make <code>do()</code>-ing 500 <em>bootstraps</em> easier, we’ll
+<li>To make <code>do()</code>-ing 2000 <em>bootstraps</em> easier, we’ll
 code our 3-step bootstrap method into a function.
 <ul>
 <li><span class="blue">Open a new R Script (File -&gt; New File -&gt; R
@@ -688,7 +688,7 @@ braces.</li>
 <h1>Visualizing our bootstraps</h1>
 <ul>
 <li><strong>(10) Once your function is created, fill in the blanks to
-create 500 <em>bootstrapped</em> sample means:</strong></li>
+create 2000 <em>bootstrapped</em> sample means:</strong></li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(____) <span class="sc">*</span> <span class="fu">bs_func</span>()</span></code></pre></div>
 <ul>

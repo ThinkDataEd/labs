@@ -88,8 +88,8 @@ bs_atus <- slice(atus, bs_rows)
 
 - To use _bootstrapped_ samples to create _confidence intervals_, we need to create many _bootstrapped_ samples.
     - Normally, the more _bootstrapped_ samples we use, the better the _confidence interval_.
-    - In this lab, we'll `do()` 500 _bootstrapped_ samples.
-- To make `do()`-ing 500 _bootstraps_ easier, we'll code our 3-step bootstrap method into a function.
+    - In this lab, we'll `do()` 2000 _bootstrapped_ samples.
+- To make `do()`-ing 2000 _bootstraps_ easier, we'll code our 3-step bootstrap method into a function.
     - <span class="blue">Open a new R Script (File -> New File -> R Script) to write your function into.</span>
     
 
@@ -111,7 +111,7 @@ bs_func <- function() {
 
 ## Visualizing our bootstraps
 
-- **(10) Once your function is created, fill in the blanks to create 500 _bootstrapped_ sample means:**
+- **(10) Once your function is created, fill in the blanks to create 2000 _bootstrapped_ sample means:**
 
 ```{r, eval = FALSE, echo = TRUE}
 bs_means <- do(____) * bs_func()

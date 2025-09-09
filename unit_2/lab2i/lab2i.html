@@ -26,7 +26,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -556,7 +556,7 @@ functions to:
 <li><strong>(1) Start by loading the <code>titanic</code> data. Write
 and run code calculating the <code>mean</code> <code>age</code> of
 people in the data but <code>shuffle</code> their <code>survival</code>
-status 500 times.</strong>
+status 2000 times.</strong>
 <ul>
 <li><span class="blue"><code>Assign</code> this data the name
 <code>shfls</code>.</span></li>
@@ -665,12 +665,12 @@ of heights if the mean height is 67 inches with a standard deviation of
 <li>Using the <code>titanic</code> data:
 <ul>
 <li><strong>(12) Were women on the Titanic typically younger than men?
-Write and run code using a histogram, 500 random shuffles and a normal
+Write and run code using a histogram, 2000 random shuffles and a normal
 model to answer the question.</strong></li>
 </ul></li>
 <li>Using the <code>cdc</code> data:
 <ul>
-<li><strong>(13) Using 500 random shuffles and a normal model, how much
+<li><strong>(13) Using 2000 random shuffles and a normal model, how much
 taller would the typical male have to be than the typical female in
 order for the difference to be in the upper 1% by chance
 alone?</strong></li>

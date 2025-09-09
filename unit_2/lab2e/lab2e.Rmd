@@ -110,7 +110,7 @@ View(shuffled_outcomes)
 - **(13) What is the largest difference in percentages of survival between males and females?**
 - **(14) What patterns are emerging from these simulations?**
 
-- <span class="blue">Ten simulations is not enough. Use the code above and perform 500 shuffles. `Assign` your 500 shuffles the same name `shuffled_outcomes`. Use `set.seed(1)`. </span>
+- <span class="blue">Ten simulations is not enough. Use the code above and perform 2000 shuffles. `Assign` your 2000 shuffles the same name `shuffled_outcomes`. Use `set.seed(1)`. </span>
 
 ## Now what?
 
@@ -150,7 +150,7 @@ add_line(vline = 22.52252 - 13.30798)
 
 ## On your own
 
-- <span class="blue">Carry out another 500 simulations but this time shuffle the `gender` variable instead of the `survival` variable. </span>
-    - Include the code `set.seed(1)` before your 500 simulations to make your answer reproducible.
+- <span class="blue">Carry out another 2000 simulations but this time shuffle the `gender` variable instead of the `survival` variable. </span>
+    - Include the code `set.seed(1)` before your 2000 simulations to make your answer reproducible.
 - **(21) Does shuffling the `gender` variable instead of the `survival` variable change your answer to the question?**
 - **(22) Does `survival` play a role in a character's `gender`? Why or why not?**

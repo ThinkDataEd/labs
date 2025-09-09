@@ -26,7 +26,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -671,7 +671,7 @@ survival between males and females?</strong></p></li>
 <li><p><strong>(14) What patterns are emerging from these
 simulations?</strong></p></li>
 <li><p><span class="blue">Ten simulations is not enough. Use the code
-above and perform 500 shuffles. <code>Assign</code> your 500 shuffles
+above and perform 2000 shuffles. <code>Assign</code> your 2000 shuffles
 the same name <code>shuffled_outcomes</code>. Use
 <code>set.seed(1)</code>. </span></p></li>
 </ul>
@@ -738,11 +738,11 @@ perhaps there is something more going on than just chance alone…</li>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>
 <ul>
-<li><span class="blue">Carry out another 500 simulations but this time
+<li><span class="blue">Carry out another 2000 simulations but this time
 shuffle the <code>gender</code> variable instead of the
 <code>survival</code> variable. </span>
 <ul>
-<li>Include the code <code>set.seed(1)</code> before your 500
+<li>Include the code <code>set.seed(1)</code> before your 2000
 simulations to make your answer reproducible.</li>
 </ul></li>
 <li><strong>(21) Does shuffling the <code>gender</code> variable instead
