@@ -26,7 +26,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -592,7 +592,7 @@ they are involved in <em>sports</em>.</strong></li>
 <h1>Estimating centers</h1>
 <ul>
 <li><strong>(5) Write and run code creating a <code>dotPlot</code> of
-the scores for your <em>predominant color</em>.</strong>
+the scores for <em>your</em> predominant color.</strong>
 <ul>
 <li>Pro-tip: If the <code>dotPlot</code> comes out looking wonky,
 include the <code>nint</code> and <code>cex</code> options.</li>
@@ -602,8 +602,8 @@ include the <code>nint</code> and <code>cex</code> options.</li>
 <li><strong>(6) Which values came up the most frequently? About how many
 people in your class had a score similar to yours?</strong></li>
 <li><strong>(7) What, would you say, was a <em>typical</em> score for a
-person in your class for your predominant color? How does your own score
-for this color compare?</strong></li>
+person in your class for <em>your</em> predominant color? How does your
+own score for this color compare?</strong></li>
 </ul></li>
 </ul>
 </div>
@@ -613,7 +613,7 @@ for this color compare?</strong></li>
 <li><em>Means</em> and <em>medians</em> are usually good ways to
 describe the <em>typical</em> value of our data.</li>
 <li><strong>(8) Fill in the blank to calculate the <code>mean</code>
-value of your predominant color score:</strong></li>
+value of <em>your</em> predominant color score:</strong></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>____, <span class="at">data =</span> colors)</span></code></pre></div>
 <ul>
@@ -638,9 +638,9 @@ this <em>typical</em> value.
 <code>dotPlot</code> as the horizontal <em>spread</em>.</li>
 </ul></li>
 <li><strong>(11) Write and run code re-creating a <code>dotPlot</code>
-of the scores for your <em>predominant color</em> and then write and run
-the code below filling in the blank with the name of your predominant
-color:</strong></li>
+of the scores for <em>your</em> predominant color and then write and run
+the code below filling in the blank with the name of <em>your</em>
+predominant color:</strong></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fu">mean</span>(<span class="sc">~</span>____, <span class="at">data =</span> colors))</span></code></pre></div>
 <ul>
@@ -661,27 +661,27 @@ the data are from the mean.
 <li>We often write <em>mean absolute deviation</em> as
 <em>MAD</em>.</li>
 </ul></li>
-<li><strong>(13) Write and run code calculating the MAD of your
-<em>predominant color</em> by filling in the blank:</strong></li>
+<li><strong>(13) Write and run code calculating the MAD of <em>your</em>
+predominant color by filling in the blank:</strong></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">MAD</span>(<span class="sc">~</span>_____, <span class="at">data =</span> colors)</span></code></pre></div>
 <ul>
-<li><strong>(14) How close was your estimate of the spread for your
-predominant color (from the previous slide) to the actual
+<li><strong>(14) How close was your estimate of the spread for
+<em>your</em> predominant color (from the previous slide) to the actual
 value?</strong></li>
 </ul>
 </div>
 <div id="comparing-introvertsextroverts" class="slide section level2">
 <h1>Comparing introverts/extroverts</h1>
 <ul>
-<li>Do introverts and extroverts differ in their typical scores for your
-predominant color?
+<li>Do introverts and extroverts differ in their typical scores for
+<em>your</em> predominant color?
 <ul>
 <li>Answer this investigative question using a <code>dotPlot</code> and
 numerical summaries.</li>
 </ul></li>
 <li><strong>(15) Write and run code making a <code>dotPlot</code> of
-your <em>predominant color</em> again; but this time, facet the plot by
+<em>your</em> predominant color again; but this time, facet the plot by
 the introvert/extrovert variable. Include the <code>layout</code> option
 to stack the plots as well as the <code>nint</code> and <code>cex</code>
 options.</strong></li>
@@ -689,12 +689,12 @@ options.</strong></li>
 the extroverts. Do the same for the introverts.</strong></li>
 <li><strong>(17) Using similar syntax to how you facet plots, write and
 run code <em>calculating</em> either the <code>mean</code> or
-<code>median</code> to describe the <em>center</em> of your predominant
-color for introverts and extroverts.</strong></li>
+<code>median</code> to describe the <em>center</em> of <em>your</em>
+predominant color for introverts and extroverts.</strong></li>
 <li><strong>(18) Do introverts and extroverts differ in their typical
-scores for your predominant color?</strong></li>
+scores for <em>your</em> predominant color?</strong></li>
 <li><strong>(19) Based on the MAD, which group (introverts or
-extroverts) has more variability for your predominant color’s
+extroverts) has more variability for <em>your</em> predominant color’s
 scores?</strong></li>
 </ul>
 </div>
