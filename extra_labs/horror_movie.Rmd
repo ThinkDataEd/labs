@@ -1,0 +1,123 @@
+---
+title: "The Horror Movie Shuffle"
+date: 'Directions: Follow along with the slides.  
+  
+  <br>
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+output:
+  slidy_presentation:
+    css: ../../IDSLabCSSRev.css
+    mathjax: ../../extras/mathjax-local/MathJax.js
+  word_document:
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+library(mobilizr)
+library(readr)
+```
+
+## Let’s get started
+
+We first need to load the slasher dataset onto our Environment. To do this type the following command on your console and press enter on your keyboard:
+```{r, eval = TRUE, echo = TRUE}
+data(slasher)
+```
+To view the data, type the following command (make sure to capitalize):
+```{r, eval = FALSE, echo = TRUE}
+View(slasher)
+```
+Peruse the data. How many characters (rows) are in this dataset? How many variables (columns) are in this dataset?
+
+## Tally whoa ... !
+
+Let's tally survival split by gender:
+
+```{r, eval = FALSE, echo = TRUE}
+tally(~survival | gender, format = "percent", data = slasher, margin = TRUE)
+```
+What is the difference between the `Female` and `Male` survival rate? 
+
+Is this enough evidence to say that one gender is more likely to survive than another?
+
+## Stronger Evidence
+
+In statistics a formal probability test would be applied to determine if a difference of 9.2%  was significant. In data science, we will apply a permutations test using shuffling.
+
+```{r, eval = FALSE, echo = TRUE}
+slasher<-mutate(slasher, alt_survival = shuffle(survival))
+```
+
+Let’s view the outcomes for this shuffled data.
+
+```{r, eval = FALSE, echo = TRUE}
+View(slasher)
+```
+
+Let’s look at the proportion of `Female` and `Male` characters for this shuffle
+```{r, eval = FALSE, echo = TRUE}
+tally(~alt_survival | gender, format = "percent", data = slasher, margin = TRUE)
+```
+
+What is the difference between the `Female` and `Male` survival rate after the shuffle?
+
+
+Tip:  The console can be used as a calculator.
+
+## More Shuffles
+
+To help us decide if the difference in percentages in our _actual_ data occurs by chance or not, we can use the `do()` function to shuffle our data many times and see how often our _actual_ difference occurred by chance.
+
+- <span class="blue">Run the following lines of code:</span>
+
+```{r, eval = FALSE, echo = TRUE}
+set.seed(13)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+shuffled_outcomes <- do(500) * tally(~shuffle(survival) | gender, 
+                                    format = "percent", 
+                                    data = slasher)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+View(shuffled_outcomes)
+```
+
+## Model
+
+The code below will create a new column in our `shuffled_outcomes` data frame which shows how much the survival rate differed between `Female` and `Male` characters. If you look at the Environment after running the code, the shuffled_outcomes data frame will contain five variables instead of four.
+
+
+```{r, eval = FALSE, echo = TRUE}
+shuffled_outcomes <- mutate(shuffled_outcomes, diff = Survives.Female - Survives.Male)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+View(shuffled_outcomes)
+```
+
+Using this new variable we will create a histogram which serves as a model displaying the typical difference in survival rates between `Female` and `Male` characters when survival is determined by chance alone.
+
+NOTE: When you run the code below, it will revert you to the Plots pane. To get back to the lab slides, click on the Viewer tab which is to the right of the Plots pane.
+
+
+```{r, eval = FALSE, echo = TRUE}
+histogram(~diff, data = shuffled_outcomes)
+```
+
+
+## Interpretation
+Where in this model do we see a difference of roughly 9.2 percent? 
+
+```{r, eval = FALSE, echo = TRUE}
+add_line(vline = 22.52252 - 13.30798)
+```
+
+Since a difference of 9.2 is a rare permutation, this provides strong evidence that `Female` characters were more likely to survive than `Male` characters.
+
