@@ -554,11 +554,13 @@ survive than another?</p>
 <p>In statistics a formal probability test would be applied to determine
 if a difference of 9.2% was significant. In data science, we will apply
 a permutations test using shuffling.</p>
+<p>Let’s create a column for an alternate universe, where we shuffle the
+survival variable:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>slasher<span class="ot">&lt;-</span><span class="fu">mutate</span>(slasher, <span class="at">alt_survival =</span> <span class="fu">shuffle</span>(survival))</span></code></pre></div>
 <p>Let’s view the outcomes for this shuffled data.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">View</span>(slasher)</span></code></pre></div>
 <p>Let’s look at the proportion of <code>Female</code> and
-<code>Male</code> characters for this shuffle</p>
+<code>Male</code> characters for this shuffle.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>alt_survival <span class="sc">|</span> gender, <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, <span class="at">data =</span> slasher, <span class="at">margin =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>What is the difference between the <code>Female</code> and
 <code>Male</code> survival rate after the shuffle?</p>
@@ -573,11 +575,21 @@ often our <em>actual</em> difference occurred by chance.</p>
 <ul>
 <li><span class="blue">Run the following lines of code:</span></li>
 </ul>
+<p>To ensure everyone in the workshop gets the same results, we will all
+start our “random” algorithm with the same seed:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">13</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">500</span>) <span class="sc">*</span> <span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, </span>
+<p>In the following code, we will shuffle survival split by gender and
+calculate the proportion of females that survive and the proportion of
+males that survive.</p>
+<p>Since we have technology, let’s do this shuffle 2000 times!</p>
+<p>We store all these simulations and name them
+<code>shuffled_outcomes</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>shuffled_outcomes <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">tally</span>(<span class="sc">~</span><span class="fu">shuffle</span>(survival) <span class="sc">|</span> gender, </span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                                    <span class="at">format =</span> <span class="st">&quot;percent&quot;</span>, </span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                                    <span class="at">data =</span> slasher)</span></code></pre></div>
+<p>Let’s look at our shuffles now:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">View</span>(shuffled_outcomes)</span></code></pre></div>
+<p>What do all the columns represent?</p>
 </div>
 <div id="model" class="slide section level2">
 <h1>Model</h1>
@@ -602,6 +614,10 @@ the right of the Plots pane.</p>
 <h1>Interpretation</h1>
 <p>Where in this model do we see a difference of roughly 9.2
 percent?</p>
+<p>Now that we have a histogram to model what chance would look like,
+let’s compare our actual observed difference. Run the following line of
+code to add a line to our plot that shows the real difference from our
+original dataset.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fl">22.52252</span> <span class="sc">-</span> <span class="fl">13.30798</span>)</span></code></pre></div>
 <p>Since a difference of 9.2 is a rare permutation, this provides strong
 evidence that <code>Female</code> characters were more likely to survive

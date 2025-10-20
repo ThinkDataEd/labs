@@ -49,6 +49,7 @@ Is this enough evidence to say that one gender is more likely to survive than an
 
 In statistics a formal probability test would be applied to determine if a difference of 9.2%  was significant. In data science, we will apply a permutations test using shuffling.
 
+Let's create a column for an alternate universe, where we shuffle the survival variable:
 ```{r, eval = FALSE, echo = TRUE}
 slasher<-mutate(slasher, alt_survival = shuffle(survival))
 ```
@@ -59,7 +60,7 @@ Let’s view the outcomes for this shuffled data.
 View(slasher)
 ```
 
-Let’s look at the proportion of `Female` and `Male` characters for this shuffle
+Let’s look at the proportion of `Female` and `Male` characters for this shuffle.
 ```{r, eval = FALSE, echo = TRUE}
 tally(~alt_survival | gender, format = "percent", data = slasher, margin = TRUE)
 ```
@@ -75,19 +76,27 @@ To help us decide if the difference in percentages in our _actual_ data occurs b
 
 - <span class="blue">Run the following lines of code:</span>
 
+To ensure everyone in the workshop gets the same results, we will all start our "random" algorithm with the same seed:
 ```{r, eval = FALSE, echo = TRUE}
 set.seed(13)
 ```
+In the following code, we will shuffle survival split by gender and calculate the proportion of females that survive and the proportion of males that survive.
 
+Since we have technology, let's do this shuffle 2000 times!
+
+We store all these simulations and name them `shuffled_outcomes`.
 ```{r, eval = FALSE, echo = TRUE}
-shuffled_outcomes <- do(500) * tally(~shuffle(survival) | gender, 
+shuffled_outcomes <- do(2000) * tally(~shuffle(survival) | gender, 
                                     format = "percent", 
                                     data = slasher)
 ```
 
+Let's look at our shuffles now:
 ```{r, eval = FALSE, echo = TRUE}
 View(shuffled_outcomes)
 ```
+
+What do all the columns represent?
 
 ## Model
 
@@ -115,6 +124,7 @@ histogram(~diff, data = shuffled_outcomes)
 ## Interpretation
 Where in this model do we see a difference of roughly 9.2 percent? 
 
+Now that we have a histogram to model what chance would look like, let's compare our actual observed difference. Run the following line of code to add a line to our plot that shows the real difference from our original dataset.
 ```{r, eval = FALSE, echo = TRUE}
 add_line(vline = 22.52252 - 13.30798)
 ```
