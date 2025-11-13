@@ -1,0 +1,166 @@
+---
+title: "Bootstrapping Lab"
+author: "Adapted from Lab 3D from the Introduction to Data Science Curriculum"
+date: date: 'Directions: Follow along with the slides.
+  
+  <br>
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+output: 
+  slidy_presentation: 
+    css: ../../IDSLabCSSRev.css
+    mathjax: ../../extras/mathjax-local/MathJax.js
+---
+
+## Introduction
+
+**Research Question:** What is the mean age of people older than 15 living in the United States?
+
+Today we'll use **bootstrapping** to create confidence intervals around our estimate.
+
+**Key Concept:** A bootstrap sample is a random sample taken WITH replacement from our original data, using the same sample size.
+
+## Load and Explore the Data
+We will be using data from the American Time Use Survey. Run the following codes to load and _View_ the data.
+```{r, echo = TRUE, eval = FALSE}
+data(atus)
+View(atus)
+
+```
+
+Now let's determine an estimate for the average age of people older than 15 living in the US:
+```{r, echo = TRUE, eval = FALSE}
+mean(~age, data = atus)
+```
+
+## Let's Create One Bootstrap Sample
+
+Let's see what one bootstrapped sample looks like. To begin, we will set a seed for reproducibility:
+
+```{r, echo = TRUE, eval = FALSE}
+set.seed(123)
+```
+
+First, we will randomly pick which observations we want. We do this by sampling the numbers 1-8,136 (the size of the dataset) WITH replacement. 
+
+```{r, echo = TRUE, eval = FALSE}
+
+bs_rows <- sample(1:8136, size = 8136, replace = TRUE)
+```
+
+Now that we have which observations to sample, and again we want there to be some duplicated observations, we’ll use _slice()_ to use these rows to create a new set of data.
+```{r, echo = TRUE, eval = FALSE}
+bs_atus <- slice(atus, bs_rows)
+```
+
+Now let's find the mean of this sample:
+```{r, echo = TRUE, eval = FALSE}
+mean(~age, data = bs_atus)
+```
+
+## Make a Bootstrap Function
+To make the process we did simple, let's create a function. 
+```{r, echo = TRUE, eval = FALSE}
+bs_func <- function() {
+    bs_rows <- sample(1:8136, size = 8136, replace = TRUE)
+    bs_atus <- slice(atus, bs_rows)
+    mean(~age, data = bs_atus)
+}
+
+```
+
+Now test it out to see. Try running it twice to see that you'll get multiple outputs.
+```{r, echo = TRUE, eval = FALSE}
+bs_func()
+```
+
+## Generate 2000 Bootstrap Samples
+
+Let's run _bs_func()_ 2000 times. We will use the _do()_ function:
+```{r, echo = TRUE, eval = FALSE}
+bs_means <- do(2000)* bs_func()
+```
+
+Now let's visualize our bootstrapped means:
+```{r, echo = TRUE, eval = FALSE}
+histogram(~bs_func, data = bs_means,
+          main = "Distribution of 2000 Bootstrap Sample Means")
+```
+
+Run the following for the summary statistics.
+```{r, echo = TRUE, eval = FALSE}
+favstats(~bs_func, data = bs_means)
+```
+
+## Create a 90% Confidence Interval
+We're ready to make our confidence interval now! If we want to find a 90% confidence interval, we can look at the middle 90% of our data. To do this, we will find the 5% quantile and the 95% quantile. 
+
+To find the lower bound, we will run:
+```{r, echo = TRUE, eval = FALSE}
+quantile(~bs_func, data = bs_means, p = 0.05)
+```
+
+Now for your upper bound, run:
+```{r, echo = TRUE, eval = FALSE}
+quantile(~bs_func, data = bs_means, p = 0.95)
+```
+
+You now have a 90% confidence interval!
+
+## Margin of Error
+Margin of error is another way we can talk about how sure we are about our results. For example:
+
+Instead of, 
+  *"I think the mean age is between 52 and 53,"* we can say, 
+  *"I think the mean age is 52.5, give or take 0.5 years."*
+
+To find our margin of error, we can find the length of our interval and divide by two.
+
+We'll store our 5% quantile as our lower bound:
+```{r, echo = TRUE, eval = FALSE}
+lower_bound<-quantile(~bs_func, data = bs_means, p = 0.05)
+```
+
+Similarly, let's store the 95% quantile as our upper bound:
+```{r, echo = TRUE, eval = FALSE}
+upper_bound<-quantile(~bs_func, data = bs_means, p = 0.95)
+```
+
+Now, we can add them together and divide by two.
+```{r, echo = TRUE, eval = FALSE}
+(upper_bound + lower_bound)/2
+```
+
+That is our margin of error.
+
+## What about a 95% Confidence Interval?
+
+We'll simply adjust our quantiles! Our lower bound now is at 2.5%:
+```{r, echo = TRUE, eval = FALSE}
+quantile(~bs_func, data = bs_means, p = 0.025)
+```
+
+Our upper found will be at 97.5%.
+```{r, echo = TRUE, eval = FALSE}
+quantile(~bs_func, data = bs_means, p = 0.975)
+```
+
+Notice, the interval is wider now because we were willing to gain a little confidence for a wider interval. 
+
+And a 95% confidence interval means that, if we were to take an infinite number of samples, our confidence interval would contain the true population mean 95% of the time.
+
+## Summary
+
+You've now learned how to:
+
+  - Create bootstrap samples by sampling WITH replacement
+   
+  - Automate the process using functions
+  
+  - Generate many bootstrap samples to understand sampling variability
+  
+  - Calculate confidence intervals using quantiles
+    
+  - Find margin of error.
+
+**Key Takeaway:** A 95% confidence interval means that if we repeated this process many times, about 95% of our intervals would contain the true population mean.
