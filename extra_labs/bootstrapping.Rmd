@@ -8,7 +8,7 @@ output:
     mathjax: ../../extras/mathjax-local/MathJax.js
 ---
 
-## Introduction
+## Introduction 
 
 **Research Question:** What is the mean age of people older than 15 living in the United States?
 
