@@ -1,7 +1,11 @@
 ---
 title: "Bootstrapping Lab"
-author: "ThinkData Ed"
-date: "Adapted from Lab 3D in the Introduction to Data Science Curriculum"
+author: "Adapted from Lab 3D from the Introduction to Data Science Curriculum"
+date: date: 'Directions: Follow along with the slides.
+  
+  <br>
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
 output: 
   slidy_presentation: 
     css: ../../IDSLabCSSRev.css
