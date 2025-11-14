@@ -48,7 +48,7 @@ First, we will randomly pick which observations we want. We do this by sampling 
 bs_rows <- sample(1:8136, size = 8136, replace = TRUE)
 ```
 
-Now that we have which observations to sample, and again we want there to be some duplicated observations, we’ll use _slice()_ to use these rows to create a new set of data.
+Now that we have which observations to sample, and again we want there to be some duplicated observations, we’ll use `slice()` to use these rows to create a new set of data.
 ```{r, echo = TRUE, eval = FALSE}
 bs_atus <- slice(atus, bs_rows)
 ```
@@ -76,7 +76,7 @@ bs_func()
 
 ## Generate 2000 Bootstrap Samples
 
-Let's run _bs_func()_ 2000 times. We will use the _do()_ function:
+Let's run `bs_func()` 2000 times. We will use the `do()` function:
 ```{r, echo = TRUE, eval = FALSE}
 bs_means <- do(2000)* bs_func()
 ```
