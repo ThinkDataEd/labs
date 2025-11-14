@@ -597,9 +597,10 @@ multiple outputs.</p>
 do this, we will find the 5% quantile and the 95% quantile.</p>
 <p>To find the lower bound, we will run:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
-<p>Now for your upper bound, run:</p>
+<p>For your upper bound, run:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
-<p>You now have a 90% confidence interval!</p>
+<p>Our confidence interval can be written with the format (lower bound,
+upper bound).</p>
 </div>
 <div id="margin-of-error" class="slide section level2">
 <h1>Margin of Error</h1>
@@ -614,8 +615,8 @@ and divide by two.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>lower_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p>Similarly, let’s store the 95% quantile as our upper bound:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>upper_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
-<p>Now, we can add them together and divide by two.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>(upper_bound <span class="sc">+</span> lower_bound)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<p>Now, we can find their difference and divide by two.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>(upper_bound <span class="sc">-</span> lower_bound)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
 <p>That is our margin of error.</p>
 </div>
 <div id="what-about-a-95-confidence-interval" class="slide section level2">

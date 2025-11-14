@@ -100,12 +100,12 @@ To find the lower bound, we will run:
 quantile(~bs_func, data = bs_means, p = 0.05)
 ```
 
-Now for your upper bound, run:
+For your upper bound, run:
 ```{r, echo = TRUE, eval = FALSE}
 quantile(~bs_func, data = bs_means, p = 0.95)
 ```
 
-You now have a 90% confidence interval!
+Our confidence interval can be written with the format (lower bound, upper bound).
 
 ## Margin of Error
 Margin of error is another way we can talk about how sure we are about our results. For example:
@@ -126,9 +126,9 @@ Similarly, let's store the 95% quantile as our upper bound:
 upper_bound<-quantile(~bs_func, data = bs_means, p = 0.95)
 ```
 
-Now, we can add them together and divide by two.
+Now, we can find their difference and divide by two.
 ```{r, echo = TRUE, eval = FALSE}
-(upper_bound + lower_bound)/2
+(upper_bound - lower_bound)/2
 ```
 
 That is our margin of error.
