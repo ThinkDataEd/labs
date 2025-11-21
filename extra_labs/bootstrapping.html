@@ -550,6 +550,9 @@ following codes to load and <em>View</em> the data.</p>
 <p>If you want some details about the data, you can get documentation
 with the following code:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>?(atus)</span></code></pre></div>
+<p>Since we cannot collect data from everyone who is older than 15
+living in the US, our <code>atus</code> data is a sample, so any
+statistics we calculate using this data will be an estimate.</p>
 <p>Now let’s determine an estimate for the average age of people older
 than 15 living in the US:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> atus)</span></code></pre></div>
@@ -592,8 +595,11 @@ multiple outputs.</p>
 <h1>Generate 2000 Bootstrap Samples</h1>
 <p>Let’s run <code>bs_func()</code> 2000 times. We will use the
 <code>do()</code> function:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>)<span class="sc">*</span> <span class="fu">bs_func</span>()</span></code></pre></div>
-<p>Now let’s visualize our bootstrapped means:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>)<span class="sc">*</span> <span class="fu">bs_func</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">View</span>(bs_means)</span></code></pre></div>
+<p>Now let’s visualize our bootstrapped means. - Note: This code will
+change your tab to “Plots” in the plots pane. Click “Viewer” to return
+back to the lab.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means,</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">&quot;Distribution of 2000 Bootstrap Sample Means&quot;</span>)</span></code></pre></div>
 <ul>
@@ -604,8 +610,6 @@ age of people in the U.S.
 people in the U.S. varies.</li>
 </ul></li>
 </ul>
-<p>Run the following for the summary statistics.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">favstats</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means)</span></code></pre></div>
 </div>
 <div id="create-a-90-confidence-interval" class="slide section level2">
 <h1>Create a 90% Confidence Interval</h1>
@@ -613,14 +617,20 @@ people in the U.S. varies.</li>
 90% confidence interval, we can look at the middle 90% of our data. To
 do this, we will find the 5% quantile and the 95% quantile.</p>
 <p>To find the lower bound, we will run:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p>For your upper bound, run:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Based on your <em>bootstrapped</em> estimates, between which two ages
 are we 90% confident the actual <code>mean</code> age of people living
 in the U.S. is contained?</p>
 <p>Our confidence interval can be written with the format (lower bound,
 upper bound).</p>
+<p>To visualize our confidence interval, we can add lines at our lower
+and upper bounds.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means,</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">&quot;Distribution of 2000 Bootstrap Sample Means&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline=</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline=</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>))</span></code></pre></div>
 </div>
 <div id="margin-of-error" class="slide section level2">
 <h1>Margin of Error</h1>
@@ -632,9 +642,9 @@ years.”</em></p>
 <p>To find our margin of error, we can find the length of our interval
 and divide by two.</p>
 <p>We’ll store our 5% quantile as our lower bound:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>lower_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>lower_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>,<span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Similarly, let’s store the 95% quantile as our upper bound:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>upper_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>upper_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>,<span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Now, we can find their difference and divide by two.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>(upper_bound <span class="sc">-</span> lower_bound)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
 <p>That is our margin of error.</p>
@@ -661,7 +671,7 @@ variability</p></li>
 <li><p>Find margin of error.</p></li>
 </ul>
 <p><strong>Key Takeaway:</strong> A 95% confidence interval means that
-if we repeated this process many times, about 95% of our intervals would
+if we repeated this process many times, 95% of our intervals would
 contain the true population mean.</p>
 </div>
 

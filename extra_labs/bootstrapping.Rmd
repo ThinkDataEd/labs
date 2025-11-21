@@ -33,6 +33,8 @@ If you want some details about the data, you can get documentation with the foll
 ?(atus)
 ```
 
+Since we cannot collect data from everyone who is older than 15 living in the US, our `atus` data is a sample, so any statistics we calculate using this data will be an estimate. 
+
 Now let's determine an estimate for the average age of people older than 15 living in the US:
 ```{r, echo = TRUE, eval = FALSE}
 mean(~age, data = atus)
@@ -93,9 +95,11 @@ bs_func()
 Let's run `bs_func()` 2000 times. We will use the `do()` function:
 ```{r, echo = TRUE, eval = FALSE}
 bs_means <- do(2000)* bs_func()
+View(bs_means)
 ```
 
-Now let's visualize our bootstrapped means:
+Now let's visualize our bootstrapped means.
+  - Note: This code will change your tab to "Plots" in the plots pane. Click "Viewer" to return back to the lab.
 ```{r, echo = TRUE, eval = FALSE}
 histogram(~bs_func, data = bs_means,
           main = "Distribution of 2000 Bootstrap Sample Means")
@@ -103,11 +107,6 @@ histogram(~bs_func, data = bs_means,
   - These _bootstrapped_ estimates no longer estimate the average age of people in the U.S.
     - Instead, they estimate how much the estimate of the average age of people in the U.S. varies.
     
-Run the following for the summary statistics.
-```{r, echo = TRUE, eval = FALSE}
-favstats(~bs_func, data = bs_means)
-```
-
 ## Create a 90% Confidence Interval
 We're ready to make our confidence interval now! If we want to find a 90% confidence interval, we can look at the middle 90% of our data. To do this, we will find the 5% quantile and the 95% quantile. 
 
@@ -125,6 +124,14 @@ Based on your _bootstrapped_ estimates, between which two ages are we 90% confid
 
 Our confidence interval can be written with the format (lower bound, upper bound).
 
+To visualize our confidence interval, we can add lines at our lower and upper bounds.
+```{r, echo = TRUE, eval = FALSE}
+histogram(~bs_func, data = bs_means,
+          main = "Distribution of 2000 Bootstrap Sample Means")
+add_line(vline=quantile(~bs_func, data = bs_means, p = 0.05))
+add_line(vline=quantile(~bs_func, data = bs_means, p = 0.95))
+```
+
 ## Margin of Error
 Margin of error is another way we can talk about how sure we are about our results. For example:
 
@@ -136,12 +143,12 @@ To find our margin of error, we can find the length of our interval and divide b
 
 We'll store our 5% quantile as our lower bound:
 ```{r, echo = TRUE, eval = FALSE}
-lower_bound<-quantile(~bs_func, data = bs_means, p = 0.05)
+lower_bound<-quantile(~bs_func, data = bs_means, p = 0.05,names=FALSE)
 ```
 
 Similarly, let's store the 95% quantile as our upper bound:
 ```{r, echo = TRUE, eval = FALSE}
-upper_bound<-quantile(~bs_func, data = bs_means, p = 0.95)
+upper_bound<-quantile(~bs_func, data = bs_means, p = 0.95,names=FALSE)
 ```
 
 Now, we can find their difference and divide by two.
@@ -179,4 +186,4 @@ You've now learned how to:
     
   - Find margin of error.
 
-**Key Takeaway:** A 95% confidence interval means that if we repeated this process many times, about 95% of our intervals would contain the true population mean.
+**Key Takeaway:** A 95% confidence interval means that if we repeated this process many times, 95% of our intervals would contain the true population mean.
