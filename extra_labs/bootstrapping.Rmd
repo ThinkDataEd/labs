@@ -28,6 +28,11 @@ View(atus)
 
 ```
 
+If you want some details about the data, you can get documentation with the following code:
+```{r, echo = TRUE, eval = FALSE}
+?(atus)
+```
+
 Now let's determine an estimate for the average age of people older than 15 living in the US:
 ```{r, echo = TRUE, eval = FALSE}
 mean(~age, data = atus)
@@ -41,16 +46,25 @@ Let's see what one bootstrapped sample looks like. To begin, we will set a seed 
 set.seed(123)
 ```
 
-First, we will randomly pick which observations we want. We do this by sampling the numbers 1-8,136 (the size of the dataset) WITH replacement. 
+First, we will randomly pick which observations we want. We do this by sampling the numbers 1 to 8136 (the size of the dataset) WITH replacement. 
 
 ```{r, echo = TRUE, eval = FALSE}
 
 bs_rows <- sample(1:8136, size = 8136, replace = TRUE)
 ```
 
-Now that we have which observations to sample, and again we want there to be some duplicated observations, we’ll use `slice()` to use these rows to create a new set of data.
+You just created a vector called `bs_rows` that you can find in your environment. Your first randomly selected number was 2463.
+
+Now that we have which observations to sample, we’ll use `slice()` to use these rows to create a new set of data.
 ```{r, echo = TRUE, eval = FALSE}
 bs_atus <- slice(atus, bs_rows)
+View(bs_atus)
+```
+
+Notice that the first row of `bs_atus` is the same as entry 2463, our first randomly sampled observation.
+
+```{r, echo = TRUE, eval = FALSE}
+entry2463 <- data.frame(atus[2463,])
 ```
 
 Now let's find the mean of this sample:
@@ -86,7 +100,9 @@ Now let's visualize our bootstrapped means:
 histogram(~bs_func, data = bs_means,
           main = "Distribution of 2000 Bootstrap Sample Means")
 ```
-
+  - These _bootstrapped_ estimates no longer estimate the average age of people in the U.S.
+    - Instead, they estimate how much the estimate of the average age of people in the U.S. varies.
+    
 Run the following for the summary statistics.
 ```{r, echo = TRUE, eval = FALSE}
 favstats(~bs_func, data = bs_means)
@@ -104,6 +120,8 @@ For your upper bound, run:
 ```{r, echo = TRUE, eval = FALSE}
 quantile(~bs_func, data = bs_means, p = 0.95)
 ```
+
+Based on your _bootstrapped_ estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?
 
 Our confidence interval can be written with the format (lower bound, upper bound).
 
@@ -146,8 +164,6 @@ quantile(~bs_func, data = bs_means, p = 0.975)
 ```
 
 Notice, the interval is wider now because we were willing to gain a little confidence for a wider interval. 
-
-And a 95% confidence interval means that, if we were to take an infinite number of samples, our confidence interval would contain the true population mean 95% of the time.
 
 ## Summary
 
