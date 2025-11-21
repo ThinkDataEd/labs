@@ -21,7 +21,7 @@ Today we'll use **bootstrapping** to create confidence intervals around our esti
 **Key Concept:** A bootstrap sample is a random sample taken WITH replacement from our original data, using the same sample size.
 
 ## Load and Explore the Data
-We will be using data from the American Time Use Survey. Run the following codes to load and _View_ the data.
+We will be using data from the American Time Use Survey. Run the following codes to load and `View` the data.
 ```{r, echo = TRUE, eval = FALSE}
 data(atus)
 View(atus)
@@ -63,10 +63,11 @@ bs_atus <- slice(atus, bs_rows)
 View(bs_atus)
 ```
 
-Notice that the first row of `bs_atus` is the same as entry 2463, our first randomly sampled observation.
+Notice that the first row of `bs_atus` is the same as entry 2463 in our original atus data, our first randomly sampled observation. Run the following to check.
 
 ```{r, echo = TRUE, eval = FALSE}
 entry2463 <- data.frame(atus[2463,])
+View(entry2463)
 ```
 
 Now let's find the mean of this sample:
@@ -85,7 +86,7 @@ bs_func <- function() {
 
 ```
 
-Now test it out to see. Try running it twice to see that you'll get multiple outputs.
+Now test it out to see. Try running it twice to see that you'll get multiple different outputs.
 ```{r, echo = TRUE, eval = FALSE}
 bs_func()
 ```
@@ -99,7 +100,8 @@ View(bs_means)
 ```
 
 Now let's visualize our bootstrapped means.
-  - Note: This code will change your tab to "Plots" in the plots pane. Click "Viewer" to return back to the lab.
+ 
+ - Note: This code will change your tab to "Plots" in the plots pane. Click "Viewer" to return back to the lab.
 ```{r, echo = TRUE, eval = FALSE}
 histogram(~bs_func, data = bs_means,
           main = "Distribution of 2000 Bootstrap Sample Means")

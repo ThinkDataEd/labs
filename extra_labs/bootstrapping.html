@@ -544,7 +544,7 @@ size.</p>
 <div id="load-and-explore-the-data" class="slide section level2">
 <h1>Load and Explore the Data</h1>
 <p>We will be using data from the American Time Use Survey. Run the
-following codes to load and <em>View</em> the data.</p>
+following codes to load and <code>View</code> the data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">data</span>(atus)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">View</span>(atus)</span></code></pre></div>
 <p>If you want some details about the data, you can get documentation
@@ -574,8 +574,10 @@ find in your environment. Your first randomly selected number was
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>bs_atus <span class="ot">&lt;-</span> <span class="fu">slice</span>(atus, bs_rows)</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">View</span>(bs_atus)</span></code></pre></div>
 <p>Notice that the first row of <code>bs_atus</code> is the same as
-entry 2463, our first randomly sampled observation.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>entry2463 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(atus[<span class="dv">2463</span>,])</span></code></pre></div>
+entry 2463 in our original atus data, our first randomly sampled
+observation. Run the following to check.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>entry2463 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(atus[<span class="dv">2463</span>,])</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">View</span>(entry2463)</span></code></pre></div>
 <p>Now let’s find the mean of this sample:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> bs_atus)</span></code></pre></div>
 </div>
@@ -588,7 +590,7 @@ entry 2463, our first randomly sampled observation.</p>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> bs_atus)</span>
 <span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now test it out to see. Try running it twice to see that you’ll get
-multiple outputs.</p>
+multiple different outputs.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">bs_func</span>()</span></code></pre></div>
 </div>
 <div id="generate-2000-bootstrap-samples" class="slide section level2">
@@ -597,9 +599,11 @@ multiple outputs.</p>
 <code>do()</code> function:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>bs_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>)<span class="sc">*</span> <span class="fu">bs_func</span>()</span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">View</span>(bs_means)</span></code></pre></div>
-<p>Now let’s visualize our bootstrapped means. - Note: This code will
-change your tab to “Plots” in the plots pane. Click “Viewer” to return
-back to the lab.</p>
+<p>Now let’s visualize our bootstrapped means.</p>
+<ul>
+<li>Note: This code will change your tab to “Plots” in the plots pane.
+Click “Viewer” to return back to the lab.</li>
+</ul>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means,</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">&quot;Distribution of 2000 Bootstrap Sample Means&quot;</span>)</span></code></pre></div>
 <ul>
