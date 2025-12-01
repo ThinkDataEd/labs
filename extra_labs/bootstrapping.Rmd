@@ -28,7 +28,9 @@ View(atus)
 
 ```
 
-If you want some details about the data, you can get documentation with the following code:
+If you want some details about the data, you can get documentation with the following code.
+
+Note: This code will change your tab to the _Help_ tab. Click on _Viewer_ to return back to the lab.
 ```{r, echo = TRUE, eval = FALSE}
 ?atus
 ```
