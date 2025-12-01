@@ -533,13 +533,16 @@ Space, Click, Right Arrow or swipe left to move to the next slide.</p>
 </div>
 <div id="introduction" class="slide section level2">
 <h1>Introduction</h1>
-<p><strong>Research Question:</strong> What is the mean age of people
-older than 15 living in the United States?</p>
+<p><strong>Research Question:</strong> What is the mean amount of time
+people older than 15 living in the United States watch television?</p>
 <p>Today we’ll use <strong>bootstrapping</strong> to create confidence
 intervals around our estimate.</p>
 <p><strong>Key Concept:</strong> A bootstrap sample is a random sample
 taken WITH replacement from our original data, using the same sample
-size.</p>
+size. We can then calculate a statistic from this random sample and
+create a bootstrap distribution by doing this many times. Once we have
+this distribution, we can use percentiles to find a confidence
+interval.</p>
 </div>
 <div id="load-and-explore-the-data" class="slide section level2">
 <h1>Load and Explore the Data</h1>
@@ -549,13 +552,13 @@ following codes to load and <code>View</code> the data.</p>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">View</span>(atus)</span></code></pre></div>
 <p>If you want some details about the data, you can get documentation
 with the following code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>?(atus)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>?atus</span></code></pre></div>
 <p>Since we cannot collect data from everyone who is older than 15
 living in the US, our <code>atus</code> data is a sample, so any
 statistics we calculate using this data will be an estimate.</p>
-<p>Now let’s determine an estimate for the average age of people older
-than 15 living in the US:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> atus)</span></code></pre></div>
+<p>Now let’s determine an estimate for the average time spent watching
+television:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>television, <span class="at">data =</span> atus)</span></code></pre></div>
 </div>
 <div id="lets-create-one-bootstrap-sample" class="slide section level2">
 <h1>Let’s Create One Bootstrap Sample</h1>
@@ -578,19 +581,21 @@ entry 2463 in our original atus data, our first randomly sampled
 observation. Run the following to check.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>entry2463 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(atus[<span class="dv">2463</span>,])</span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">View</span>(entry2463)</span></code></pre></div>
-<p>Now let’s find the mean of this sample:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> bs_atus)</span></code></pre></div>
+<p>Now let’s find the mean time spent watching television of this
+sample:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>television, <span class="at">data =</span> bs_atus)</span></code></pre></div>
 </div>
 <div id="make-a-bootstrap-function" class="slide section level2">
 <h1>Make a Bootstrap Function</h1>
-<p>To make the process we did simple, let’s create a function.</p>
+<p>To make the process we did easy to replicate, let’s create a
+function.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>bs_func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>    bs_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8136</span>, <span class="at">size =</span> <span class="dv">8136</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    bs_atus <span class="ot">&lt;-</span> <span class="fu">slice</span>(atus, bs_rows)</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="sc">~</span>age, <span class="at">data =</span> bs_atus)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="sc">~</span>television, <span class="at">data =</span> bs_atus)</span>
 <span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>}</span></code></pre></div>
-<p>Now test it out to see. Try running it twice to see that you’ll get
-multiple different outputs.</p>
+<p>Now test it out to see. Try running it a few times to see that you’ll
+get multiple different outputs.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">bs_func</span>()</span></code></pre></div>
 </div>
 <div id="generate-2000-bootstrap-samples" class="slide section level2">
@@ -608,10 +613,10 @@ Click “Viewer” to return back to the lab.</li>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">&quot;Distribution of 2000 Bootstrap Sample Means&quot;</span>)</span></code></pre></div>
 <ul>
 <li>These <em>bootstrapped</em> estimates no longer estimate the average
-age of people in the U.S.
+time people in the U.S spend watching television.
 <ul>
-<li>Instead, they estimate how much the estimate of the average age of
-people in the U.S. varies.</li>
+<li>Instead, they estimate how much the estimate of the average time
+people spend watching television in the U.S. varies.</li>
 </ul></li>
 </ul>
 </div>
@@ -624,9 +629,9 @@ do this, we will find the 5% quantile and the 95% quantile.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p>For your upper bound, run:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>)</span></code></pre></div>
-<p>Based on your <em>bootstrapped</em> estimates, between which two ages
-are we 90% confident the actual <code>mean</code> age of people living
-in the U.S. is contained?</p>
+<p>Using your bootstrapped data, what are the upper and lower bounds
+that we can be 90% confident contain the average amount of time U.S.
+residents actually spend watching television?</p>
 <p>Our confidence interval can be written with the format (lower bound,
 upper bound).</p>
 <p>To visualize our confidence interval, we can add lines at our lower
@@ -640,15 +645,15 @@ and upper bounds.</p>
 <h1>Margin of Error</h1>
 <p>Margin of error is another way we can talk about how sure we are
 about our results. For example:</p>
-<p>Instead of, <em>“I think the mean age is between 52 and 53,”</em> we
-can say, <em>“I think the mean age is 52.5, give or take 0.5
-years.”</em></p>
+<p>Instead of, <em>“I think the mean time is between 186 and 192,”</em>
+we can say, <em>“I think the mean time is 189 give or take 3
+minutes”</em></p>
 <p>To find our margin of error, we can find the length of our interval
 and divide by two.</p>
 <p>We’ll store our 5% quantile as our lower bound:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>lower_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>,<span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> <span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.05</span>, <span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Similarly, let’s store the 95% quantile as our upper bound:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>upper_bound<span class="ot">&lt;-</span><span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>,<span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> <span class="fu">quantile</span>(<span class="sc">~</span>bs_func, <span class="at">data =</span> bs_means, <span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Now, we can find their difference and divide by two.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>(upper_bound <span class="sc">-</span> lower_bound)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
 <p>That is our margin of error.</p>

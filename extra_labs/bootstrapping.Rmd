@@ -14,11 +14,11 @@ output:
 
 ## Introduction
 
-**Research Question:** What is the mean age of people older than 15 living in the United States?
+**Research Question:** What is the mean amount of time people older than 15 living in the United States watch television?
 
 Today we'll use **bootstrapping** to create confidence intervals around our estimate.
 
-**Key Concept:** A bootstrap sample is a random sample taken WITH replacement from our original data, using the same sample size.
+**Key Concept:** A bootstrap sample is a random sample taken WITH replacement from our original data, using the same sample size. We can then calculate a statistic from this random sample and create a bootstrap distribution by doing this many times. Once we have this distribution, we can use percentiles to find a confidence interval.
 
 ## Load and Explore the Data
 We will be using data from the American Time Use Survey. Run the following codes to load and `View` the data.
@@ -30,18 +30,17 @@ View(atus)
 
 If you want some details about the data, you can get documentation with the following code:
 ```{r, echo = TRUE, eval = FALSE}
-?(atus)
+?atus
 ```
 
 Since we cannot collect data from everyone who is older than 15 living in the US, our `atus` data is a sample, so any statistics we calculate using this data will be an estimate. 
 
-Now let's determine an estimate for the average age of people older than 15 living in the US:
+Now let's determine an estimate for the average time spent watching television:
 ```{r, echo = TRUE, eval = FALSE}
-mean(~age, data = atus)
+mean(~television, data = atus)
 ```
 
 ## Let's Create One Bootstrap Sample
-
 Let's see what one bootstrapped sample looks like. To begin, we will set a seed for reproducibility:
 
 ```{r, echo = TRUE, eval = FALSE}
@@ -70,23 +69,23 @@ entry2463 <- data.frame(atus[2463,])
 View(entry2463)
 ```
 
-Now let's find the mean of this sample:
+Now let's find the mean time spent watching television of this sample:
 ```{r, echo = TRUE, eval = FALSE}
-mean(~age, data = bs_atus)
+mean(~television, data = bs_atus)
 ```
 
 ## Make a Bootstrap Function
-To make the process we did simple, let's create a function. 
+To make the process we did easy to replicate, let's create a function. 
 ```{r, echo = TRUE, eval = FALSE}
 bs_func <- function() {
     bs_rows <- sample(1:8136, size = 8136, replace = TRUE)
     bs_atus <- slice(atus, bs_rows)
-    mean(~age, data = bs_atus)
+    mean(~television, data = bs_atus)
 }
 
 ```
 
-Now test it out to see. Try running it twice to see that you'll get multiple different outputs.
+Now test it out to see. Try running it a few times to see that you'll get multiple different outputs.
 ```{r, echo = TRUE, eval = FALSE}
 bs_func()
 ```
@@ -106,8 +105,8 @@ Now let's visualize our bootstrapped means.
 histogram(~bs_func, data = bs_means,
           main = "Distribution of 2000 Bootstrap Sample Means")
 ```
-  - These _bootstrapped_ estimates no longer estimate the average age of people in the U.S.
-    - Instead, they estimate how much the estimate of the average age of people in the U.S. varies.
+  - These _bootstrapped_ estimates no longer estimate the average time people in the U.S spend watching television.
+    - Instead, they estimate how much the estimate of the average time people spend watching television in the U.S. varies.
     
 ## Create a 90% Confidence Interval
 We're ready to make our confidence interval now! If we want to find a 90% confidence interval, we can look at the middle 90% of our data. To do this, we will find the 5% quantile and the 95% quantile. 
@@ -122,7 +121,7 @@ For your upper bound, run:
 quantile(~bs_func, data = bs_means, p = 0.95)
 ```
 
-Based on your _bootstrapped_ estimates, between which two ages are we 90% confident the actual `mean` age of people living in the U.S. is contained?
+Using your bootstrapped data, what are the upper and lower bounds that we can be 90% confident contain the average amount of time U.S. residents actually spend watching television?
 
 Our confidence interval can be written with the format (lower bound, upper bound).
 
@@ -138,19 +137,19 @@ add_line(vline=quantile(~bs_func, data = bs_means, p = 0.95))
 Margin of error is another way we can talk about how sure we are about our results. For example:
 
 Instead of, 
-  *"I think the mean age is between 52 and 53,"* we can say, 
-  *"I think the mean age is 52.5, give or take 0.5 years."*
+  *"I think the mean time is between 186 and 192,"* we can say, 
+  *"I think the mean time is 189 give or take 3 minutes"*
 
 To find our margin of error, we can find the length of our interval and divide by two.
 
 We'll store our 5% quantile as our lower bound:
 ```{r, echo = TRUE, eval = FALSE}
-lower_bound<-quantile(~bs_func, data = bs_means, p = 0.05,names=FALSE)
+lower_bound <- quantile(~bs_func, data = bs_means, p = 0.05, names=FALSE)
 ```
 
 Similarly, let's store the 95% quantile as our upper bound:
 ```{r, echo = TRUE, eval = FALSE}
-upper_bound<-quantile(~bs_func, data = bs_means, p = 0.95,names=FALSE)
+upper_bound <- quantile(~bs_func, data = bs_means, p = 0.95, names=FALSE)
 ```
 
 Now, we can find their difference and divide by two.
