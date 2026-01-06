@@ -554,9 +554,12 @@ were missing.</p>
 <p>To find the mean fare of survivors and non-survivors separately, type
 the following:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> survived, <span class="at">data =</span> titanic)</span></code></pre></div>
-<p>The output shows that on average, survivors paid about 27 more pounds
-than non-survivors, but is this enough evidence to say that those that
-paid a higher fare were more likely to survive?</p>
+<p>What is the difference of fares for survivors and non-survivors?</p>
+<ul>
+<li>Tip: The console can be used as a calculator.</li>
+</ul>
+<p>Is this enough evidence to say that people who paid a higher fair
+where more likely to survive?</p>
 </div>
 <div id="stronger-evidence" class="slide section level2">
 <h1>Stronger Evidence</h1>
@@ -574,7 +577,9 @@ for this shuffle.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> alt_survived,  <span class="at">data =</span> titanic)</span></code></pre></div>
 <p>What is the difference in mean fares (survivors minus
 non-survivors)?</p>
-<p>Tip: The console can be used as a calculator.</p>
+<ul>
+<li>Tip: The console can be used as a calculator.</li>
+</ul>
 </div>
 <div id="more-shuffles" class="slide section level2">
 <h1>More Shuffles</h1>
@@ -593,7 +598,8 @@ shuffled <code>survived</code> variable.</p>
 <p>Since we have technology, let’s do this shuffle 2000 times!</p>
 <p>We store all these simulations and name them
 <code>shuffled_survived</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>shuffled_survived <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> <span class="fu">shuffle</span>(survived), <span class="at">data =</span> titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>shuffled_survived <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> <span class="fu">shuffle</span>(survived), </span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                                     <span class="at">data =</span> titanic)</span></code></pre></div>
 <p>Let’s look at our shuffles now:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">View</span>(shuffled_survived)</span></code></pre></div>
 <p>What do all the columns represent?</p>
@@ -610,12 +616,15 @@ data frame will contain three variables instead of two.</p>
 <p>Using this new variable we will create a histogram which serves as a
 model displaying the typical difference in fare between survivors and
 non-survivors when survival is determined by chance alone.</p>
-<p>NOTE: When you run the code below, it will revert you to the Plots
+<ul>
+<li>NOTE: When you run the code below, it will revert you to the Plots
 pane. To get back to the lab slides, click on the Viewer tab which is to
-the right of the Plots pane.</p>
+the right of the Plots pane.</li>
+</ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>diff, <span class="at">data =</span> shuffled_survived, </span>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>          <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">30</span>,<span class="dv">30</span>), </span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Shuffled Differences in Fare between Survivors and Non-Survivors&quot;</span>)</span></code></pre></div>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Shuffled Differences in Fare</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="st">          between Survivors and Non-Survivors&quot;</span>)</span></code></pre></div>
 </div>
 <div id="interpretation" class="slide section level2">
 <h1>Interpretation</h1>
