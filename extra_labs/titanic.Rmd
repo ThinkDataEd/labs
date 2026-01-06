@@ -1,0 +1,141 @@
+---
+title: "Titanic Lab"
+author: "ThinkData Ed"
+date: 'Directions: Follow along with the slides.  
+  
+  <br>
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+output: 
+  slidy_presentation: 
+    css: ../IDSLabCSSRev.css
+    mathjax: ../extras/mathjax-local/MathJax.js
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+library(mobilizr)
+library(readr)
+```
+
+## Let’s get started
+
+We first need to load the titanic dataset onto our Environment. To do this type the following command on your console and press enter on your keyboard:
+```{r, eval = TRUE, echo = TRUE}
+data(titanic)
+```
+To view the data, type the following command (make sure to capitalize):
+```{r, eval = FALSE, echo = TRUE}
+View(titanic)
+```
+Peruse the data. How many characters (rows) are in this dataset? How many variables (columns) are in this dataset?
+
+## Fare and Survival
+
+To find the mean fare for passengers on the Titanic type the following command:
+
+```{r, eval = FALSE, echo = TRUE}
+mean(~fare, data = titanic)
+```
+
+Don't be alarmed about the <font color="red">Warning</font> message. It is just letting you know that some of the fares for the passengers were missing.
+
+To find the mean fare of survivors and non-survivors separately, type the following:
+
+```{r, eval = FALSE, echo = TRUE}
+mean(~fare | survived, data = titanic)
+```
+
+
+The output shows that on average, survivors paid about 27 more pounds than non-survivors, but is this enough evidence to say that those that paid a higher fare were more likely to survive?
+
+
+## Stronger Evidence
+
+In statistics a formal probability test would be applied to determine if the difference of 27 pounds  was significant. In data science, we will apply a permutations test using shuffling.
+
+First, let's create a column for an alternate universe, where we shuffle the survival variable:
+
+```{r, eval = FALSE, echo = TRUE}
+titanic<-mutate(titanic, alt_survived = shuffle(survived))
+```
+
+Now, we can view the passenger names, fare, surivival status and outcomes for the shuffled data.
+
+```{r, eval = FALSE, echo = TRUE}
+View(select(titanic, c(name, fare, survived, alt_survived)))
+```
+
+We can then compare the mean fare between survivors and non-survivors for this shuffle.
+
+```{r, eval = FALSE, echo = TRUE}
+mean(~fare | alt_survived,  data = titanic)
+```
+
+What is the difference in mean fares (survivors minus non-survivors)?
+
+Tip: The console can be used as a calculator.
+
+## More Shuffles
+
+To help us decide if the difference of fares in our actual data occurs by chance or not, we can use the `do()` function to shuffle our data many times and see how often our actual difference occurred by chance.
+
+- <span class="blue">Run the following lines of code:</span>
+
+To ensure everyone in the workshop gets the same results, we will all start our "random" algorithm with the same seed:
+```{r, eval = FALSE, echo = TRUE}
+set.seed(13)
+```
+In the following code, we will calculate the mean fare facted by the shuffled `survived` variable.
+
+Since we have technology, let's do this shuffle 2000 times!
+
+We store all these simulations and name them `shuffled_survived`.
+```{r, eval = FALSE, echo = TRUE}
+shuffled_survived <- do(2000) * mean(~fare | shuffle(survived), data = titanic)
+```
+
+Let's look at our shuffles now:
+```{r, eval = FALSE, echo = TRUE}
+View(shuffled_survived)
+```
+
+What do all the columns represent?
+
+## Model
+
+The code below will create a new column in our `shuffled_survived` data frame that will show how much fare differs among survivors and non-survivors. If you look at the Environment after running the code, the `shuffled_survived` data frame will contain three variables instead of two.
+
+
+```{r, eval = FALSE, echo = TRUE}
+shuffled_survived <- mutate(shuffled_survived, diff = Yes - No)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+View(shuffled_survived)
+```
+
+Using this new variable we will create a histogram which serves as a model displaying the typical difference in fare between survivors and non-survivors when survival is determined by chance alone.
+
+NOTE: When you run the code below, it will revert you to the Plots pane. To get back to the lab slides, click on the Viewer tab which is to the right of the Plots pane.
+
+
+```{r, eval = FALSE, echo = TRUE}
+histogram(~diff, data = shuffled_survived, 
+          xlim=c(-30,30), 
+          main="Shuffled Differences in Fare between Survivors and Non-Survivors")
+```
+
+
+## Interpretation
+Where in this model do we see a difference of roughly 27 pounds? 
+
+Now that we have a histogram to model what chance would look like, let's compare our actual observed difference. Run the following line of code to add a line to our plot that shows the real difference from our original dataset.
+```{r, eval = FALSE, echo = TRUE}
+add_line(vline = 49.66471  - 22.24731)
+```
+
+Since a difference of 27 is a rare permutation, this provides strong evidence that people who paid a higher fare were more likely to survive.
