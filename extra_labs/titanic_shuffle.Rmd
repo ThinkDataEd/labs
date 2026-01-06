@@ -1,8 +1,15 @@
 ---
 title: "Titanic Shuffle"
-output:
-  slidy_presentation: default
-  pdf_document: default
+author: "ThinkData Ed"
+date: 'Directions: Follow along with the slides.  
+  
+  <br>
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+output: 
+  slidy_presentation: 
+    css: ../IDSLabCSSRev.css
+    mathjax: ../extras/mathjax-local/MathJax.js
 ---
 
 ```{r setup, include=FALSE}
