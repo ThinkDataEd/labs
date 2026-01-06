@@ -1,5 +1,5 @@
 ---
-title: "Titanic Lab"
+title: "The Titanic Shuffle"
 author: "ThinkData Ed"
 date: 'Directions: Follow along with the slides.  
   
