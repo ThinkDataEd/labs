@@ -5,10 +5,10 @@ date: |-
   <br> <br> Space, Click, Right Arrow or swipe left to move to the next slide.
   Directions: Follow along with the slides.
 output:
-  ioslides_presentation: default
   slidy_presentation:
     css: ../IDSLabCSSRev.css
     mathjax: "../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
