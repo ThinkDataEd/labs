@@ -545,15 +545,15 @@ many variables (columns) are in this dataset?</p>
 </div>
 <div id="fare-and-survival" class="slide section level2">
 <h1>Fare and Survival</h1>
-<p>To find the median fare for passengers on the Titanic type the
+<p>To find the mean fare for passengers on the Titanic type the
 following command:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">median</span>(<span class="sc">~</span>fare, <span class="at">data =</span> titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>fare, <span class="at">data =</span> titanic)</span></code></pre></div>
 <p>Don’t be alarmed about the <font color="red">Warning</font> message.
 It is just letting you know that some of the fares for the passengers
 were missing.</p>
-<p>To find the median fare of survivors and non-survivors separately,
-type the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">median</span>(<span class="sc">~</span>fare <span class="sc">|</span> survived, <span class="at">data =</span> titanic)</span></code></pre></div>
+<p>To find the mean fare of survivors and non-survivors separately, type
+the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> survived, <span class="at">data =</span> titanic)</span></code></pre></div>
 <p>What is the difference of fares for survivors and non-survivors?</p>
 <ul>
 <li>Tip: The console can be used as a calculator.</li>
@@ -564,18 +564,18 @@ were more likely to survive?</p>
 <div id="stronger-evidence" class="slide section level2">
 <h1>Stronger Evidence</h1>
 <p>In statistics a formal probability test would be applied to determine
-if the difference of 15.5 pounds was significant. In data science, we
-will apply a permutations test using shuffling.</p>
+if the difference of 27 pounds was significant. In data science, we will
+apply a permutations test using shuffling.</p>
 <p>First, let’s create a column for an alternate universe, where we
 shuffle the survival variable:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>titanic<span class="ot">&lt;-</span><span class="fu">mutate</span>(titanic, <span class="at">alt_survived =</span> <span class="fu">shuffle</span>(survived))</span></code></pre></div>
 <p>Now, we can view the passenger names, fare, survival status and
 outcomes for the shuffled data.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">select</span>(titanic, <span class="fu">c</span>(name, fare, survived, alt_survived)))</span></code></pre></div>
-<p>We can then compare the median fare between survivors and
-non-survivors for this shuffle.</p>
+<p>We can then compare the mean fare between survivors and non-survivors
+for this shuffle.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> alt_survived,  <span class="at">data =</span> titanic)</span></code></pre></div>
-<p>What is the difference in median fares (survivors minus
+<p>What is the difference in mean fares (survivors minus
 non-survivors)?</p>
 <ul>
 <li>Tip: The console can be used as a calculator.</li>
@@ -593,12 +593,12 @@ occurred by chance.</p>
 <p>To ensure everyone in the workshop gets the same results, we will all
 start our “random” algorithm with the same seed:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">14</span>)</span></code></pre></div>
-<p>In the following code, we will calculate the median fare faceted by
-the shuffled <code>survived</code> variable.</p>
+<p>In the following code, we will calculate the mean fare faceted by the
+shuffled <code>survived</code> variable.</p>
 <p>Since we have technology, let’s do this shuffle 2000 times!</p>
 <p>We store all these simulations and name them
 <code>shuffled_survived</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>shuffled_survived <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">median</span>(<span class="sc">~</span>fare <span class="sc">|</span> <span class="fu">shuffle</span>(survived), </span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>shuffled_survived <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">mean</span>(<span class="sc">~</span>fare <span class="sc">|</span> <span class="fu">shuffle</span>(survived), </span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                                     <span class="at">data =</span> titanic)</span></code></pre></div>
 <p>Let’s look at our shuffles now:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">View</span>(shuffled_survived)</span></code></pre></div>
@@ -622,21 +622,20 @@ pane. To get back to the lab slides, click on the Viewer tab which is to
 the right of the Plots pane.</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>diff, <span class="at">data =</span> shuffled_survived, </span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>          <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">20</span>), </span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>          <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">30</span>), </span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Shuffled Differences in Fare</span></span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="st">          between Survivors and Non-Survivors&quot;</span>)</span></code></pre></div>
 </div>
 <div id="interpretation" class="slide section level2">
 <h1>Interpretation</h1>
-<p>Where in this model do we see a difference of roughly 15.5
-pounds?</p>
+<p>Where in this model do we see a difference of roughly 27 pounds?</p>
 <p>Now that we have a histogram to model what chance would look like,
 let’s compare our actual observed difference. Run the following line of
 code to add a line to our plot that shows the real difference from our
 original dataset.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fl">26.0</span>  <span class="sc">-</span> <span class="fl">10.5</span>)</span></code></pre></div>
-<p>Since a difference of 15.5 is a rare permutation, this provides
-strong evidence that people who paid a higher fare were more likely to
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">add_line</span>(<span class="at">vline =</span> <span class="fl">49.66471</span> <span class="sc">-</span> <span class="fl">22.24731</span>)</span></code></pre></div>
+<p>Since a difference of 27 is a rare permutation, this provides strong
+evidence that people who paid a higher fare were more likely to
 survive.</p>
 </div>
 
