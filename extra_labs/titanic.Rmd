@@ -42,23 +42,23 @@ median(~fare, data = titanic)
 
 Don't be alarmed about the <font color="red">Warning</font> message. It is just letting you know that some of the fares for the passengers were missing.
 
-To find the mean fare of survivors and non-survivors separately, type the following:
+To find the median fare of survivors and non-survivors separately, type the following:
 
 ```{r, eval = FALSE, echo = TRUE}
-mean(~fare | survived, data = titanic)
+median(~fare | survived, data = titanic)
 ```
 
 What is the difference of fares for survivors and non-survivors?
 
 -  Tip: The console can be used as a calculator.
 
-Is this enough evidence to say that people who paid a higher fair where more likely to survive?
+Is this enough evidence to say that people who paid a higher fair were more likely to survive?
 
 
 
 ## Stronger Evidence
 
-In statistics a formal probability test would be applied to determine if the difference of 27 pounds  was significant. In data science, we will apply a permutations test using shuffling.
+In statistics a formal probability test would be applied to determine if the difference of 15.5 pounds  was significant. In data science, we will apply a permutations test using shuffling.
 
 First, let's create a column for an alternate universe, where we shuffle the survival variable:
 
@@ -66,19 +66,19 @@ First, let's create a column for an alternate universe, where we shuffle the sur
 titanic<-mutate(titanic, alt_survived = shuffle(survived))
 ```
 
-Now, we can view the passenger names, fare, surivival status and outcomes for the shuffled data.
+Now, we can view the passenger names, fare, survival status and outcomes for the shuffled data.
 
 ```{r, eval = FALSE, echo = TRUE}
 View(select(titanic, c(name, fare, survived, alt_survived)))
 ```
 
-We can then compare the mean fare between survivors and non-survivors for this shuffle.
+We can then compare the median fare between survivors and non-survivors for this shuffle.
 
 ```{r, eval = FALSE, echo = TRUE}
 mean(~fare | alt_survived,  data = titanic)
 ```
 
-What is the difference in mean fares (survivors minus non-survivors)?
+What is the difference in median fares (survivors minus non-survivors)?
 
 -  Tip: The console can be used as a calculator.
 
@@ -90,15 +90,15 @@ To help us decide if the difference of fares in our actual data occurs by chance
 
 To ensure everyone in the workshop gets the same results, we will all start our "random" algorithm with the same seed:
 ```{r, eval = FALSE, echo = TRUE}
-set.seed(13)
+set.seed(14)
 ```
-In the following code, we will calculate the mean fare facted by the shuffled `survived` variable.
+In the following code, we will calculate the median fare faceted by the shuffled `survived` variable.
 
 Since we have technology, let's do this shuffle 2000 times!
 
 We store all these simulations and name them `shuffled_survived`.
 ```{r, eval = FALSE, echo = TRUE}
-shuffled_survived <- do(2000) * mean(~fare | shuffle(survived), 
+shuffled_survived <- do(2000) * median(~fare | shuffle(survived), 
                                      data = titanic)
 ```
 
@@ -111,7 +111,7 @@ What do all the columns represent?
 
 ## Model
 
-The code below will create a new column in our `shuffled_survived` data frame that will show how much fare differs among survivors and non-survivors. If you look at the Environment after running the code, the `shuffled_survived` data frame will contain three variables instead of two.
+The code below will create a new column in our `shuffled_survived` data frame that will show how much the fare differs among survivors and non-survivors. If you look at the Environment after running the code, the `shuffled_survived` data frame will contain three variables instead of two.
 
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -129,18 +129,18 @@ Using this new variable we will create a histogram which serves as a model displ
 
 ```{r, eval = FALSE, echo = TRUE}
 histogram(~diff, data = shuffled_survived, 
-          xlim=c(-30,30), 
+          xlim=c(-20,20), 
           main="Shuffled Differences in Fare
           between Survivors and Non-Survivors")
 ```
 
 
 ## Interpretation
-Where in this model do we see a difference of roughly 27 pounds? 
+Where in this model do we see a difference of roughly 15.5 pounds? 
 
 Now that we have a histogram to model what chance would look like, let's compare our actual observed difference. Run the following line of code to add a line to our plot that shows the real difference from our original dataset.
 ```{r, eval = FALSE, echo = TRUE}
-add_line(vline = 49.66471  - 22.24731)
+add_line(vline = 26.0  - 10.5)
 ```
 
-Since a difference of 27 is a rare permutation, this provides strong evidence that people who paid a higher fare were more likely to survive.
+Since a difference of 15.5 is a rare permutation, this provides strong evidence that people who paid a higher fare were more likely to survive.
