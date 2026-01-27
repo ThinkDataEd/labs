@@ -35,10 +35,10 @@ Peruse the data. How many characters (rows) are in this dataset? How many variab
 
 ## Fare and Survival
 
-To find the mean fare for passengers on the Titanic type the following command:
+To find the median fare for passengers on the Titanic type the following command:
 
 ```{r, eval = FALSE, echo = TRUE}
-mean(~fare, data = titanic)
+median(~fare, data = titanic)
 ```
 
 Don't be alarmed about the <font color="red">Warning</font> message. It is just letting you know that some of the fares for the passengers were missing.
