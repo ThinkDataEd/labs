@@ -63,13 +63,13 @@ songs <- c(rap, rock)
 ## Getting ready
 
 - Simulations are meant to mimic what happens in real-life using randomness and computers.
-    - Before we can start simulating picking songs from a playlist, we need to simulate that playlist in `R`.
-- <span class="blue">Simulate our 39 `rap` songs using the repeat `rep()` function and assign the vector name `rap`.</span>
+    - Before we can start simulating picking songs from a playlist, we need to create that playlist in `R`.
+- <span class="blue">Create our 39 `rap` songs using the repeat `rep()` function and assign the vector name `rap`.</span>
 ```{r, eval = FALSE, echo = TRUE}
 rap <- rep("rap", times = 39)
 ```
 - <span class="blue">Look in the _Environment_ pane for the vector containing your `rap` songs.</span>
-- **(3) Write and run a similar line of code to simulate the `rock` songs in our playlist of 100.**
+- **(3) Write and run a similar line of code to create the remaining `rock` songs in our playlist of 100.**
 
 
 ## Put the songs in the playlist
@@ -126,18 +126,18 @@ tally(~___, data = draws)
 ## Proportions vs. Probability
 
 - To review, so far in this lab we've:
-    - Simulated a "playlist" of songs.
-    - Repeatedly simulated drawing a song from the playlist, noting its genre and placing it back in the playlist.
+    - Created a "playlist" of songs.
+    - Repeatedly selected a song from the playlist, noted its genre and placed it back in the playlist.
     - Computed the proportion of the draws that were `"rap"`.
 - These proportions are all _estimates_ of the theoretical probability of choosing a rap song from a playlist.
     - As we increase the number of draws, the _range_ of proportions should shrink.
 
-_When using simulations to estimate probabilities, using a large number of repeats is better because the estimates have less variability and so we can be confident we're closer to the actual value._
+_When using repeated sampling to estimate probabilities, using a large number of repeats is better because the estimates have less variability and so we can be confident we're closer to the actual value._
 
 
 ## Non-random Randomness
 
-- We've seen that random simulations can produce many different outcomes.
+- We've seen that random sampling can produce many different outcomes.
     - Some estimated probabilities in your class were smaller/larger relative to others.
 - There are instances where you might like the same random events to occur for everyone.
     - We can do this by using `set.seed()`.
@@ -150,11 +150,11 @@ sample(songs, size = 1, replace = TRUE)
 
 ## Playing with seeds
 
-- <span class="blue">With a partner, choose a number to include in `set.seed` then redo the simulation of 50 songs. </span>
-    - Both partners should run `set.seed(___)` just before simulating the 50 draws. 
+- <span class="blue">With a partner, choose a number to include in `set.seed` then redo the sampling of 50 songs. </span>
+    - Both partners should run `set.seed(___)` just before sampling the 50 draws. 
     - The blank in `set.seed(___)` should be the same number for both partners.
     - **(12) What value of `set.seed` did you and your partner use and what was the proportion of `"rap"` songs you obtained?**
-- <span class="blue">Redo the 50 simulations one last time but have each partner choose a different number for `set.seed(___)`. </span>
+- <span class="blue">Redo the 50 samples one last time but have each partner choose a different number for `set.seed(___)`. </span>
     - **(13) Are the proportions still the same? If so, can you find two different values for `set.seed` that give different answers?**
 
 
@@ -164,6 +164,6 @@ sample(songs, size = 1, replace = TRUE)
 
 _If we select a student at random, what is the probability that this student is one of those who went to the movies last Friday?_
 
-- **(14) Write and run code estimating the probability that a randomly chosen student went to the movies using 500 simulations.**
-    - **(15) Write down both the code and the output that estimates the probability that a randomly chosen student went to the movies using 500 simulations. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_.**
+- **(14) Write and run code estimating the probability that a randomly chosen student went to the movies using 500 repeated samples.**
+    - **(15) Write down both the code and the output that estimates the probability that a randomly chosen student went to the movies using 500 repeated samples. You might find it helpful to write your answer in an R Script _(File -> New File -> R Script)_.**
     - <span class="blue">Include `set.seed(123)` in your code before you `do` 500 repeated samples.</span>

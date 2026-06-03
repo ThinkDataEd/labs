@@ -14,8 +14,9 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,8 +80,9 @@ code span.vs { color: #4070a0; }
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
   <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -535,17 +537,17 @@ the next slide.</p>
 <div id="where-we-left-off" class="slide section level2">
 <h1>Where we left off</h1>
 <ul>
-<li>In the last lab, we looked at how we can use computer simulations to
-compute estimates of simple probabilities.
+<li>In the last lab, we looked at how we can use sampling to compute
+estimates of simple probabilities.
 <ul>
 <li>Like the probability of drawing a song genre from a playlist.</li>
 </ul></li>
-<li>We also saw that performing <em>more</em> simulations:
+<li>We also saw that performing <em>more</em> repeated samples:
 <ul>
 <li>Took <em>longer</em> to finish.</li>
 <li>Had estimates that <em>varied less</em>.</li>
 </ul></li>
-<li>In this lab, we’ll extend our simulation methods to cover situations
+<li>In this lab, we’ll extend our sampling methods to cover situations
 that are more complex.
 <ul>
 <li>We’ll learn how to estimate their probabilities.</li>
@@ -557,15 +559,15 @@ that are more complex.
 <div id="back-to-songs" class="slide section level2">
 <h1>Back to songs</h1>
 <ul>
-<li><strong>(1) Write and run code simulating a <em>playlist of
-songs</em> containing 30 <code>&quot;rap&quot;</code> songs, 23
-<code>&quot;country&quot;</code> songs and 47 <code>&quot;rock&quot;</code> songs.</strong>
+<li><strong>(1) Write and run code creating a <em>playlist of songs</em>
+containing 30 <code>&quot;rap&quot;</code> songs, 23 <code>&quot;country&quot;</code> songs
+and 47 <code>&quot;rock&quot;</code> songs.</strong>
 <ul>
 <li><span class="blue"><em>Assign</em> the <code>c</code>ombined
 playlist the name <code>songs</code>.</span></li>
 </ul></li>
-<li><strong>(2) Write and run code simulating choosing a single song 50
-times. Then use your simulated draws to estimate the probability of
+<li><strong>(2) Write and run code to randomly select a single song 50
+times. Then use your 50 sample draws to estimate the probability of
 choosing a <em>rap</em> song.</strong>
 <ul>
 <li>The “true” (theoretical) probability of choosing a <em>rap song</em>
@@ -623,8 +625,8 @@ probability that all three candies will be chocolate.</li>
 replacement</em> and which would you sample <em>without
 replacement</em>? Why?</strong></li>
 <li><strong>(9) Write down the line of code you would run to
-<code>sample</code> from the candy jar. Assume the simulated jar is
-named <code>candies</code>.</strong></li>
+<code>sample</code> from the candy jar. Name the candy jar data that you
+create <code>candies</code>.</strong></li>
 </ul>
 </div>
 <div id="simulations-at-work" class="slide section level2">
@@ -640,21 +642,21 @@ are rap songs.
 <ul>
 <li><strong>(10) Write and run code using the <code>do</code> function
 to perform 10 simulated <code>sample</code>s of <code>size</code> 2,
-without replacement and <em>assign</em> the simulations the name
-<code>draws</code> and then <code>View</code> your file. Use
-<code>set.seed(1)</code>.</strong></li>
+without replacement and <em>assign</em> the output of the simulated
+<code>sample</code>s the name <code>draws</code> and then
+<code>View</code> your file. Use <code>set.seed(1)</code>.</strong></li>
 <li><strong>(11) What are the variable names? What happened in the first
-simulation? Did any of your 10 simulations contain two <em>rap</em>
-songs?</strong></li>
+simulated sample? Did any of your 10 simulated samples contain two
+<em>rap</em> songs?</strong></li>
 </ul></li>
 </ul>
 </div>
 <div id="simulations-and-probability" class="slide section level2">
 <h1>Simulations and probability</h1>
 <ul>
-<li>To estimate the probability from our simulations, we need to find
-the proportion of times that the event we’re interested in occurs in the
-simulations.</li>
+<li>To estimate the probability from our simulated samples, we need to
+find the proportion of times that the event we’re interested in occurs
+in the samples.</li>
 <li>In other words, we need to count the number of times the desired
 events occurred, divided by the number of attempts we made (the number
 of simulations).</li>
@@ -715,8 +717,8 @@ specific combination of events occurred.</li>
 <div id="estimating-probabilities" class="slide section level2">
 <h1>Estimating probabilities</h1>
 <ul>
-<li><p><strong>(14) Write and run code performing 500 simulations of
-sampling 2 songs from a playlist of 30 <code>&quot;rap&quot;</code>, 23
+<li><p><strong>(14) Write and run code performing 500 simulated samples
+of selecting 2 songs from a playlist of 30 <code>&quot;rap&quot;</code>, 23
 <code>&quot;country&quot;</code> and 47 <code>&quot;rock&quot;</code> songs. You might
 consider running <code>set.seed</code> so that your results can be
 reproduced:</strong></p></li>
