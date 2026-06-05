@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Time Series Lab B" />
-  <title>Where Did the Love Go?</title>
+  <meta name="author" content="Time Series Lab D" />
+  <title>How It’s Done (Extended)</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -523,217 +523,106 @@ list-style-type: none;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Where Did the Love Go?</h1>
+  <h1 class="title">How It’s Done (Extended)</h1>
   <p class="author">
-Time Series Lab B
+Time Series Lab D
   </p>
   <p class="date">Directions: Follow along with the slides, completing
 the questions in <span style="color: blue;"><b>blue</b></span> on your
 computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal. <br> Space,
 Click, Right Arrow or swipe left to move to the next slide.</p>
 </div>
-<div id="sleep-campaign-night-6" class="slide section level2">
-<h1>Sleep Campaign Night 6</h1>
+<div id="but-wait-theres-more" class="slide section level2">
+<h1>But wait, there’s more!</h1>
 <ul>
 <li>
-Before continuing in the lab, submit the Sleep Campaign survey for Night
-6.
+In the previous lab you explored trending non stationary time series
+data and applied forecasting to fit a model to assess its accuracy.
 </li>
+<li>
+This lab focuses on non trending time series data.
+</li>
+<p><b><u>Note:</b></u> It is highly recommended that you create a new
+RScript for this lab because you will reference this code in Lab E.</p>
 </ul>
 </div>
-<div id="time-to-change-to-time-series" class="slide section level2">
-<h1>Time to Change to Time Series</h1>
+<div id="auto-arima" class="slide section level2">
+<h1>(auto) ARIMA</h1>
 <ul>
 <li>
-By now, you have seen taht time series require a new set of skills to
-analyze and interpret - RStudio has specific functions to simplify this
-process.
+For time series plots that have no trend, no seasonality, and are
+stationary, we use the ARIMA method to prepare for forecasting.
 </li>
 <li>
-In this lab, we’ll transform our data into a time series object so that
-we can use these specialized functions.
-</li>
-</ul>
-</div>
-<div id="load-the-lyrics-data" class="slide section level2">
-<h1>Load the lyrics data</h1>
-<ul>
-<li>
-<b><span style="color: blue;"> Load the <code>lyrics</code> data into
-your Environment.</b></span>
+<span style="color: blue;"><b>First, run the code to find the
+information about the <code>ldeaths_ts</code> time series
+object.</span></b>
 </li>
 <li>
-<b><span style="color: red;"> (1) What year does the <code>lyrics</code>
-data start with?</span></b>
+<span style="color: red;"><b>(1) Explain what this data is
+about.</span></b>
 </li>
 <li>
-<b><span style="color: red;"> (2) How many values does each year
-have?</b></span>
+<span style="color: blue;"><b>Create a plot of the
+<code>ldeaths_ts</code> time series object.</span></b>
 </li>
 <li>
-We will use this information together with the <code>ts()</code>
-function to convert the <code>Love</code> variable from the
-<code>lyrics</code> data into a time series object.
+<span style="color: red;"><b>(2) Describe the trend, seasonality, and
+stationarity of the data.</span></b>
 </li>
 <li>
-Run the following line of code in the console:
+<span style="color: blue;"><b>Next, run the following code in the
+console to create your training and test data.</span></b>
 </li>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>love_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(lyrics<span class="sc">$</span>Love, <span class="at">frequency =</span> <span class="dv">1</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>ldeaths_split <span class="ot">&lt;-</span> <span class="fu">ts_split</span>(ldeaths_ts)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>training <span class="ot">&lt;-</span> ldeaths_split<span class="sc">$</span>train</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>test <span class="ot">&lt;-</span> ldeaths_split<span class="sc">$</span>test</span></code></pre></div>
 <li>
-<b><span style="color: red;"> (3) How does this file appear in your
-Environment?</b></span>
+<span style="color: blue;"><b>Then, run the following code in the
+console to use the ARIMA model:</span></b>
 </li>
-</ul>
-</div>
-<div id="breaking-ts-down" class="slide section level2">
-<h1>Breaking <code>ts()</code> Down</h1>
-<ul>
+<p><b><u>Note:</b></u> The <code>auto.arima()</code> function chooses
+the ideal ARIMA values for the model for you.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>arima_ldeaths <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(training)</span></code></pre></div>
 <li>
-You may have noticed that the syntax is a bit different than waht we
-have used throughout IDS. That’s because we need to use base
-<code>R</code> for this function (that is the reason for the dollar
-sign). Leet’s break down the code:
+<span style="color: blue;"><b>Run the following code to forecast your
+time series data:</span></b>
 </li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>arima_ldeaths_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima_ldeaths)</span></code></pre></div>
 <li>
-<code>ts()</code> tells R to convert the values into a time series
-object.
-</li>
-<li>
-<code>lyrics$Love</code> is the dataset and variable taht we want to
-convert, in the form <code>dataset$variable</code>.
-</li>
-<ul>
-<li>Notice how this compares to the syntax you are already familiar with
-(<code>~variable, data = dataset</code>). We are still identifying the
-dataset and variable but it may feel less intuitive.</li>
-</ul>
-<li>
-<code>frequency = 1</code> tells <code>R</code> the number of
-observations per unit of time. For our data, we have 1 value per year.
+<span style="color: blue;"><b>Create a plot of your forecasted time
+series data.</span></b>
 </li>
 <li>
-<code>start = c(1965, 1)</code> tells <code>R</code> what year the data
-starts at and when within the year it starts. For our data, the first
-data value is in 1965 and we only have 1 value per year so it will also
-be a 1 here.
-</li>
-<ul>
-<li>If, for example, we had data that was collected monthly and started
-in July of 1965, the frequency and start would look like this:</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>frequency <span class="ot">=</span> <span class="dv">12</span>, start <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">7</span>)</span></code></pre></div>
-</ul>
-</div>
-<div id="exploring-love-again" class="slide section level2">
-<h1>Exploring Love, Again</h1>
-<ul>
-<li>
-Now let’s explore our <code>love_ts</code> object with some new
-functions!
+<span style="color: red;"><b>(3) Describe the predictions made with this
+method of forecasting for this data in context.</span></b>
 </li>
 <li>
-<span style="color: blue;"><b>Run the following line of code in the
-console:</b></span>.
+<span style="color: blue;"><b>Check your accuracy by running the
+following code in your console.</span></b>
 </li>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">print</span>(love_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">accuracy</span>(arima_ldeaths_f, test)</span></code></pre></div>
 <li>
-<span style="color: red;"><b> (4) What information do you
-see?</b></span>.
+<span style="color: red;"><b>(4) Use the <code>MAPE</code> values to
+explain the accuracy of your model’s forecast.</span></b>
 </li>
-<li>
-This should make viewing your data much easier than looking in the
-Environment. If you had more data values per year, you would see the
-data as a table in your console.
-</li>
-<li>
-<span style="color: blue;"><b> Try another function by running the
-following line of code in the console:</b></span>
-</li>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">plot</span>(love_ts)</span></code></pre></div>
-<ul>
-<li>Because <code>love_ts</code> is an object we treat it much ike when
-we use values in the <code>diff()</code> function.</li>
-</ul>
-<li>
-<span style="color: red;"><b> (5) Describe the key features of the plot
-in context like trend, seasonality, stationarity, and
-irregularity.</b></span>
-</li>
-</ul>
-</div>
-<div id="stationarity" class="slide section level2">
-<h1>Stationarity</h1>
-<ul>
-<li>
-You determined sstationarity visually and with estimating average rate
-of change in the last lesson but there is an <code>R</code> function to
-confirm <i>definitively</i> whether your data is stationarity or not.
-</li>
-<li>
-<b><span style="color: blue;">Run the following line of code in the
-console.</span>
-</li>
-<p></b></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">adf.test</span>(love_ts)</span></code></pre></div>
-<li>
-<b><span style="color: red;">(6) What information do you see?</span>
-</li>
-<p></b></p>
-<li>
-This is the Augmented Dickey-Fuller Test, which is used to determine
-stationarity.
-</li>
-<ul>
-<li><p>The alternative hypothesis is that the data <b><i>is</b></i>
-stationary. <b>You will always see the alternative hypothesis as
-stationary in your console output for this particular test</b>.</p></li>
-<li><p>If the p-value in your console output is <b><i>less than</b></i>
-0.05, then your data is <u>stationary</u> because we have evidence to
-support the alternative hypothesis.</p></li>
-<li><p>If the p-value in your console is <b><i>greater than</b></i>
-0.05, then your data is <u>not stationary</u> because we do not have
-evidence to support the alternative hypothesis.</p></li>
-</ul>
-<li>
-<b><span style="color: red;">(7) Is the <code>love_ts</code> data
-stationary? Explain how you know.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: blue;">Run the following line of code in the
-console to save your <code>love_ts</code> object for future use:</span>
-</li>
-<p></b></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">save</span>(love_ts, <span class="at">file =</span> <span class="st">&quot;love_ts.Rda&quot;</span>)</span></code></pre></div>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>
 <ul>
 <li>
-<b><span style="color: red;">(8) Write and run code to convert another
-variable of your choosing in the <code>lyrics</code> data into a time
-series object using the <code>ts()</code> function.</span>
+<b><span style="color: red;">(5) Using the <code>love_ts</code> data
+that you created and saved in Lab B, identify the best-suited model for
+forecasting this data. Justify your answer by applying the chosen method
+for forecasting, creating the forecasted time series data, and plotting
+your forecasted data.</span>
 </li>
 <p></b></p>
 <li>
-<b><span style="color: red;">(9) Plot your time series object using the
-<code>plot()</code> function.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(10) Describe the features of the plot in
-context.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(11) Is your data stationary? Justify your
-answer.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: blue;">Save your time series object for future
-use.</span>
+<b><span style="color: red;">(6) Desribe the predictions made with this
+forecasting model for this data in context and explain its
+accuracy.</span>
 </li>
 <p></b></p>
 </ul>

@@ -33,11 +33,11 @@ output:
 
 <ul>
 
-<li><span style="color: blue;"> Load the ```lyrics``` data into your Environment.</span></li>
+<li><b><span style="color: blue;"> Load the ```lyrics``` data into your Environment.</b></span></li>
 
-<li><span style="color: red;"> (1) What year does the ```lyrics``` data start with?</span></li>
+<li><b><span style="color: red;"> (1) What year does the ```lyrics``` data start with?</span></b></li>
 
-<li><span style="color: red;"> (2) How many values does each year have?</span></li>
+<li><b><span style="color: red;"> (2) How many values does each year have?</b></span></li>
 
 <li>We will use this information together with the ```ts()``` function to convert the ```Love``` variable from the ```lyrics``` data into a time series object.</li>
 
@@ -47,7 +47,7 @@ output:
 love_ts <- ts(lyrics$Love, frequency = 1, start = c(1965, 1))
 ```
 
-<li><span style="color: red;"> (3) How does this file appear in your Environment?</span></li>
+<li><b><span style="color: red;"> (3) How does this file appear in your Environment?</b></span></li>
 
 </ul>
 
@@ -61,13 +61,13 @@ love_ts <- ts(lyrics$Love, frequency = 1, start = c(1965, 1))
 
 <li>```lyrics$Love``` is the dataset and variable taht we want to convert, in the form ```dataset$variable```.</li>
 
-  <li>Notice how this compares to the syntax you are already familiar with (```~variable, data = dataset```). We are still identifying the dataset and variable but it may feel less intuititve.</li>
+  - Notice how this compares to the syntax you are already familiar with (```~variable, data = dataset```). We are still identifying the dataset and variable but it may feel less intuitive.
 
 <li>```frequency = 1``` tells ```R``` the number of observations per unit of time. For our data, we have 1 value per year. </li>
 
 <li>```start = c(1965, 1)``` tells ```R``` what year the data starts at and when within the year it starts. For our data, the first data value is in 1965 and we only have 1 value per year so it will also be a 1 here.</li>
 
-  <li>If, for example, we had data that was collected monthly and started in July of 1965, the frequency and start would look like this:</li>
+  - If, for example, we had data that was collected monthly and started in July of 1965, the frequency and start would look like this:
   
 ```{r, eval = FALSE, echo = TRUE}
 frequency = 12, start = c(1965, 7)
@@ -97,7 +97,7 @@ print(love_ts)
 plot(love_ts)
 ```
 
-  <li>Because ```love_ts``` is an object we treat it much ike when we use values in the ```diff()``` function.</li>
+  - Because ```love_ts``` is an object we treat it much ike when we use values in the ```diff()``` function.
 
 <li><span style="color: red;"><b> (5) Describe the key features of the plot in context like trend, seasonality, stationarity, and irregularity.</b></span></li>
 
@@ -109,7 +109,7 @@ plot(love_ts)
 
 <li>You determined sstationarity visually and with estimating average rate of change in the last lesson but there is an ```R``` function to confirm <i>definitively</i> whether your data is stationarity or not.</li>
 
-<li><b><span style="color: blue;">(8) Run the following line of code in the console.</span></li></b>
+<li><b><span style="color: blue;">Run the following line of code in the console.</span></li></b>
 
 ```{r, eval = FALSE, echo = TRUE}
 adf.test(love_ts)
@@ -119,11 +119,11 @@ adf.test(love_ts)
 
 <li>This is the Augmented Dickey-Fuller Test, which is used to determine stationarity.</li>
 
-  <li>The alternative hypothesis is that the data <b><i>is</b></i> stationary. <b>You will always see the alternative hypothesis as stationary in your console output for this particular test</b>.</li>
+  - The alternative hypothesis is that the data <b><i>is</b></i> stationary. <b>You will always see the alternative hypothesis as stationary in your console output for this particular test</b>.
   
-  <li>If the p-value in your console output is <b><i>less than</b></i> 0.05, then your data is <u>stationary</u> because we have evidence to support the alternative hypothesis.</li>
+  - If the p-value in your console output is <b><i>less than</b></i> 0.05, then your data is <u>stationary</u> because we have evidence to support the alternative hypothesis.
   
-  <li>If the p-value in your console is <b><i>greater than</b></i> 0.05, then your data is <u>not stationary</u> because we do not have evidence to support the alternative hypothesis.</li>
+  - If the p-value in your console is <b><i>greater than</b></i> 0.05, then your data is <u>not stationary</u> because we do not have evidence to support the alternative hypothesis.
   
 <li><b><span style="color: red;">(7) Is the ```love_ts``` data stationary? Explain how you know.</span></li></b>
 
@@ -139,7 +139,7 @@ save(love_ts, file = "love_ts.Rda")
 
 <ul>
 
-<li><b><span style="color: red;">(8) Weite and run code to convert another variable of your choosing in the ```lyrics``` data into a time series object using the ```ts()``` function.</span></li></b>
+<li><b><span style="color: red;">(8) Write and run code to convert another variable of your choosing in the ```lyrics``` data into a time series object using the ```ts()``` function.</span></li></b>
 
 <li><b><span style="color: red;">(9) Plot your time series object using the ```plot()``` function.</span></li></b>
 

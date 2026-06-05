@@ -1,0 +1,84 @@
+---
+title: "How It's Done (Extended)"
+author: "Time Series Lab D"
+date: 'Directions: Follow along with the slides, completing the questions in <span style="color: blue;"><b>blue</b></span> on your computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal.
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+  
+output:
+  slidy_presentation:
+    mathjax: "../../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
+---
+
+## But wait, there's more!
+
+<ul>
+
+<li>In the previous lab you explored trending non stationary time series data and applied forecasting to fit a model to assess its accuracy.</li>
+  
+<li>This lab focuses on non trending time series data.</li>
+
+<b><u>Note:</b></u> It is highly recommended that you create a new RScript for this lab because you will reference this code in Lab E.
+
+</ul>
+
+## (auto) ARIMA
+
+<ul>
+
+<li>For time series plots that have no trend, no seasonality, and are stationary, we use the ARIMA method to prepare for forecasting.</li>
+
+<li><span style="color: blue;"><b>First, run the code to find the information about the ```ldeaths_ts``` time series object.</span></b></li>
+
+<li><span style="color: red;"><b>(1) Explain what this data is about.</span></b></li>
+
+<li><span style="color: blue;"><b>Create a plot of the ```ldeaths_ts``` time series object.</span></b></li>
+
+<li><span style="color: red;"><b>(2) Describe the trend, seasonality, and stationarity of the data.</span></b></li>
+
+<li><span style="color: blue;"><b>Next, run the following code in the console to create your training and test data.</span></b></li>
+  
+```{r, eval = FALSE, echo = TRUE}
+ldeaths_split <- ts_split(ldeaths_ts)
+training <- ldeaths_split$train
+test <- ldeaths_split$test
+```
+
+<li><span style="color: blue;"><b>Then, run the following code in the console to use the ARIMA model:</span></b></li>
+
+<b><u>Note:</b></u> The ```auto.arima()``` function chooses the ideal ARIMA values for the model for you.
+
+```{r, eval = FALSE, echo = TRUE}
+arima_ldeaths <- auto.arima(training)
+```
+
+<li><span style="color: blue;"><b>Run the following code to forecast your time series data:</span></b></li>
+
+```{r, eval = FALSE, echo = TRUE}
+arima_ldeaths_f <- forecast(arima_ldeaths)
+```
+
+<li><span style="color: blue;"><b>Create a plot of your forecasted time series data.</span></b></li>
+
+<li><span style="color: red;"><b>(3) Describe the predictions made with this method of forecasting for this data in context.</span></b></li>
+
+<li><span style="color: blue;"><b>Check your accuracy by running the following code in your console.</span></b></li>
+
+```{r, eval = FALSE, echo = TRUE}
+accuracy(arima_ldeaths_f, test)
+```
+
+<li><span style="color: red;"><b>(4) Use the ```MAPE``` values to explain the accuracy of your model's forecast.</span></b></li>
+
+</ul>
+
+## On your own
+
+<ul>
+
+<li><b><span style="color: red;">(5) Using the ```love_ts``` data that you created and saved in Lab B, identify the best-suited model for forecasting this data. Justify your answer by applying the chosen method for forecasting, creating the forecasted time series data, and plotting your forecasted data.</span></li></b>
+
+<li><b><span style="color: red;">(6) Desribe the predictions made with this forecasting model for this data in context and explain its accuracy.</span></li></b>
+
+</ul>

@@ -571,8 +571,8 @@ Type the following commands into your console:
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>?lyrics</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">str</span>(lyrics)</span></code></pre></div>
 <li>
-<span style="color: red;"> (1) What kind of variable is
-<code>Year</code>?</span>
+<b><span style="color: red;"> (1) What kind of variable is
+<code>Year</code>?</b></span>
 </li>
 </ul>
 </div>
@@ -589,10 +589,10 @@ scatterplots from two numeric variables. This function can also be used
 to create time series plots from a “date” variable and a numeric
 variable.
 </li>
-<li>
-We call <code>xyplot</code> polymorphic because it can handle arguments
-of different types.
-</li>
+<ul>
+<li>We call <code>xyplot</code> polymorphic because it can handle
+arguments of different types.</li>
+</ul>
 <li>
 Suppose we are interested in examining how the frequency of the word
 <code>Love</code> in song lyrics changes over time. We previously looked
@@ -605,12 +605,10 @@ plot of this relationship.
 plot with <code>Love</code> on the y-axis and <code>Year</code> on the
 x-axis.</b></span>
 </li>
-<li>
-<b><u>Note:</b></u> Since a time series tracks how a variable changes
+<p><b><u>Note:</b></u> Since a time series tracks how a variable changes
 over time, it makes sense to connect successive data points with a line.
 Include the argument <code>type = &quot;l&quot;</code>, with “l” for line, to do
-this.
-</li>
+this.</p>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">xyplot</span>(_____ <span class="sc">~</span> _____, <span class="at">data =</span> _____, <span class="at">type =</span> _____)</span></code></pre></div>
 </div>
@@ -621,11 +619,9 @@ this.
 <span style="color: red;"><b> (2) How is this time series plot different
 than when we visualized it as a scatterplot?</b></span>.
 </li>
-<li>
-<b><u>Hint:</b></u> Create a scatterplot of <code>Love</code> and
+<p><b><u>Hint:</b></u> Create a scatterplot of <code>Love</code> and
 <code>Year</code> if you want a reminder of what the scatterplot looks
-like.
-</li>
+like.</p>
 <li>
 <span style="color: red;"><b> (3) How do the relative maximums and
 relative minimums compare with what we saw in the
@@ -644,19 +640,16 @@ best.
 time series plot and describe how well it fits. What do you
 notice?</b></span>
 </li>
-<li>
-<b><u>Hint:</b></u> Explain where it fits well and where it does not fit
-as well and why that might be. You can refer to Lab 4E for the code to
-plot a cubic regression model.
-</li>
+<p><b><u>Hint:</b></u> Explain where it fits well and where it does not
+fit as well and why that might be. You can refer to Lab 4E for the code
+to plot a cubic regression model.</p>
 <li>
 <span style="color: red;"><b> (6) Why was the MSE not enough to prove
 that this is the best model for this plot?</b></span>
 </li>
-<li>
-<b><u>Hint:</b></u> Look back at your notes from Lesson 2 if you do not
-remember the MSE for the different regression models for this plot.
-</li>
+<p><b><u>Hint:</b></u> Look back at your notes from Lesson 2 if you do
+not remember the MSE for the different regression models for this
+plot.</p>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">

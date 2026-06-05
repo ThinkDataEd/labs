@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Time Series Lab B" />
-  <title>Where Did the Love Go?</title>
+  <meta name="author" content="Time Series Lab C" />
+  <title>How It’s Done</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -523,217 +523,297 @@ list-style-type: none;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Where Did the Love Go?</h1>
+  <h1 class="title">How It’s Done</h1>
   <p class="author">
-Time Series Lab B
+Time Series Lab C
   </p>
   <p class="date">Directions: Follow along with the slides, completing
 the questions in <span style="color: blue;"><b>blue</b></span> on your
 computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal. <br> Space,
 Click, Right Arrow or swipe left to move to the next slide.</p>
 </div>
-<div id="sleep-campaign-night-6" class="slide section level2">
-<h1>Sleep Campaign Night 6</h1>
+<div id="onward-to-forecasting" class="slide section level2">
+<h1>Onward to forecasting</h1>
 <ul>
 <li>
-Before continuing in the lab, submit the Sleep Campaign survey for Night
-6.
+Up to this point you have:
+</li>
+<ul>
+<li><p>Identified characteristics of time series plots</p></li>
+<li><p>Transformed data into time series objects in
+<code>R</code></p></li>
+<li><p>Matched time series plots to their appropriate time series
+forecasting models</p></li>
+<li><p>Explained forecasts of time series data</p></li>
+</ul>
+<li>
+Now you have the background and skills to start forecasting time series
+data in <code>R</code>. The next steps is to put those skills into
+practice in this lab.
+</li>
+<ul>
+<li>It is helpful to have your plots with their assigned methods for
+forecasting from the last lesson.</li>
+</ul>
+<li>
+This lab focuses on trending non stationary time series data.
+</li>
+<p><b><u>Note:</b></u> It is highly recommended that you create a new
+RScript for this lab because you will reference this code in Lab E.</p>
+</ul>
+</div>
+<div id="roadmap-to-forecasting" class="slide section level2">
+<h1>Roadmap to forecasting</h1>
+<ul>
+<li>
+Before we get into the forecasting, let’s go through the steps of what
+you will be doing and why.
+</li>
+<p>`1. Use the <code>help()</code> function or <code>?</code> to get
+information about the time series data so you can understand what the
+variables are, the units for the variables, and any other available
+information about the data.</p>
+<p>`2. Next, you will need to <code>plot()</code> the data to do a
+visual analysis of the data and determine trend, seasonality, and
+stationarity in order to choose the appropriate forecasting model.</p>
+<p>`3. In order to forecast data (and prevent overfitting), we need to
+create training and test data using the <code>ts_split()</code>
+function.</p>
+<p>`4. Depending on which model you choose, you will use <i>that model’s
+function</i> to apply it to your training data.</p>
+<p>`5. Once you have applied your model to your training data, you can
+<code>forecast()</code> the data in order to get your predicted
+values.</p>
+<p>`6. Now that you have your forecasted model, you can
+<code>plot()</code> your new data to visually inspect how well your
+model forecasts, or predicts, future data.</p>
+<p>`7. Visually inspecting how well your forecasts the data is not
+enough. You need to check your model’s <code>accuracy()</code> by
+comparing the <code>MAPE</code> values of your training and test data to
+determine how accurate your model is predicting future values.</p>
+</ul>
+</div>
+<div id="holt-winters-exponential-smoothing" class="slide section level2">
+<h1>Holt-Winters exponential smoothing</h1>
+<ul>
+<li>
+For time series plots that present as an additive model with increasing
+or decreasing trends, have seasonality, and are not stationary we use
+the Holt-Winters exponential smoothing method to prepare for
+forecasting.
+</li>
+<li>
+<span style="color: blue;"><b>First, run the code to find the available
+information about the <code>co2_ts</code> time series object.</span></b>
+</li>
+<li>
+<span style="color: red;"><b>(1) Explain what this data is
+about.</span></b>
+</li>
+<li>
+<span style="color: blue;"><b>Create a plot of the <code>co2_ts</code>
+time series object.</span></b>
+</li>
+<li>
+<span style="color: red;"><b>(2) Describe the trend, seasonality, and
+stationarity of the data.</span></b>
+</li>
+<p><b><u>Hint:</b></u> If you are unsure about its stationarity you can
+use the <code>adf.test()</code> function to verify.</p>
+<li>
+<span style="color: blue;"><b>Next, run the following code in the
+console to create your training and test data.</span></b>
+</li>
+<p><b><u>Note:</b></u> The <code>ts_split()</code> function
+automatically splits our data into 70% training data and 30% test data,
+removing the <u>test</u> data from the most recent values. It creates a
+<code>train</code> vector of values and a <code>test</code> vector of
+values. You can view the training and test values by running the
+assigned name for your <code>ts_split()</code> in the console (for
+example, you would run <code>co2_split</code> in the code below).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>co2_split <span class="ot">&lt;-</span> <span class="fu">ts_split</span>(co2_ts)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>training <span class="ot">&lt;-</span> co2_split<span class="sc">$</span>train</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>test <span class="ot">&lt;-</span> co2_split<span class="sc">$</span>test</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Then, run the following code in the
+console to use Holt-Winters exponential smoothing model:</span></b>
+</li>
+<p><b><u>Note:</b></u> We use <code>beta = NULL</code> so that
+<code>R</code> chooses the optimal value for the trend and
+<code>gamma = NULL</code> so that <code>R</code> chooses the optimal
+value for the seasonality.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>hw_co2 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(training, <span class="at">beta =</span> <span class="cn">NULL</span>, <span class="at">gamma =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Now, run the following code to forecast
+your time series data:</span></b>
+</li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>hw_co2_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(hw_co2)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Create a plot of your forecasted time
+series data.</span></b>
+</li>
+<li>
+<span style="color: red;"><b>(3) Describe the predictions made with this
+method of forecasting for this data in context.</span></b>
+</li>
+<li>
+<span style="color: blue;"><b>Check your accuracy by running the
+following code in your console.</span></b>
+</li>
+<p><b><u>Note:</b></u> The <code>accuracy</code> function calculates how
+accurate the forecasted data is to the <code>test</code> data.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">accuracy</span>(hw_co2_f, test)</span></code></pre></div>
+<li>
+<span style="color: red;"><b>(4) Use the <code>MAPE</code> values to
+explain the accuracy of your model’s forecast.</span></b>
 </li>
 </ul>
 </div>
-<div id="time-to-change-to-time-series" class="slide section level2">
-<h1>Time to Change to Time Series</h1>
+<div id="holts-exponential-smoothing" class="slide section level2">
+<h1>Holt’s exponential smoothing</h1>
 <ul>
 <li>
-By now, you have seen taht time series require a new set of skills to
-analyze and interpret - RStudio has specific functions to simplify this
-process.
+For time series plots that present as an additive model with increasing
+or decreasing trends, have no seasonality, and are not stationary we use
+Holt’s exponential smoothing method to prepare for forecasting.
 </li>
 <li>
-In this lab, we’ll transform our data into a time series object so that
-we can use these specialized functions.
+<span style="color: blue;"><b>First, run the code to find the
+information about the <code>euretail_ts</code> time series
+object.</b></span>.
+</li>
+<li>
+<span style="color: red;"><b> (5) Explain what this data is
+about.</b></span>.
+</li>
+<li>
+<span style="color: blue;"><b> Create a plot of the
+<code>euretail_ts</code> time series object.</b></span>
+</li>
+<li>
+<span style="color: red;"><b> (6) Describe the trend, seasonality, and
+stationarity of the data.</b></span>
+</li>
+<li>
+<span style="color: blue;"><b>Next, run the following code in the
+console to create your testing and train data.</b></span>
+</li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>euretail_split <span class="ot">&lt;-</span> <span class="fu">ts_split</span>(euretail_ts)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>training <span class="ot">&lt;-</span> euretail_split<span class="sc">$</span>train</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>test <span class="ot">&lt;-</span> euretail_split<span class="sc">$</span>test</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Then, run the following code in the
+console to use Holt’s exponential smoothing model:</b></span>
+</li>
+<li>
+<b><u>Note:</b></u> We use <code>gamma = FALSE</code> to signal to R
+that we are not including any seasonality. We did not include the
+<code>beta</code> argument because the default is <code>TRUE</code>,
+which signals to <code>R</code> that we are including trend.
+</li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>holt_euretail <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(training, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Now, run the following code to forecast
+your time series data:</b></span>
+</li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>holt_euretail_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(holt_euretail)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Create a plot of your forecasted time
+series data.</b></span>
+</li>
+<li>
+<span style="color: red;"><b>(7) Describe the predictions made with this
+method of forecasting for this data in context.</b></span>
+</li>
+<li>
+<span style="color: blue;"><b>Check your accuracy by running the
+following code in your console.</b></span>
+</li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">accuracy</span>(holt_euretail_f, test)</span></code></pre></div>
+<li>
+<span style="color: red;"><b>(8) Use the <code>MAPE</code> values to
+explain the accuracy of your model’s forecast.</b></span>
 </li>
 </ul>
 </div>
-<div id="load-the-lyrics-data" class="slide section level2">
-<h1>Load the lyrics data</h1>
+<div id="but-wait-what-about-log" class="slide section level2">
+<h1>But wait, what about log?</h1>
 <ul>
 <li>
-<b><span style="color: blue;"> Load the <code>lyrics</code> data into
-your Environment.</b></span>
+Now that you have applied a couple of methods for forecasting discussed
+previously, let’s address one of those pesky time series plots from
+Lesson 5 that did not match any of the forecasting methods we are
+focusing on.
 </li>
 <li>
-<b><span style="color: red;"> (1) What year does the <code>lyrics</code>
-data start with?</span></b>
-</li>
-<li>
-<b><span style="color: red;"> (2) How many values does each year
-have?</b></span>
-</li>
-<li>
-We will use this information together with the <code>ts()</code>
-function to convert the <code>Love</code> variable from the
-<code>lyrics</code> data into a time series object.
-</li>
-<li>
-Run the following line of code in the console:
-</li>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>love_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(lyrics<span class="sc">$</span>Love, <span class="at">frequency =</span> <span class="dv">1</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">1</span>))</span></code></pre></div>
-<li>
-<b><span style="color: red;"> (3) How does this file appear in your
-Environment?</b></span>
-</li>
-</ul>
-</div>
-<div id="breaking-ts-down" class="slide section level2">
-<h1>Breaking <code>ts()</code> Down</h1>
-<ul>
-<li>
-You may have noticed that the syntax is a bit different than waht we
-have used throughout IDS. That’s because we need to use base
-<code>R</code> for this function (that is the reason for the dollar
-sign). Leet’s break down the code:
-</li>
-<li>
-<code>ts()</code> tells R to convert the values into a time series
-object.
-</li>
-<li>
-<code>lyrics$Love</code> is the dataset and variable taht we want to
-convert, in the form <code>dataset$variable</code>.
-</li>
-<ul>
-<li>Notice how this compares to the syntax you are already familiar with
-(<code>~variable, data = dataset</code>). We are still identifying the
-dataset and variable but it may feel less intuitive.</li>
-</ul>
-<li>
-<code>frequency = 1</code> tells <code>R</code> the number of
-observations per unit of time. For our data, we have 1 value per year.
-</li>
-<li>
-<code>start = c(1965, 1)</code> tells <code>R</code> what year the data
-starts at and when within the year it starts. For our data, the first
-data value is in 1965 and we only have 1 value per year so it will also
-be a 1 here.
-</li>
-<ul>
-<li>If, for example, we had data that was collected monthly and started
-in July of 1965, the frequency and start would look like this:</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>frequency <span class="ot">=</span> <span class="dv">12</span>, start <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">7</span>)</span></code></pre></div>
-</ul>
-</div>
-<div id="exploring-love-again" class="slide section level2">
-<h1>Exploring Love, Again</h1>
-<ul>
-<li>
-Now let’s explore our <code>love_ts</code> object with some new
-functions!
-</li>
-<li>
-<span style="color: blue;"><b>Run the following line of code in the
-console:</b></span>.
-</li>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">print</span>(love_ts)</span></code></pre></div>
-<li>
-<span style="color: red;"><b> (4) What information do you
-see?</b></span>.
-</li>
-<li>
-This should make viewing your data much easier than looking in the
-Environment. If you had more data values per year, you would see the
-data as a table in your console.
-</li>
-<li>
-<span style="color: blue;"><b> Try another function by running the
-following line of code in the console:</b></span>
-</li>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">plot</span>(love_ts)</span></code></pre></div>
-<ul>
-<li>Because <code>love_ts</code> is an object we treat it much ike when
-we use values in the <code>diff()</code> function.</li>
-</ul>
-<li>
-<span style="color: red;"><b> (5) Describe the key features of the plot
-in context like trend, seasonality, stationarity, and
-irregularity.</b></span>
-</li>
-</ul>
-</div>
-<div id="stationarity" class="slide section level2">
-<h1>Stationarity</h1>
-<ul>
-<li>
-You determined sstationarity visually and with estimating average rate
-of change in the last lesson but there is an <code>R</code> function to
-confirm <i>definitively</i> whether your data is stationarity or not.
-</li>
-<li>
-<b><span style="color: blue;">Run the following line of code in the
-console.</span>
+<b><span style="color: blue;">First, run the code to find the
+information abou the <code>a10_ts</code> time series object.</span>
 </li>
 <p></b></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">adf.test</span>(love_ts)</span></code></pre></div>
 <li>
-<b><span style="color: red;">(6) What information do you see?</span>
+<b><span style="color: red;">(8) Describe what this data is
+about.</b></span>
 </li>
-<p></b></p>
 <li>
-This is the Augmented Dickey-Fuller Test, which is used to determine
-stationarity.
+<b><span style="color: blue;">Create a plot of the <code>a10_ts</code>
+time series object.</b></span>
 </li>
 <ul>
-<li><p>The alternative hypothesis is that the data <b><i>is</b></i>
-stationary. <b>You will always see the alternative hypothesis as
-stationary in your console output for this particular test</b>.</p></li>
-<li><p>If the p-value in your console output is <b><i>less than</b></i>
-0.05, then your data is <u>stationary</u> because we have evidence to
-support the alternative hypothesis.</p></li>
-<li><p>If the p-value in your console is <b><i>greater than</b></i>
-0.05, then your data is <u>not stationary</u> because we do not have
-evidence to support the alternative hypothesis.</p></li>
+<li>In order to remove the increasing amplitudes across time, we are
+going to take the log of our data.</li>
 </ul>
 <li>
-<b><span style="color: red;">(7) Is the <code>love_ts</code> data
-stationary? Explain how you know.</span>
+<b><span style="color: blue;">Run the following code in the console to
+take the log of our data:</b></span>
+</li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>log_a10 <span class="ot">&lt;-</span> <span class="fu">log</span>(a10_ts)</span></code></pre></div>
+<li>
+<b><span style="color: blue;">Now create a plot of the log-transformed
+<code>a10_ts</code> time series object.</span>
 </li>
 <p></b></p>
 <li>
-<b><span style="color: blue;">Run the following line of code in the
-console to save your <code>love_ts</code> object for future use:</span>
+<b><span style="color: red;">(9) What changed between the original plot
+and the log-transformed data plot?</span>
 </li>
 <p></b></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">save</span>(love_ts, <span class="at">file =</span> <span class="st">&quot;love_ts.Rda&quot;</span>)</span></code></pre></div>
+<li>
+<b><span style="color: red;">(10) Describe the trend, seasonality, and
+stationarity of the log-transformed data.</span>
+</li>
+<p></b></p>
+<li>
+<b><span style="color: blue;">Next, run the following code in the
+console to create your testing and train data.</b></span>
+</li>
+<p><b><u>Reminder:</b></u> The <code>ts_split()</code> function
+automatically splits our data into 70% training data and 30% test
+data.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>log_a10_split <span class="ot">&lt;-</span> <span class="fu">ts_split</span>(log_a10)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>training <span class="ot">&lt;-</span> log_a10_split<span class="sc">$</span>train</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>test <span class="ot">&lt;-</span> log_a10_split<span class="sc">$</span>test</span></code></pre></div>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>
 <ul>
 <li>
-<b><span style="color: red;">(8) Write and run code to convert another
-variable of your choosing in the <code>lyrics</code> data into a time
-series object using the <code>ts()</code> function.</span>
+<b><span style="color: red;">(11) Using the <code>log_a10</code> data,
+which model can we now use to forecast future values for this time
+series data? Justify your answer by applying the chosen model for
+forecasting, creating the forecasted time series data, and plotting your
+forecasted data.</span>
 </li>
 <p></b></p>
+<ul>
+<li><b><span style="color: red;">(12) Describe the predictions made with
+this method of forecasting for this data in context and explain its
+accuracy.</span></b></li>
+</ul>
 <li>
-<b><span style="color: red;">(9) Plot your time series object using the
-<code>plot()</code> function.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(10) Describe the features of the plot in
-context.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(11) Is your data stationary? Justify your
-answer.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: blue;">Save your time series object for future
-use.</span>
+<b><span style="color: red;">(13) In your own words, summarize how you
+will remember which model is best for each type of time series data to
+make forecasts.</span>
 </li>
 <p></b></p>
 </ul>

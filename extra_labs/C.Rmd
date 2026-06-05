@@ -1,0 +1,214 @@
+---
+title: "How It's Done"
+author: "Time Series Lab C"
+date: 'Directions: Follow along with the slides, completing the questions in <span style="color: blue;"><b>blue</b></span> on your computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal.
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+  
+output:
+  slidy_presentation:
+    mathjax: "../../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
+---
+
+## Onward to forecasting
+
+<ul>
+
+<li>Up to this point you have:</li>
+
+  - Identified characteristics of time series plots
+  
+  - Transformed data into time series objects in ```R```
+  
+  - Matched time series plots to their appropriate time series forecasting models
+  
+  - Explained forecasts of time series data
+  
+<li>Now you have the background and skills to start forecasting time series data in ```R```. The next steps is to put those skills into practice in this lab.</li>
+
+  - It is helpful to have your plots with their assigned methods for forecasting from the last lesson.
+  
+<li>This lab focuses on trending non stationary time series data.</li>
+
+<b><u>Note:</b></u> It is highly recommended that you create a new RScript for this lab because you will reference this code in Lab E.
+
+</ul>
+
+## Roadmap to forecasting
+
+<ul>
+
+<li>Before we get into the forecasting, let's go through the steps of what you will be doing and why.</li>
+
+  `1. Use the ```help()``` function or ```?``` to get information about the time series data so you can understand what the variables are, the units for the variables, and any other available information about the data.
+  
+  `2. Next, you will need to ```plot()``` the data to do a visual analysis of the data and determine trend, seasonality, and stationarity in order to choose the appropriate forecasting model.
+  
+  `3. In order to forecast data (and prevent overfitting), we need to create training and test data using the ```ts_split()``` function.
+  
+  `4. Depending on which model you choose, you will use <i>that model's function</i> to apply it to your training data.
+  
+  `5. Once you have applied your model to your training data, you can ```forecast()``` the data in order to get your predicted values.
+  
+  `6. Now that you have your forecasted model, you can ```plot()``` your new data to visually inspect how well your model forecasts, or predicts, future data.
+  
+  `7. Visually inspecting how well your forecasts the data is not enough. You need to check your model's ```accuracy()``` by comparing the ```MAPE``` values of your training and test data to determine how accurate your model is predicting future values.
+
+</ul>
+
+## Holt-Winters exponential smoothing
+
+<ul>
+
+<li>For time series plots that present as an additive model with increasing or decreasing trends, have seasonality, and are not stationary we use the Holt-Winters exponential smoothing method to prepare for forecasting.</li>
+
+<li><span style="color: blue;"><b>First, run the code to find the available information about the ```co2_ts``` time series object.</span></b></li>
+
+<li><span style="color: red;"><b>(1) Explain what this data is about.</span></b></li>
+
+<li><span style="color: blue;"><b>Create a plot of the ```co2_ts``` time series object.</span></b></li>
+
+<li><span style="color: red;"><b>(2) Describe the trend, seasonality, and stationarity of the data.</span></b></li>
+
+<b><u>Hint:</b></u> If you are unsure about its stationarity you can use the ```adf.test()``` function to verify.
+
+<li><span style="color: blue;"><b>Next, run the following code in the console to create your training and test data.</span></b></li>
+
+<b><u>Note:</b></u> The ```ts_split()``` function automatically splits our data into 70% training data and 30% test data, removing the <u>test</u> data from the most recent values. It creates a ```train``` vector of values and a ```test``` vector of values. You can view the training and test values by running the assigned name for your ```ts_split()``` in the console (for example, you would run ```co2_split``` in the code below).
+  
+```{r, eval = FALSE, echo = TRUE}
+co2_split <- ts_split(co2_ts)
+training <- co2_split$train
+test <- co2_split$test
+```
+
+<li><span style="color: blue;"><b>Then, run the following code in the console to use Holt-Winters exponential smoothing model:</span></b></li>
+
+<b><u>Note:</b></u> We use ```beta = NULL``` so that ```R``` chooses the optimal value for the trend and ```gamma = NULL``` so that ```R``` chooses the optimal value for the seasonality.
+
+```{r, eval = FALSE, echo = TRUE}
+hw_co2 <- HoltWinters(training, beta = NULL, gamma = NULL)
+```
+
+<li><span style="color: blue;"><b>Now, run the following code to forecast your time series data:</span></b></li>
+
+```{r, eval = FALSE, echo = TRUE}
+hw_co2_f <- forecast(hw_co2)
+```
+
+<li><span style="color: blue;"><b>Create a plot of your forecasted time series data.</span></b></li>
+
+<li><span style="color: red;"><b>(3) Describe the predictions made with this method of forecasting for this data in context.</span></b></li>
+
+<li><span style="color: blue;"><b>Check your accuracy by running the following code in your console.</span></b></li>
+
+<b><u>Note:</b></u> The ```accuracy``` function calculates how accurate the forecasted data is to the ```test``` data.
+
+```{r, eval = FALSE, echo = TRUE}
+accuracy(hw_co2_f, test)
+```
+
+<li><span style="color: red;"><b>(4) Use the ```MAPE``` values to explain the accuracy of your model's forecast.</span></b></li>
+
+</ul>
+
+## Holt's exponential smoothing
+
+<ul>
+
+<li>For time series plots that present as an additive model with increasing or decreasing trends, have no seasonality, and are not stationary we use Holt's exponential smoothing method to prepare for forecasting.</li>
+
+<li><span style="color: blue;"><b>First, run the code to find the information about the ```euretail_ts``` time series object.</b></span>.</li>
+
+<li><span style="color: red;"><b> (5) Explain what this data is about.</b></span>.</li>
+
+<li><span style="color: blue;"><b> Create a plot of the ```euretail_ts``` time series object.</b></span></li>
+
+<li><span style="color: red;"><b> (6) Describe the trend, seasonality, and stationarity of the data.</b></span></li>
+
+<li><span style="color: blue;"><b>Next, run the following code in the console to create your testing and train data.</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+euretail_split <- ts_split(euretail_ts)
+training <- euretail_split$train
+test <- euretail_split$test
+```
+
+<li><span style="color: blue;"><b>Then, run the following code in the console to use Holt's exponential smoothing model:</b></span></li>
+
+<li><b><u>Note:</b></u> We use ```gamma = FALSE``` to signal to R that we are not including any seasonality. We did not include the ```beta``` argument because the default is ```TRUE```, which signals to ```R``` that we are including trend.</li>
+
+```{r, eval = FALSE, echo = TRUE}
+holt_euretail <- HoltWinters(training, gamma = FALSE)
+```
+
+<li><span style="color: blue;"><b>Now, run the following code to forecast your time series data:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+holt_euretail_f <- forecast(holt_euretail)
+```
+
+<li><span style="color: blue;"><b>Create a plot of your forecasted time series data.</b></span></li>
+
+<li><span style="color: red;"><b>(7) Describe the predictions made with this method of forecasting for this data in context.</b></span></li>
+
+<li><span style="color: blue;"><b>Check your accuracy by running the following code in your console.</b></span></li>
+
+``` {r, eval = FALSE, echo = TRUE}
+accuracy(holt_euretail_f, test)
+```
+
+<li><span style="color: red;"><b>(8) Use the ```MAPE``` values to explain the accuracy of your model's forecast.</b></span></li>
+
+</ul>
+
+## But wait, what about log?
+
+<ul>
+
+<li>Now that you have applied a couple of methods for forecasting discussed previously, let's address one of those pesky time series plots from Lesson 5 that did not match any of the forecasting methods we are focusing on.</li>
+
+<li><b><span style="color: blue;">First, run the code to find the information abou the ```a10_ts``` time series object.</span></li></b>
+
+<li><b><span style="color: red;">(8) Describe what this data is about.</b></span></li>
+
+<li><b><span style="color: blue;">Create a plot of the ```a10_ts``` time series object.</b></span></li>
+
+  - In order to remove the increasing amplitudes across time, we are going to take the log of our data.
+
+<li><b><span style="color: blue;">Run the following code in the console to take the log of our data:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+log_a10 <- log(a10_ts)
+```
+
+<li><b><span style="color: blue;">Now create a plot of the log-transformed ```a10_ts``` time series object.</span></li></b>
+  
+<li><b><span style="color: red;">(9) What changed between the original plot and the log-transformed data plot?</span></li></b>
+
+<li><b><span style="color: red;">(10) Describe the trend, seasonality, and stationarity of the log-transformed data.</span></li></b>
+
+<li><b><span style="color: blue;">Next, run the following code in the console to create your testing and train data.</b></span></li>
+
+<b><u>Reminder:</b></u> The ```ts_split()``` function automatically splits our data into 70% training data and 30% test data.
+
+```{r, eval = FALSE, echo = TRUE}
+log_a10_split <- ts_split(log_a10)
+training <- log_a10_split$train
+test <- log_a10_split$test
+```
+
+</ul>
+
+## On your own
+
+<ul>
+
+<li><b><span style="color: red;">(11) Using the ```log_a10``` data, which model can we now use to forecast future values for this time series data? Justify your answer by applying the chosen model for forecasting, creating the forecasted time series data, and plotting your forecasted data.</span></li></b>
+
+  - <b><span style="color: red;">(12) Describe the predictions made with this method of forecasting for this data in context and explain its accuracy.</span></b>
+
+<li><b><span style="color: red;">(13) In your own words, summarize how you will remember which model is best for each type of time series data to make forecasts.</span></li></b>
+
+</ul>

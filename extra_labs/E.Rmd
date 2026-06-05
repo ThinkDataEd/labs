@@ -1,0 +1,200 @@
+---
+title: "Golden"
+author: "Time Series Lab E"
+date: 'Directions: Follow along with the slides, completing the questions in <span style="color: blue;"><b>blue</b></span> on your computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal.
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+  
+output:
+  slidy_presentation:
+    mathjax: "../../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
+---
+
+## So You Think You Can Forecast
+
+<ul>
+
+<li>Throughout this Time Series section you have explored time series data, fit appropriate models, and assessed the accuracy of those models to your data.</li>
+  
+<li>You may be asking yourself "but what about predicting the future? Isn't that what forecasting is <i>supposed</i> to do?"</li>
+
+<li>And even though forecasting is not the only type of analysis of time series data, it <b><i>is</b></i> what you will be doing for the culmination of this section.</li>
+
+<li>So get ready (and have your Lab C and Lab D RScripts open), because the rest of this lab has you forecasting future values of your time series data.
+
+</ul>
+
+## Roadmap to forecasting, with future predictions
+
+<ul>
+
+<li>In previous labs, you followed the roadmap below.</li>
+
+  `1. Use the ```help()``` function or ```?``` to get information about the time series data so you can understand what the variables are, the units for the variables, and any other available information about the data.
+  
+  `2. Next, you will need to ```plot()``` the data to do a visual analysis of the data and determine trend, seasonality, and stationarity in order to choose the appropriate forecasting model.
+  
+  `3. In order to forecast data (and prevent overfitting), we need to create training and test data using the ```ts_split()``` function.
+  
+  `4. Depending on which model you choose, you will use <i>that model's function</i> to apply it to your training data.
+  
+  `5. Once you have applied your model to your training data, you can ```forecast()``` the data in order to get your predicted values.
+  
+  `6. Now that you have your forecasted model, you can ```plot()``` your new data to visually inspect how well your model forecasts, or predicts, future data.
+  
+  `7. Visually inspecting how well your forecasts the data is not enough. You need to check your model's ```accuracy()``` by comparing the ```MAPE``` values of your training and test data to determine how accurate your model is predicting future values.
+  
+<li>You will be continuing your forecasting today by:</li>
+
+  `8. Applying your model to the original data in order to forecast future values.
+
+</ul>
+
+## Foreasting with Holt-Winters exponential smoothing
+
+<ul>
+
+<li>For time series plots that present as an additive model with increasing or decreasing trends, have seasonality, and are not stationary we use the Holt-Winters exponential smoothing method to prepare for forecasting.</li>
+
+<li>You found that the Holt-Winters exponential smoothing forecasting model fit the ```co2_ts``` time series data well.</li>
+
+<li>Now instead of training your model with the training data, you will use the ```co2_ts``` data.</li>
+
+<li><b><span style="color: blue;">Run the following code in your console to apply the Holt-Winters exponential smoothing forecasting model to your data:</b></span></li>
+  
+```{r, eval = FALSE, echo = TRUE}
+hw_co2 <- HoltWinters(co2_ts, beta = NULL, gamma = NULL)
+```
+
+<li>Before we forecast our data, you need to identify how many future data values you want to predict.</li>
+
+<li><span style="color: blue;"><b>Run the following code in your console to see the start, end, and frequency of your data:</span></b></li>
+
+```{r, eval = FALSE, echo = TRUE}
+tsp(co2_ts)
+```
+
+<li>You should see a start of ```1959.000```, an end of ```1997.917```, and a frequency of ```12.000```. This means:
+
+  - There are 12 values for each year; January to December
+  
+  - The data starts at 1959 in January
+  
+  - The data ends in 1997 in December
+
+<li><span style="color: blue;"><b>Now, run the following code to forecast your time series data:</span></b></li>
+
+<b><u>Note:</b></u> The ```h = 12``` means that you are selecting to predict 12 values in the future but you can choose another number, depending on how far into the future you want to predict.
+
+```{r, eval = FALSE, echo = TRUE}
+hw_co2_f <- forecast(hw_co2, h = 12)
+```
+
+<li><span style="color: blue;"><b>Create a plot of your forecasted time series data. Include a title, x-axis label, and y-axis label - this is the same code you have used for the ```histogram()``` function.</span></b></li>
+
+<b><u>Note:</b></u> If you would like to see the actual values, with the 80% confidence interval and 95% confidence interval, you can use the ```print()``` function with your predicted model.
+
+<li><span style="color: red;"><b>(1) Interpret your forecast for this data in context.</span></b></li>
+
+</ul>
+
+## Forecasting with Holt's exponential smoothing
+
+<ul>
+
+<li>For time series plots that present as an additive model with increasing or decreasing trends, have no seasonality, and are not stationary we use Holt's exponential smoothing method to prepare for forecasting.</li>
+
+<li>You found that Holt's exponential smoothing forecasting model fit the ```euretail_ts``` time series data well.</li>
+
+<li>You will repeat the same steps as the previous slide but with the ```euretail_ts``` time series data and Holt's exponential smoothing forecasting model.</li>
+
+<li><span style="color: blue;"><b>Run the following code in your console to apply Holt's exponential smoothing forecasting model to your data:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+holt_euretail <- HoltWinters(euretail_ts, gamma = FALSE)
+```
+
+<li><span style="color: blue;"><b>Run the following code in your console to see the start, end, and frequency of your data:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+tsp(euretail_ts)
+```
+
+<li>You should see a start of ```1996.00```, an end of ```2011.75```, and a frequency of ```4```. This means:
+
+<b><u>Note:</b></u> The original documentation at ```help(euretail)``` gives more information about the data.
+
+  - There are 4 values per year.
+  
+  - The data starts at Quarter 1 in 1996.
+  
+  - The data ends at Quarter 4 in 2011.
+
+<li><span style="color: blue;"><b>Now, run the following code to forecast your time series data:</b></span></li>
+
+<b><u>Note:</b></u> The ```h = 4``` means that you are selecting to predict 4 values in the future but you can choose another number, depending on how far into the future you want to predict.
+
+```{r, eval = FALSE, echo = TRUE}
+holt_euretail_f <- forecast(holt_euretail, h = 4)
+```
+
+<li><span style="color: blue;"><b>Create a plot of your forecasted time series data. Include a title, x-axis label, and y-axis label.</b></span></li>
+
+<li><span style="color: red;"><b>(2) Interpret your forecast for this data in context.</b></span></li>
+
+</ul>
+
+## Forecasting with ARIMA
+
+<ul>
+
+<li>For time series plots that have no trend, no seasonality, and are stationary, we use the ARIMA method to prepare for forecasting.</li>
+
+<li>You found that ARIMA's forecasting model fit the ```ldeaths_ts``` time series data well.</li>
+
+<li>You will repeat the same steps as the previous slide but with the ```ldeaths_ts``` time series data and ARIMA's forecasting model.</li>
+
+<li><b><span style="color: blue;">Run the following code in your console to apply ARIMA's forecasting model to your data:</span></li></b>
+
+```{r, eval = FALSE, echo = TRUE}
+arima_ldeaths <- auto.arima(ldeaths_ts)
+```
+
+<li><b><span style="color: blue;">Run the following code in the console to see the start, end, and frequency of your data:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+tsp(ldeaths_ts)
+```
+
+<li>You should see a start of ```1974.00```, an end of ```1979.917```, and a frequency of ```12```. This means:</li>
+
+<b><u>Note:</b></u> The original documentation at ```help(ldeaths)``` gives more information about the data.
+
+  - There are 12 values per year.
+  
+  - The data starts in January of 1974.
+  
+  - The data ends in December of 1979.
+
+<li><b><span style="color: blue;">Now, run the following code to forecast your time series data:</b></span></li>
+
+<b><u>Note:</b></u> The ```h = 6``` means that you are selecting to predict 6 values in the future but you can choose another number, depending on how far into the future you want to predict.
+
+```{r, eval = FALSE, echo = TRUE}
+arima_ldeaths_f <- forecast(arima_ldeaths, h = 6)
+```
+
+<li><b><span style="color: blue;">Create a plot of your forecasted time series data. Include a title, x-axis label, and y-axis label.</b></span></li>
+
+<li><b><span style="color: red;">(3) Interpret your forecast for this data in context.</b></span></li>
+
+</ul>
+
+## On your own
+
+<ul>
+
+<li><b><span style="color: red;">(4) Using the ```love_ts``` data that you created and saved in Lab B, apply the best-suited model to predict future values you identified in the previous lab. Interpret your forecast for this data in context.</span></li></b>
+
+</ul>

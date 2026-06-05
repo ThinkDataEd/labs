@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Time Series Lab B" />
-  <title>Where Did the Love Go?</title>
+  <meta name="author" content="Time Series Lab E" />
+  <title>Golden</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -523,217 +523,256 @@ list-style-type: none;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Where Did the Love Go?</h1>
+  <h1 class="title">Golden</h1>
   <p class="author">
-Time Series Lab B
+Time Series Lab E
   </p>
   <p class="date">Directions: Follow along with the slides, completing
 the questions in <span style="color: blue;"><b>blue</b></span> on your
 computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal. <br> Space,
 Click, Right Arrow or swipe left to move to the next slide.</p>
 </div>
-<div id="sleep-campaign-night-6" class="slide section level2">
-<h1>Sleep Campaign Night 6</h1>
+<div id="so-you-think-you-can-forecast" class="slide section level2">
+<h1>So You Think You Can Forecast</h1>
 <ul>
 <li>
-Before continuing in the lab, submit the Sleep Campaign survey for Night
-6.
+Throughout this Time Series section you have explored time series data,
+fit appropriate models, and assessed the accuracy of those models to
+your data.
+</li>
+<li>
+You may be asking yourself “but what about predicting the future? Isn’t
+that what forecasting is <i>supposed</i> to do?”
+</li>
+<li>
+And even though forecasting is not the only type of analysis of time
+series data, it <b><i>is</b></i> what you will be doing for the
+culmination of this section.
+</li>
+<li>
+<p>So get ready (and have your Lab C and Lab D RScripts open), because
+the rest of this lab has you forecasting future values of your time
+series data.</p>
+</ul>
+</div>
+<div id="roadmap-to-forecasting-with-future-predictions" class="slide section level2">
+<h1>Roadmap to forecasting, with future predictions</h1>
+<ul>
+<li>
+In previous labs, you followed the roadmap below.
+</li>
+<p>`1. Use the <code>help()</code> function or <code>?</code> to get
+information about the time series data so you can understand what the
+variables are, the units for the variables, and any other available
+information about the data.</p>
+<p>`2. Next, you will need to <code>plot()</code> the data to do a
+visual analysis of the data and determine trend, seasonality, and
+stationarity in order to choose the appropriate forecasting model.</p>
+<p>`3. In order to forecast data (and prevent overfitting), we need to
+create training and test data using the <code>ts_split()</code>
+function.</p>
+<p>`4. Depending on which model you choose, you will use <i>that model’s
+function</i> to apply it to your training data.</p>
+<p>`5. Once you have applied your model to your training data, you can
+<code>forecast()</code> the data in order to get your predicted
+values.</p>
+<p>`6. Now that you have your forecasted model, you can
+<code>plot()</code> your new data to visually inspect how well your
+model forecasts, or predicts, future data.</p>
+<p>`7. Visually inspecting how well your forecasts the data is not
+enough. You need to check your model’s <code>accuracy()</code> by
+comparing the <code>MAPE</code> values of your training and test data to
+determine how accurate your model is predicting future values.</p>
+<li>
+You will be continuing your forecasting today by:
+</li>
+<p>`8. Applying your model to the original data in order to forecast
+future values.</p>
+</ul>
+</div>
+<div id="foreasting-with-holt-winters-exponential-smoothing" class="slide section level2">
+<h1>Foreasting with Holt-Winters exponential smoothing</h1>
+<ul>
+<li>
+For time series plots that present as an additive model with increasing
+or decreasing trends, have seasonality, and are not stationary we use
+the Holt-Winters exponential smoothing method to prepare for
+forecasting.
+</li>
+<li>
+You found that the Holt-Winters exponential smoothing forecasting model
+fit the <code>co2_ts</code> time series data well.
+</li>
+<li>
+Now instead of training your model with the training data, you will use
+the <code>co2_ts</code> data.
+</li>
+<li>
+<b><span style="color: blue;">Run the following code in your console to
+apply the Holt-Winters exponential smoothing forecasting model to your
+data:</b></span>
+</li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>hw_co2 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(co2_ts, <span class="at">beta =</span> <span class="cn">NULL</span>, <span class="at">gamma =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<li>
+Before we forecast our data, you need to identify how many future data
+values you want to predict.
+</li>
+<li>
+<span style="color: blue;"><b>Run the following code in your console to
+see the start, end, and frequency of your data:</span></b>
+</li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">tsp</span>(co2_ts)</span></code></pre></div>
+<li>
+<p>You should see a start of <code>1959.000</code>, an end of
+<code>1997.917</code>, and a frequency of <code>12.000</code>. This
+means:</p>
+<ul>
+<li><p>There are 12 values for each year; January to December</p></li>
+<li><p>The data starts at 1959 in January</p></li>
+<li><p>The data ends in 1997 in December</p></li>
+</ul>
+<li>
+<span style="color: blue;"><b>Now, run the following code to forecast
+your time series data:</span></b>
+</li>
+<p><b><u>Note:</b></u> The <code>h = 12</code> means that you are
+selecting to predict 12 values in the future but you can choose another
+number, depending on how far into the future you want to predict.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>hw_co2_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(hw_co2, <span class="at">h =</span> <span class="dv">12</span>)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Create a plot of your forecasted time
+series data. Include a title, x-axis label, and y-axis label - this is
+the same code you have used for the <code>histogram()</code>
+function.</span></b>
+</li>
+<p><b><u>Note:</b></u> If you would like to see the actual values, with
+the 80% confidence interval and 95% confidence interval, you can use the
+<code>print()</code> function with your predicted model.</p>
+<li>
+<span style="color: red;"><b>(1) Interpret your forecast for this data
+in context.</span></b>
 </li>
 </ul>
 </div>
-<div id="time-to-change-to-time-series" class="slide section level2">
-<h1>Time to Change to Time Series</h1>
+<div id="forecasting-with-holts-exponential-smoothing" class="slide section level2">
+<h1>Forecasting with Holt’s exponential smoothing</h1>
 <ul>
 <li>
-By now, you have seen taht time series require a new set of skills to
-analyze and interpret - RStudio has specific functions to simplify this
-process.
+For time series plots that present as an additive model with increasing
+or decreasing trends, have no seasonality, and are not stationary we use
+Holt’s exponential smoothing method to prepare for forecasting.
 </li>
 <li>
-In this lab, we’ll transform our data into a time series object so that
-we can use these specialized functions.
+You found that Holt’s exponential smoothing forecasting model fit the
+<code>euretail_ts</code> time series data well.
+</li>
+<li>
+You will repeat the same steps as the previous slide but with the
+<code>euretail_ts</code> time series data and Holt’s exponential
+smoothing forecasting model.
+</li>
+<li>
+<span style="color: blue;"><b>Run the following code in your console to
+apply Holt’s exponential smoothing forecasting model to your
+data:</b></span>
+</li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>holt_euretail <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(euretail_ts, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Run the following code in your console to
+see the start, end, and frequency of your data:</b></span>
+</li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tsp</span>(euretail_ts)</span></code></pre></div>
+<li>
+<p>You should see a start of <code>1996.00</code>, an end of
+<code>2011.75</code>, and a frequency of <code>4</code>. This means:</p>
+<p><b><u>Note:</b></u> The original documentation at
+<code>help(euretail)</code> gives more information about the data.</p>
+<ul>
+<li><p>There are 4 values per year.</p></li>
+<li><p>The data starts at Quarter 1 in 1996.</p></li>
+<li><p>The data ends at Quarter 4 in 2011.</p></li>
+</ul>
+<li>
+<span style="color: blue;"><b>Now, run the following code to forecast
+your time series data:</b></span>
+</li>
+<p><b><u>Note:</b></u> The <code>h = 4</code> means that you are
+selecting to predict 4 values in the future but you can choose another
+number, depending on how far into the future you want to predict.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>holt_euretail_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(holt_euretail, <span class="at">h =</span> <span class="dv">4</span>)</span></code></pre></div>
+<li>
+<span style="color: blue;"><b>Create a plot of your forecasted time
+series data. Include a title, x-axis label, and y-axis label.</b></span>
+</li>
+<li>
+<span style="color: red;"><b>(2) Interpret your forecast for this data
+in context.</b></span>
 </li>
 </ul>
 </div>
-<div id="load-the-lyrics-data" class="slide section level2">
-<h1>Load the lyrics data</h1>
+<div id="forecasting-with-arima" class="slide section level2">
+<h1>Forecasting with ARIMA</h1>
 <ul>
 <li>
-<b><span style="color: blue;"> Load the <code>lyrics</code> data into
-your Environment.</b></span>
+For time series plots that have no trend, no seasonality, and are
+stationary, we use the ARIMA method to prepare for forecasting.
 </li>
 <li>
-<b><span style="color: red;"> (1) What year does the <code>lyrics</code>
-data start with?</span></b>
+You found that ARIMA’s forecasting model fit the <code>ldeaths_ts</code>
+time series data well.
 </li>
 <li>
-<b><span style="color: red;"> (2) How many values does each year
-have?</b></span>
+You will repeat the same steps as the previous slide but with the
+<code>ldeaths_ts</code> time series data and ARIMA’s forecasting model.
 </li>
 <li>
-We will use this information together with the <code>ts()</code>
-function to convert the <code>Love</code> variable from the
-<code>lyrics</code> data into a time series object.
-</li>
-<li>
-Run the following line of code in the console:
-</li>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>love_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(lyrics<span class="sc">$</span>Love, <span class="at">frequency =</span> <span class="dv">1</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">1</span>))</span></code></pre></div>
-<li>
-<b><span style="color: red;"> (3) How does this file appear in your
-Environment?</b></span>
-</li>
-</ul>
-</div>
-<div id="breaking-ts-down" class="slide section level2">
-<h1>Breaking <code>ts()</code> Down</h1>
-<ul>
-<li>
-You may have noticed that the syntax is a bit different than waht we
-have used throughout IDS. That’s because we need to use base
-<code>R</code> for this function (that is the reason for the dollar
-sign). Leet’s break down the code:
-</li>
-<li>
-<code>ts()</code> tells R to convert the values into a time series
-object.
-</li>
-<li>
-<code>lyrics$Love</code> is the dataset and variable taht we want to
-convert, in the form <code>dataset$variable</code>.
-</li>
-<ul>
-<li>Notice how this compares to the syntax you are already familiar with
-(<code>~variable, data = dataset</code>). We are still identifying the
-dataset and variable but it may feel less intuitive.</li>
-</ul>
-<li>
-<code>frequency = 1</code> tells <code>R</code> the number of
-observations per unit of time. For our data, we have 1 value per year.
-</li>
-<li>
-<code>start = c(1965, 1)</code> tells <code>R</code> what year the data
-starts at and when within the year it starts. For our data, the first
-data value is in 1965 and we only have 1 value per year so it will also
-be a 1 here.
-</li>
-<ul>
-<li>If, for example, we had data that was collected monthly and started
-in July of 1965, the frequency and start would look like this:</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>frequency <span class="ot">=</span> <span class="dv">12</span>, start <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1965</span>, <span class="dv">7</span>)</span></code></pre></div>
-</ul>
-</div>
-<div id="exploring-love-again" class="slide section level2">
-<h1>Exploring Love, Again</h1>
-<ul>
-<li>
-Now let’s explore our <code>love_ts</code> object with some new
-functions!
-</li>
-<li>
-<span style="color: blue;"><b>Run the following line of code in the
-console:</b></span>.
-</li>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">print</span>(love_ts)</span></code></pre></div>
-<li>
-<span style="color: red;"><b> (4) What information do you
-see?</b></span>.
-</li>
-<li>
-This should make viewing your data much easier than looking in the
-Environment. If you had more data values per year, you would see the
-data as a table in your console.
-</li>
-<li>
-<span style="color: blue;"><b> Try another function by running the
-following line of code in the console:</b></span>
-</li>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">plot</span>(love_ts)</span></code></pre></div>
-<ul>
-<li>Because <code>love_ts</code> is an object we treat it much ike when
-we use values in the <code>diff()</code> function.</li>
-</ul>
-<li>
-<span style="color: red;"><b> (5) Describe the key features of the plot
-in context like trend, seasonality, stationarity, and
-irregularity.</b></span>
-</li>
-</ul>
-</div>
-<div id="stationarity" class="slide section level2">
-<h1>Stationarity</h1>
-<ul>
-<li>
-You determined sstationarity visually and with estimating average rate
-of change in the last lesson but there is an <code>R</code> function to
-confirm <i>definitively</i> whether your data is stationarity or not.
-</li>
-<li>
-<b><span style="color: blue;">Run the following line of code in the
-console.</span>
+<b><span style="color: blue;">Run the following code in your console to
+apply ARIMA’s forecasting model to your data:</span>
 </li>
 <p></b></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">adf.test</span>(love_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>arima_ldeaths <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ldeaths_ts)</span></code></pre></div>
 <li>
-<b><span style="color: red;">(6) What information do you see?</span>
+<b><span style="color: blue;">Run the following code in the console to
+see the start, end, and frequency of your data:</b></span>
 </li>
-<p></b></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">tsp</span>(ldeaths_ts)</span></code></pre></div>
 <li>
-This is the Augmented Dickey-Fuller Test, which is used to determine
-stationarity.
+You should see a start of <code>1974.00</code>, an end of
+<code>1979.917</code>, and a frequency of <code>12</code>. This means:
 </li>
+<p><b><u>Note:</b></u> The original documentation at
+<code>help(ldeaths)</code> gives more information about the data.</p>
 <ul>
-<li><p>The alternative hypothesis is that the data <b><i>is</b></i>
-stationary. <b>You will always see the alternative hypothesis as
-stationary in your console output for this particular test</b>.</p></li>
-<li><p>If the p-value in your console output is <b><i>less than</b></i>
-0.05, then your data is <u>stationary</u> because we have evidence to
-support the alternative hypothesis.</p></li>
-<li><p>If the p-value in your console is <b><i>greater than</b></i>
-0.05, then your data is <u>not stationary</u> because we do not have
-evidence to support the alternative hypothesis.</p></li>
+<li><p>There are 12 values per year.</p></li>
+<li><p>The data starts in January of 1974.</p></li>
+<li><p>The data ends in December of 1979.</p></li>
 </ul>
 <li>
-<b><span style="color: red;">(7) Is the <code>love_ts</code> data
-stationary? Explain how you know.</span>
+<b><span style="color: blue;">Now, run the following code to forecast
+your time series data:</b></span>
 </li>
-<p></b></p>
+<p><b><u>Note:</b></u> The <code>h = 6</code> means that you are
+selecting to predict 6 values in the future but you can choose another
+number, depending on how far into the future you want to predict.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>arima_ldeaths_f <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima_ldeaths, <span class="at">h =</span> <span class="dv">6</span>)</span></code></pre></div>
 <li>
-<b><span style="color: blue;">Run the following line of code in the
-console to save your <code>love_ts</code> object for future use:</span>
+<b><span style="color: blue;">Create a plot of your forecasted time
+series data. Include a title, x-axis label, and y-axis label.</b></span>
 </li>
-<p></b></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">save</span>(love_ts, <span class="at">file =</span> <span class="st">&quot;love_ts.Rda&quot;</span>)</span></code></pre></div>
+<li>
+<b><span style="color: red;">(3) Interpret your forecast for this data
+in context.</b></span>
+</li>
 </ul>
 </div>
 <div id="on-your-own" class="slide section level2">
 <h1>On your own</h1>
 <ul>
 <li>
-<b><span style="color: red;">(8) Write and run code to convert another
-variable of your choosing in the <code>lyrics</code> data into a time
-series object using the <code>ts()</code> function.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(9) Plot your time series object using the
-<code>plot()</code> function.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(10) Describe the features of the plot in
-context.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: red;">(11) Is your data stationary? Justify your
-answer.</span>
-</li>
-<p></b></p>
-<li>
-<b><span style="color: blue;">Save your time series object for future
-use.</span>
+<b><span style="color: red;">(4) Using the <code>love_ts</code> data
+that you created and saved in Lab B, apply the best-suited model to
+predict future values you identified in the previous lab. Interpret your
+forecast for this data in context.</span>
 </li>
 <p></b></p>
 </ul>
