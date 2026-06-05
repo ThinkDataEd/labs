@@ -1,0 +1,110 @@
+---
+title: "Out of Time"
+author: "Time Series Lab A"
+date: 'Directions: Follow along with the slides, completing the questions in <span style="color: blue;"><b>blue</b></span> on your computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal.
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+  
+output:
+  slidy_presentation:
+    mathjax: "../../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
+---
+
+## Sleep Campaign Night 3
+
+<ul>
+
+<li>Before continuing in the lab, submit the Sleep Campaign survey for Night 3.</li>
+
+</ul>
+
+## What is Time Series?
+
+<ul>
+
+<li>Previously, you learned how to create bargraphs, histograms, and scatterplots.</li>
+
+<li>The best visualization depended on the types of the variables - for instance, bargraphs were best for a single categorical variable, histograms were best for a single numerical variable, and scatterplots were best for two numerical variables. All of these plots could be faceted to accommodate an additional categorical variable.</li>
+
+<li>In this lab, we'll learn the best way to visualize a variable that was measured over time, also known as a <b>time series</b>.</li>
+
+</ul>
+
+## Load the data
+
+<ul>
+
+<li>Type the following commands into your console:</li>
+
+```{r, eval = FALSE, echo = TRUE}
+data(lyrics)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+?lyrics
+```
+
+```{r, eval = FALSE, echo = TRUE}
+str(lyrics)
+```
+
+<li><span style="color: red;"> (1) What kind of variable is ```Year```?</span></li>
+
+</ul>
+
+## Creating Time Series Plots
+
+<ul>
+
+<li>Time series plots are useful for visualizing time series, allowing you to view how a variable changes over time.</li>
+
+<li>Recall the ```xyplot``` function, which was used to produce scatterplots from two numeric variables. This function can also be used to create time series plots from a "date" variable and a numeric variable.</li>
+
+  <li>We call ```xyplot``` polymorphic because it can handle arguments of different types.</li>
+
+<li>Suppose we are interested in examining how the frequency of the word ```Love``` in song lyrics changes over time. We previously looked at this trend using a scatterplot but that's not <i>technically</i> accurate because we are dealign with time, so let's create a time series plot of this relationship.</li>
+
+<li><span style="color: blue;"><b>Fill in the blanks to create a time series plot with ```Love``` on the y-axis and ```Year``` on the x-axis.</b></span></li>
+
+  <li><b><u>Note:</b></u> Since a time series tracks how a variable changes over time, it makes sense to connect successive data points with a line. Include the argument ```type = "l"```, with "l" for line, to do this. </li>
+
+</ul>
+
+```{r, eval = FALSE, echo = TRUE}
+xyplot(_____ ~ _____, data = _____, type = _____)
+```
+
+## Exploring Love
+
+<ul>
+
+<li><span style="color: red;"><b> (2) How is this time series plot different than when we visualized it as a scatterplot?</b></span>.</li>
+
+  <li><b><u>Hint:</b></u> Create a scatterplot of ```Love``` and ```Year``` if you want a reminder of what the scatterplot looks like.</li>
+
+<li><span style="color: red;"><b> (3) How do the relative maximums and relative minimums compare with what we saw in the scatterplot?</b></span>.</li>
+
+<li><span style="color: red;"><b> (4) What are some other distinguishing features of the time series plots?</b></span>.</li>
+
+<li>In class, we decided that a cubic regression model fit this relationship best.</li>
+
+<li><span style="color: red;"><b> (5) Plot a cubic regression model on your time series plot and describe how well it fits. What do you notice?</b></span></li>
+
+<li><b><u>Hint:</b></u> Explain where it fits well and where it does not fit as well and why that might be. You can refer to Lab 4E for the code to plot a cubic regression model.</li>
+
+<li><span style="color: red;"><b> (6) Why was the MSE not enough to prove that this is the best model for this plot?</b></span></li>
+
+<li><b><u>Hint:</b></u> Look back at your notes from Lesson 2 if you do not remember the MSE for the different regression models for this plot.</li>
+
+</ul>
+
+## On your own
+
+<li><b><span style="color: red;">(7) Write and run code creating a time series plot of another variable with the ```Year``` variable</li></b>
+
+<li><b><span style="color: red;">(8) Describe the features of this graph and how it differs from its scatterplot counterpoint.</span></li></b>
+
+<li><b><span style="color: red;">(9) Choose an appropriate regression model, plot it on your time series plot, and describe how well it fits.</span></li></b>
+
+</ul>

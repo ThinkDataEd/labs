@@ -1,0 +1,152 @@
+---
+title: "Where Did the Love Go?"
+author: "Time Series Lab B"
+date: 'Directions: Follow along with the slides, completing the questions in <span style="color: blue;"><b>blue</b></span> on your computer, and answering the questions in <span style="color: red;"><b>red</b></span> in your journal.
+  <br>
+  Space, Click, Right Arrow or swipe left to move to the next slide.'
+  
+output:
+  slidy_presentation:
+    mathjax: "../../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
+---
+
+## Sleep Campaign Night 6
+
+<ul>
+
+<li>Before continuing in the lab, submit the Sleep Campaign survey for Night 6.</li>
+
+</ul>
+
+## Time to Change to Time Series
+
+<ul>
+
+<li>By now, you have seen taht time series require a new set of skills to analyze and interpret - RStudio has specific functions to simplify this process.</li>
+
+<li>In this lab, we'll transform our data into a time series object so that we can use these specialized functions.</li>
+
+</ul>
+
+## Load the lyrics data
+
+<ul>
+
+<li><span style="color: blue;"> Load the ```lyrics``` data into your Environment.</span></li>
+
+<li><span style="color: red;"> (1) What year does the ```lyrics``` data start with?</span></li>
+
+<li><span style="color: red;"> (2) How many values does each year have?</span></li>
+
+<li>We will use this information together with the ```ts()``` function to convert the ```Love``` variable from the ```lyrics``` data into a time series object.</li>
+
+<li>Run the following line of code in the console:</li>
+
+```{r, eval = FALSE, echo = TRUE}
+love_ts <- ts(lyrics$Love, frequency = 1, start = c(1965, 1))
+```
+
+<li><span style="color: red;"> (3) How does this file appear in your Environment?</span></li>
+
+</ul>
+
+## Breaking ```ts()``` Down
+
+<ul>
+
+<li>You may have noticed that the syntax is a bit different than waht we have used throughout IDS. That's because we need to use base ```R``` for this function (that is the reason for the dollar sign). Leet's break down the code:</li>
+
+<li>```ts()``` tells R to convert the values into a time series object.</li>
+
+<li>```lyrics$Love``` is the dataset and variable taht we want to convert, in the form ```dataset$variable```.</li>
+
+  <li>Notice how this compares to the syntax you are already familiar with (```~variable, data = dataset```). We are still identifying the dataset and variable but it may feel less intuititve.</li>
+
+<li>```frequency = 1``` tells ```R``` the number of observations per unit of time. For our data, we have 1 value per year. </li>
+
+<li>```start = c(1965, 1)``` tells ```R``` what year the data starts at and when within the year it starts. For our data, the first data value is in 1965 and we only have 1 value per year so it will also be a 1 here.</li>
+
+  <li>If, for example, we had data that was collected monthly and started in July of 1965, the frequency and start would look like this:</li>
+  
+```{r, eval = FALSE, echo = TRUE}
+frequency = 12, start = c(1965, 7)
+```
+
+</ul>
+
+## Exploring Love, Again
+
+<ul>
+
+<li>Now let's explore our ```love_ts``` object with some new functions!</li>
+
+<li><span style="color: blue;"><b>Run the following line of code in the console:</b></span>.</li>
+
+```{r, eval = FALSE, echo = TRUE}
+print(love_ts)
+```
+
+<li><span style="color: red;"><b> (4) What information do you see?</b></span>.</li>
+
+<li>This should make viewing your data much easier than looking in the Environment. If you had more data values per year, you would see the data as a table in your console.</li>
+
+<li><span style="color: blue;"><b> Try another function by running the following line of code in the console:</b></span></li>
+
+```{r, eval = FALSE, echo = TRUE}
+plot(love_ts)
+```
+
+  <li>Because ```love_ts``` is an object we treat it much ike when we use values in the ```diff()``` function.</li>
+
+<li><span style="color: red;"><b> (5) Describe the key features of the plot in context like trend, seasonality, stationarity, and irregularity.</b></span></li>
+
+</ul>
+
+## Stationarity
+
+<ul>
+
+<li>You determined sstationarity visually and with estimating average rate of change in the last lesson but there is an ```R``` function to confirm <i>definitively</i> whether your data is stationarity or not.</li>
+
+<li><b><span style="color: blue;">(8) Run the following line of code in the console.</span></li></b>
+
+```{r, eval = FALSE, echo = TRUE}
+adf.test(love_ts)
+```
+
+<li><b><span style="color: red;">(6) What information do you see?</span></li></b>
+
+<li>This is the Augmented Dickey-Fuller Test, which is used to determine stationarity.</li>
+
+  <li>The alternative hypothesis is that the data <b><i>is</b></i> stationary. <b>You will always see the alternative hypothesis as stationary in your console output for this particular test</b>.</li>
+  
+  <li>If the p-value in your console output is <b><i>less than</b></i> 0.05, then your data is <u>stationary</u> because we have evidence to support the alternative hypothesis.</li>
+  
+  <li>If the p-value in your console is <b><i>greater than</b></i> 0.05, then your data is <u>not stationary</u> because we do not have evidence to support the alternative hypothesis.</li>
+  
+<li><b><span style="color: red;">(7) Is the ```love_ts``` data stationary? Explain how you know.</span></li></b>
+
+<li><b><span style="color: blue;">Run the following line of code in the console to save your ```love_ts``` object for future use:</span></li></b>
+
+```{r, eval = FALSE, echo = TRUE}
+save(love_ts, file = "love_ts.Rda")
+```
+
+</ul>
+
+## On your own
+
+<ul>
+
+<li><b><span style="color: red;">(8) Weite and run code to convert another variable of your choosing in the ```lyrics``` data into a time series object using the ```ts()``` function.</span></li></b>
+
+<li><b><span style="color: red;">(9) Plot your time series object using the ```plot()``` function.</span></li></b>
+
+<li><b><span style="color: red;">(10) Describe the features of the plot in context.</span></li></b>
+
+<li><b><span style="color: red;">(11) Is your data stationary? Justify your answer.</span></li></b>
+
+<li><b><span style="color: blue;">Save your time series object for future use.</span></li></b>
+
+</ul>
