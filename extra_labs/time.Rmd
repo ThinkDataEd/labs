@@ -2,10 +2,11 @@
 title: "Time Series"
 author: "Lab __"
 date: "Directions: Follow along with the slides and answer the questions in red font in your journal."
-output: 
-  slidy_presentation: 
-    #css: ../../IDSLabCSSRev.css
-    mathjax: ../../extras/mathjax-local/MathJax.js
+output:
+  slidy_presentation:
+    css: ../IDSLabCSSRev.css
+    mathjax: "../extras/mathjax-local/MathJax.js"
+  ioslides_presentation: default
 ---
 
 ## What is Time Series?
