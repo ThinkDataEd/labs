@@ -19,14 +19,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-## RScripts
+## R Scripts
 
-An **R Script** is a text file where you can write and run code. R Scripts are saved in your **Files** tab, so you can come back to your code later.
+An R Script is a text file where you can write and run code. R Scripts are saved in your Files tab, so you can come back to your code later.
 
 <font color="#25679E">Create a new R Script in your RStudio project:</font>
 
 - <font color="#25679E">a) Click on the green plus in the top left corner of the project.</font>
-- <font color="#25679E">b) Select **R Script** from the list of options for new files.</font>
+- <font color="#25679E">b) Select R Script from the list of options for new files.</font>
 
 ![](images/u1_l13_6a_selectGreenPlus.png){width=25%} &nbsp;&nbsp;&nbsp; ![](images/u1_l13_6b_newRScript.png){width=25%}
 
@@ -45,13 +45,13 @@ data(cdc)
 View(cdc)
 ```
 
-<font color="#25679E">To run the first line of code, place your cursor at the end of the line and click **Run**.</font> When you run code in an R Script, the output shows up in the console pane below it.
+<font color="#25679E">To run the first line of code, place your cursor at the end of the line and click Run.</font> When you run code in an R Script, the output shows up in the console pane below it.
 
 ![](images/u1_l13_8_run.png){width=60%}
 
 ## Looking at the Environment
 
-Look at your **Environment** pane.
+Look at your `Environment` pane.
 
 - <font color="red"> **1) Describe what you see in the Environment pane.**</font>
 - <font color="red"> **2) Describe how the data are displayed.**</font>
@@ -133,14 +133,14 @@ exp(1)
 
 ## Assignment Operator and Storing Values
 
-You can store values in your environment using the '<-' symbol. 
+You can store values in your environment using the '<-' symbol, otherwise known as the assignment operator. 
 
 <font color="#25679E"> Run these codes and look in your environment: </font>
 ```{r}
 A<-5+2
 A
 ```
-You can give any value or string any name, but good names are **short and descriptive**.
+You can give any value or string any name, but good names are *short and descriptive*.
 
 ``` {r} 
 alice<-2
@@ -200,12 +200,12 @@ You just used logical operators! Logical operators let you ask R a yes-or-no que
 |:--------:|------------------------------|
 | `<`      | Is the left side less than the right? |
 | `>`      | Is the left side greater than the right? |
-| `<=`     | Is it less than **or equal to**? |
-| `>=`     | Is it greater than **or equal to**? |
+| `<=`     | Is it less than or equal to? |
+| `>=`     | Is it greater than or equal to? |
 | `==`     | Are the two sides equal? |
-| `!=`     | Are the two sides **not** equal? |
+| `!=`     | Are the two sides not equal? |
 
-Be careful: to check if two things are equal, use **two** equal signs (`==`). A single `=` (like `<-`) *stores* a value instead of comparing.
+Be careful: to check if two things are equal, use two equal signs (`==`). A single `=` (like `<-`) *stores* a value instead of comparing.
 
 ## Extra Challenges
 - Recall that evaluating `log(2.71828)` gave you 0.9999993, since 2.71828 is only an approximation of *e*.
