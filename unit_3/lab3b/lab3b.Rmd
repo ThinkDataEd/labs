@@ -86,7 +86,7 @@ _What is the effect of childhood smoking on lung health?_
     
 ## Smoking and lung capacity
 
-- **(7) Write and run code making a plot that can be used to answer the statistical investigative question:**
+- **(7) Write and run code making a plot that can be used to answer the statistical question:**
 
 _Do people who smoke tend to have lower lung capacity than those who do not smoke?_
 

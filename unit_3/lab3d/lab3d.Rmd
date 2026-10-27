@@ -37,7 +37,7 @@ library(mobilizr)
     
     - Note: If you want to know the current US population or world population in real time, click on this link: [https://www.census.gov/popclock/](https://www.census.gov/popclock/)
 
-- The statistical investigative question we wish to answer is:
+- The statistical question we wish to answer is:
 
 _What is the mean age of people older than 15 living in the United States?_
 
